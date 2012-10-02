@@ -1,3 +1,4 @@
 /.bundle
 /bin
+/config/local.rb
 /vendor/cache

@@ -49,3 +49,7 @@ end
 
 strap = %w(script/bootstrap --deployment --local --without development:test)
 abort "Can't bootstrap, dependencies are outdated." unless system *strap
+
+# Set up our local configuration, deps, and load path.
+
+load "config/basic.rb"
