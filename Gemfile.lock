@@ -1,5 +1,5 @@
 PATH
-  remote: /Users/jbarnette/github/boxen
+  remote: /Users/jbarnette/boxen/boxen
   specs:
     boxen (0.0.0)
       ansi
