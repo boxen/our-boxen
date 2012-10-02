@@ -58,6 +58,8 @@ abort "Can't bootstrap, dependencies are outdated." unless system *strap
 
 load "config/basic.rb"
 
+require "boxen/cli"
+
 # Okay, let's run this thing.
 
-exit Boxen.run ARGV
+exit Boxen::CLI.run ARGV
