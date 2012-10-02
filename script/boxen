@@ -53,3 +53,7 @@ abort "Can't bootstrap, dependencies are outdated." unless system *strap
 # Set up our local configuration, deps, and load path.
 
 load "config/basic.rb"
+
+# Okay, let's run this thing.
+
+exit Boxen.run ARGV
