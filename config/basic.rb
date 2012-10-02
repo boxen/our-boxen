@@ -7,7 +7,12 @@ require "pathname"
 
 Dir.chdir Pathname.new(__FILE__).realpath + "../.."
 
-# Load local config if it exists.
+# Load custom config.
+
+load File.expand_path "../boxen.rb", __FILE__
+
+# Load local config if it exists. This file is ignored by Git, and can
+# be used for personal config.
 
 local = File.expand_path "../local.rb", __FILE__
 load local if File.file? local
