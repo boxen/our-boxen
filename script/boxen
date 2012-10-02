@@ -23,6 +23,10 @@ at_exit { myself.flock File::LOCK_UN }
 
 Dir.chdir Pathname.new(__FILE__).realpath + "../.."
 
+# FIX: temporarily set BOXEN_HOME to `./tmp/home` during porting.
+
+ENV["BOXEN_HOME"] = File.expand_path("tmp/home")
+
 # Auto-update code. This is done as early as possible so that changes
 # to boxen support code or dependencies can be grabbed.
 
