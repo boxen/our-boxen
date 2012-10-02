@@ -1,0 +1,51 @@
+#!/usr/bin/ruby
+# Run Boxen.
+
+require "pathname"
+
+if ENV["USER"] == "root"
+  abort "Run this as a normal user, I'll sudo if I need to."
+end
+
+# Make sure only one boxen process runs at a time.
+
+myself = File.new __FILE__
+
+unless myself.flock File::LOCK_EX | File::LOCK_NB
+  abort "You're already running a boxen process! Know a patience."
+end
+
+# Yeah yeah, I like to be explicit.
+
+at_exit { myself.flock File::LOCK_UN }
+
+# Put us where we belong, in the root dir of our boxen repo.
+
+Dir.chdir Pathname.new(__FILE__).realpath + "../.."
+
+# Auto-update code. This is done as early as possible so that changes
+# to boxen support code or dependencies can be grabbed.
+
+unless ENV["BOXEN_NO_PULL"] || ARGV.include?("--no-pull")
+  if system("which git > /dev/null") && File.directory?(".git")
+    clean  = `git status --porcelain`.empty?
+    master = `git symbolic-ref HEAD`.chomp == "refs/heads/master"
+    no_new_commits = system('git diff --exit-code --quiet origin/master master')
+
+    if clean && master && no_new_commits
+      quietly = "> /dev/null 2>&1"
+      fetch   = "(git fetch origin #{quietly})"
+      reset   = "(git reset --hard origin/master #{quietly})"
+      reclean = "(git clean -df #{quietly})"
+
+      unless system "#{fetch} && #{reset} && #{reclean}"
+        warn "Couldn't auto-update, continuing."
+      end
+    end
+  end
+end
+
+# Make sure our local dependencies are up to date.
+
+strap = %w(script/bootstrap --deployment --local --without development:test)
+abort "Can't bootstrap, dependencies are outdated." unless system *strap
