@@ -3,6 +3,7 @@ PATH
   specs:
     boxen (0.0.0)
       ansi
+      highline
       json_pure
       octokit
       puppet
@@ -20,6 +21,7 @@ GEM
     hashie (1.2.0)
     hiera (1.1.0.rc1)
       json
+    highline (1.6.15)
     json (1.7.5)
     json_pure (1.7.5)
     multi_json (1.3.6)
