@@ -21,3 +21,7 @@ require "bundler/setup"
 
 lib = File.expand_path "../../lib", __FILE__
 $:.unshift lib if File.directory? lib
+
+# Pull in Boxen itself.
+
+require "boxen"
