@@ -1,0 +1,19 @@
+#!/bin/sh
+# Make sure all our local dependencies are available.
+
+# FIX: only sudo if gem home isn't writable
+
+(gem spec bundler -v '~> 1.2.0' > /dev/null 2>&1) ||
+  sudo gem install bundler --no-rdoc --no-ri
+
+# We don't want old config hanging around.
+
+rm -rf .bundle/config
+
+# Export CC to explicitly set the compiler used for cexts.
+
+export CC=gcc
+
+# Bundle install unless we're already up to date.
+
+bundle install --binstubs bin --path .bundle --quiet "$@"

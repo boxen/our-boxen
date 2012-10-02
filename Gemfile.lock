@@ -1,0 +1,33 @@
+PATH
+  remote: /Users/jbarnette/github/boxen
+  specs:
+    boxen (0.0.0)
+      ansi
+      json_pure
+      octokit
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    addressable (2.3.2)
+    ansi (1.4.3)
+    faraday (0.8.4)
+      multipart-post (~> 1.1)
+    faraday_middleware (0.8.8)
+      faraday (>= 0.7.4, < 0.9)
+    hashie (1.2.0)
+    json_pure (1.7.5)
+    multi_json (1.3.6)
+    multipart-post (1.1.5)
+    octokit (1.15.1)
+      addressable (~> 2.2)
+      faraday (~> 0.8)
+      faraday_middleware (~> 0.8)
+      hashie (~> 1.2)
+      multi_json (~> 1.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  boxen (= 0.0.0)!
