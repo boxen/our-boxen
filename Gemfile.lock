@@ -5,17 +5,22 @@ PATH
       ansi
       json_pure
       octokit
+      puppet
 
 GEM
   remote: http://rubygems.org/
   specs:
     addressable (2.3.2)
     ansi (1.4.3)
+    facter (1.6.12)
     faraday (0.8.4)
       multipart-post (~> 1.1)
     faraday_middleware (0.8.8)
       faraday (>= 0.7.4, < 0.9)
     hashie (1.2.0)
+    hiera (1.1.0.rc1)
+      json
+    json (1.7.5)
     json_pure (1.7.5)
     multi_json (1.3.6)
     multipart-post (1.1.5)
@@ -25,6 +30,9 @@ GEM
       faraday_middleware (~> 0.8)
       hashie (~> 1.2)
       multi_json (~> 1.3)
+    puppet (3.0.0)
+      facter (>= 1.6.11)
+      hiera (>= 1.0.0rc)
 
 PLATFORMS
   ruby
