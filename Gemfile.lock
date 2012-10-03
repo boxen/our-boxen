@@ -3,9 +3,9 @@ GEM
   specs:
     addressable (2.3.2)
     ansi (1.4.3)
-    boxen (0.2.0)
+    boxen (0.2.1)
       ansi (~> 1.4)
-      hiera (= 1.0.0)
+      hiera (~> 1.0.0)
       highline (~> 1.6)
       json_pure (~> 1.7)
       librarian-puppet (~> 0.9)
@@ -19,7 +19,6 @@ GEM
     hashie (1.2.0)
     hiera (1.0.0)
     highline (1.6.15)
-    json (1.7.5)
     json_pure (1.7.5)
     librarian-puppet (0.9.6)
       json_pure
