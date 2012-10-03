@@ -1,4 +1,4 @@
-require boxen::config
+require boxen::environment
 require homebrew::repo
 
 Exec {
@@ -39,5 +39,5 @@ Service {
 }
 
 node default {
-  include setup::environment
+  include git
 }
