@@ -1,6 +1,8 @@
 #!/bin/sh
 # Make sure all our local dependencies are available.
 
+set -e
+
 # FIX: only sudo if gem home isn't writable
 
 (gem spec bundler -v '~> 1.2.0' > /dev/null 2>&1) ||
