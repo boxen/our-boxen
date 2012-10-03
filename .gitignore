@@ -1,9 +1,11 @@
 /.bundle
+/.librarian
+/.tmp
 /bin
 /config/local.rb
 /log
 /tmp
 /vendor/cache
-/.tmp/
-/modules/
-/.librarian/
+/vendor/puppet/cache
+/shared/*
+!/shared/README.md

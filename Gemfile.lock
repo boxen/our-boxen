@@ -1,18 +1,14 @@
-PATH
-  remote: /Users/wfarr/boxen/boxen
-  specs:
-    boxen (0.0.0)
-      ansi
-      highline
-      json_pure
-      octokit
-      puppet
-
 GEM
   remote: http://rubygems.org/
   specs:
     addressable (2.3.2)
     ansi (1.4.3)
+    boxen (0.0.0)
+      ansi (~> 1.4)
+      highline (~> 1.6)
+      json_pure (~> 1.7)
+      octokit (~> 1.15)
+      puppet (~> 3.0)
     facter (1.6.12)
     faraday (0.8.4)
       multipart-post (~> 1.1)
@@ -45,5 +41,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  boxen (= 0.0.0)!
-  librarian-puppet (= 0.9.5)
+  boxen (~> 0.0)
+  librarian-puppet (~> 0.9)
