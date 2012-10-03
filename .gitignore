@@ -7,3 +7,5 @@
 /tmp
 /vendor/cache
 /vendor/puppet/cache
+/shared/*
+!/shared/README.md
