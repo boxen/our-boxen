@@ -9,6 +9,7 @@
 # We don't want old config hanging around.
 
 rm -rf .bundle/config
+rm -rf .librarian/puppet/config
 
 # Export CC to explicitly set the compiler used for cexts.
 
