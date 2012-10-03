@@ -4,3 +4,6 @@
 /log
 /tmp
 /vendor/cache
+/.tmp/
+/modules/
+/.librarian/
