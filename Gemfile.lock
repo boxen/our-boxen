@@ -1,5 +1,5 @@
 PATH
-  remote: /Users/jbarnette/boxen/boxen
+  remote: /Users/wfarr/boxen/boxen
   specs:
     boxen (0.0.0)
       ansi
@@ -24,6 +24,10 @@ GEM
     highline (1.6.15)
     json (1.7.5)
     json_pure (1.7.5)
+    librarian-puppet (0.9.5)
+      json
+      puppet
+      thor (~> 0.15)
     multi_json (1.3.6)
     multipart-post (1.1.5)
     octokit (1.15.1)
@@ -35,9 +39,11 @@ GEM
     puppet (3.0.0)
       facter (>= 1.6.11)
       hiera (>= 1.0.0rc)
+    thor (0.16.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   boxen (= 0.0.0)!
+  librarian-puppet (= 0.9.5)
