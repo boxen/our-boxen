@@ -7,7 +7,7 @@
 # Includes many of our custom types and providers, as well as global
 # config. Required.
 
-mod "boxen", "0.0.1.1", :github_tarball => "boxen/puppet-boxen"
+mod "boxen", "0.0.2", :github_tarball => "boxen/puppet-boxen"
 
 # Core modules for a basic development environment.
 # You can replace some/most of those if you want, but it's not recommended.
