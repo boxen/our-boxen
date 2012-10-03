@@ -1,5 +1,6 @@
 /.bundle
 /bin
 /config/local.rb
+/log
 /tmp
 /vendor/cache
