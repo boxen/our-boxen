@@ -5,6 +5,8 @@ simple project manifest example:
 
 ```puppet
 class projects::boxen {
+  include qt # requires the qt module in Puppetfile
+
   $dir = "${boxen::config::srcdir}/boxen"
 
   repository { $dir:
