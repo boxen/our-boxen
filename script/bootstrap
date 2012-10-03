@@ -20,7 +20,3 @@ export CC=gcc
 # Bundle install unless we're already up to date.
 
 bundle install --binstubs bin --path .bundle --quiet "$@"
-
-# Install all our Puppet dependencies.
-
-bin/librarian-puppet install --path=shared

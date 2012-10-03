@@ -1,14 +1,20 @@
+GIT
+  remote: https://github.com/boxen/boxen
+  revision: 8bde53257faeeb444987a251ada9e40f5d927168
+  specs:
+    boxen (0.1.0)
+      ansi (~> 1.4)
+      highline (~> 1.6)
+      json_pure (~> 1.7)
+      librarian-puppet (~> 0.9)
+      octokit (~> 1.15)
+      puppet (~> 3.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
     addressable (2.3.2)
     ansi (1.4.3)
-    boxen (0.0.0)
-      ansi (~> 1.4)
-      highline (~> 1.6)
-      json_pure (~> 1.7)
-      octokit (~> 1.15)
-      puppet (~> 3.0)
     facter (1.6.12)
     faraday (0.8.4)
       multipart-post (~> 1.1)
@@ -41,5 +47,4 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  boxen (~> 0.0)
-  librarian-puppet (~> 0.9)
+  boxen (~> 0.1)!
