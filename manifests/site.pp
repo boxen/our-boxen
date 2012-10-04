@@ -56,4 +56,13 @@ node default {
   include ruby::1-8-7
   include ruby::1-9-2
   include ruby::1-9-3
+
+  # common, useful packages
+  package {
+    [
+      'ack',
+      'findutils',
+      'gnu-tar'
+    ]:
+  }
 }
