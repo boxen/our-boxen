@@ -7,7 +7,7 @@
 # Includes many of our custom types and providers, as well as global
 # config. Required.
 
-mod "boxen",    "0.0.3", :github_tarball => "boxen/puppet-boxen"
+mod "boxen",    "0.0.7", :github_tarball => "boxen/puppet-boxen"
 mod "homebrew", "0.0.3", :github_tarball => "boxen/puppet-homebrew"
 mod "nvm",      "0.0.2", :github_tarball => "boxen/puppet-nvm"
 
