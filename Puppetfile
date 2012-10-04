@@ -12,7 +12,7 @@ mod "git",      "0.0.2", :github_tarball => "boxen/puppet-git"
 mod "homebrew", "0.0.3", :github_tarball => "boxen/puppet-homebrew"
 mod "nvm",      "0.0.2", :github_tarball => "boxen/puppet-nvm"
 mod "rbenv",    "0.0.2", :github_tarball => "boxen/puppet-rbenv"
-mod "ruby",     "0.0.2", :github_tarball => "boxen/puppet-ruby"
+mod "ruby",     "0.0.4", :github_tarball => "boxen/puppet-ruby"
 
 # Core modules for a basic development environment.
 # You can replace some/most of those if you want, but it's not recommended.
