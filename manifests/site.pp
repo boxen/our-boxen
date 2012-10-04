@@ -52,9 +52,16 @@ node default {
     fail('Please enable full disk encryption and try again')
   }
 
-  repository { "${boxen::home}/repo":
+  # Setup real clone of our-boxen and link into BOXEN_HOME
+  repository { "${boxen::config::srcdir}/our-boxen":
     ensure => present,
     source => 'boxen/our-boxen'
+  }
+
+  file { "${boxen::home}/repo":
+    ensure  => link,
+    target  => "${boxen::config::srcdir}/our-boxen",
+    require => Repository["${boxen::config::srcdir}/our-boxen"]
   }
 
   # node versions
