@@ -39,8 +39,13 @@ Service {
 }
 
 node default {
+  # core modules, needed for most things
   include git
   include hub
   include rbenv
   include nvm
+
+  # node versions
+  include nodejs::0-6
+  include nodejs::0-8
 }
