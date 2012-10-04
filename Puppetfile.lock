@@ -31,7 +31,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-nvm
   specs:
-    nvm (0.0.2)
+    nvm (0.0.5)
 
 GITHUBTARBALL
   remote: boxen/puppet-rbenv
@@ -55,7 +55,7 @@ DEPENDENCIES
   hub (= 0.0.1)
   inifile (= 0.0.1)
   nodejs (= 0.0.1)
-  nvm (= 0.0.2)
+  nvm (= 0.0.5)
   rbenv (= 0.0.2)
   ruby (= 0.0.4)
   sudo (= 0.0.1)
