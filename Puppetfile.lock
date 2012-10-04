@@ -11,7 +11,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-homebrew
   specs:
-    homebrew (0.0.2)
+    homebrew (0.0.3)
 
 GITHUBTARBALL
   remote: boxen/puppet-hub
@@ -51,7 +51,7 @@ GITHUBTARBALL
 DEPENDENCIES
   boxen (= 0.0.3)
   git (= 0.0.1)
-  homebrew (= 0.0.2)
+  homebrew (= 0.0.3)
   hub (= 0.0.1)
   inifile (= 0.0.1)
   nodejs (= 0.0.1)

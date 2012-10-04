@@ -8,7 +8,7 @@
 # config. Required.
 
 mod "boxen",    "0.0.3", :github_tarball => "boxen/puppet-boxen"
-mod "homebrew", "0.0.2", :github_tarball => "boxen/puppet-homebrew"
+mod "homebrew", "0.0.3", :github_tarball => "boxen/puppet-homebrew"
 mod "nvm",      "0.0.2", :github_tarball => "boxen/puppet-nvm"
 
 # Core modules for a basic development environment.
