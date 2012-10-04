@@ -26,7 +26,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-nginx
   specs:
-    nginx (0.0.1)
+    nginx (0.0.2)
 
 GITHUBTARBALL
   remote: boxen/puppet-nodejs
@@ -59,7 +59,7 @@ DEPENDENCIES
   homebrew (= 0.0.4)
   hub (= 0.0.1)
   inifile (= 0.0.1)
-  nginx (= 0.0.1)
+  nginx (= 0.0.2)
   nodejs (= 0.0.1)
   nvm (= 0.0.5)
   rbenv (= 0.0.2)
