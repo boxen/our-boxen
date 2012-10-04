@@ -40,4 +40,6 @@ Service {
 
 node default {
   include git
+  include hub
+  include rbenv
 }
