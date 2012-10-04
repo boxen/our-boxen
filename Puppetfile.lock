@@ -1,7 +1,7 @@
 GITHUBTARBALL
   remote: boxen/puppet-boxen
   specs:
-    boxen (0.0.7)
+    boxen (0.0.8)
 
 GITHUBTARBALL
   remote: boxen/puppet-git
@@ -49,7 +49,7 @@ GITHUBTARBALL
     sudo (0.0.1)
 
 DEPENDENCIES
-  boxen (= 0.0.7)
+  boxen (= 0.0.8)
   git (= 0.0.1)
   homebrew (= 0.0.3)
   hub (= 0.0.1)
