@@ -48,4 +48,7 @@ node default {
   # node versions
   include nodejs::0-6
   include nodejs::0-8
+
+  # default ruby versions
+  include ruby::1-9-3-p194
 }
