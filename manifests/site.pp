@@ -42,8 +42,9 @@ node default {
   # core modules, needed for most things
   include git
   include hub
-  include rbenv
+  include nginx
   include nvm
+  include rbenv
 
   # node versions
   include nodejs::0-6
