@@ -52,6 +52,11 @@ node default {
     fail('Please enable full disk encryption and try again')
   }
 
+  repository { "${boxen::home}/repo":
+    ensure => present,
+    source => 'boxen/our-boxen'
+  }
+
   # node versions
   include nodejs::0-4
   include nodejs::0-6
