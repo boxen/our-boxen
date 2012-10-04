@@ -7,13 +7,16 @@
 # Includes many of our custom types and providers, as well as global
 # config. Required.
 
-mod "boxen",    "0.0.8", :github_tarball => "boxen/puppet-boxen"
+mod "boxen",    "0.0.9", :github_tarball => "boxen/puppet-boxen"
+mod "git",      "0.0.2", :github_tarball => "boxen/puppet-git"
 mod "homebrew", "0.0.3", :github_tarball => "boxen/puppet-homebrew"
 mod "nvm",      "0.0.2", :github_tarball => "boxen/puppet-nvm"
+mod "rbenv",    "0.0.2", :github_tarball => "boxen/puppet-rbenv"
+mod "ruby",     "0.0.2", :github_tarball => "boxen/puppet-ruby"
 
 # Core modules for a basic development environment.
 # You can replace some/most of those if you want, but it's not recommended.
-%w(ruby rbenv nodejs git hub inifile sudo).each do |modulename|
+%w(nodejs hub inifile sudo).each do |modulename|
   mod modulename, "0.0.1", :github_tarball => "boxen/puppet-#{modulename}"
 end
 
