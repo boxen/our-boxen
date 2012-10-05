@@ -52,12 +52,6 @@ node default {
     fail('Please enable full disk encryption and try again')
   }
 
-  # Setup real clone of our-boxen and link into BOXEN_HOME
-  repository { "${::boxen_home}/repo":
-    ensure => present,
-    source => 'boxen/our-boxen'
-  }
-
   # node versions
   include nodejs::0-4
   include nodejs::0-6
