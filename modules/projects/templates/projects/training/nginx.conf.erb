@@ -1,0 +1,49 @@
+upstream training {
+  server unix:<%= scope.lookupvar "boxen::config::socketdir" %>/training;
+}
+
+server {
+  listen 80;
+  server_name training.dev;
+
+  root <%= scope.lookupvar "projects::training::dir" %>/public;
+  access_log <%= scope.lookupvar "nginx::config::logdir" %>/training.access.log  main;
+  client_max_body_size 50M;
+
+  if (-f $document_root/system/maintenance.html){
+    rewrite ^(.*)$ /system/maintenance.html last;
+    break;
+  }
+
+  if ($host ~* "www") {
+    rewrite ^(.*)$ http://training.dev$1 permanent;
+    break;
+  }
+
+  location / {
+    proxy_intercept_errors off;
+    proxy_max_temp_file_size 0;
+    proxy_redirect off;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Real-IP $remote_addr;
+
+    if (-f $request_filename/index.html) {
+    rewrite (.*) $1/index.html break;
+    }
+
+    if (-f $request_filename.html) {
+    rewrite (.*) $1.html break;
+    }
+
+    if (!-f $request_filename) {
+    proxy_pass http://training;
+    break;
+    }
+  }
+
+  error_page 500 502 503 504 /50x.html;
+  location = /50x.html {
+  root html;
+  }
+}

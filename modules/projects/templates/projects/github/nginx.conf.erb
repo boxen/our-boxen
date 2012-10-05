@@ -1,0 +1,280 @@
+upstream github {
+  server 127.0.0.1:3000;
+}
+
+upstream github-enterprise {
+ server 127.0.0.1:3001;
+}
+
+upstream githubsvn {
+ server 127.0.0.1:6200;
+}
+
+upstream github-smarthttp {
+ server 127.0.0.1:5100;
+}
+
+upstream nodeload_upstream {
+  server 127.0.0.1:8080;
+}
+
+upstream jobs {
+  server 127.0.0.1:9393;
+}
+
+server {
+  access_log <%= scope.lookupvar "nginx::config::logdir" %>/github.svn.access.log main;
+  listen 80;
+  root <%= scope.lookupvar "boxen::config::srcdir" %>/github/public;
+  server_name svn.github.dev;
+
+  location / {
+    proxy_pass http://githubsvn;
+  }
+}
+
+server {
+  access_log <%= scope.lookupvar "nginx::config::logdir" %>/github.access.log main;
+  listen 80;
+  root <%= scope.lookupvar "boxen::config::srcdir" %>/github/public;
+  server_name wiki.github.dev *.wiki.github.dev;
+
+  location ~ ^/([^/]+)/([^/]+)$ {
+    rewrite ^/([^/]+)/([^/]+)$ /$1/$2/ permanent;
+    break;
+  }
+
+  location / {
+    ssi on;
+
+    if ($request_method !~ 'GET') {
+      proxy_pass http://github;
+      break;
+    }
+
+    set $sub "en";
+    if ($host ~ "^(.*).wiki.github.dev") {
+      set $sub $1;
+    }
+
+    if (!-f $request_filename) {
+      set $memcached_key "gh-pagecache:$sub:$uri";
+      memcached_pass localhost:11211;
+    }
+
+    default_type text/html;
+    error_page 404 502 = /fallback;
+  }
+
+  location = /fallback {
+    internal;
+    proxy_pass http://github;
+    proxy_redirect off;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Real-IP $remote_addr;
+    break;
+  }
+}
+
+server {
+  listen 80;
+  server_name nodeload.github.dev;
+
+  proxy_read_timeout 600;
+
+  location / {
+    proxy_pass http://nodeload_upstream;
+  }
+}
+
+
+server {
+  listen 80;
+  server_name github.dev gist.github.dev www.github.dev api.github.dev raw.github.dev avatar.github.dev;
+
+  root <%= scope.lookupvar "boxen::config::srcdir" %>/github/public;
+  access_log <%= scope.lookupvar "nginx::config::logdir" %>/github.access.log  main;
+  client_max_body_size 50M;
+
+  if (-f $document_root/system/maintenance.html){
+    rewrite ^(.*)$ /system/maintenance.html last;
+    break;
+  }
+
+  if ($host ~* "www") {
+    rewrite ^(.*)$ http://github.dev$1 permanent;
+    break;
+  }
+
+  location /git/repositories/ {
+    internal;
+    root /data/;
+  }
+
+  location /cache {
+    ssi on;
+
+    if (!-f $request_filename) {
+      set $memcached_key "gh-pagecache:$uri";
+      memcached_pass localhost:11211;
+    }
+
+    default_type text/html;
+    error_page 404 502 = /fallback;
+  }
+
+  location = /fallback {
+    internal;
+    root html;
+    proxy_redirect off;
+    proxy_set_header   Host             $host;
+    proxy_pass http://github;
+    break;
+  }
+
+  # Forward all requests from svn clients to the githubsvn proxy
+  #
+  # if and location blocks are separate because if is evil:
+  #   http://wiki.nginx.org/IfIsEvil
+  if ($http_user_agent ~ "^SVN/") {
+    rewrite ^(.*)$ /svn$1 break;
+  }
+
+  location /svn {
+    rewrite ^/svn(.*)$ $1;
+    proxy_set_header Host $host;
+    proxy_pass http://githubsvn;
+    break;
+  }
+
+  # Rewrites
+  #   git clone https://github.com/defunkt/facebox
+  # to
+  #   git clone https://github.com/defunkt/facebox.git
+  # by checking for "git" in the User-Agent and the absence
+  # of ".git" in the path.
+  #
+  # Uses a multi-condition `if`.
+  # See http://wiki.nginx.org/RewriteMultiCondExample
+  set $git_http_client_redirect "";
+
+  if ($http_user_agent ~ "^git/") {
+    set $git_http_client_redirect "UA";
+  }
+
+  if ($uri ~ "^\/api\/v\d\/") {
+    set $git_http_client_redirect "API";
+  }
+
+  if ($uri !~ "\.git") {
+    set $git_http_client_redirect "${git_http_client_redirect}P";
+  }
+
+  if ($git_http_client_redirect = UAP) {
+    rewrite ^/(.+?)/(.+?)(/.*)?$ /$1/$2.git$3 break;
+  }
+
+  # smart-http proxy
+  location ~* ^/([^\/]*)/([^\/]*).git/info/refs {
+    proxy_pass http://github-smarthttp;
+    break;
+  }
+  location ~* ^/([^\/]*)/([^\/]*).git/git-(upload|receive)-pack$ {
+    proxy_pass http://github-smarthttp;
+    break;
+  }
+  location ~* ^/([^\/]*)/([^\/]*).git/objects/* {
+    proxy_pass http://github-smarthttp;
+    break;
+  }
+
+  location / {
+    proxy_intercept_errors off;
+    proxy_max_temp_file_size 0;
+    proxy_redirect off;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Real-IP $remote_addr;
+
+    if (-f $request_filename/index.html) {
+      rewrite (.*) $1/index.html break;
+    }
+
+    if (-f $request_filename.html) {
+      rewrite (.*) $1.html break;
+    }
+
+    if (!-f $request_filename) {
+      proxy_pass http://github;
+      break;
+    }
+  }
+
+  error_page 500 502 503 504 /50x.html;
+  location = /50x.html {
+    root html;
+  }
+}
+
+server {
+  access_log <%= scope.lookupvar "nginx::config::logdir" %>/github-enterprise.access.log  main;
+  client_max_body_size 50M;
+  listen 80;
+  root <%= scope.lookupvar "boxen::config::srcdir" %>/github/public;
+  server_name enterprise.github.dev;
+
+  location / {
+    proxy_intercept_errors off;
+    proxy_max_temp_file_size 0;
+    proxy_redirect off;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Real-IP $remote_addr;
+
+    if (-f $request_filename/index.html) {
+      rewrite (.*) $1/index.html break;
+    }
+
+    if (-f $request_filename.html) {
+      rewrite (.*) $1.html break;
+    }
+
+    if (!-f $request_filename) {
+      proxy_pass http://github-enterprise;
+      break;
+    }
+  }
+}
+
+server {
+  listen 80;
+  root <%= scope.lookupvar "boxen::config::srcdir" %>/jobs/public;
+  server_name jobs.github.dev;
+
+  location / {
+    proxy_max_temp_file_size 0;
+    proxy_redirect off;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Real-IP $remote_addr;
+
+    if (-f $request_filename/index.html) {
+      rewrite (.*) $1/index.html break;
+    }
+
+    if (-f $request_filename.html) {
+      rewrite (.*) $1.html break;
+    }
+
+    if (!-f $request_filename) {
+      proxy_pass http://jobs;
+      break;
+    }
+  }
+
+  error_page 500 502 503 504 /50x.html;
+  location = /50x.html {
+    root html;
+  }
+}

@@ -1,0 +1,14 @@
+upstream miramar.dev {
+ server unix:<%= scope.lookupvar "boxen::config::socketdir" %>/miramar;
+}
+
+server {
+  access_log <%= scope.lookupvar "nginx::config::logdir" %>/miramar.access.log main;
+  listen 80;
+  root <%= scope.lookupvar "projects::miramar::dir" %>/public;
+  server_name miramar.dev;
+
+  location / {
+    proxy_pass http://miramar.dev;
+  }
+}
