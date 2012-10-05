@@ -53,15 +53,9 @@ node default {
   }
 
   # Setup real clone of our-boxen and link into BOXEN_HOME
-  repository { "${boxen::config::srcdir}/our-boxen":
+  repository { "${::boxen_home}/repo":
     ensure => present,
     source => 'boxen/our-boxen'
-  }
-
-  file { "${boxen::home}/repo":
-    ensure  => link,
-    target  => "${boxen::config::srcdir}/our-boxen",
-    require => Repository["${boxen::config::srcdir}/our-boxen"]
   }
 
   # node versions
