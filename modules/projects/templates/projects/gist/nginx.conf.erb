@@ -1,0 +1,34 @@
+upstream gist {
+  server 127.0.0.1:4427;
+}
+
+server {
+  listen 80;
+  server_name gist2.github.dev;
+
+  root <%= @dir %>/public;
+  access_log <%= scope.lookupvar "nginx::config::logdir" %>/gist.access.log main;
+  client_max_body_size 50M;
+
+  location / {
+    proxy_intercept_errors off;
+    proxy_max_temp_file_size 0;
+    proxy_redirect off;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Real-IP $remote_addr;
+
+    if (-f $request_filename/index.html) {
+      rewrite (.*) $1/index.html break;
+    }
+
+    if (-f $request_filename.html) {
+      rewrite (.*) $1.html break;
+    }
+
+    if (!-f $request_filename) {
+      proxy_pass http://gist;
+      break;
+    }
+  }
+}

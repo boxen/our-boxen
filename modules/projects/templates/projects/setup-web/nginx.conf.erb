@@ -1,0 +1,14 @@
+upstream setup.dev {
+ server unix:<%= scope.lookupvar "boxen::config::socketdir" %>/setup-web;
+}
+
+server {
+  access_log <%= scope.lookupvar "nginx::config::logdir" %>/setup-puppet.access.log main;
+  listen 80;
+  root <%= scope.lookupvar "boxen::config::srcdir" %>/setup-web/public;
+  server_name setup.dev;
+
+  location / {
+    proxy_pass http://setup.dev;
+  }
+}

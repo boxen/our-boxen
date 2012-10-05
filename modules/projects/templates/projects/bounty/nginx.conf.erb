@@ -1,0 +1,14 @@
+upstream bounty {
+ server unix:<%= scope.lookupvar "boxen::config::socketdir" %>/bounty;
+}
+
+server {
+  access_log <%= scope.lookupvar "nginx::config::logdir" %>/bounty.access.log main;
+  listen 80;
+  root <%= scope.lookupvar "projects::bounty::dir" %>/public;
+  server_name bounty.dev;
+
+  location / {
+    proxy_pass http://bounty;
+  }
+}
