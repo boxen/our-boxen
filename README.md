@@ -10,7 +10,10 @@ modify appropriately.
 3. Get a copy of your fork somewhere locally.
 4. Install the XCode Command Line Tools package. You need an Apple ID. We know. It sucks. You can thank Apple for not allowing the Command Line Tools to be redistributed publicly.
 5. `cd` to that dir and run `script/boxen`
-6. Rock out. :metal:
+6. Ensure you have `[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh` in your shell config. If you don't have a shell config yet, we automatically add this to `~/.profile` for you.
+7. Open a new shell.
+8. Verify `boxen --env` prints out `BOXEN_` env vars.
+9. Rock out. :metal:
 
 ## What You Get
 
