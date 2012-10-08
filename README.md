@@ -8,15 +8,24 @@ This repository template is just a basic example of _how_ to do things with them
 
 ## Getting Started
 
-1. Fork this repository.
-2. Modify the `Puppetfile` and `modules/` to your heart's content.
-3. Get a copy of your fork somewhere locally.
-4. Install the XCode Command Line Tools package. You need an Apple ID. We know. It sucks. You can thank Apple for not allowing the Command Line Tools to be redistributed publicly.
-5. `cd` to that dir and run `script/boxen`
-6. Ensure you have `[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh` in your shell config. If you don't have a shell config yet, we automatically add this to `~/.profile` for you.
-7. Open a new shell.
-8. Verify `boxen --env` prints out `BOXEN_` env vars.
-9. Rock out. :metal:
+It's pretty important you follow these steps exactly.
+You should not fork this repository for your organization's Boxen.
+We have some pretty specific semantics about forking and public/private repositories.
+We really recommend doing it this way:
+
+1. Create a new local git repository. Create a private repository on GitHub under your organization for your boxen (eg. `myorg/myorg-boxen`)
+1. In your new repository, `git remote add upstream https://github.com/boxen/our-boxen && git fetch upstream && git co -b master upstream/master`
+1. Now follow the directions GitHub gave you when creating your private copy to push the master branch to your private copy.
+
+With that done, now you can tweak it to your use:
+
+1. Modify the `Puppetfile` and `modules/` to your heart's content.
+1. Install the XCode Command Line Tools package. You need an Apple ID. We know. It sucks. You can thank Apple for not allowing the Command Line Tools to be redistributed publicly.
+1. `cd` to that dir and run `script/boxen`
+1. Ensure you have `[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh` in your shell config. If you don't have a shell config yet, we automatically add this to `~/.profile` for you.
+1. Open a new shell.
+1. Verify `boxen --env` prints out `BOXEN_` env vars.
+1. Rock out. :metal:
 
 ## What You Get
 
