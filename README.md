@@ -10,7 +10,7 @@ This repository template is just a basic example of _how_ to do things with them
 
 1. Install XCode Command Line Tools and/or full XCode.
 1. Create a new repository on GitHub as your user for your Boxen. (eg.
-`wfarr/my-boxen`). **Make sure it is a private repository!** for now
+`wfarr/my-boxen`). **Make sure it is a private repository!**
 1. Get running like so:
   ```
   mkdir -p ~/src/my-boxen
@@ -76,3 +76,8 @@ what-have-you for your organization.
 For organization projects (read: repositories that people will be working in), please see the documentation in the projects module template we provide.
 
 For per-user configuration that doesn't need to be applied globally to everyone, please see the documentation in the people module template we provide.
+
+## Binary packages
+
+We support binary packaging for everything in Homebrew, RBEnv, and NVM.
+See `config/boxen.rb` for the environment variables to define.

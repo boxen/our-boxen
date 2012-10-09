@@ -1,0 +1,112 @@
+#!/usr/bin/ruby
+# Sync binary snapshots to S3.
+
+require "pathname"
+require "tempfile"
+
+# Put us where we belong, in the root dir of our boxen repo.
+
+Dir.chdir Pathname.new(__FILE__).realpath + "../.."
+
+# Make sure our local dependencies are up to date.
+
+abort "Sorry, can't bootstrap." unless system "script/bootstrap"
+
+# Set up our local configuration, deps, and load path.
+
+load "config/basic.rb"
+
+require "aws-sdk"
+require "boxen/config"
+
+access_key  = ENV["BOXEN_S3_ACCESS_KEY"]
+secret_key  = ENV["BOXEN_S3_SECRET_KEY"]
+bucket_name = ENV["BOXEN_S3_BUCKET"]
+
+unless access_key && secret_key && bucket_name
+  abort "Please set the BOXEN_S3_{ACCESS_KEY,SECRET_KEY,BUCKET} env vars."
+end
+
+s3 = AWS::S3.new :access_key_id => access_key, :secret_access_key => secret_key
+os = `sw_vers -productVersion`.strip.split(".")[0..1].join "."
+
+bucket = s3.buckets[bucket_name]
+config = Boxen::Config.load
+
+# Sync Homebrew packages.
+
+Dir.chdir "#{config.homedir}/homebrew/Cellar" do
+  Dir["*/*"].each do |dir|
+    name, version = File.split dir
+
+    file = "homebrew/#{os}/#{name}-#{version}.tar.bz2"
+    temp = Tempfile.new "homebrew"
+    obj  = bucket.objects[file]
+
+    next if obj.exists?
+
+    printf "Snapshotting #{name} #{version}... "
+    $stdout.flush
+
+    system "tar", "-cjf", temp.path, dir
+    puts "done."
+
+    printf "Shipping #{name} #{version} to S3... "
+    $stdout.flush
+
+    obj.write :acl => :public_read, :file => temp.path
+    puts "done."
+  end
+end
+
+# Sync rbenv rubies.
+
+Dir.chdir "#{config.homedir}/rbenv/versions" do
+  Dir["*"].each do |dir|
+    next if File.symlink? dir
+
+    version = File.basename dir
+    file    = "rbenv/#{os}/#{version}.tar.bz2"
+    temp    = Tempfile.new "rbenv"
+    obj     = bucket.objects[file]
+
+    next if obj.exists?
+
+    printf "Snapshotting ruby #{version}... "
+    $stdout.flush
+
+    system "tar -cjf #{temp.path} #{version}"
+    puts "done."
+
+    printf "Shipping ruby #{version} to S3... "
+    $stdout.flush
+
+    obj.write :acl => :public_read, :file => temp.path
+    puts "done."
+  end
+end
+
+# Sync NVM nodes.
+
+Dir.chdir "#{config.homedir}/nvm" do
+  Dir["v*"].each do |dir|
+    version = File.basename dir
+    file    = "nvm/#{os}/#{version}.tar.bz2"
+    temp    = Tempfile.new "nvm"
+    obj     = bucket.objects[file]
+
+    next if obj.exists?
+
+    printf "Snapshotting node.js #{version}... "
+    $stdout.flush
+
+    system "tar -cjf #{temp.path} #{version}"
+    puts "done."
+
+    printf "Shipping node.js #{version} to S3... "
+    $stdout.flush
+
+    obj.write :acl => :public_read, :file => temp.path
+    puts "done."
+  end
+end
