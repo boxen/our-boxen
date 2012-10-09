@@ -8,24 +8,32 @@ This repository template is just a basic example of _how_ to do things with them
 
 ## Getting Started
 
-It's pretty important you follow these steps exactly.
-You should not fork this repository for your organization's Boxen.
-We have some pretty specific semantics about forking and public/private repositories.
-We really recommend doing it this way:
+1. Install XCode Command Line Tools and/or full XCode.
+1. Create a new repository on GitHub as your user for your Boxen. (eg.
+`wfarr/my-boxen`). **Make sure it is a private repository!** for now
+1. Get running like so:
 
-1. Create a new local git repository. Create a private repository on GitHub under your organization for your boxen (eg. `myorg/myorg-boxen`)
-1. In your new repository, `git remote add upstream https://github.com/boxen/our-boxen && git fetch upstream && git co -b master upstream/master`
-1. Now follow the directions GitHub gave you when creating your private copy to push the master branch to your private copy.
+```
+mkdir -p ~/src/my-boxen
+cd ~/src/my-boxen
+git init
+git remote add upstream https://github.com/boxen/our-boxen
+git fetch upstream
+git co -b master upstream/master
+git remote add origin https://github.com/wfarr/my-boxen
+git push origin master
 
-With that done, now you can tweak it to your use:
+script/boxen
+```
+1. Close and reopen your Terminal. If you have a shell config file (eg. `~/.bashrc`) you'll need to add this at the very end: `[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh`,
+1. Confirm the Boxen env has loaded: `boxen --env`
 
-1. Modify the `Puppetfile` and `modules/` to your heart's content.
-1. Install the XCode Command Line Tools package. You need an Apple ID. We know. It sucks. You can thank Apple for not allowing the Command Line Tools to be redistributed publicly.
-1. `cd` to that dir and run `script/boxen`
-1. Ensure you have `[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh` in your shell config. If you don't have a shell config yet, we automatically add this to `~/.profile` for you.
-1. Open a new shell.
-1. Verify `boxen --env` prints out `BOXEN_` env vars.
-1. Rock out. :metal:
+Now you have your own my-boxen repo that you can hack on.
+You may have noticed we didn't ask you to fork the repo.
+This is because when our-boxen goes open source that'd have some
+implications about your fork also potentially being public.
+That's obviously quite bad, so that's why we strongly suggest you
+create an entirely separate repo and simply pull the code in, as shown above.
 
 ## What You Get
 
@@ -50,10 +58,18 @@ This template project provides the following by default:
 
 ## Customizing
 
-You can always check out the number of existing modules we already provide as optional installs under the [boxen organization](https://github.com/boxen). These modules are all tested to be compatible with Boxen. You can include these modules by modifying the Puppetfile, adding them to `manifests/site.pp` if they should be installed on every machine, and then running `boxen`.
-
-For your organization, it's recommended you create a module to contain the configuration in the `modules/` directory (eg. `modules/github`).
-Then, you simply need to include that module in `manifests/site.pp`.
+You can always check out the number of existing modules we already
+provide as optional installs under the
+[boxen organization](https://github.com/boxen). These modules are all
+tested to be compatible with Boxen. Use the `Puppetfile` to pull them
+in dependencies automatically whenever `boxen` is run. You'll have to
+make sure your "node" (Puppet's term for your laptop, basically)
+includes or requires them. You can do this by either modifying
+`manifests/site.pp` for each module, _or_ we would generally recommend
+you create a module for your organization (eg. `modules/github`) and
+create an environment class in that. Then you need only adjust
+`manifests/site.pp` by doing `include github::environment` or
+what-have-you for your organization.
 
 For organization projects (read: repositories that people will be working in), please see the documentation in the projects module template we provide.
 
