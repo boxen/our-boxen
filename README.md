@@ -12,20 +12,22 @@ This repository template is just a basic example of _how_ to do things with them
 1. Create a new repository on GitHub as your user for your Boxen. (eg.
 `wfarr/my-boxen`). **Make sure it is a private repository!** for now
 1. Get running like so:
-
-```
-mkdir -p ~/src/my-boxen
-cd ~/src/my-boxen
-git init
-git remote add upstream https://github.com/boxen/our-boxen
-git fetch upstream
-git co -b master upstream/master
-git remote add origin https://github.com/wfarr/my-boxen
-git push origin master
-
-script/boxen
-```
-1. Close and reopen your Terminal. If you have a shell config file (eg. `~/.bashrc`) you'll need to add this at the very end: `[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh`,
+  ```
+  mkdir -p ~/src/my-boxen
+  cd ~/src/my-boxen
+  git init
+  git remote add upstream https://github.com/boxen/our-boxen
+  git fetch upstream
+  git co -b master upstream/master
+  git remote add origin https://github.com/wfarr/my-boxen
+  git push origin master
+  
+  script/boxen
+  ```
+1. Close and reopen your Terminal. If you have a shell config file
+(eg. `~/.bashrc`) you'll need to add this at the very end:
+`[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh`, and reload
+your shell.
 1. Confirm the Boxen env has loaded: `boxen --env`
 
 Now you have your own my-boxen repo that you can hack on.
