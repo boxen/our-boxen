@@ -10,7 +10,7 @@
 # Core modules for a basic development environment.
 # You can replace some/most of those if you want, but it's not recommended.
 
-mod "boxen",    "0.0.20",  :github_tarball => "boxen/puppet-boxen"
+mod "boxen",    "0.0.21",  :github_tarball => "boxen/puppet-boxen"
 mod "dnsmasq",  "0.0.1",   :github_tarball => "boxen/puppet-dnsmasq"
 mod "git",      "0.0.2.4", :github_tarball => "boxen/puppet-git"
 mod "hub",      "0.0.1",   :github_tarball => "boxen/puppet-hub"
