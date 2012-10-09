@@ -3,7 +3,7 @@ GEM
   specs:
     addressable (2.3.2)
     ansi (1.4.3)
-    boxen (0.3.3)
+    boxen (0.4.0)
       ansi (~> 1.4)
       hiera (~> 1.0.0)
       highline (~> 1.6)
