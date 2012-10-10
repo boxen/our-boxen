@@ -66,9 +66,14 @@ provide as optional installs under the
 tested to be compatible with Boxen. Use the `Puppetfile` to pull them
 in dependencies automatically whenever `boxen` is run. 
 
-### Node Definitions ###
+### Node definitions
 
-Puppet has the concept of a ['node'](http://docs.puppetlabs.com/references/glossary.html#agent), which is essentially the machine on which Puppet is running. Puppet looks for [node definitions](http://docs.puppetlabs.com/learning/agent_master_basic.html#node-definitions) in the `manifests/site.pp` file in the Boxen repo. You'll see a default node declaration that looks like the following:
+Puppet has the concept of a 
+['node'](http://docs.puppetlabs.com/references/glossary.html#agent), 
+which is essentially the machine on which Puppet is running. Puppet looks for 
+[node definitions](http://docs.puppetlabs.com/learning/agent_master_basic.html#node-definitions) 
+in the `manifests/site.pp` file in the Boxen repo. You'll see a default node 
+declaration that looks like the following:
 
     node default {
       # core modules, needed for most things
@@ -76,49 +81,31 @@ Puppet has the concept of a ['node'](http://docs.puppetlabs.com/references/gloss
       <...>
     }
 
-All Puppet [class declarations](http://docs.puppetlabs.com/learning/modules1.html#classes) should be included in the default node definition.  Theoretically, you _COULD_ declare every [Puppet resource](http://docs.puppetlabs.com/learning/ral.html) in the `manifests/site.pp` file, but that would quickly become unwieldy. Instead, it's easier to create [Puppet modules](http://docs.puppetlabs.com/learning/modules1.html#modules) inside the `modules` folder of the Boxen repo. Boxen is setup to discover any modules you create in the `modules` folder, and we've already created a `people` and `projects` module structure for you to start using.
+All Puppet 
+[class declarations](http://docs.puppetlabs.com/learning/modules1.html#classes) 
+should be included in the default node definition.  Theoretically, you _COULD_ 
+declare every 
+[Puppet resource](http://docs.puppetlabs.com/learning/ral.html) in the 
+`manifests/site.pp` file, but that would quickly become unwieldy. Instead, 
+it's easier to create 
+[Puppet modules](http://docs.puppetlabs.com/learning/modules1.html#modules) 
+inside the `modules` folder of the Boxen repo. Boxen is setup to discover any 
+modules you create in the `modules` folder, and we've already created a 
+`people` and `projects` module structure for you to start using.
 
-### Creating a personal module ###
+### Creating a personal module
 
-Using the `modules/people` folder that's been provided in the Boxen repo, start by creating a file in `modules/people/manifests` in the format of `your_last_name.pp` (Feel free to use the [Puppet module cheat sheet](http://docs.puppetlabs.com/module_cheat_sheet.pdf) if you need some extra help). If we were making a module for [Tim Sharpe](http://github.com/rodjek), we would create a file called `modules/people/manifests/sharpe.pp` that would look like the following:
+See [the documentation in the
+`modules/people`](https://github.com/boxen/our-boxen/blob/master/modules/people/README.md)
+directory for creating per-user modules that don't need to be applied
+globally to everyone.
 
-    # modules/people/manifests/sharpe.pp
-    class people::sharpe {
-      # Resource Declarations go here
-      package { 'tree':
-        ensure   => installed,
-        provider => homebrew,
-      }
-    }
+### Creating a project module
 
-This class is installing the `tree` package out of
-[Homebrew](https://github.com/mxcl/homebrew), but feel free to add whatever
-resource declarations you'll need.  Finally, add the following line in the
-`manifests/site.pp` file within the default node definition:
-
-    include people::sharpe
-
-Finally, run `boxen --noop` to [simulate, or
-test](http://docs.puppetlabs.com/guides/tests_smoke.html#running-tests) what
-changes your code would have made. If you're happy with how things look, you
-can then run `boxen` to enforce the changes you've made
-
-You'll have to
-make sure your "node" (Puppet's term for your laptop, basically)
-includes or requires them. You can do this by either modifying
-`manifests/site.pp` for each module, _or_ we would generally recommend
-you create a module for your organization (eg. `modules/github`) and
-create an environment class in that. Then you need only adjust
-`manifests/site.pp` by doing `include github::environment` or
-what-have-you for your organization.
-
-### Creating a project module ###
-
-The `modules/projects` folder is provided for organizational projects that
-aren't specific to one person. You're free to create any number of modules in
-the `modules` directory. As long as you follow Puppet's module naming patterns,
-everything should be fine. For more information, see the documentation in the
-projects module template that we provide.
+See [the documentation in the
+`modules/projects`](https://github.com/boxen/our-boxen/blob/master/modules/projects/README.md)
+directory for creating organization projects (read: repositories that people
+will be working in).
 
 ## Binary packages
 
