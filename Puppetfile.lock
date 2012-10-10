@@ -16,7 +16,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-homebrew
   specs:
-    homebrew (0.0.8)
+    homebrew (0.0.9)
 
 GITHUBTARBALL
   remote: boxen/puppet-hub
@@ -36,7 +36,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-nodejs
   specs:
-    nodejs (0.0.1)
+    nodejs (0.0.2)
 
 GITHUBTARBALL
   remote: boxen/puppet-nvm
@@ -51,7 +51,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-ruby
   specs:
-    ruby (0.0.8)
+    ruby (0.0.9)
 
 GITHUBTARBALL
   remote: boxen/puppet-sudo
@@ -67,14 +67,14 @@ DEPENDENCIES
   boxen (= 0.0.22)
   dnsmasq (= 0.0.1)
   git (= 0.0.2.4)
-  homebrew (= 0.0.8)
+  homebrew (= 0.0.9)
   hub (= 0.0.1)
   inifile (= 0.0.1)
   nginx (= 0.0.2)
-  nodejs (= 0.0.1)
+  nodejs (= 0.0.2)
   nvm (= 0.0.5)
   rbenv (= 0.0.2)
-  ruby (= 0.0.8)
+  ruby (= 0.0.9)
   stdlib (= 3.0.0)
   sudo (= 0.0.1)
 
