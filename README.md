@@ -9,6 +9,7 @@ This repository template is just a basic example of _how_ to do things with them
 ## Getting Started
 
 1. Install XCode Command Line Tools and/or full XCode.
+  * If using full XCode, you'll need to agree to the license by running: `xcodebuild -license`
 1. Create a new repository on GitHub as your user for your Boxen. (eg.
 `wfarr/my-boxen`). **Make sure it is a private repository!**
 1. Get running like so:
