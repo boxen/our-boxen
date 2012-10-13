@@ -64,18 +64,68 @@ You can always check out the number of existing modules we already
 provide as optional installs under the
 [boxen organization](https://github.com/boxen). These modules are all
 tested to be compatible with Boxen. Use the `Puppetfile` to pull them
-in dependencies automatically whenever `boxen` is run. You'll have to
-make sure your "node" (Puppet's term for your laptop, basically)
-includes or requires them. You can do this by either modifying
-`manifests/site.pp` for each module, _or_ we would generally recommend
-you create a module for your organization (eg. `modules/github`) and
-create an environment class in that. Then you need only adjust
-`manifests/site.pp` by doing `include github::environment` or
-what-have-you for your organization.
+in dependencies automatically whenever `boxen` is run. 
 
-For organization projects (read: repositories that people will be working in), please see the documentation in the projects module template we provide.
+### Node definitions
 
-For per-user configuration that doesn't need to be applied globally to everyone, please see the documentation in the people module template we provide.
+Puppet has the concept of a 
+['node'](http://docs.puppetlabs.com/references/glossary.html#agent), 
+which is essentially the machine on which Puppet is running. Puppet looks for 
+[node definitions](http://docs.puppetlabs.com/learning/agent_master_basic.html#node-definitions) 
+in the `manifests/site.pp` file in the Boxen repo. You'll see a default node 
+declaration that looks like the following:
+
+    node default {
+      # core modules, needed for most things
+      include dnsmasq
+      <...>
+    }
+
+### How Boxen interacts with Puppet
+
+Boxen runs everything declared in `manifests/site.pp` by default. 
+But just like any other source code, throwing all your work into one massive 
+file is going to be difficult to work with. Instead, we recommend you 
+use modules via the `Puppetfile` when you can and making new modules 
+in the `modules/` directory when you can't. Then you just need to 
+`include $modulename` those modules in `manifests/site.pp`. One pattern 
+that's very common is to create a module for your organization 
+(eg. `modules/github`) and put an environment class in that module 
+to include all of the modules your organization wants to install for 
+everyone by default. An example of this might look like so:
+
+```
+ class github::environment {
+   include github::apps::mac
+
+   include ruby::1-8-7
+
+   include projects::super-top-secret-project
+ }
+ ```
+
+ If you'd like to read more about how Puppet  works, we recommend 
+ checking out [the official documentation](http://docs.puppetlabs.com/) 
+ for:
+
+ * [Modules](http://docs.puppetlabs.com/learning/modules1.html#modules)
+ * [Classes](http://docs.puppetlabs.com/learning/modules1.html#classes)
+ * [Defined Types](http://docs.puppetlabs.com/learning/definedtypes.html)
+ * [Facts](http://docs.puppetlabs.com/guides/custom_facts.html)
+
+### Creating a personal module
+
+See [the documentation in the
+`modules/people`](https://github.com/boxen/our-boxen/blob/master/modules/people/README.md)
+directory for creating per-user modules that don't need to be applied
+globally to everyone.
+
+### Creating a project module
+
+See [the documentation in the
+`modules/projects`](https://github.com/boxen/our-boxen/blob/master/modules/projects/README.md)
+directory for creating organization projects (read: repositories that people
+will be working in).
 
 ## Binary packages
 
