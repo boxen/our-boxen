@@ -81,17 +81,37 @@ declaration that looks like the following:
       <...>
     }
 
-All Puppet 
-[class declarations](http://docs.puppetlabs.com/learning/modules1.html#classes) 
-should be included in the default node definition.  Theoretically, you _COULD_ 
-declare every 
-[Puppet resource](http://docs.puppetlabs.com/learning/ral.html) in the 
-`manifests/site.pp` file, but that would quickly become unwieldy. Instead, 
-it's easier to create 
-[Puppet modules](http://docs.puppetlabs.com/learning/modules1.html#modules) 
-inside the `modules` folder of the Boxen repo. Boxen is setup to discover any 
-modules you create in the `modules` folder, and we've already created a 
-`people` and `projects` module structure for you to start using.
+### How Boxen interacts with Puppet
+
+Boxen runs everything declared in `manifests/site.pp` by default. 
+But just like any other source code, throwing all your work into one massive 
+file is going to be difficult to work with. Instead, we recommend you 
+use modules via the `Puppetfile` when you can and making new modules 
+in the `modules/` directory when you can't. Then you just need to 
+`include $modulename` those modules in `manifests/site.pp`. One pattern 
+that's very common is to create a module for your organization 
+(eg. `modules/github`) and put an environment class in that module 
+to include all of the modules your organization wants to install for 
+everyone by default. An example of this might look like so:
+
+```
+ class github::environment {
+   include github::apps::mac
+
+   include ruby::1-8-7
+
+   include projects::super-top-secret-project
+ }
+ ```
+
+ If you'd like to read more about how Puppet  works, we recommend 
+ checking out [the official documentation](http://docs.puppetlabs.com/) 
+ for:
+
+ * [Modules](http://docs.puppetlabs.com/learning/modules1.html#modules)
+ * [Classes](http://docs.puppetlabs.com/learning/modules1.html#classes)
+ * [Defined Types](http://docs.puppetlabs.com/learning/definedtypes.html)
+ * [Facts](http://docs.puppetlabs.com/guides/custom_facts.html)
 
 ### Creating a personal module
 
