@@ -75,11 +75,14 @@ which is essentially the machine on which Puppet is running. Puppet looks for
 in the `manifests/site.pp` file in the Boxen repo. You'll see a default node 
 declaration that looks like the following:
 
-    node default {
-      # core modules, needed for most things
-      include dnsmasq
-      <...>
-    }
+``` puppet
+node default {
+  # core modules, needed for most things
+  include dnsmasq
+
+  # more...
+}
+```
 
 ### How Boxen interacts with Puppet
 
@@ -94,7 +97,9 @@ that's very common is to create a module for your organization
 to include all of the modules your organization wants to install for 
 everyone by default. An example of this might look like so:
 
-```
+``` puppet
+# modules/github/manifests/environment.pp
+
  class github::environment {
    include github::apps::mac
 
