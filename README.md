@@ -37,6 +37,24 @@ implications about your fork also potentially being public.
 That's obviously quite bad, so that's why we strongly suggest you
 create an entirely separate repo and simply pull the code in, as shown above.
 
+## Getting your users started _after_ your "fork" exists
+
+1. Install the XCode Command Line Tools (full XCode install optional).
+1. Run the following:
+
+```
+sudo mkdir -p /opt/boxen
+sudo chown $USER:admin /opt/boxen
+git clone https://github.com/yourorg/yourreponame.git /opt/boxen/repo
+cd /opt/boxen/repo
+script/boxen
+
+# add boxen to your shell config, at the end, eg.
+echo '[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh'
+```
+
+Open a new terminal, `boxen --env` to confirm.
+
 ## What You Get
 
 This template project provides the following by default:
