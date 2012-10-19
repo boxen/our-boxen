@@ -8,7 +8,7 @@ GEM
       json (~> 1.4)
       nokogiri (>= 1.4.4)
       uuidtools (~> 2.1)
-    boxen (0.4.0)
+    boxen (0.4.1)
       ansi (~> 1.4)
       hiera (~> 1.0.0)
       highline (~> 1.6)
@@ -29,7 +29,7 @@ GEM
       multi_xml
     json (1.7.5)
     json_pure (1.7.5)
-    librarian-puppet (0.9.6)
+    librarian-puppet (0.9.7)
       json_pure
       puppet
       thor (~> 0.15)

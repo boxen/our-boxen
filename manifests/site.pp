@@ -14,6 +14,11 @@ Exec {
     '/usr/sbin',
     '/sbin'
   ]
+
+  environment => [
+    "HOMEBREW_CACHE=${homebrew::cachedir}",
+    "HOME=/Users/${::luser}"
+  ]
 }
 
 File {
@@ -69,5 +74,10 @@ node default {
       'findutils',
       'gnu-tar'
     ]:
+  }
+
+  file { "${boxen::config::srcdir}/our-boxen":
+    ensure => link,
+    target => $boxen::config::repodir
   }
 }
