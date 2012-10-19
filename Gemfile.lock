@@ -43,7 +43,7 @@ GEM
       faraday_middleware (~> 0.8)
       hashie (~> 1.2)
       multi_json (~> 1.3)
-    puppet (3.0.0)
+    puppet (3.0.1)
       facter (>= 1.6.11)
       hiera (>= 1.0.0rc)
     thor (0.16.0)
