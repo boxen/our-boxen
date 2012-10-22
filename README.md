@@ -19,7 +19,7 @@ This repository template is just a basic example of _how_ to do things with them
   git init
   git remote add upstream https://github.com/boxen/our-boxen
   git fetch upstream
-  git co -b master upstream/master
+  git checkout -b master upstream/master
   git remote add origin https://github.com/wfarr/my-boxen
   git push origin master
   
