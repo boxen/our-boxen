@@ -46,12 +46,12 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-rbenv
   specs:
-    rbenv (0.0.2)
+    rbenv (0.0.3)
 
 GITHUBTARBALL
   remote: boxen/puppet-ruby
   specs:
-    ruby (0.1.0)
+    ruby (0.2.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-sudo
@@ -73,8 +73,8 @@ DEPENDENCIES
   nginx (= 0.0.2)
   nodejs (= 0.0.2)
   nvm (= 0.0.5)
-  rbenv (= 0.0.2)
-  ruby (= 0.1.0)
+  rbenv (= 0.0.3)
+  ruby (= 0.2.0)
   stdlib (= 3.0.0)
   sudo (= 0.0.1)
 
