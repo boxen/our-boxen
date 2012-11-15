@@ -13,7 +13,7 @@ Exec {
     '/bin',
     '/usr/sbin',
     '/sbin'
-  ]
+  ],
 
   environment => [
     "HOMEBREW_CACHE=${homebrew::cachedir}",
