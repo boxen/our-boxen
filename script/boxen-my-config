@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+# Show the path to your manifest in Boxen, creating if necessary.
+
+user = ENV["GH_LOGIN"]
+
+unless user
+  abort "GH_LOGIN is not defined. Please re-run Boxen."
+end
+
+editor = ENV["VISUAL"] || ENV["EDITOR"]
+home   = ENV["BOXEN_HOME"] + "/repo"
+user   = user.downcase
+path   = "#{home}/modules/people/manifests/#{user}.pp"
+
+unless File.exist? path
+  File.open path, "wb" do |f|
+    f.puts "class people::#{user} {"
+    f.puts "}"
+  end
+end
+
+exec(editor, path) if editor && system("tty -s")
+
+puts path

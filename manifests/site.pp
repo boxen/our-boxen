@@ -50,7 +50,7 @@ node default {
   include hub
   include nginx
   include nvm
-  include rbenv
+  include ruby
 
   # fail if FDE is not enabled
   if $::root_encrypted == false {

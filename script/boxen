@@ -32,6 +32,9 @@ unless ENV["BOXEN_NO_PULL"] || ARGV.include?("--no-pull")
     master = `git symbolic-ref HEAD`.chomp == "refs/heads/master"
     no_new_commits = system('git diff --exit-code --quiet origin/master master')
 
+    warn "Cannot auto-update due to unclean tree!" unless clean
+    warn "Cannot auto-update due to unpushed commits on master!" unless no_new_commits
+
     if clean && master && no_new_commits
       quietly = "> /dev/null 2>&1"
       fetch   = "(git fetch origin #{quietly})"
