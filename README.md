@@ -108,11 +108,11 @@ node default {
 Boxen runs everything declared in `manifests/site.pp` by default. 
 But just like any other source code, throwing all your work into one massive 
 file is going to be difficult to work with. Instead, we recommend you 
-use modules via the `Puppetfile` when you can and making new modules 
-in the `modules/` directory when you can't. Then you just need to 
-`include $modulename` those modules in `manifests/site.pp`. One pattern 
-that's very common is to create a module for your organization 
-(eg. `modules/github`) and put an environment class in that module 
+use modules in the `Puppetfile` when you can and make new modules 
+in the `modules/` directory when you can't. Then add `include $modulename` 
+for each new module in `manifests/site.pp` to include them. 
+One pattern that's very common is to create a module for your organization 
+(e.g., `modules/github`) and put an environment class in that module 
 to include all of the modules your organization wants to install for 
 everyone by default. An example of this might look like so:
 
@@ -128,7 +128,7 @@ everyone by default. An example of this might look like so:
  }
  ```
 
- If you'd like to read more about how Puppet  works, we recommend 
+ If you'd like to read more about how Puppet works, we recommend 
  checking out [the official documentation](http://docs.puppetlabs.com/) 
  for:
 
@@ -139,7 +139,7 @@ everyone by default. An example of this might look like so:
 
 ### Creating a personal module
 
-See [the documentation in the
+See [the documentation in the 
 `modules/people`](https://github.com/boxen/our-boxen/blob/master/modules/people/README.md)
 directory for creating per-user modules that don't need to be applied
 globally to everyone.
@@ -148,7 +148,7 @@ globally to everyone.
 
 See [the documentation in the
 `modules/projects`](https://github.com/boxen/our-boxen/blob/master/modules/projects/README.md)
-directory for creating organization projects (read: repositories that people
+directory for creating organization projects (i.e., repositories that people
 will be working in).
 
 ## Binary packages
