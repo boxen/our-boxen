@@ -1,27 +1,36 @@
-# This file manages Puppet module dependencies.
-#
 # It works a lot like Bundler. We provide some core modules by
 # default. This ensures at least the ability to construct a basic
 # environment.
 
+def github(name, version, options = nil)
+  options ||= {}
+  options[:repo] ||= "boxen/puppet-#{name}"
+  mod name, version, :github_tarball => options[:repo]
+end
+
+# Core modules for a basic development environment. You can replace
+# some/most of those if you want, but it's not recommended.
+
 # Includes many of our custom types and providers, as well as global
 # config. Required.
 
-# Core modules for a basic development environment.
-# You can replace some/most of those if you want, but it's not recommended.
+github "boxen", "0.2.3"
 
-mod "boxen",    "0.1.8",  :github_tarball => "boxen/puppet-boxen"
-mod "dnsmasq",  "0.0.1",  :github_tarball => "boxen/puppet-dnsmasq"
-mod "git",      "0.0.3",  :github_tarball => "boxen/puppet-git"
-mod "hub",      "0.0.1",  :github_tarball => "boxen/puppet-hub"
-mod "homebrew", "0.0.17", :github_tarball => "boxen/puppet-homebrew"
-mod "inifile",  "0.0.1",  :github_tarball => "boxen/puppet-inifile"
-mod "nginx",    "0.0.2",  :github_tarball => "boxen/puppet-nginx"
-mod "nodejs",   "0.0.2",  :github_tarball => "boxen/puppet-nodejs"
-mod "nvm",      "0.0.5",  :github_tarball => "boxen/puppet-nvm"
-mod "ruby",     "0.4.0",  :github_tarball => "boxen/puppet-ruby"
-mod "stdlib",   "3.0.0",  :github_tarball => "puppetlabs/puppetlabs-stdlib"
-mod "sudo",     "0.0.1",  :github_tarball => "boxen/puppet-sudo"
+# Core modules for a basic development environment. You can replace
+# some/most of these if you want, but it's not recommended.
 
-# Add your custom modules here.
-# There are tons available at https://github.com/boxen.
+github "dnsmasq",  "0.2.1"
+github "gcc",      "0.0.2"
+github "git",      "0.1.0"
+github "homebrew", "0.3.2"
+github "hub",      "0.0.1"
+github "inifile",  "0.9.0", :repo => "cprice-puppet/puppetlabs-inifile"
+github "nginx",    "0.2.1"
+github "nodejs",   "0.0.2"
+github "nvm",      "0.0.5"
+github "ruby",     "0.4.2"
+github "stdlib",   "3.0.0", :repo => "puppetlabs/puppetlabs-stdlib"
+github "sudo",     "0.0.1"
+
+# Optional/custom modules. There are tons available at
+# https://github.com/boxen.
