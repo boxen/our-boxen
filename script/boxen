@@ -29,11 +29,19 @@ Dir.chdir Pathname.new(__FILE__).realpath + "../.."
 unless ENV["BOXEN_NO_PULL"] || ARGV.include?("--no-pull")
   if system("which git > /dev/null") && File.directory?(".git")
     clean  = `git status --porcelain`.empty?
-    master = `git symbolic-ref HEAD`.chomp == "refs/heads/master"
+    current_branch = `git symbolic-ref HEAD`.chomp
+    master = current_branch == "refs/heads/master"
     no_new_commits = system('git diff --exit-code --quiet origin/master master')
 
-    warn "Cannot auto-update due to unclean tree!" unless clean
-    warn "Cannot auto-update due to unpushed commits on master!" unless no_new_commits
+    short_branch = current_branch.split('/').last
+
+    if !master
+      warn "Boxen on a non-master branch '#{short_branch}', won't auto-update!"
+    elsif !no_new_commits
+      warn "Boxen has unpushed commits on master, won't auto-update!"
+    elsif !clean
+      warn "Boxen has a dirty tree, won't auto-update!"
+    end
 
     if clean && master && no_new_commits
       quietly = "> /dev/null 2>&1"
@@ -42,7 +50,7 @@ unless ENV["BOXEN_NO_PULL"] || ARGV.include?("--no-pull")
       reclean = "(git clean -df #{quietly})"
 
       unless system "#{fetch} && #{reset} && #{reclean}"
-        warn "Couldn't auto-update, continuing."
+        warn "Auto-update of Boxen FAILED, continuing."
       end
     end
   end
@@ -56,7 +64,6 @@ abort "Can't bootstrap, dependencies are outdated." unless system *strap
 # Set up our local configuration, deps, and load path.
 
 load "config/basic.rb"
-
 require "boxen/cli"
 
 # Okay, let's run this thing.
