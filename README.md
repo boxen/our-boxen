@@ -140,14 +140,14 @@ everyone by default. An example of this might look like so:
 ### Creating a personal module
 
 See [the documentation in the 
-`modules/people`](https://github.com/boxen/our-boxen/blob/master/modules/people/README.md)
+`modules/people`](modules/people/README.md)
 directory for creating per-user modules that don't need to be applied
 globally to everyone.
 
 ### Creating a project module
 
 See [the documentation in the
-`modules/projects`](https://github.com/boxen/our-boxen/blob/master/modules/projects/README.md)
+`modules/projects`](modules/projects/README.md)
 directory for creating organization projects (i.e., repositories that people
 will be working in).
 
