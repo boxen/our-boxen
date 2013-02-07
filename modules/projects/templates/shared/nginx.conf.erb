@@ -1,0 +1,38 @@
+upstream <%= name %>.dev {
+ server unix:<%= scope.lookupvar "boxen::config::socketdir" %>/<%= name %>;
+}
+
+server {
+  access_log <%= scope.lookupvar "nginx::config::logdir" %>/<%= name %>.access.log main;
+  listen 80;
+  root <%= scope.lookupvar "boxen::config::srcdir" %>/<%= name %>/public;
+  server_name <%= name %>.dev;
+
+  client_max_body_size 50M;
+
+  error_page 500 502 503 504 /50x.html;
+
+  if ($host ~* "www") {
+    rewrite ^(.*)$ http://<%= name %>.dev$1 permanent;
+    break;
+  }
+
+  location = /50x.html {
+    root html;
+  }
+
+  location / {
+    if (-f $request_filename/index.html) {
+      rewrite (.*) $1/index.html break;
+    }
+
+    if (-f $request_filename.html) {
+      rewrite (.*) $1.html break;
+    }
+
+    if (!-f $request_filename) {
+      proxy_pass http://<%= name %>.dev;
+      break;
+    }
+  }
+}
