@@ -26,4 +26,10 @@ in your personal manifest.
 **You should always keep your manifest committed and pushed to your repository**.
 Otherwise, auto-updates won't work!
 
+The whole point of these personal manifest are they are _your_ manifest.
+You shouldn't worry if the things in here are work-related or not.
+This is about full automation.
+Want to install Minecraft and Rdio by default?
+Do it in your personal manifest.
+
 You can check out the [projects README](../modules/projects/README.md) for further examples.
