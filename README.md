@@ -8,8 +8,8 @@ This repository template is just a basic example of _how_ to do things with them
 
 ## Getting Started
 
-1. Install XCode Command Line Tools and/or full XCode.
-  * If using full XCode, you'll need to agree to the license by running: `xcodebuild -license`
+1. Install Xcode Command Line Tools and/or full Xcode.
+  * If using full Xcode, you'll need to agree to the license by running: `xcodebuild -license`
 1. Create a new repository on GitHub as your user for your Boxen. (eg.
 `wfarr/my-boxen`). **Make sure it is a private repository!**
 1. Use your install of [boxen-web](https://github.com/boxen/boxen-web) or get running manually like so:
@@ -40,7 +40,7 @@ create an entirely separate repo and simply pull the code in, as shown above.
 
 ## Getting your users started _after_ your "fork" exists
 
-1. Install the XCode Command Line Tools (full XCode install optional).
+1. Install the Xcode Command Line Tools (full Xcode install optional).
 1. Point them at your private install of [boxen-web](https://github.com/boxen/boxen-web), **OR** have them run the following:
 
 ```
