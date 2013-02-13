@@ -46,7 +46,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-ruby
   specs:
-    ruby (0.5.1)
+    ruby (0.7.1)
 
 GITHUBTARBALL
   remote: boxen/puppet-sudo
@@ -74,7 +74,7 @@ DEPENDENCIES
   nginx (= 0.2.1)
   nodejs (= 0.0.2)
   nvm (= 0.0.5)
-  ruby (= 0.5.1)
+  ruby (= 0.7.1)
   stdlib (= 3.0.0)
   sudo (= 0.0.1)
 

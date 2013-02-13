@@ -13,10 +13,7 @@ set -e
 rm -rf .bundle/config
 rm -rf .librarian/puppet/config
 
-# Export CC to explicitly set the compiler used for cexts.
-
-export CC=gcc
-
 # Bundle install unless we're already up to date.
 
+export PATH=$(pwd)/vendor/shims:$PATH
 bundle install --binstubs bin --path .bundle --quiet "$@"

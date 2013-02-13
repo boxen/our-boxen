@@ -1,5 +1,6 @@
 require boxen::environment
-require homebrew::repo
+require homebrew
+require gcc
 
 Exec {
   group       => 'staff',
@@ -8,6 +9,8 @@ Exec {
 
   path => [
     "${boxen::config::home}/rbenv/shims",
+    "${boxen::config::hime}/rbenv/bin",
+    "${boxen::config::hime}/rbenv/plugins/ruby-build/bin",
     "${boxen::config::home}/homebrew/bin",
     '/usr/bin',
     '/bin',
@@ -16,7 +19,7 @@ Exec {
   ],
 
   environment => [
-    "HOMEBREW_CACHE=${homebrew::cachedir}",
+    "HOMEBREW_CACHE=${homebrew::config::cachedir}",
     "HOME=/Users/${::luser}"
   ]
 }
@@ -42,6 +45,8 @@ Repository {
 Service {
   provider => ghlaunchd
 }
+
+Homebrew::Formula <| |> -> Package <| |>
 
 node default {
   # core modules, needed for most things

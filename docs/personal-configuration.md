@@ -7,9 +7,12 @@ per-user configurations.
 
 How? The personal manifest.
 
+## What even is a personal manifest?
+
 Personal manifests live in `modules/people/manifests/<name>.pp`,
 where `<name>` is your GitHub username.
-A basic personal manifest might look like so:
+
+The simplest personal manifest looks like this:
 
 ``` puppet
 class people::wfarr {
@@ -17,19 +20,46 @@ class people::wfarr {
 }
 ```
 
-Now, each time `wfarr` runs Boxen it'll automatically print out "hello world"
-somewhere during the run.
-You can even run `boxen-my-config` to generate a default template for you
-and open it up in your editor.
-When you're done, you can simply run `boxen` and it'll include your changes
-in your personal manifest.
-**You should always keep your manifest committed and pushed to your repository**.
-Otherwise, auto-updates won't work!
+Ah, the good old "Hello World".
+It's boring, but you can see there's really not much boilerplate involved.
+Let's try something *real* this time:
 
-The whole point of these personal manifest are they are _your_ manifest.
-You shouldn't worry if the things in here are work-related or not.
-This is about full automation.
-Want to install Minecraft and Rdio by default?
-Do it in your personal manifest.
+``` puppet
+class people::wfarr {
+  include boxen::development
+}
+```
 
-You can check out the [projects README](../modules/projects/README.md) for further examples.
+So what does this do?
+It clones every repo in the Boxen org to `~/src/boxen/<repo>`.
+How?
+Well, we can refer to [the source code](https://github.com/boxen/puppet-boxen/blob/master/manifests/development.pp)!
+If you're new to Puppet, or are unsure of what that class is doing, check out
+the [intro to puppet](./puppet.md) we've put together.
+
+## Running different code on multiple machines
+
+Puppet has conditionals and switching.
+Typically, the most reliable way to ensure some code runs on one machine but not
+others is to use the `case` statement on the `hostname` fact.
+Example:
+
+``` puppet
+case $::hostname {
+  'scruffy': {
+    notify { "I'm Scruffy. The Janitor.": }
+  }
+
+  'bender': {
+    notify { "My full name is Bender Bending Rodriguez": }
+  }
+
+  default: {
+    notify { "Wha?": }
+  }
+}
+```
+
+One thing to note here is that Puppet always **requires** a default path
+on a case statement.
+Default is equivalent to "anything that isn't matched above".

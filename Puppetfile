@@ -1,3 +1,5 @@
+# This file manages Puppet module dependencies.
+#
 # It works a lot like Bundler. We provide some core modules by
 # default. This ensures at least the ability to construct a basic
 # environment.
@@ -28,7 +30,7 @@ github "inifile",  "0.9.0", :repo => "cprice-puppet/puppetlabs-inifile"
 github "nginx",    "0.2.1"
 github "nodejs",   "0.0.2"
 github "nvm",      "0.0.5"
-github "ruby",     "0.5.1"
+github "ruby",     "0.7.1"
 github "stdlib",   "3.0.0", :repo => "puppetlabs/puppetlabs-stdlib"
 github "sudo",     "0.0.1"
 

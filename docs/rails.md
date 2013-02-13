@@ -18,11 +18,11 @@ class projects::rails_app {
   include phantomjs
 
   boxen::project { 'rails_app':
-    source => 'mycompany/rails_app',
     ruby   => '1.9.3',
     mysql  => true,
     redis  => true,
     nginx  => true,
+    source => 'username/rails_app'
   }
 }
 ```

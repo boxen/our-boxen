@@ -1,5 +1,5 @@
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     addressable (2.3.2)
     ansi (1.4.3)
@@ -7,7 +7,7 @@ GEM
       json (~> 1.4)
       nokogiri (>= 1.4.4)
       uuidtools (~> 2.1)
-    boxen (0.7.1)
+    boxen (0.7.3)
       ansi (~> 1.4)
       hiera (~> 1.0.0)
       highline (~> 1.6)
@@ -15,6 +15,7 @@ GEM
       librarian-puppet (~> 0.9)
       octokit (~> 1.15)
       puppet (~> 3.0)
+    builder (3.1.4)
     facter (1.6.17)
     faraday (0.8.5)
       multipart-post (~> 1.1)
@@ -24,16 +25,17 @@ GEM
     hiera (1.0.0)
     highline (1.6.15)
     json (1.7.6)
-    json_pure (1.7.6)
+    json_pure (1.7.7)
     librarian-puppet (0.9.7)
       json
       puppet
       thor (~> 0.15)
-    multi_json (1.5.0)
+    multi_json (1.6.0)
     multipart-post (1.1.5)
+    net-ssh (2.6.5)
     netrc (0.7.7)
     nokogiri (1.5.6)
-    octokit (1.22.0)
+    octokit (1.23.0)
       addressable (~> 2.2)
       faraday (~> 0.8)
       faraday_middleware (~> 0.9)
@@ -43,7 +45,12 @@ GEM
     puppet (3.1.0)
       facter (~> 1.6)
       hiera (~> 1.0)
+    rbvmomi (1.6.0)
+      builder
+      nokogiri (>= 1.4.1)
+      trollop
     thor (0.17.0)
+    trollop (2.0)
     uuidtools (2.1.3)
 
 PLATFORMS
@@ -51,4 +58,6 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk
-  boxen (~> 0.7)
+  boxen (= 0.7.3)
+  net-ssh
+  rbvmomi
