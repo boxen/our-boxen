@@ -1,9 +1,10 @@
 /.bundle
 /.librarian
+/.ruby-version
 /.tmp
 /bin
 /config/local.rb
 /log
-/tmp
 /shared/*
 !/shared/README.md
+/tmp
