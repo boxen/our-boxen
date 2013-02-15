@@ -1,7 +1,7 @@
 GITHUBTARBALL
   remote: boxen/puppet-boxen
   specs:
-    boxen (1.0.0)
+    boxen (1.0.2)
 
 GITHUBTARBALL
   remote: boxen/puppet-dnsmasq
@@ -64,7 +64,7 @@ GITHUBTARBALL
     stdlib (3.0.0)
 
 DEPENDENCIES
-  boxen (= 1.0.0)
+  boxen (= 1.0.2)
   dnsmasq (= 1.0.0)
   gcc (= 1.0.0)
   git (= 1.0.0)
