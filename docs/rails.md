@@ -135,12 +135,12 @@ end
 
 development:
   host: 127.0.0.1
-  port: <%= ENV['GH_MONGODB_PORT'] || 27017 %>
+  port: <%= ENV['BOXEN_MONGODB_PORT'] || 27017 %>
   database: rails_app_development
 
 test:
   host: 127.0.0.1
-  port: <%= ENV['GH_MONGODB_PORT'] || 27017 %>
+  port: <%= ENV['BOXEN_MONGODB_PORT'] || 27017 %>
   database: rails_app_test
 ```
 
