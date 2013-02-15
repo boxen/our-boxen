@@ -1,10 +1,12 @@
 /.bundle
 /.librarian
 /.ruby-version
+/.snapshot
 /.tmp
 /bin
 /config/local.rb
 /log
+/tmp
 /shared/*
 !/shared/README.md
-/tmp
+/vendor/gems/

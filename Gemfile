@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
-gem "boxen", "0.7.3"
+gem "boxen", "~> 1.0"
+gem "open4", "~> 1.3"
 
 group :development do
   gem "aws-sdk"
