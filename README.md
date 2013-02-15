@@ -14,6 +14,8 @@ This repository template is just a basic example of _how_ to do things with them
 `wfarr/my-boxen`). **Make sure it is a private repository!**
 1. Use your install of [boxen-web](https://github.com/boxen/boxen-web) or get running manually like so:
   ```
+  sudo mkdir -p /opt/boxen
+  sudo chown $USER:admin /opt/boxen
   mkdir -p ~/src/my-boxen
   cd ~/src/my-boxen
   git init
@@ -25,6 +27,7 @@ This repository template is just a basic example of _how_ to do things with them
   
   script/boxen
   ```
+  
 1. Close and reopen your Terminal. If you have a shell config file
 (eg. `~/.bashrc`) you'll need to add this at the very end:
 `[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh`, and reload
