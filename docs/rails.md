@@ -38,7 +38,7 @@ This does a few things for you:
 * Ensures nginx is installed and running
 * Copies the [template nginx config](../modules/projects/templates/shared/nginx.conf.erb) into the nginx config dir
 
-It won't necessarily do all of them in that order, but it will gaurantee
+It won't necessarily do all of them in that order, but it will guarantee
 that if they run successfully they're all done in a correct order.
 
 See the section below for some handy configuration tips on how to configure
