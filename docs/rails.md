@@ -29,7 +29,7 @@ class projects::rails_app {
 
 This does a few things for you:
 
-* Clones `https://github.com/mycompany/rails_app.git` to `~/src/rails_app`
+* Clones `https://github.com/username/rails_app.git` to `~/src/rails_app`
 * Ensures the default 1.9.3 version of Ruby is installed
 * Creates `~/src/rails_app/.ruby-version` with `1.9.3` in it
 * Ensures mysql is installed and running
