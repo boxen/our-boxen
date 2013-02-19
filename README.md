@@ -8,7 +8,8 @@ This repository template is just a basic example of _how_ to do things with them
 
 ## Getting Started
 
-1. Install Xcode Command Line Tools and/or full Xcode. (**NOTE**: You will need the full XCode for certain modules such as MacVim. Review the requirements for modules you intend to use.)
+1. Install Xcode Command Line Tools and/or full Xcode. (**NOTE**: You will need the full XCode
+for certain modules such as MacVim. Review the requirements for modules you intend to use.)
   * If using full Xcode, you'll need to agree to the license by running: `xcodebuild -license`
 1. Create a new repository on GitHub as your user for your Boxen. (eg.
 `wfarr/my-boxen`). **Make sure it is a private repository!**
