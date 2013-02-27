@@ -33,6 +33,8 @@ This repository template is just a basic example of _how_ to do things with them
 `[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh`, and reload
 your shell.
 1. Confirm the Boxen env has loaded: `boxen --env`
+1. If you manually bootstrapped boxen as above, you should now
+delete `~/src/my-boxen`. Development should occur `in /opt/boxen/repo`.
 
 Now you have your own my-boxen repo that you can hack on.
 You may have noticed we didn't ask you to fork the repo.
