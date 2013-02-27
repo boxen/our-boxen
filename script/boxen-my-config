@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
 # Show the path to your manifest in Boxen, creating if necessary.
 
-user = ENV["GH_LOGIN"]
+user = ENV["BOXEN_GITHUB_LOGIN"]
 
 unless user
-  abort "GH_LOGIN is not defined. Please re-run Boxen."
+  abort "BOXEN_GITHUB_LOGIN is not defined. Please re-run Boxen."
 end
 
 editor = ENV["VISUAL"] || ENV["EDITOR"]
