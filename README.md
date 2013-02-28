@@ -15,7 +15,7 @@ This repository template is just a basic example of _how_ to do things with them
 1. Use your install of [boxen-web](https://github.com/boxen/boxen-web) or get running manually like so:
   ```
   sudo mkdir -p /opt/boxen
-  sudo chown $USER:admin /opt/boxen
+  sudo chown ${USER}:admin /opt/boxen
   mkdir -p ~/src/my-boxen
   cd ~/src/my-boxen
   git init
@@ -48,7 +48,7 @@ create an entirely separate repo and simply pull the code in, as shown above.
 
 ```
 sudo mkdir -p /opt/boxen
-sudo chown $USER:admin /opt/boxen
+sudo chown ${USER}:admin /opt/boxen
 git clone https://github.com/yourorg/yourreponame.git /opt/boxen/repo
 cd /opt/boxen/repo
 script/boxen
