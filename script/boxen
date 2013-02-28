@@ -27,29 +27,35 @@ Dir.chdir Pathname.new(__FILE__).realpath + "../.."
 # to boxen support code or dependencies can be grabbed.
 
 unless ENV["BOXEN_NO_PULL"] || ARGV.include?("--no-pull")
-  if system("which git > /dev/null") && File.directory?(".git")
+  quietly = "> /dev/null 2>&1"
+
+  if system("which git > /dev/null") && File.directory?(".git") \
+    && fetch = system("git fetch -q origin")
+
     clean  = `git status --porcelain`.empty?
     current_branch = `git symbolic-ref HEAD`.chomp
     master = current_branch == "refs/heads/master"
-    no_new_commits = system('git diff --exit-code --quiet origin/master master')
 
-    short_branch = current_branch.split('/').last
+    upstream_changes = `git rev-list --count master..origin/master`.chomp != '0'
+    fast_forwardable = `git rev-list --count origin/master..master`.chomp == '0'
+
+    short_branch = current_branch.split('/')[2..-1].join('/')
 
     if !master
       warn "Boxen on a non-master branch '#{short_branch}', won't auto-update!"
-    elsif !no_new_commits
-      warn "Boxen has unpushed commits on master, won't auto-update!"
+    elsif !fast_forwardable
+      warn "Boxen's master branch is out of sync, won't auto-update!"
     elsif !clean
       warn "Boxen has a dirty tree, won't auto-update!"
+    elsif !upstream_changes
+      warn "Boxen is up-to-date."
     end
 
-    if clean && master && no_new_commits
-      quietly = "> /dev/null 2>&1"
-      fetch   = "(git fetch origin #{quietly})"
+    if clean && master && fast_forwardable && upstream_changes
       reset   = "(git reset --hard origin/master #{quietly})"
-      reclean = "(git clean -df #{quietly})"
+      reclean = "(git clean -qdf)"
 
-      unless system "#{fetch} && #{reset} && #{reclean}"
+      unless system "#{reset} && #{reclean}"
         warn "Auto-update of Boxen FAILED, continuing."
       end
     end
