@@ -19,6 +19,6 @@ unless File.exist? path
   end
 end
 
-exec(editor, path) if editor && system("test -t 1")
+exec([editor, path].join(' ')) if editor && system("test -t 1")
 
 puts path
