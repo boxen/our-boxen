@@ -54,7 +54,8 @@ end
 
 if all || receipts
   warn "-> Removing /var/db/.puppet_*."
-  system "rm", "-rf", "/var/db/.puppet_*" if force
+  # can't use a bare system call here, because we need globbing.
+  system 'sh -c "rm -rf /var/db/.puppet_*"' if force
 end
 
 if all || gitconfig
