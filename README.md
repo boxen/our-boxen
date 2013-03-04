@@ -30,7 +30,7 @@ This repository template is just a basic example of _how_ to do things with them
   
 1. Close and reopen your Terminal. If you have a shell config file
 (eg. `~/.bashrc`) you'll need to add this at the very end:
-`[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh`, and reload
+`echo [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh`, and reload
 your shell.
 1. Confirm the Boxen env has loaded: `boxen --env`
 
