@@ -39,9 +39,12 @@ unless ENV["BOXEN_NO_PULL"] || ARGV.include?("--no-pull")
     upstream_changes = `git rev-list --count master..origin/master`.chomp != '0'
     fast_forwardable = `git rev-list --count origin/master..master`.chomp == '0'
 
-    short_branch = current_branch.split('/')[2..-1].join('/')
-
     if !master
+      short_branch = if current_branch.empty?
+        `git log -1 --pretty=format:%h`
+      else
+        current_branch.split('/')[2..-1].join('/')
+      end
       warn "Boxen on a non-master branch '#{short_branch}', won't auto-update!"
     elsif !fast_forwardable
       warn "Boxen's master branch is out of sync, won't auto-update!"
