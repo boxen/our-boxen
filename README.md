@@ -8,56 +8,94 @@ This repository template is just a basic example of _how_ to do things with them
 
 ## Getting Started
 
-1. Install Xcode Command Line Tools and/or full Xcode.
-  * If using full Xcode, you'll need to agree to the license by running: `xcodebuild -license`
-1. Create a new repository on GitHub as your user for your Boxen. (eg.
-`wfarr/my-boxen`). **Make sure it is a private repository!**
-1. Use your install of [boxen-web](https://github.com/boxen/boxen-web) or get running manually like so:
-  ```
-  sudo mkdir -p /opt/boxen
-  sudo chown ${USER}:admin /opt/boxen
-  mkdir -p ~/src/my-boxen
-  cd ~/src/my-boxen
-  git init
-  git remote add upstream https://github.com/boxen/our-boxen
-  git fetch upstream
-  git checkout -b master upstream/master
-  git remote add origin https://github.com/wfarr/my-boxen
-  git push origin master
-  
-  script/boxen
-  ```
-  
-1. Close and reopen your Terminal. If you have a shell config file
-(eg. `~/.bashrc`) you'll need to add this at the very end:
-`[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh`, and reload
-your shell.
-1. Confirm the Boxen env has loaded: `boxen --env`
+To give you a brief overview, we're going to:
 
-Now you have your own my-boxen repo that you can hack on.
-You may have noticed we didn't ask you to fork the repo.
-This is because when our-boxen goes open source that'd have some
-implications about your fork also potentially being public.
-That's obviously quite bad, so that's why we strongly suggest you
-create an entirely separate repo and simply pull the code in, as shown above.
+* Install dependencies (basically XCode)
+* Bootstrap a boxen for your self/team/org/company
+* Then convert your local copy of that boxen to the post-bootstrapped version
 
-## Getting your users started _after_ your "fork" exists
+There are a few potential conflicts to keep in mind.
+Boxen does its best not to get in the way of a dirty system,
+but you should check into the following before attempting to install your
+boxen on any machine (we do some checks before every Boxen run to try
+and detect most of these and tell you anyway):
 
-1. Install the Xcode Command Line Tools (full Xcode install optional).
-1. Point them at your private install of [boxen-web](https://github.com/boxen/boxen-web), **OR** have them run the following:
+* Boxen __requires__ at least the XCode Command Line Tools installed.
+* Boxen __will not__ work with an existing rvm install.
+* Boxen __may not__ play nice with an existing rbenv install.
+* Boxen __may not__ play nice with an existing chruby install.
+* Boxen __may not__ play nice with an existing homebrew install.
+* Boxen __may not__ play nice with an existing nvm install.
+* Boxen __recommends__ installing the full XCode.
+
+### Dependencies
+
+**Install the XCode Command Lines Tools and/or full XCode.**
+This will grant you the most predictable behavior in building apps like
+MacVim.
+
+How do you do it?
+
+1. Install XCode from the Mac App Store.
+1. Open XCode.
+1. Open the Preferences window (`Cmd-,`).
+1. Go to the Downloads tab.
+1. Install the Command Line Tools.
+
+### Bootstrapping
+
+Create a **new** git repository somewhere.
+It can be private or public -- it really doesn't matter.
+If you're making a repository on GitHub, you _may not_ want to fork this repo
+to get started.
+The reason for that is that you can't really make private forks of public
+repositories easily.
+
+Once you've done that, you can run the following to get bootstrap
+your boxen:
 
 ```
 sudo mkdir -p /opt/boxen
 sudo chown ${USER}:admin /opt/boxen
-git clone https://github.com/yourorg/yourreponame.git /opt/boxen/repo
+git clone https://github.com/boxen/our-boxen /opt/boxen/repo
 cd /opt/boxen/repo
-script/boxen
-
-# add boxen to your shell config, at the end, eg.
-echo '[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh'
+git remote rm origin
+git remote add origin <the location of my new git repository>
+git push -u origin master
 ```
 
-Open a new terminal, `boxen --env` to confirm.
+### Distributing
+
+That's enough to get your boxen into a usable state on other machines,
+usually.
+From there, we recommend setting up
+[boxen-web](https://github.com/boxen/boxen-web)
+as an easy way to automate letting other folks install your boxen.
+
+If you _don't_ want to use boxen-web, folks can get using your boxen like so:
+
+```
+sudo mkdir -p /opt/boxen
+sudo chown ${USER}:admin /opt/boxen
+git clone <location of my new git repository> /opt/boxen/repo
+cd /opt/boxen/repo
+script/boxen
+```
+
+It should run successfully, and should tell you to source a shell script
+in your environment.
+For users without a bash or zsh config or a `~/.profile` file,
+Boxen will create a shim for you that will work correctly.
+If you do have a `~/.bashrc` or `~/.zshrc`, your shell will not use
+`~/.profile` so you'll need to add a line like so at _the end of your config_:
+
+``` sh
+[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+```
+
+Once your shell is ready, open a new tab/window in your Terminal
+and you should be able to successfully run `boxen --env`.
+If that runs cleanly, you're in good shape.
 
 ## What You Get
 
@@ -86,7 +124,7 @@ You can always check out the number of existing modules we already
 provide as optional installs under the
 [boxen organization](https://github.com/boxen). These modules are all
 tested to be compatible with Boxen. Use the `Puppetfile` to pull them
-in dependencies automatically whenever `boxen` is run. 
+in dependencies automatically whenever `boxen` is run.
 
 ### Including boxen modules from github (boxen/puppet-<name>)
 
@@ -108,15 +146,15 @@ boxen repo (ex. /path/to/your-boxen/Puppetfile):
     github "ruby",     "1.0.0"
     github "stdlib",   "3.0.0", :repo => "puppetlabs/puppetlabs-stdlib"
     github "sudo",     "1.0.0"
-    
+
     # Optional/custom modules. There are tons available at
     # https://github.com/boxen.
-    
+
     github "java",     "1.0.5"
-    
-In the above snippet of a customized Puppetfile, the bottom line 
-includes the Java module from Github using the tag "1.0.5" from the github repository 
-"boxen/puppet-java".  The function "github" is defined at the top of the Puppetfile 
+
+In the above snippet of a customized Puppetfile, the bottom line
+includes the Java module from Github using the tag "1.0.5" from the github repository
+"boxen/puppet-java".  The function "github" is defined at the top of the Puppetfile
 and takes the name of the module, the version, and optional repo location:
 
     def github(name, version, options = nil)
@@ -133,11 +171,11 @@ Now Puppet knows where to download the module from when you include it in your s
 
 ### Node definitions
 
-Puppet has the concept of a 
-['node'](http://docs.puppetlabs.com/references/glossary.html#agent), 
-which is essentially the machine on which Puppet is running. Puppet looks for 
-[node definitions](http://docs.puppetlabs.com/learning/agent_master_basic.html#node-definitions) 
-in the `manifests/site.pp` file in the Boxen repo. You'll see a default node 
+Puppet has the concept of a
+['node'](http://docs.puppetlabs.com/references/glossary.html#agent),
+which is essentially the machine on which Puppet is running. Puppet looks for
+[node definitions](http://docs.puppetlabs.com/learning/agent_master_basic.html#node-definitions)
+in the `manifests/site.pp` file in the Boxen repo. You'll see a default node
 declaration that looks like the following:
 
 ``` puppet
@@ -151,15 +189,15 @@ node default {
 
 ### How Boxen interacts with Puppet
 
-Boxen runs everything declared in `manifests/site.pp` by default. 
-But just like any other source code, throwing all your work into one massive 
-file is going to be difficult to work with. Instead, we recommend you 
-use modules in the `Puppetfile` when you can and make new modules 
-in the `modules/` directory when you can't. Then add `include $modulename` 
-for each new module in `manifests/site.pp` to include them. 
-One pattern that's very common is to create a module for your organization 
-(e.g., `modules/github`) and put an environment class in that module 
-to include all of the modules your organization wants to install for 
+Boxen runs everything declared in `manifests/site.pp` by default.
+But just like any other source code, throwing all your work into one massive
+file is going to be difficult to work with. Instead, we recommend you
+use modules in the `Puppetfile` when you can and make new modules
+in the `modules/` directory when you can't. Then add `include $modulename`
+for each new module in `manifests/site.pp` to include them.
+One pattern that's very common is to create a module for your organization
+(e.g., `modules/github`) and put an environment class in that module
+to include all of the modules your organization wants to install for
 everyone by default. An example of this might look like so:
 
 ``` puppet
@@ -174,8 +212,8 @@ everyone by default. An example of this might look like so:
  }
  ```
 
- If you'd like to read more about how Puppet works, we recommend 
- checking out [the official documentation](http://docs.puppetlabs.com/) 
+ If you'd like to read more about how Puppet works, we recommend
+ checking out [the official documentation](http://docs.puppetlabs.com/)
  for:
 
  * [Modules](http://docs.puppetlabs.com/learning/modules1.html#modules)
@@ -185,7 +223,7 @@ everyone by default. An example of this might look like so:
 
 ### Creating a personal module
 
-See [the documentation in the 
+See [the documentation in the
 `modules/people`](modules/people/README.md)
 directory for creating per-user modules that don't need to be applied
 globally to everyone.
