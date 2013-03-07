@@ -253,4 +253,6 @@ It'll just be listed under the boxen org so folks can find it more easily.
 
 ## Halp!
 
+See [FAQ](https://github.com/boxen/our-boxen/blob/master/docs/faq.md).
+
 Use Issues or #boxen on irc.freenode.net.
