@@ -6,7 +6,7 @@ set -e
 # FIX: only sudo if gem home isn't writable
 
 (gem spec bundler -v '~> 1.2.0' > /dev/null 2>&1) ||
-  sudo -p "About to install Bundler, password for sudo: " \
+  sudo -p "Need to install Bundler for system ruby, password for sudo: " \
   gem install bundler -v '~> 1.2.0' --no-rdoc --no-ri
 
 # We don't want old config hanging around.
