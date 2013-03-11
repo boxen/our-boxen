@@ -5,9 +5,10 @@ set -e
 
 # FIX: only sudo if gem home isn't writable
 
-(gem spec bundler -v '~> 1.2.0' > /dev/null 2>&1) ||
-  sudo -p "Need to install Bundler for system ruby, password for sudo: " \
-  gem install bundler -v '~> 1.2.0' --no-rdoc --no-ri
+(/usr/bin/gem spec bundler -v '~> 1.2.0' > /dev/null 2>&1) || {
+  /usr/bin/sudo -p "Need to install Bundler for system ruby, password for sudo: " \
+  /usr/bin/gem install bundler -v '~> 1.2.0' --no-rdoc --no-ri
+}
 
 # We don't want old config hanging around.
 
@@ -17,4 +18,4 @@ rm -rf .librarian/puppet/config
 # Bundle install unless we're already up to date.
 
 export PATH=$(pwd)/vendor/shims:$PATH
-bundle install --binstubs bin --path .bundle --quiet "$@"
+/usr/bin/bundle install --binstubs bin --path .bundle --quiet "$@"
