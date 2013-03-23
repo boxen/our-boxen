@@ -10,7 +10,7 @@ This repository template is just a basic example of _how_ to do things with them
 
 To give you a brief overview, we're going to:
 
-* Install dependencies (basically XCode)
+* Install dependencies (basically Xcode)
 * Bootstrap a boxen for your self/team/org/company
 * Then convert your local copy of that boxen to the post-bootstrapped version
 
@@ -20,24 +20,24 @@ but you should check into the following before attempting to install your
 boxen on any machine (we do some checks before every Boxen run to try
 and detect most of these and tell you anyway):
 
-* Boxen __requires__ at least the XCode Command Line Tools installed.
+* Boxen __requires__ at least the Xcode Command Line Tools installed.
 * Boxen __will not__ work with an existing rvm install.
 * Boxen __may not__ play nice with an existing rbenv install.
 * Boxen __may not__ play nice with an existing chruby install.
 * Boxen __may not__ play nice with an existing homebrew install.
 * Boxen __may not__ play nice with an existing nvm install.
-* Boxen __recommends__ installing the full XCode.
+* Boxen __recommends__ installing the full Xcode.
 
 ### Dependencies
 
-**Install the XCode Command Lines Tools and/or full XCode.**
+**Install the Xcode Command Lines Tools and/or full Xcode.**
 This will grant you the most predictable behavior in building apps like
 MacVim.
 
 How do you do it?
 
-1. Install XCode from the Mac App Store.
-1. Open XCode.
+1. Install Xcode from the Mac App Store.
+1. Open Xcode.
 1. Open the Preferences window (`Cmd-,`).
 1. Go to the Downloads tab.
 1. Install the Command Line Tools.
