@@ -6,10 +6,12 @@ unless ENV["USER"] == "root"
   exec "sudo", $0, *ARGV
 end
 
-all      = false
-force    = false
-opt      = false
-services = false
+all       = false
+force     = false
+opt       = false
+services  = false
+receipts  = false
+gitconfig = false
 
 OptionParser.new do |o|
   o.banner = "Remove most traces of Boxen from your machine."
@@ -24,7 +26,7 @@ OptionParser.new do |o|
 
   o.parse!
 
-  abort o.to_s unless all || opt || services
+  abort o.to_s unless all || opt || services || receipts || gitconfig
 end
 
 unless force
