@@ -52,7 +52,7 @@ to get started.
 The reason for that is that you can't really make private forks of public
 repositories easily.
 
-Once you've done that, you can run the following to get bootstrap
+Once you've done that, you can run the following to bootstrap
 your boxen:
 
 ```
