@@ -83,6 +83,13 @@ cd /opt/boxen/repo
 script/boxen
 ```
 
+Keep in mind this requires you to encrypt your hard drive by default.
+If you do not want to do encrypt your hard drive, you can use the `--no-fde`.
+
+```
+script/boxen --no-fde
+```
+
 It should run successfully, and should tell you to source a shell script
 in your environment.
 For users without a bash or zsh config or a `~/.profile` file,
