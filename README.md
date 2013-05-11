@@ -112,19 +112,18 @@ This template project provides the following by default:
 * Homebrew
 * Git
 * Hub
-* DNSMasq w/ .dev resolver for localhost
-* NVM
-* RBenv
+* dnsmasq w/ .dev resolver for localhost
+* rbenv
 * Full Disk Encryption requirement
-* NodeJS 0.4
-* NodeJS 0.6
-* NodeJS 0.8
+* Node.js 0.4
+* Node.js 0.6
+* Node.js 0.8
 * Ruby 1.8.7
 * Ruby 1.9.2
 * Ruby 1.9.3
-* Ack
+* ack
 * Findutils
-* GNU-Tar
+* GNU tar
 
 ## Customizing
 
@@ -245,7 +244,7 @@ will be working in).
 
 ## Binary packages
 
-We support binary packaging for everything in Homebrew, RBEnv, and NVM.
+We support binary packaging for everything in Homebrew, rbenv, and nvm.
 See `config/boxen.rb` for the environment variables to define.
 
 ## Sharing Boxen Modules
