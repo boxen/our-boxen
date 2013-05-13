@@ -24,6 +24,10 @@ With the above, as long as our app is configured to listen on a **socket** at
 `"#{ENV['BOXEN_SOCKET_DIR']}"/trollin`, you'll now be able to run its local
 server and visit http://trollin.dev/ to access the app in dev.
 
+Provide the full repository URL in the 'source' option when referencing
+code that is not hosted at github.com, such as Github Enterprise
+repositories.
+
 For further documentation on how to use the `boxen::project` type,
 take a look at the documentation in the
 [source](https://github.com/boxen/puppet-boxen/blob/master/manifests/project.pp#L1-L46).
