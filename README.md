@@ -77,7 +77,7 @@ If you _don't_ want to use boxen-web, folks can get using your boxen like so:
 
 ```
 sudo mkdir -p /opt/boxen
-sudo chown ${USER}:staff/opt/boxen
+sudo chown ${USER}:staff /opt/boxen
 git clone <location of my new git repository> /opt/boxen/repo
 cd /opt/boxen/repo
 script/boxen
