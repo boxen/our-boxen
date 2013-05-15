@@ -258,6 +258,13 @@ fork.
 You'll still be the maintainer, you'll still own the issues and PRs.
 It'll just be listed under the boxen org so folks can find it more easily.
 
+## Integrating with Github Enterprise
+
+If you're using a Github Enterprise instance rather than github.com,
+you will need to set the "BOXEN_GITHUB_ENTERPRISE_URL" and
+"BOXEN_REPO_URL_TEMPLATE" variables in your
+[Boxen config](config/boxen.rb).
+
 ## Halp!
 
 See [FAQ](https://github.com/boxen/our-boxen/blob/master/docs/faq.md).
