@@ -160,7 +160,7 @@ boxen repo (ex. /path/to/your-boxen/Puppetfile):
     github "java",     "1.1.0"
 
 In the above snippet of a customized Puppetfile, the bottom line
-includes the Java module from Github using the tag "1.0.5" from the github repository
+includes the Java module from Github using the tag "1.1.0" from the github repository
 "boxen/puppet-java".  The function "github" is defined at the top of the Puppetfile
 and takes the name of the module, the version, and optional repo location:
 
