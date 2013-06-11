@@ -30,4 +30,4 @@ repositories.
 
 For further documentation on how to use the `boxen::project` type,
 take a look at the documentation in the
-[source](https://github.com/boxen/puppet-boxen/blob/master/manifests/project.pp#L1-L46).
+[source](https://github.com/boxen/puppet-boxen/blob/master/manifests/project.pp#L1-L61).
