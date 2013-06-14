@@ -9,7 +9,7 @@ end
 
 editor = ENV["VISUAL"] || ENV["EDITOR"]
 home   = ENV["BOXEN_HOME"] + "/repo"
-user   = user.downcase
+user   = user.downcase.tr('-', '_')
 path   = "#{home}/modules/people/manifests/#{user}.pp"
 
 unless File.exist? path
