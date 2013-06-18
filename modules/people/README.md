@@ -19,6 +19,8 @@ class people::jbarnette {
 }
 ```
 
+Note that if your GitHub username contains dashes, you should replace them by underscores in both the manifest name and the class name.
+
 ## Projects
 
 While you _can_ include projects one by one, sometimes you might just want
