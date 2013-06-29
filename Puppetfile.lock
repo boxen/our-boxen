@@ -54,7 +54,7 @@ GITHUBTARBALL
     sudo (1.0.0)
 
 GITHUBTARBALL
-  remote: cprice-puppet/puppetlabs-inifile
+  remote: cprice404/puppetlabs-inifile
   specs:
     inifile (0.9.0)
 
