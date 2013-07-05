@@ -9,30 +9,17 @@ server {
   server_name <%= @server_name %>;
 
   client_max_body_size 50M;
-
   error_page 500 502 503 504 /50x.html;
-
-  if ($host ~* "www") {
-    rewrite ^(.*)$ http://<%= @server_name %>$1 permanent;
-    break;
-  }
 
   location = /50x.html {
     root html;
   }
-
-  location / {
-    if (-f $request_filename/index.html) {
-      rewrite (.*) $1/index.html break;
-    }
-
-    if (-f $request_filename.html) {
-      rewrite (.*) $1.html break;
-    }
-
-    if (!-f $request_filename) {
-      proxy_pass http://<%= @server_name %>;
-      break;
-    }
+  
+  try_files $uri/index.html $uri @<%= @server_name %>;
+  location @<%= @server_name %> {
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+    proxy_pass http://<%= @server_name %>;
   }
 }
