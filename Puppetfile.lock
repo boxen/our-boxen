@@ -1,7 +1,7 @@
 GITHUBTARBALL
   remote: boxen/puppet-boxen
   specs:
-    boxen (2.1.0)
+    boxen (2.3.6)
 
 GITHUBTARBALL
   remote: boxen/puppet-dnsmasq
@@ -11,17 +11,17 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-gcc
   specs:
-    gcc (1.0.0)
+    gcc (2.0.1)
 
 GITHUBTARBALL
   remote: boxen/puppet-git
   specs:
-    git (1.2.2)
+    git (1.2.4)
 
 GITHUBTARBALL
   remote: boxen/puppet-homebrew
   specs:
-    homebrew (1.1.2)
+    homebrew (1.2.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-hub
@@ -31,22 +31,22 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-nginx
   specs:
-    nginx (1.4.0)
+    nginx (1.4.2)
 
 GITHUBTARBALL
   remote: boxen/puppet-nodejs
   specs:
-    nodejs (2.2.0)
+    nodejs (3.2.7)
 
 GITHUBTARBALL
   remote: boxen/puppet-repository
   specs:
-    repository (2.0.2)
+    repository (2.2.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-ruby
   specs:
-    ruby (4.1.0)
+    ruby (6.0.2)
 
 GITHUBTARBALL
   remote: boxen/puppet-sudo
@@ -64,17 +64,17 @@ GITHUBTARBALL
     stdlib (4.0.2)
 
 DEPENDENCIES
-  boxen (= 2.1.0)
+  boxen (= 2.3.6)
   dnsmasq (= 1.0.0)
-  gcc (= 1.0.0)
-  git (= 1.2.2)
-  homebrew (= 1.1.2)
+  gcc (= 2.0.1)
+  git (= 1.2.4)
+  homebrew (= 1.2.0)
   hub (= 1.0.0)
   inifile (= 0.9.0)
-  nginx (= 1.4.0)
-  nodejs (= 2.2.0)
-  repository (= 2.0.2)
-  ruby (= 4.1.0)
+  nginx (= 1.4.2)
+  nodejs (= 3.2.7)
+  repository (= 2.2.0)
+  ruby (= 6.0.2)
   stdlib (= 4.0.2)
   sudo (= 1.0.0)
 
