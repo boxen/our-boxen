@@ -61,7 +61,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: puppetlabs/puppetlabs-stdlib
   specs:
-    stdlib (4.0.2)
+    stdlib (4.1.0)
 
 DEPENDENCIES
   boxen (= 2.3.6)
@@ -75,6 +75,6 @@ DEPENDENCIES
   nodejs (= 3.2.7)
   repository (= 2.2.0)
   ruby (= 6.0.2)
-  stdlib (= 4.0.2)
+  stdlib (= 4.1.0)
   sudo (= 1.0.0)
 
