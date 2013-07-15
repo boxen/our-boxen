@@ -21,7 +21,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-homebrew
   specs:
-    homebrew (1.2.0)
+    homebrew (1.1.2)
 
 GITHUBTARBALL
   remote: boxen/puppet-hub
@@ -73,7 +73,7 @@ DEPENDENCIES
   dnsmasq (= 1.0.0)
   gcc (= 2.0.1)
   git (= 1.2.4)
-  homebrew (= 1.2.0)
+  homebrew (= 1.1.2)
   hub (= 1.0.0)
   inifile (= 0.9.0)
   nginx (= 1.4.2)
