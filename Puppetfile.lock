@@ -1,4 +1,9 @@
 GITHUBTARBALL
+  remote: boxen/puppet-autoconf
+  specs:
+    autoconf (1.0.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-boxen
   specs:
     boxen (2.3.6)
@@ -39,6 +44,11 @@ GITHUBTARBALL
     nodejs (3.2.7)
 
 GITHUBTARBALL
+  remote: boxen/puppet-openssl
+  specs:
+    openssl (1.0.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-repository
   specs:
     repository (2.2.0)
@@ -46,7 +56,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-ruby
   specs:
-    ruby (6.0.2)
+    ruby (6.1.1)
 
 GITHUBTARBALL
   remote: boxen/puppet-sudo
@@ -69,6 +79,7 @@ GITHUBTARBALL
     stdlib (4.1.0)
 
 DEPENDENCIES
+  autoconf (= 1.0.0)
   boxen (= 2.3.6)
   dnsmasq (= 1.0.0)
   gcc (= 2.0.1)
@@ -78,8 +89,9 @@ DEPENDENCIES
   inifile (= 0.9.0)
   nginx (= 1.4.2)
   nodejs (= 3.2.7)
+  openssl (= 1.0.0)
   repository (= 2.2.0)
-  ruby (= 6.0.2)
+  ruby (= 6.1.1)
   stdlib (= 4.1.0)
   sudo (= 1.0.0)
   xquartz (= 1.1.0)
