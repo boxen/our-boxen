@@ -6,15 +6,10 @@ server {
   access_log <%= scope.lookupvar "nginx::config::logdir" %>/<%= @name %>.access.log main;
   listen 80;
   root <%= scope.lookupvar "boxen::config::srcdir" %>/<%= @name %>/public;
-  server_name <%= @server_name %>;
+  server_name <%= @server_name %> *.<%= @server_name %>;
 
   client_max_body_size 50M;
   error_page 500 502 503 504 /50x.html;
-
-  if ($host ~* "www") {
-    rewrite ^(.*)$ http://<%= @server_name %>$1 permanent;
-    break;
-  }
 
   location = /50x.html {
     root html;
