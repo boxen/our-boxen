@@ -7,6 +7,7 @@ server {
   listen 80;
   root <%= scope.lookupvar "boxen::config::srcdir" %>/<%= @name %>/public;
   server_name <%= @server_name %> *.<%= @server_name %>;
+  server_name "~^(.*)\.<%= @name %>(\.\d+){4}\.xip\.io$";
 
   client_max_body_size 50M;
   error_page 500 502 503 504 /50x.html;
