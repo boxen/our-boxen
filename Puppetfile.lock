@@ -69,9 +69,9 @@ GITHUBTARBALL
     xquartz (1.1.0)
 
 GITHUBTARBALL
-  remote: cprice404/puppetlabs-inifile
+  remote: puppetlabs/puppetlabs-inifile
   specs:
-    inifile (0.9.0)
+    inifile (1.0.0)
 
 GITHUBTARBALL
   remote: puppetlabs/puppetlabs-stdlib
@@ -86,7 +86,7 @@ DEPENDENCIES
   git (= 1.2.5)
   homebrew (= 1.2.1)
   hub (= 1.0.0)
-  inifile (= 0.9.0)
+  inifile (= 1.0.0)
   nginx (= 1.4.2)
   nodejs (= 3.2.8)
   openssl (= 1.0.0)
