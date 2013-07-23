@@ -7,7 +7,7 @@ GEM
       json (~> 1.4)
       nokogiri (>= 1.4.4)
       uuidtools (~> 2.1)
-    boxen (1.4.2)
+    boxen (1.5.2)
       ansi (~> 1.4)
       hiera (~> 1.0)
       highline (~> 1.6)
@@ -43,10 +43,10 @@ GEM
       multi_json (~> 1.3)
       netrc (~> 0.7.7)
     open4 (1.3.0)
-    puppet (3.2.2)
+    puppet (3.2.3)
       facter (~> 1.6)
       hiera (~> 1.0)
-      rgen (~> 0.6)
+      rgen (~> 0.6.5)
     rbvmomi (1.6.0)
       builder
       nokogiri (>= 1.4.1)
@@ -61,7 +61,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk
-  boxen (~> 1.4)
+  boxen (~> 1.5)
   net-ssh
   open4 (~> 1.3)
   rbvmomi
