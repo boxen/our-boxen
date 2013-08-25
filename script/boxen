@@ -25,9 +25,9 @@ Dir.chdir Pathname.new(__FILE__).realpath + "../.."
 
 # Auto-update code. This is done as early as possible so that changes
 # to boxen support code or dependencies can be grabbed.
-NO_PULL_ARGS = %w[--no-pull -h -? --help]
+NO_PULL_ARGS = %w[--no-pull -h -? --help] + [/-service/]
 unless ENV["BOXEN_NO_PULL"] ||
-  ARGV.any? { |arg|  NO_PULL_ARGS.include?(arg) }
+  ARGV.any? { |arg|  NO_PULL_ARGS.any? { |no|  arg.match(no) } }
   quietly = "> /dev/null 2>&1"
 
   if system("which git > /dev/null") && File.directory?(".git") \
