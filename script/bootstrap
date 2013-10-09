@@ -15,7 +15,13 @@ set -e
 rm -rf .bundle/config
 rm -rf .librarian/puppet/config
 
-# Bundle install unless we're already up to date.
+# Put xcrun shim on PATH if on MoLo
+set +e
+OSX_VERSION_CHECK=`sw_vers | grep ProductVersion | cut -f 2 -d ':'  | egrep '10\.8'`
+if [ $? -eq 0 ]; then
+  export PATH=$(pwd)/vendor/shims:$PATH
+fi
+set -e
 
-export PATH=$(pwd)/vendor/shims:$PATH
+# Bundle install unless we're already up to date.
 /usr/bin/bundle install --binstubs bin --path .bundle --quiet "$@"
