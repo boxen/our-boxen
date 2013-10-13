@@ -5,7 +5,7 @@ upstream <%= @server_name %> {
 server {
   access_log <%= scope.lookupvar "nginx::config::logdir" %>/<%= @name %>.access.log main;
   listen 80;
-  root <%= scope.lookupvar "boxen::config::srcdir" %>/<%= @name %>/public;
+  root <%= @repo_dir %>/public;
   server_name <%= @server_name %> *.<%= @server_name %>;
 
   client_max_body_size 50M;
