@@ -56,7 +56,10 @@ github "xquartz",    "1.1.0"
 # Optional/custom modules. There are tons available at
 # https://github.com/boxen.
 
+github "java", "1.1.2"
 github "adium", "1.2.0"
 github "chrome", "1.1.1"
+github "netbeans", "1.0.0"
+github "phpstorm", "1.0.4"
 github "vagrant", "2.0.10"
 github "virtualbox", "1.0.7"
