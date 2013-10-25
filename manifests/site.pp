@@ -89,3 +89,8 @@ node default {
     target => $boxen::config::repodir
   }
 }
+
+include adium
+include chrome
+include vagrant
+include virtualbox
