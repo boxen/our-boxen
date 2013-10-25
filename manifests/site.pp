@@ -90,7 +90,10 @@ node default {
   }
 }
 
+include java
 include adium
 include chrome
+include phpstorm
+include netbeans
 include vagrant
 include virtualbox
