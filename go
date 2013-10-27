@@ -1,6 +1,6 @@
-echo "Installing portal things..."
-sudo mkdir -p /opt/boxen
-sudo chown ${USER}:staff /opt/boxen
+echo "Installing things..."
+mkdir -p /opt/boxen
+chown ${USER}:staff /opt/boxen
 git clone -b 2.0 https://github.com/healeyious/boxen-portal /opt/boxen/repo
 cd /opt/boxen/repo
 script/boxen --no-fde
