@@ -2,7 +2,7 @@ echo "Installing portal things..."
 sudo mkdir -p /opt/boxen
 sudo chown ${USER}:staff /opt/boxen
 git clone -b 2.0 https://github.com/healeyious/boxen-portal /opt/boxen/
-cd /opt/boxen/repo
+cd /opt/boxen
 script/boxen --no-fde
 touch ~/.bashrc
 echo '[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh' | cat > ~/.bashrc
