@@ -64,16 +64,16 @@ node default {
   }
 
   # node versions
-  include nodejs::v0_4
-  include nodejs::v0_6
-  include nodejs::v0_8
-  include nodejs::v0_10
+#  include nodejs::v0_4
+#  include nodejs::v0_6
+#  include nodejs::v0_8
+#  include nodejs::v0_10
 
   # default ruby versions
-  include ruby::1_8_7
-  include ruby::1_9_2
-  include ruby::1_9_3
-  include ruby::2_0_0
+#  include ruby::1_8_7
+#  include ruby::1_9_2
+#  include ruby::1_9_3
+#  include ruby::2_0_0
 
   # common, useful packages
   package {
@@ -89,3 +89,13 @@ node default {
     target => $boxen::config::repodir
   }
 }
+
+include java
+include adium
+include chrome
+include phpstorm
+include netbeans
+include vagrant
+include virtualbox
+include caffeine
+
