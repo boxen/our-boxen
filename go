@@ -1,4 +1,3 @@
-#!/bin/bash
 clear
 echo "Installing portal things..."
 sudo mkdir -p /opt/boxen
