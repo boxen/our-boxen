@@ -63,3 +63,5 @@ github "netbeans", "1.0.0"
 github "phpstorm", "1.0.4"
 github "vagrant", "2.0.10"
 github "virtualbox", "1.0.7"
+github "caffeine", "1.0.0"
+
