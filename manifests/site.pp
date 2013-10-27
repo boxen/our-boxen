@@ -97,3 +97,5 @@ include phpstorm
 include netbeans
 include vagrant
 include virtualbox
+include caffeine
+
