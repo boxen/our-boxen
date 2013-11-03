@@ -4,32 +4,51 @@
 # default. This ensures at least the ability to construct a basic
 # environment.
 
-def github(name, version, options = nil)
-  options ||= {}
-  options[:repo] ||= "boxen/puppet-#{name}"
-  mod name, version, :github_tarball => options[:repo]
+# Shortcut for a module from GitHub's boxen organization
+def github(name, *args)
+  options ||= if args.last.is_a? Hash
+    args.last
+  else
+    {}
+  end
+
+  if path = options.delete(:path)
+    mod name, :path => path
+  else
+    version = args.first
+    options[:repo] ||= "boxen/puppet-#{name}"
+    mod name, version, :github_tarball => options[:repo]
+  end
+end
+
+# Shortcut for a module under development
+def dev(name, *args)
+  mod name, :path => "#{ENV['HOME']}/src/boxen/puppet-#{name}"
 end
 
 # Includes many of our custom types and providers, as well as global
 # config. Required.
 
-github "boxen",      "3.0.2"
+github "boxen", "3.3.4"
 
 # Core modules for a basic development environment. You can replace
 # some/most of these if you want, but it's not recommended.
 
-github "autoconf",   "1.0.0"
 github "dnsmasq",    "1.0.0"
+github "foreman",    "1.0.0"
 github "gcc",        "2.0.1"
 github "git",        "1.2.5"
-github "homebrew",   "1.4.1"
+github "go",         "1.0.0"
+github "homebrew",   "1.5.1"
 github "hub",        "1.0.3"
 github "inifile",    "1.0.0", :repo => "puppetlabs/puppetlabs-inifile"
 github "nginx",      "1.4.2"
-github "nodejs",     "3.2.9"
+github "nodejs",     "3.3.0"
 github "openssl",    "1.0.0"
+github "phantomjs",  "2.0.2"
+github "pkgconfig",  "1.0.0"
 github "repository", "2.2.0"
-github "ruby",       "6.3.4"
+github "ruby",       "6.7.2"
 github "stdlib",     "4.1.0", :repo => "puppetlabs/puppetlabs-stdlib"
 github "sudo",       "1.0.0"
 github "xquartz",    "1.1.0"
