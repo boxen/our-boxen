@@ -75,7 +75,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk (~> 1.21)
-  boxen (~> 2.0.3)
+  boxen (~> 2.0.4)
   hiera (~> 1.1)
   librarian-puppet (~> 0.9.9)
   net-ssh
