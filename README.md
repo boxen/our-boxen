@@ -115,7 +115,6 @@ This template project provides the following by default:
 * dnsmasq w/ .dev resolver for localhost
 * rbenv
 * Full Disk Encryption requirement
-* Node.js 0.4
 * Node.js 0.6
 * Node.js 0.8
 * Ruby 1.8.7
