@@ -117,6 +117,7 @@ This template project provides the following by default:
 * Full Disk Encryption requirement
 * Node.js 0.6
 * Node.js 0.8
+* Node.js 0.10
 * Ruby 1.8.7
 * Ruby 1.9.2
 * Ruby 1.9.3
