@@ -114,7 +114,6 @@ This template project provides the following by default:
 * Hub
 * dnsmasq w/ .dev resolver for localhost
 * rbenv
-* Full Disk Encryption requirement
 * Node.js 0.6
 * Node.js 0.8
 * Node.js 0.10
