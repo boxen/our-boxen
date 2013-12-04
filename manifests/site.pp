@@ -56,7 +56,6 @@ node default {
   include dnsmasq
   include git
   include hub
-  include nginx
 
   # node versions
   include nodejs::v0_6
