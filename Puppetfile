@@ -56,3 +56,4 @@ github "xquartz",    "1.1.0"
 # https://github.com/boxen.
 
 dev "apache"
+dev "mysql"

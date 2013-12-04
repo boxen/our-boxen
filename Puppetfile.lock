@@ -3,6 +3,11 @@ PATH
   specs:
     apache (0.0.1)
 
+PATH
+  remote: /opt/boxen/repo/puppet-mysql
+  specs:
+    mysql (0.0.1)
+
 GITHUBTARBALL
   remote: boxen/puppet-boxen
   specs:
@@ -104,6 +109,7 @@ DEPENDENCIES
   homebrew (= 1.5.1)
   hub (= 1.0.3)
   inifile (= 1.0.0)
+  mysql (>= 0)
   nodejs (= 3.3.0)
   openssl (= 1.0.0)
   phantomjs (= 2.0.2)

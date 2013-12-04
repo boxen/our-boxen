@@ -1,0 +1,10 @@
+[client]
+port=<%= scope.lookupvar "mysql::config::port" %>
+socket=<%= scope.lookupvar "mysql::config::socket" %>
+
+[server]
+datadir=<%= scope.lookupvar "mysql::config::datadir" %>
+log-error=<%= scope.lookupvar "mysql::config::logerror" %>
+port=<%= scope.lookupvar "mysql::config::port" %>
+socket=<%= scope.lookupvar "mysql::config::socket" %>
+max_allowed_packet=1073741824
