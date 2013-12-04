@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>org.apache.httpd</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+      <key>XPC_SERVICES_UNAVAILABLE</key>
+      <string>1</string>
+    </dict>
+
+    <key>ProgramArguments</key>
+    <array>
+      <string>/usr/sbin/httpd</string>
+      <string>-D</string>
+      <string>FOREGROUND</string>
+    </array>
+
+    <key>OnDemand</key>
+    <false/>
+
+    <key>SHAuthorizationRight</key>
+    <string>system.preferences</string>
+  </dict>
+</plist>

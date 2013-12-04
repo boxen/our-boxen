@@ -1,0 +1,20 @@
+# Ensure we're listening on the port
+Listen <%= @port %>
+
+# Use name-based virtual hosting.
+#
+NameVirtualHost *:<%= @port %>
+
+<Directory <%= @vhost_docroot %>>
+    AllowOverride ALL
+    Order Allow,Deny
+    Allow from all
+</Directory>
+
+<VirtualHost *:<%= @port %>>
+    ServerAdmin webmaster@dummy-host.example.com
+    DocumentRoot "<%= @vhost_docroot %>"
+    ServerName <%= @hostname %>
+    ErrorLog "<%= scope.lookupvar "apache::config::logdir" %>/<%= @name %>-error_log"
+    CustomLog "<%= scope.lookupvar "apache::config::logdir" %>/<%= @name %>-access_log" common
+</VirtualHost>

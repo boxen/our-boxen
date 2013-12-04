@@ -1,3 +1,8 @@
+PATH
+  remote: /opt/boxen/repo/puppet-apache
+  specs:
+    apache (0.0.1)
+
 GITHUBTARBALL
   remote: boxen/puppet-boxen
   specs:
@@ -89,6 +94,7 @@ GITHUBTARBALL
     stdlib (4.1.0)
 
 DEPENDENCIES
+  apache (>= 0)
   boxen (= 3.3.4)
   dnsmasq (= 1.0.0)
   foreman (= 1.0.0)
