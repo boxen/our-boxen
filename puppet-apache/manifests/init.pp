@@ -31,6 +31,13 @@ class apache {
     group   => wheel
   }
 
+  file { $apache::config::vhostsfile:
+    content => template('apache/config/apache/httpd-vhosts.conf.erb'),
+    notify  => Service['org.apache.httpd'],
+    owner   => root,
+    group   => wheel
+  }
+
   service { "org.apache.httpd":
     ensure => running,
     require => File[$apache::config::configfile]
