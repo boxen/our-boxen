@@ -17,11 +17,18 @@ class apache {
   file { [
     $apache::config::configdir,
     $apache::config::logdir,
-    $apache::config::sitesdir,
   ]:
     ensure => directory,
     owner  => root,
     group  => wheel,
+  }
+
+  file { [
+    $apache::config::sitesdir,
+  ]:
+    ensure => directory,
+    owner  => $boxen_user,
+    group  => staff,
   }
 
   file { $apache::config::configfile:
