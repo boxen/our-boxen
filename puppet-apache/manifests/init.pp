@@ -43,12 +43,4 @@ class apache {
     require => File[$apache::config::configfile]
   }
 
-  # Set up our basic site - apache.dev
-  # This can be used to view server info etc
-
-  apache::vhost { 'apache':
-    docroot  => "${boxen::config::datadir}/apache",
-    port     => $apache::config::port,
-  }
-
 }
