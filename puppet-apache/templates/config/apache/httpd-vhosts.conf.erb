@@ -1,4 +1,4 @@
-<VirtualHost *:80>
+<VirtualHost *:<%= scope.lookupvar "apache::config::port" %>>
   UseCanonicalName off
   VirtualDocumentRoot <%= scope.lookupvar "apache::config::sitesdir" %>/%-2+
 </VirtualHost>

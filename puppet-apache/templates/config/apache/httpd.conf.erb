@@ -36,7 +36,7 @@ ServerRoot "/usr"
 # Change this to Listen on specific IP addresses as shown below to
 # prevent Apache from glomming onto all bound IP addresses.
 #
-#Listen 12.34.56.78:80
+Listen <%= scope.lookupvar "apache::config::port" %>
 
 #
 # Dynamic Shared Object (DSO) Support
