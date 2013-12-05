@@ -112,4 +112,13 @@ class mysql {
     subscribe   => Exec['wait-for-mysql'],
     refreshonly => true
   }
+
+  exec { 'drop test database':
+    command     => "mysql -u root --password='' \
+      -P ${mysql::config::port} -S ${mysql::config::socket} \
+      -e 'drop database test'",
+    provider    => shell,
+    subscribe   => Exec['wait-for-mysql'],
+    refreshonly => true
+  }
 }
