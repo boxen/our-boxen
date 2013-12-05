@@ -121,4 +121,13 @@ class mysql {
     subscribe   => Exec['wait-for-mysql'],
     refreshonly => true
   }
+
+  exec { 'drop the anonymous user':
+    command     => "mysql -u root --password='' \
+      -P ${mysql::config::port} -S ${mysql::config::socket} \
+      -e \"delete from mysql.user where user = ''; flush privileges;\"",
+    provider    => shell,
+    subscribe   => Exec['wait-for-mysql'],
+    refreshonly => true
+  }
 }
