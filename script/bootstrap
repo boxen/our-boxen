@@ -25,3 +25,6 @@ set -e
 
 # Bundle install unless we're already up to date.
 /usr/bin/bundle install --binstubs bin --path .bundle --quiet "$@"
+
+# Fix the binstubs to use system ruby
+find bin -type f -print0 | xargs -0 sed -i '' 's|/usr/bin/env ruby|/usr/bin/ruby|g'
