@@ -45,7 +45,7 @@ How do you do it?
 
 ### Bootstrapping
 
-Create a **new** git repository somewhere.
+Create a **new** git repository somewhere on the internet.
 It can be private or public -- it really doesn't matter.
 If you're making a repository on GitHub, you _may not_ want to fork this repo
 to get started.
