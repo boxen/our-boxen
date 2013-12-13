@@ -65,6 +65,18 @@ git remote add origin <the location of my new git repository>
 git push -u origin master
 ```
 
+Now that your boxen is bootstrapped, you can run the following to
+install the default configuration from this repo:
+
+```
+cd /opt/boxen/repo
+script/boxen
+```
+
+You can also skip the above steps and <a href="#customizing">customize your
+boxen</a> before installing it.
+
+
 ### Distributing
 
 That's enough to get your boxen into a usable state on other machines,
