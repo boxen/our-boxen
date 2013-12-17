@@ -31,7 +31,7 @@ unless ENV["BOXEN_NO_PULL"] ||
   quietly = "> /dev/null 2>&1"
 
   if system("which git > /dev/null") && File.directory?(".git") \
-    && fetch = system("git fetch -q origin")
+    && system("git fetch -q origin")
 
     clean  = `git status --porcelain`.empty?
     current_branch = `git symbolic-ref HEAD`.chomp
