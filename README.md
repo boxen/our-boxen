@@ -37,6 +37,12 @@ MacVim.
 
 How do you do it?
 
+#### OSX 9 (Mavericks)
+
+Nada! Will be installed as part of Boxen.
+
+#### OSX < 9
+
 1. Install Xcode from the Mac App Store.
 1. Open Xcode.
 1. Open the Preferences window (`Cmd-,`).
