@@ -6,7 +6,7 @@ set -e
 # FIX: only sudo if gem home isn't writable
 
 (/usr/bin/gem list -i bundler -v '~> 1.3.0' > /dev/null) || {
-  /usr/bin/sudo -p "Need to install Bundler for system ruby, password for sudo: " \
+  /usr/bin/sudo -E -p "Need to install Bundler for system ruby, password for sudo: " \
   /usr/bin/gem install bundler -v '~> 1.3.0' --no-rdoc --no-ri
 }
 
