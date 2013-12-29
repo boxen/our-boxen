@@ -37,11 +37,13 @@ MacVim.
 
 How do you do it?
 
-#### OSX 9 (Mavericks)
+#### OSX 10.9 (Mavericks)
 
-Nada! Will be installed as part of Boxen.
+If you are using [`b26abd0` of boxen-web](https://github.com/boxen/boxen-web/commit/b26abd0d681129eba0b5f46ed43110d873d8fdc2)
+or newer, it will be automatically installed as part of Boxen.
+Otherwise, follow instructions below.
 
-#### OSX < 9
+#### OSX < 10.9
 
 1. Install Xcode from the Mac App Store.
 1. Open Xcode.
