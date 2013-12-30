@@ -6,7 +6,7 @@ class people::awaxa::applications {
   include onepassword
   include java
   include rdio
-  include tunnelblick
+  include tunnelblick::beta
   include vagrant
   include virtualbox
   include vlc
