@@ -6,6 +6,11 @@ class people::awaxa::dotfiles {
     source => 'awaxa/dotfiles',
   }
   
+  file { "/Users/$::luser/.tmux.conf":
+    target  => "$dotfiles/home/.tmux.conf",
+    require => Repository["$dotfiles"],
+  }
+  
   file { "/Users/$::luser/.vimrc":
     target  => "$dotfiles/home/.vimrc",
     require => Repository["$dotfiles"],
