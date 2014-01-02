@@ -14,6 +14,11 @@ class people::awaxa::applications {
   
   package { [
     'htop-osx',
+    'watch',
+    'wget',
+    'tree',
+    'pstree',
+    'apg',
     'tmux'
     ]:
   }
