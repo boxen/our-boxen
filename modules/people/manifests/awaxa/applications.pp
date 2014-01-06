@@ -5,6 +5,7 @@ class people::awaxa::applications {
   #include gpgtools
   include onepassword
   include java
+  include python
   include rdio
   include tunnelblick::beta
   include vagrant
@@ -23,6 +24,10 @@ class people::awaxa::applications {
     ]:
   }
   
+  python::pip { 'awscli':
+    virtualenv => $python::config::global_venv,
+  }
+
   package { 'GoogleVoiceAndVideoSetup':
     source => 'http://dl.google.com/googletalk/googletalkplugin/GoogleVoiceAndVideoSetup.dmg',
     provider => pkgdmg,
