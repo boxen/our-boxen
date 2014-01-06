@@ -1,27 +1,24 @@
 class people::awaxa::dotfiles {
-  
+
+  $home     = "/Users/${::boxen_user}"
   $dotfiles = "${boxen::config::srcdir}/dotfiles"
 
-  repository { "$dotfiles":
-    source => 'awaxa/dotfiles',
+  repository {
+    "$dotfiles":
+      source => 'awaxa/dotfiles';
+    "$home/.vim/bundle/vim-pathogen":
+      source => 'tpope/vim-pathogen';
+    "$home/.vim/bundle/vim-sensible":
+      source => 'tpope/vim-sensible';
   }
-  
-  file { "/Users/$::luser/.tmux.conf":
-    target  => "$dotfiles/home/.tmux.conf",
-    require => Repository["$dotfiles"],
+
+  file {
+    "/$home/.tmux.conf":
+      target  => "$dotfiles/home/.tmux.conf",
+      require => Repository["$dotfiles"];
+    "/$home/.vimrc":
+      target  => "$dotfiles/home/.vimrc",
+      require => Repository["$dotfiles"];
   }
-  
-  file { "/Users/$::luser/.vimrc":
-    target  => "$dotfiles/home/.vimrc",
-    require => Repository["$dotfiles"],
-  }
-  
-  repository { "/Users/$::luser/.vim/bundle/vim-pathogen":
-    source => 'tpope/vim-pathogen',
-  }
-  
-  repository { "/Users/$::luser/.vim/bundle/vim-sensible":
-    source => 'tpope/vim-sensible',
-  }
-  
+
 }

@@ -28,8 +28,9 @@ class people::awaxa::applications {
     virtualenv => $python::config::global_venv,
   }
 
-  package { 'GoogleVoiceAndVideoSetup':
-    source => 'http://dl.google.com/googletalk/googletalkplugin/GoogleVoiceAndVideoSetup.dmg',
-    provider => pkgdmg,
+  package {
+    'GoogleVoiceAndVideoSetup':
+      source => 'http://dl.google.com/googletalk/googletalkplugin/GoogleVoiceAndVideoSetup.dmg',
+      provider => pkgdmg;
   }
 }
