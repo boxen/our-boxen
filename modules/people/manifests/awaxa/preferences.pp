@@ -14,4 +14,10 @@ class people::awaxa::preferences {
   include osx::no_network_dsstores
   include osx::software_update
 
+  boxen::osx_defaults { 'Globally Disable Autocorrect':
+    user   => "${::boxen_user}",
+    key    => 'NSAutomaticSpellingCorrectionEnabled',
+    domain => "'Apple Global Domain'",
+    value  => '0';
+  }
 }
