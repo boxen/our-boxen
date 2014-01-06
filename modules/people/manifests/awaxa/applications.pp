@@ -7,6 +7,7 @@ class people::awaxa::applications {
   include java
   include python
   include rdio
+  include sizeup
   include tunnelblick::beta
   include vagrant
   include virtualbox
