@@ -21,6 +21,13 @@ class people::awaxa::preferences {
     value  => '0';
   }
 
+  boxen::osx_defaults { 'Disable Dashboard':
+    user   => "${::boxen_user}",
+    key    => 'mcx-disabled',
+    domain => 'com.apple.dashboard',
+    value  => '1';
+  }
+
   # this did not work
   #boxen::osx_defaults { 'Lower Left Hot Corner: Start Screen Saver':
   #  user   => "${::boxen_user}",
