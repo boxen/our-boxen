@@ -20,4 +20,20 @@ class people::awaxa::preferences {
     domain => "'Apple Global Domain'",
     value  => '0';
   }
+
+  # this did not work
+  #boxen::osx_defaults { 'Lower Left Hot Corner: Start Screen Saver':
+  #  user   => "${::boxen_user}",
+  #  key    => 'wvous-bl-corner',
+  #  domain => 'com.apple.dock',
+  #  value  => '5',
+  #  notify => Exec['killall Dock'];
+  #}
+  #boxen::osx_defaults { 'Lower Left Hot Corner: Start Screen Saver modifier':
+  #  user   => "${::boxen_user}",
+  #  key    => 'wvous-bl-modifier',
+  #  domain => 'com.apple.dock',
+  #  value  => '0',
+  #  notify => Exec['killall Dock'];
+  #}
 }
