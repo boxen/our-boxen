@@ -24,7 +24,7 @@ class people::awaxa::preferences {
   boxen::osx_defaults { 'Globally Disable Autocorrect':
     user   => "${::boxen_user}",
     key    => 'NSAutomaticSpellingCorrectionEnabled',
-    domain => "'Apple Global Domain'",
+    domain => 'NSGlobalDomain',
     value  => '0';
   }
 
