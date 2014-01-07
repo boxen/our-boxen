@@ -10,5 +10,10 @@ class people::awaxa::puppetlabs {
     "${src}/facter":
       source => 'puppetlabs/facter';
   }
+
+  file { '/usr/local/bin/envpuppet':
+    target  => "$src/puppet/ext/envpuppet",
+    require => [ Repository["$src/puppet"], File['/usr/local/bin'] ];
+  }
   
 }
