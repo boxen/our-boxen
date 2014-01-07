@@ -6,11 +6,11 @@ class people::awaxa::dotfiles {
   repository {
     "$dotfiles":
       source => 'awaxa/dotfiles';
-    "$home/.vim/bundle/vim-pathogen":
-      source => 'tpope/vim-pathogen';
-    "$home/.vim/bundle/vim-sensible":
-      source => 'tpope/vim-sensible';
   }
+
+  vim::bundle { [
+    'tpope/vim-sensible'
+  ]: }
 
   file {
     "/$home/.tmux.conf":

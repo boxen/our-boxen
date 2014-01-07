@@ -12,6 +12,7 @@ class people::awaxa::applications {
   include skype
   include tunnelblick::beta
   include vagrant
+  include vim
   include virtualbox
   include vlc
   include vmware_fusion

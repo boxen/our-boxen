@@ -114,6 +114,11 @@ GITHUBTARBALL
     vagrant (3.0.3)
 
 GITHUBTARBALL
+  remote: boxen/puppet-vim
+  specs:
+    vim (1.0.5)
+
+GITHUBTARBALL
   remote: boxen/puppet-virtualbox
   specs:
     virtualbox (1.0.9)
@@ -175,6 +180,7 @@ DEPENDENCIES
   sudo (= 1.0.0)
   tunnelblick (= 1.0.4)
   vagrant (= 3.0.3)
+  vim (= 1.0.5)
   virtualbox (= 1.0.9)
   vlc (= 1.0.5)
   vmware_fusion (= 1.1.0)
