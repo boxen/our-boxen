@@ -39,6 +39,11 @@ GITHUBTARBALL
     homebrew (1.5.1)
 
 GITHUBTARBALL
+  remote: boxen/puppet-iterm2
+  specs:
+    iterm2 (1.0.6)
+
+GITHUBTARBALL
   remote: boxen/puppet-java
   specs:
     java (1.2.0)
@@ -154,6 +159,7 @@ DEPENDENCIES
   hipchat (= 1.1.0)
   homebrew (= 1.5.1)
   inifile (= 1.0.0)
+  iterm2 (= 1.0.6)
   java (= 1.2.0)
   onepassword (= 1.1.0)
   openssl (= 1.0.0)

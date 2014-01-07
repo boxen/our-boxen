@@ -3,6 +3,7 @@ class people::awaxa::applications {
   include chrome
   include dropbox
   #include gpgtools
+  include iterm2::dev
   include onepassword
   include java
   include python
