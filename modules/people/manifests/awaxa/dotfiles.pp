@@ -13,10 +13,10 @@ class people::awaxa::dotfiles {
   ]: }
 
   file {
-    "/$home/.tmux.conf":
+    "$home/.tmux.conf":
       target  => "$dotfiles/home/.tmux.conf",
       require => Repository["$dotfiles"];
-    "/$home/.vimrc":
+    "$home/.vimrc":
       target  => "$dotfiles/home/.vimrc",
       require => Repository["$dotfiles"];
   }
