@@ -1,7 +1,7 @@
 class people::awaxa::applications {
   include caffeine
   include chrome
-  #include dropbox
+  include dropbox
   #include gpgtools
   include onepassword
   include java
