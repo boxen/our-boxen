@@ -19,6 +19,23 @@ class people::awaxa::dotfiles {
     "$home/.vimrc":
       target  => "$dotfiles/home/.vimrc",
       require => Repository["$dotfiles"];
+    "$home/.profile":
+      target  => "$dotfiles/home/.profile",
+      require => Repository["$dotfiles"];
+    "$home/.inputrc":
+      target  => "$dotfiles/home/.inputrc",
+      require => Repository["$dotfiles"];
+    "$home/.bash_aliases":
+      target  => "$dotfiles/home/.bash_aliases",
+      require => Repository["$dotfiles"];
+    "$home/.bashrc":
+      target  => "$dotfiles/home/.bashrc",
+      require => Repository["$dotfiles"];
+    "$home/.ssh":
+      ensure => directory;
+    "$home/.ssh/config":
+      target  => "$dotfiles/home/.ssh/config",
+      require => [ File["$home/.ssh"], Repository["$dotfiles"] ];
   }
 
 }
