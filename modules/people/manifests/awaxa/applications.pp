@@ -1,4 +1,7 @@
 class people::awaxa::applications {
+
+  $globalruby = $people::awaxa::globalruby
+
   include caffeine
   include chrome
   include dropbox
@@ -26,6 +29,11 @@ class people::awaxa::applications {
     'apg',
     'tmux'
     ]:
+  }
+
+  ruby::gem { "gist for $globalruby":
+    gem     => 'gist',
+    ruby    => "$globalruby";
   }
   
   python::pip { 'awscli':
