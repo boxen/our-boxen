@@ -32,17 +32,5 @@ class people::awaxa::preferences {
       key    => 'mcx-disabled',
       domain => 'com.apple.dashboard',
       value  => '1';
-    #'Lower Left Hot Corner: Start Screen Saver':
-    #  user   => "${::boxen_user}",
-    #  key    => 'wvous-bl-corner',
-    #  domain => 'com.apple.dock',
-    #  value  => '5',
-    #  notify => Exec['killall Dock'];
-    #'Lower Left Hot Corner: Start Screen Saver modifier':
-    #  user   => "${::boxen_user}",
-    #  key    => 'wvous-bl-modifier',
-    #  domain => 'com.apple.dock',
-    #  value  => '0',
-    #  notify => Exec['killall Dock'];
   }
 }
