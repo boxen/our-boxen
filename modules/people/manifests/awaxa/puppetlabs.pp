@@ -5,11 +5,11 @@ class people::awaxa::puppetlabs {
   $src = "${boxen::config::srcdir}"
   $globalruby = $people::awaxa::globalruby
 
-  repository {
-    "${src}/puppet":
-      source => 'puppetlabs/puppet';
-    "${src}/facter":
-      source => 'puppetlabs/facter';
+  repository { "${src}/puppet":
+    source => 'puppetlabs/puppet';
+  }
+  repository { "${src}/facter":
+    source => 'puppetlabs/facter';
   }
 
   ruby::gem { "showoff for $globalruby":
