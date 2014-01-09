@@ -14,13 +14,6 @@ class people::awaxa::preferences {
   include osx::no_network_dsstores
   include osx::software_update
 
-  class { 'osx::global::key_repeat_delay':
-    delay => 15,
-  }
-  class { 'osx::global::key_repeat_rate':
-    rate => 2,
-  }
-
   boxen::osx_defaults {
     'Globally Disable Autocorrect':
       user   => "${::boxen_user}",
