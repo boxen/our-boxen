@@ -94,7 +94,6 @@ node default {
       group   => 'admin';
     '/usr/local/bin':
       ensure  => directory,
-      group   => 'admin',
-      require => File['/usr/local'];
+      group   => 'admin';
   }
 }
