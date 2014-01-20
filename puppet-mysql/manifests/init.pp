@@ -116,7 +116,7 @@ class mysql {
   exec { 'drop test database':
     command     => "mysql -u root --password='' \
       -P ${mysql::config::port} -S ${mysql::config::socket} \
-      -e 'drop database test'",
+      -e 'drop database if exists test'",
     provider    => shell,
     subscribe   => Exec['wait-for-mysql'],
     refreshonly => true
