@@ -98,10 +98,16 @@ GITHUBTARBALL
   specs:
     stdlib (4.1.0)
 
+GITHUBTARBALL
+  remote: webflo/puppet-drush-boxen
+  specs:
+    drush (0.0.1)
+
 DEPENDENCIES
   apache (>= 0)
   boxen (= 3.3.4)
   dnsmasq (= 1.0.0)
+  drush (= 0.0.1)
   foreman (= 1.0.0)
   gcc (= 2.0.1)
   git (= 1.2.5)

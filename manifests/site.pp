@@ -70,6 +70,7 @@ node default {
 
   include apache
   include mysql
+  include drush
 
   # common, useful packages
   package {
