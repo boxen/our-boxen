@@ -33,7 +33,7 @@ class people::awaxa::applications {
 
   ruby::gem { "gist for $globalruby":
     gem     => 'gist',
-    ruby    => "$globalruby";
+    ruby    => "$globalruby",
   }
 
   python::pip { 'awscli':
@@ -43,6 +43,6 @@ class people::awaxa::applications {
   package {
     'GoogleVoiceAndVideoSetup':
       source => 'http://dl.google.com/googletalk/googletalkplugin/GoogleVoiceAndVideoSetup.dmg',
-      provider => pkgdmg;
+      provider => pkgdmg,
   }
 }
