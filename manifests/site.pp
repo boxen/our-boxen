@@ -88,11 +88,7 @@ node default {
     target => $boxen::config::repodir
   }
 
-  file {
-    '/usr/local':
-      ensure  => directory,
-      group   => 'admin';
-    '/usr/local/bin':
+  file { [ '/usr/local', '/usr/local/bin', ]:
       ensure  => directory,
       group   => 'admin';
   }
