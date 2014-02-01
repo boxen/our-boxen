@@ -1,5 +1,5 @@
 class people::awaxa::gitconfig {
-  
+
   git::config::global {
     'user.name':    value => 'Greg Kitson';
     'user.email':   value => 'greg.kitson@gmail.com';
@@ -20,5 +20,5 @@ class people::awaxa::gitconfig {
     'alias.l1':     value => 'log --pretty=oneline';
     'alias.s':      value => 'status';
   }
-  
+
 }
