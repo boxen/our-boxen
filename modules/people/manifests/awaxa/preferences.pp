@@ -18,6 +18,6 @@ class people::awaxa::preferences {
       user   => "${::boxen_user}",
       key    => 'mcx-disabled',
       domain => 'com.apple.dashboard',
-      value  => '1';
+      value  => '1',
   }
 }
