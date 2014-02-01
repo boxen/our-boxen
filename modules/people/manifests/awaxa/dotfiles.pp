@@ -8,7 +8,14 @@ class people::awaxa::dotfiles {
   }
 
   vim::bundle { [
-    'tpope/vim-sensible'
+    'tpope/vim-sensible',
+    'godlygeek/tabular',
+    'rodjek/vim-puppet',
+    'scrooloose/syntastic',
+    'scrooloose/nerdtree',
+    'Shougo/neocomplcache.vim',
+    'bling/vim-airline',
+    'kien/ctrlp.vim',
   ]: }
 
   file {
