@@ -1,6 +1,6 @@
 class people::awaxa::preferences {
 
-  osx::recovery_message { "If found, please email greg.kitson@gmail.com": }
+  #osx::recovery_message { "If found, please email greg.kitson@gmail.com": }
 
   include osx::global::disable_remote_control_ir_receiver
 
