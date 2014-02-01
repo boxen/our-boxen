@@ -29,6 +29,7 @@ class people::awaxa::applications {
     'apg',
     'tmux'
     ]:
+      ensure => latest,
   }
 
   ruby::gem { "gist for $globalruby":
