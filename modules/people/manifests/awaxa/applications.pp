@@ -19,7 +19,7 @@ class people::awaxa::applications {
   include virtualbox
   include vlc
   include vmware_fusion
-  
+
   package { [
     'htop-osx',
     'watch',
@@ -35,7 +35,7 @@ class people::awaxa::applications {
     gem     => 'gist',
     ruby    => "$globalruby";
   }
-  
+
   python::pip { 'awscli':
     virtualenv => $python::config::global_venv,
   }
