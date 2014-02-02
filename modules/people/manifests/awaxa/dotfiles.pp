@@ -1,5 +1,7 @@
 class people::awaxa::dotfiles {
 
+  include people::awaxa::gitconfig
+
   $home     = "/Users/${::boxen_user}"
   $dotfiles = "${boxen::config::srcdir}/dotfiles"
 
