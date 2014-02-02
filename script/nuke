@@ -61,6 +61,8 @@ if all || receipts
 end
 
 if all || gitconfig
-  warn "-> Removing git credential helper config."
+  warn "-> Removing git credential helper and core excludesfiles config items."
   system "/usr/bin/git", "config", "--global", "--unset", "credential.helper"
+  system "/usr/bin/git", "config", "--global", "--unset", "core.excludesfiles", "boxen"  #Remove only a config with boxen in its value (#509)
 end
+
