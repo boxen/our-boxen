@@ -61,7 +61,7 @@ class people::awaxa::gitconfig {
   }
 
   git::config::global { 'alias.ds':
-    value => 'diff --stat',
+    value => 'diff --staged',
   }
 
   git::config::global { 'alias.l':
