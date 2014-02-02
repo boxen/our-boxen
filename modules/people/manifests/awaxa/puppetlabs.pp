@@ -5,34 +5,27 @@ class people::awaxa::puppetlabs {
 
   $src = "${boxen::config::srcdir}"
   $globalruby = $people::awaxa::globalruby
-  $email = 'greg.kitson@puppetlabs.com'
 
-  repository { "${src}/puppet":
-    source => 'puppetlabs/puppet',
-  }
-  git::config::local { "${src}/puppet":
-    key     => 'user.email',
-    value   => "$email",
-    require => Repository["${src}/puppet"],
-  }
-
-  repository { "${src}/facter":
-    source => 'puppetlabs/facter',
-  }
-  git::config::local { "${src}/facter":
-    key     => 'user.email',
-    value   => "$email",
-    require => Repository["${src}/facter"],
+  define pl_repository () {
+    $src = "${boxen::config::srcdir}"
+    $email = 'greg.kitson@puppetlabs.com'
+    $remote = split("$title", '/')
+    $dirname = $remote[1]
+    repository { "${src}/${dirname}":
+      source => "$title",
+    }
+    git::config::local { "${src}/${dirname}":
+      key     => 'user.email',
+      value   => "$email",
+      require => Repository["${src}/${dirname}"],
+    }
   }
 
-  repository { "${src}/courseware-fundamentals":
-    source => 'awaxa/courseware-fundamentals',
-  }
-  git::config::local { "${src}/courseware-fundamentals":
-    key     => 'user.email',
-    value   => "$email",
-    require => Repository["${src}/courseware-fundamentals"],
-  }
+  pl_repository { 'puppetlabs/puppet': }
+
+  pl_repository { 'puppetlabs/facter': }
+
+  pl_repository { 'awaxa/courseware-fundamentals': }
 
   ruby::gem { "showoff for $globalruby":
     gem     => 'showoff',
@@ -46,13 +39,6 @@ class people::awaxa::puppetlabs {
     require => [ Repository["$src/puppet"], File['/usr/local/bin'] ],
   }
 
-  repository { "${src}/seteam-vagrant-stack":
-    source => 'puppetlabs/seteam-vagrant-stack',
-  }
-  git::config::local { "${src}/seteam-vagrant-stack":
-    key     => 'user.email',
-    value   => "$email",
-    require => Repository["${src}/seteam-vagrant-stack"],
-  }
+  pl_repository { 'puppetlabs/seteam-vagrant-stack': }
 
 }
