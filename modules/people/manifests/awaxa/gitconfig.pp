@@ -69,7 +69,7 @@ class people::awaxa::gitconfig {
   }
 
   git::config::global { 'alias.l1':
-    value => 'log --pretty=oneline',
+    value => 'log --oneline --decorate',
   }
 
   git::config::global { 'alias.s':
