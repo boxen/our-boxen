@@ -14,7 +14,7 @@ class people::awaxa::applications {
   include sizeup
   include skype
   include tunnelblick::beta
-  include vagrant
+  include people::awaxa::vagrant
   include vim
   include virtualbox
   include vlc

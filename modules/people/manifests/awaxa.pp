@@ -11,5 +11,4 @@ class people::awaxa {
   include people::awaxa::gitconfig
   include people::awaxa::preferences
   include people::awaxa::puppetlabs
-  include people::awaxa::vagrant
 }
