@@ -16,6 +16,10 @@ class people::awaxa::gitconfig {
     value => 'awaxa',
   }
 
+  git::config::global { 'help.autocorrect':
+    value => '1',
+  }
+
   git::config::global { 'push.default':
     value => 'simple',
   }
