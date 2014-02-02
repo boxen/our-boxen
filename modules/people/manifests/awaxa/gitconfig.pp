@@ -76,4 +76,8 @@ class people::awaxa::gitconfig {
     value => 'status',
   }
 
+  git::config::global { 'alias.st':
+    value => 'status -sb',
+  }
+
 }
