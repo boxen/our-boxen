@@ -27,23 +27,40 @@ This will automatically point any .dev domain to your locahost and enable dynami
 * Drush
 
 
-## Dependencies
+## Prerequisites
 
-This will only require that the Xcode Command Line Tools are installed. You can either install them by installing the full version of Xcode, or by running `xcode-select --install` from the terminal and follow the instructions.
+If you have any installations that are included within Odd Boxen, make sure that they are completely uninstalled before you continue. Don't forget to backup any personal data, such as MySQL databases, before you uninstall these services!
 
 
 ## Installation
 
-Run the following commands exactly as they say:
+1. Install Xcode Command Line Tools:
 
-```
-sudo mkdir -p /opt/boxen
-sudo chown ${USER}:staff /opt/boxen
-git clone git@github.com:oddhill/oddboxen.git /opt/boxen/repo
-cd /opt/boxen/repo
-script/boxen
-```
-Expect this to take a while. When you're back at the prompt, you should be able to run `boxen --env` in order to check the status for the current environment.
+	```
+	xcode-select --install
+	```
+	This will ask for your password, and initiate the installation if needed. All you need to do is to follow the instructions.
+
+
+
+2. Run the following commands exactly as they say:
+
+	```
+	sudo mkdir -p /opt/boxen
+	sudo chown ${USER}:staff /opt/boxen
+	git clone git@github.com:oddhill/oddboxen.git /opt/boxen/repo
+	cd /opt/boxen/repo
+	script/boxen
+	```
+	Expect this to take a while.
+	
+	
+	
+3. When you're back at the prompt, restart the shell, and you should be able to run `boxen --env`. This wil display the current status of the environment. If you can't run `boxen`, you'll need to add this line to the end of your *~/.profile*:
+
+	```
+	[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+	```
 
 
 ## Updating
