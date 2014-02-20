@@ -1,7 +1,7 @@
 GITHUBTARBALL
   remote: boxen/puppet-boxen
   specs:
-    boxen (3.3.4)
+    boxen (3.4.2)
 
 GITHUBTARBALL
   remote: boxen/puppet-dnsmasq
@@ -11,7 +11,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-foreman
   specs:
-    foreman (1.0.0)
+    foreman (1.1.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-gcc
@@ -21,32 +21,32 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-git
   specs:
-    git (1.2.5)
+    git (1.3.7)
 
 GITHUBTARBALL
   remote: boxen/puppet-go
   specs:
-    go (1.0.0)
+    go (2.0.1)
 
 GITHUBTARBALL
   remote: boxen/puppet-homebrew
   specs:
-    homebrew (1.5.1)
+    homebrew (1.6.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-hub
   specs:
-    hub (1.0.3)
+    hub (1.3.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-nginx
   specs:
-    nginx (1.4.2)
+    nginx (1.4.3)
 
 GITHUBTARBALL
   remote: boxen/puppet-nodejs
   specs:
-    nodejs (3.3.0)
+    nodejs (3.5.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-openssl
@@ -56,7 +56,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-phantomjs
   specs:
-    phantomjs (2.0.2)
+    phantomjs (2.1.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-pkgconfig
@@ -66,12 +66,12 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-repository
   specs:
-    repository (2.2.0)
+    repository (2.3.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-ruby
   specs:
-    ruby (6.7.2)
+    ruby (7.1.6)
 
 GITHUBTARBALL
   remote: boxen/puppet-sudo
@@ -81,36 +81,42 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-xquartz
   specs:
-    xquartz (1.1.0)
+    xquartz (1.1.1)
 
 GITHUBTARBALL
   remote: puppetlabs/puppetlabs-inifile
   specs:
-    inifile (1.0.0)
+    inifile (1.0.1)
 
 GITHUBTARBALL
   remote: puppetlabs/puppetlabs-stdlib
   specs:
     stdlib (4.1.0)
 
+GITHUBTARBALL
+  remote: ripienaar/puppet-module-data
+  specs:
+    module-data (0.0.1)
+
 DEPENDENCIES
-  boxen (= 3.3.4)
+  boxen (= 3.4.2)
   dnsmasq (= 1.0.1)
-  foreman (= 1.0.0)
+  foreman (= 1.1.0)
   gcc (= 2.0.1)
-  git (= 1.2.5)
-  go (= 1.0.0)
-  homebrew (= 1.5.1)
-  hub (= 1.0.3)
-  inifile (= 1.0.0)
-  nginx (= 1.4.2)
-  nodejs (= 3.3.0)
+  git (= 1.3.7)
+  go (= 2.0.1)
+  homebrew (= 1.6.0)
+  hub (= 1.3.0)
+  inifile (= 1.0.1)
+  module-data (= 0.0.1)
+  nginx (= 1.4.3)
+  nodejs (= 3.5.0)
   openssl (= 1.0.0)
-  phantomjs (= 2.0.2)
+  phantomjs (= 2.1.0)
   pkgconfig (= 1.0.0)
-  repository (= 2.2.0)
-  ruby (= 6.7.2)
+  repository (= 2.3.0)
+  ruby (= 7.1.6)
   stdlib (= 4.1.0)
   sudo (= 1.0.0)
-  xquartz (= 1.1.0)
+  xquartz (= 1.1.1)
 
