@@ -29,7 +29,7 @@ end
 # Includes many of our custom types and providers, as well as global
 # config. Required.
 
-github "boxen", "3.4.2"
+github "boxen", "3.3.8"
 
 # Core modules for a basic development environment. You can replace
 # some/most of these if you want, but it's not recommended.
