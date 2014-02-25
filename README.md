@@ -22,7 +22,6 @@ and detect most of these and tell you anyway):
 
 * Boxen __requires__ at least the Xcode Command Line Tools installed.
 * Boxen __will not__ work with an existing rvm install.
-* Boxen __may not__ play nice with a GitHub username that includes dash(-)
 * Boxen __may not__ play nice with an existing rbenv install.
 * Boxen __may not__ play nice with an existing chruby install.
 * Boxen __may not__ play nice with an existing homebrew install.
