@@ -56,5 +56,6 @@ github "xquartz",    "1.1.0"
 # https://github.com/boxen.
 
 dev "apache"
+dev "php"
 dev "mysql"
 github "drush",     "0.0.1", :repo => "webflo/puppet-drush-boxen"

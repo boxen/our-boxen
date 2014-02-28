@@ -8,6 +8,11 @@ PATH
   specs:
     mysql (0.0.1)
 
+PATH
+  remote: /opt/boxen/repo/puppet-php
+  specs:
+    php (0.0.1)
+
 GITHUBTARBALL
   remote: boxen/puppet-boxen
   specs:
@@ -119,6 +124,7 @@ DEPENDENCIES
   nodejs (= 3.3.0)
   openssl (= 1.0.0)
   phantomjs (= 2.0.2)
+  php (>= 0)
   pkgconfig (= 1.0.0)
   repository (= 2.2.0)
   ruby (= 6.7.2)
