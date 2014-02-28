@@ -14,4 +14,10 @@ class apache::config {
 
   $port = '80'
 
+  $ssl_port = '443'
+  $ssl_file = "${configdir}/extra/httpd-ssl.conf"
+  $ssl_storage = "${boxen::config::datadir}/ssl"
+  $ssl_certificate_file = "${ssl_storage}/dev.crt"
+  $ssl_certificate_key_file = "${ssl_storage}/dev.key"
+
 }

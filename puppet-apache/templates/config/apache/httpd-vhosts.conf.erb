@@ -2,3 +2,11 @@
   UseCanonicalName off
   VirtualDocumentRoot <%= scope.lookupvar "apache::config::sitesdir" %>/%-2+
 </VirtualHost>
+
+<VirtualHost *:<%= scope.lookupvar "apache::config::ssl_port" %>>
+  UseCanonicalName off
+  VirtualDocumentRoot <%= scope.lookupvar "apache::config::sitesdir" %>/%-2+
+  SSLEngine on
+  SSLCertificateFile <%= scope.lookupvar "apache::config::ssl_certificate_file" %>
+  SSLCertificateKeyFile <%= scope.lookupvar "apache::config::ssl_certificate_key_file" %>
+</VirtualHost>

@@ -25,6 +25,7 @@ class apache {
 
   file { [
     $apache::config::sitesdir,
+    $apache::config::ssl_storage,
   ]:
     ensure => directory,
     owner  => $boxen_user,
@@ -40,6 +41,27 @@ class apache {
 
   file { $apache::config::vhostsfile:
     content => template('apache/config/apache/httpd-vhosts.conf.erb'),
+    notify  => Service['org.apache.httpd'],
+    owner   => root,
+    group   => wheel
+  }
+
+  file { $apache::config::ssl_file:
+    content => template('apache/config/apache/httpd-ssl.conf.erb'),
+    notify  => Service['org.apache.httpd'],
+    owner   => root,
+    group   => wheel
+  }
+
+  file { $apache::config::ssl_certificate_file:
+    content => template('apache/ssl/dev.crt.erb'),
+    notify  => Service['org.apache.httpd'],
+    owner   => root,
+    group   => wheel
+  }
+
+  file { $apache::config::ssl_certificate_key_file:
+    content => template('apache/ssl/dev.key.erb'),
     notify  => Service['org.apache.httpd'],
     owner   => root,
     group   => wheel

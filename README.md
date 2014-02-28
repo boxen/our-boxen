@@ -2,7 +2,7 @@
 
 Odd Boxen is a web development environment for Mavericks based on [GitHubs Boxen](http://boxen.github.com).
 
-This will automatically point any .dev domain to your locahost and enable dynamic virtual hosts for every folder in your ~/Sites folder. This means that you'll be able to setup a site by creating a folder, *example*, in your ~/Sites folder and access it from http://example.dev.
+This will automatically point any .dev domain to your locahost and enable dynamic virtual hosts for every folder in your ~/Sites folder. This means that you'll be able to setup a site by creating a folder, *example*, in your ~/Sites folder and access it from http://example.dev, or https://example.dev if you want to use a secure connection.
 
 
 ## What's included?
@@ -23,6 +23,7 @@ This will automatically point any .dev domain to your locahost and enable dynami
 * Findutils
 * GNU tar
 * Apache configuration
+* Support for HTTPS
 * MySQL
 * Drush
 

@@ -499,7 +499,7 @@ Include <%= scope.lookupvar "apache::config::configdir" %>/extra/httpd-manual.co
 #Include <%= scope.lookupvar "apache::config::configdir" %>/extra/httpd-default.conf
 
 # Secure (SSL/TLS) connections
-#Include <%= scope.lookupvar "apache::config::configdir" %>/extra/httpd-ssl.conf
+Include <%= scope.lookupvar "apache::config::configdir" %>/extra/httpd-ssl.conf
 #
 # Note: The following must must be present to support
 #       starting without SSL on platforms with no /dev/random equivalent
