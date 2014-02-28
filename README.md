@@ -24,6 +24,7 @@ This will automatically point any .dev domain to your locahost and enable dynami
 * GNU tar
 * Apache configuration
 * Support for HTTPS
+* PHP configuration
 * MySQL
 * Drush
 
