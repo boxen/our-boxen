@@ -54,6 +54,11 @@ GITHUBTARBALL
     hub (1.0.3)
 
 GITHUBTARBALL
+  remote: boxen/puppet-mongodb
+  specs:
+    mongodb (1.2.1)
+
+GITHUBTARBALL
   remote: boxen/puppet-nodejs
   specs:
     nodejs (3.3.0)
@@ -120,6 +125,7 @@ DEPENDENCIES
   homebrew (= 1.5.1)
   hub (= 1.0.3)
   inifile (= 1.0.0)
+  mongodb (= 1.2.1)
   mysql (>= 0)
   nodejs (= 3.3.0)
   openssl (= 1.0.0)

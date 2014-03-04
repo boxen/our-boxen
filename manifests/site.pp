@@ -72,6 +72,7 @@ node default {
   include php
   include mysql
   include drush
+  include mongodb
 
   # common, useful packages
   package {
