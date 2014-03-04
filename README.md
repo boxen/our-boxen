@@ -27,6 +27,7 @@ This will automatically point any .dev domain to your locahost and enable dynami
 * PHP configuration
 * MySQL
 * Drush
+* MongoDB
 
 
 ## Prerequisites
