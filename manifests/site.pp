@@ -73,6 +73,8 @@ node default {
   include mysql
   include drush
   include mongodb
+  include java
+  include solr
 
   # common, useful packages
   package {

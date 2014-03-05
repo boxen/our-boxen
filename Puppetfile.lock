@@ -13,6 +13,11 @@ PATH
   specs:
     php (0.0.1)
 
+PATH
+  remote: /opt/boxen/repo/puppet-solr
+  specs:
+    solr (0.0.1)
+
 GITHUBTARBALL
   remote: boxen/puppet-boxen
   specs:
@@ -52,6 +57,11 @@ GITHUBTARBALL
   remote: boxen/puppet-hub
   specs:
     hub (1.0.3)
+
+GITHUBTARBALL
+  remote: boxen/puppet-java
+  specs:
+    java (1.2.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-mongodb
@@ -125,6 +135,7 @@ DEPENDENCIES
   homebrew (= 1.5.1)
   hub (= 1.0.3)
   inifile (= 1.0.0)
+  java (= 1.2.0)
   mongodb (= 1.2.1)
   mysql (>= 0)
   nodejs (= 3.3.0)
@@ -134,6 +145,7 @@ DEPENDENCIES
   pkgconfig (= 1.0.0)
   repository (= 2.2.0)
   ruby (= 6.7.2)
+  solr (>= 0)
   stdlib (= 4.1.0)
   sudo (= 1.0.0)
   xquartz (= 1.1.0)
