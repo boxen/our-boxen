@@ -28,6 +28,7 @@ This will automatically point any .dev domain to your locahost and enable dynami
 * MySQL
 * Drush
 * MongoDB
+* Solr
 
 
 ## Prerequisites
