@@ -398,7 +398,7 @@ max_input_time = <%= scope.lookupvar "php::config::max_input_time" %>
 ;max_input_nesting_level = 64
 
 ; How many GET/POST/COOKIE input variables may be accepted
-; max_input_vars = 1000
+max_input_vars = <%= scope.lookupvar "php::config::max_input_vars" %>
 
 ; Maximum amount of memory a script may consume (128MB)
 ; http://php.net/memory-limit

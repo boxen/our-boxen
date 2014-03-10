@@ -8,6 +8,7 @@ class php::config {
   $expose_php = 'Off'
   $max_execution_time = '60'
   $max_input_time = '60'
+  $max_input_vars = '10000'
   $memory_limit = '512M'
   $error_reporting = 'E_ALL & ~E_NOTICE'
   $display_errors = 'On'
