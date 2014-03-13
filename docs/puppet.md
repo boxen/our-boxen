@@ -1,4 +1,4 @@
-# wtf is a puppet?
+# What is a puppet?
 
 Puppet is configuration management tool, written in Ruby, that compiles
 and runs code written in the Puppet language.
