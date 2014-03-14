@@ -88,11 +88,13 @@ end
 
 # Sync NVM nodes.
 
-Dir.chdir "#{config.homedir}/nvm" do
-  Dir["v*"].each do |dir|
+Dir.chdir "#{config.homedir}/nodenv/versions" do
+  Dir["*"].each do |dir|
+    next if File.symlink? dir
+
     version = File.basename dir
-    file    = "nvm/#{os}/#{version}.tar.bz2"
-    temp    = Tempfile.new "nvm"
+    file    = "nodenv/#{os}/#{version}.tar.bz2"
+    temp    = Tempfile.new "nodenv"
     obj     = bucket.objects[file]
 
     next if obj.exists?
