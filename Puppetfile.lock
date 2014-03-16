@@ -26,7 +26,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-go
   specs:
-    go (2.0.1)
+    go (1.1.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-homebrew
@@ -104,7 +104,7 @@ DEPENDENCIES
   foreman (= 1.1.0)
   gcc (= 2.0.1)
   git (= 1.3.7)
-  go (= 2.0.1)
+  go (= 1.1.0)
   homebrew (= 1.6.0)
   hub (= 1.3.0)
   inifile (= 1.0.1)
