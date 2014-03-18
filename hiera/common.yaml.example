@@ -1,0 +1,23 @@
+---
+# This is an example of the kinds of things that you can configure via hiera.
+# If you've left the defaults in `/hiera.yml`, you might want to copy this file
+# to `hiera/common.yaml`, or feel free to start with a blank slate!
+
+# Have a gander at some of these examples to get an idea of some of the things
+# that you can affect 'out of the box', and then customise to your
+# heart's content.
+
+# See https://github.com/boxen/puppet-ruby for docs
+ruby::global::version: "2.1.0"
+ruby::rbenv_plugins:
+  rbenv-vars:
+    ensure: v1.0.0
+    source: sstephenson/rbenv-vars
+  ruby-build:
+    ensure: v20131225.1
+    source: sstephenson/ruby-build
+ruby::version::alias:
+  2.0.0: 2.0.0-p353
+
+# See https://github.com/boxen/puppet-java for docs
+java::update_version: 51
