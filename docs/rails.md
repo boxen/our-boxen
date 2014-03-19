@@ -52,8 +52,6 @@ your app best to work with Boxen.
 # config/database.yml
 
 <%
-  def boxen?; ENV['BOXEN_HOME']; end
-
   socket = [
     ENV["BOXEN_MYSQL_SOCKET"],
     "/var/run/mysql5/mysqld.sock",
