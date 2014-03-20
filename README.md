@@ -138,10 +138,9 @@ This template project provides the following by default:
 * Node.js 0.6
 * Node.js 0.8
 * Node.js 0.10
-* Ruby 1.8.7
-* Ruby 1.9.2
 * Ruby 1.9.3
 * Ruby 2.0.0
+* Ruby 2.1.0
 * ack
 * Findutils
 * GNU tar
@@ -234,7 +233,7 @@ everyone by default. An example of this might look like so:
  class github::environment {
    include github::apps::mac
 
-   include ruby::1-8-7
+   include ruby::2-1-0
 
    include projects::super-top-secret-project
  }
