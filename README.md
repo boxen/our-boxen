@@ -233,8 +233,6 @@ everyone by default. An example of this might look like so:
  class github::environment {
    include github::apps::mac
 
-   include ruby::2-1-0
-
    include projects::super-top-secret-project
  }
 ```
