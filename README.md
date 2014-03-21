@@ -60,11 +60,14 @@ If you have any installations that are included within Odd Boxen, make sure that
 	
 	
 	
-3. When you're back at the prompt, restart the shell, and you should be able to run `boxen --env`. This wil display the current status of the environment. If you can't run `boxen`, you'll need to add this line to the end of your *~/.profile*:
+3. When you're back at the prompt, restart the shell, and you should be able to run `boxen --env`. This wil display the current status of the environment.
+
+	If you can't run `boxen`, you'll need to add this line to the end of your *~/.profile* or *~/.bash_profile*:
 
 	```
-	[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+	source /opt/boxen/env.sh
 	```
+	Then restart your shell, and try to run `boxen --env` again.
 
 
 ## Updating
