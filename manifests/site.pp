@@ -96,4 +96,9 @@ node default {
   git::config::global{ 'mergetool.keepBackup':
     value => false
   }
+
+  exec {"drush-dl-registry-rebuild":
+    command => "drush dl registry_rebuild",
+    creates => "/Users/${::boxen_user}/.drush/registry_rebuild",
+  }
 }
