@@ -74,6 +74,7 @@ node default {
   include mongodb
   include java
   include solr
+  include stagingsync
 
   # common, useful packages
   package {

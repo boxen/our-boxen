@@ -1,0 +1,45 @@
+<?php
+/**
+ * @file
+ * Drush commands for an easier sync between development and staging.
+ */
+
+/**
+ * Implements hook_drush_command().
+ */
+function staging_sync_drush_command() {
+  $items = array();
+
+  $items['staging-sync-push'] = array(
+    'description' => dt('Pushes the database to the staging environment.'),
+    'aliases' => array('push'),
+    'bootstrap' => DRUSH_BOOTSTRAP_DRUSH,
+  );
+  $items['staging-sync-pull'] = array(
+    'description' => dt('Pulls the database from the staging environment.'),
+    'aliases' => array('pull'),
+    'bootstrap' => DRUSH_BOOTSTRAP_DRUSH,
+  );
+
+  return $items;
+}
+
+/**
+ * Drush callback for staging-sync-push.
+ */
+function drush_staging_sync_push() {
+  drush_print(shell_exec('drush sql-sync default @staging --yes'));
+  drush_print(shell_exec('drush @staging ts staging'));
+  drush_print(shell_exec('drush @staging fra --yes'));
+  drush_print(shell_exec('drush @staging cc all'));
+}
+
+/**
+ * Drush callback for staging-sync-pull.
+ */
+function drush_staging_sync_pull() {
+  drush_print(shell_exec('drush sql-sync @staging default --yes'));
+  drush_print(shell_exec('drush ts development'));
+  drush_print(shell_exec('drush fra --yes'));
+  drush_print(shell_exec('drush cc all'));
+}
