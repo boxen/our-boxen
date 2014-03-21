@@ -88,4 +88,12 @@ node default {
     ensure => link,
     target => $boxen::config::repodir
   }
+
+  include git::config
+  git::config::global{ 'core.filemode':
+    value => false
+  }
+  git::config::global{ 'mergetool.keepBackup':
+    value => false
+  }
 }
