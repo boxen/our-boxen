@@ -81,6 +81,16 @@ cd /opt/boxen/repo
 ./script/boxen
 ```
 
+**Note**
+If you are creating a fresh install on Xcode 5.1 there is a clang issue with
+certain Ruby Gems. There is a Stackoverflow post [here](http://stackoverflow.com/questions/22352838/ruby-gem-install-json-fails-on-mavericks-and-xcode-5-1-unknown-argument-mul)
+
+To run the Boxen script follow these instructions
+```
+cd /opt/boxen/repo
+ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future ./script/boxen
+```
+
 You can also skip the above steps and <a href="#customizing">customize your
 boxen</a> before installing it.
 
@@ -138,10 +148,10 @@ This template project provides the following by default:
 * Node.js 0.6
 * Node.js 0.8
 * Node.js 0.10
-* Ruby 1.8.7
-* Ruby 1.9.2
 * Ruby 1.9.3
 * Ruby 2.0.0
+* Ruby 2.1.0
+* Ruby 2.1.1
 * ack
 * Findutils
 * GNU tar
