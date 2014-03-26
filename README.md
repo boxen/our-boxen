@@ -13,10 +13,10 @@ This will automatically point any .dev domain to your locahost and enable dynami
 * dnsmasq
 * rbenv
 * Node.js 0.10
-* Ruby 1.8.7
-* Ruby 1.9.2
 * Ruby 1.9.3
 * Ruby 2.0.0
+* Ruby 2.1.0
+* Ruby 2.1.1
 * ack
 * Findutils
 * GNU tar
