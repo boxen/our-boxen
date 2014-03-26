@@ -12,8 +12,6 @@ This will automatically point any .dev domain to your locahost and enable dynami
 * Hub
 * dnsmasq
 * rbenv
-* Node.js 0.6
-* Node.js 0.8
 * Node.js 0.10
 * Ruby 1.8.7
 * Ruby 1.9.2
