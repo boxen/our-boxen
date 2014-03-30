@@ -207,6 +207,13 @@ Now Puppet knows where to download the module from when you include it in your s
     # github "java",     "1.1.0"
     include java
 
+### Hiera
+
+Hiera is preferred mechanism to make changes to module defaults (e.g. default
+global ruby version, service ports, etc). This repository supplies a
+starting point for your Hiera configuration at `config/hiera.yml`, and an
+example data file at `hiera/common.yaml`. See those files for more details.
+
 ### Node definitions
 
 Puppet has the concept of a
