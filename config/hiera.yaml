@@ -1,1 +1,24 @@
 ---
+# This file configures the hiera "database" for Boxen. As with most files in
+# this repo, it's just an example, and you should feel free to make any
+# changes suited to your organisation.
+
+# The defaults here should give you a solid start; put global defaults in
+# a file named hiera/common.yaml, and individuals can supplement and/or override
+# them in hiera/{github_login}.yaml
+
+:backends:
+  - yaml
+:yaml:
+  :datadir: "%{::boxen_home}/repo/hiera"
+:hierarchy:
+  - "users/%{github_login}"
+  - common
+
+# Many modules make their own hiera data available through the use of
+# puppet-module-data. Some depend on the 'deeper' merge_behavior setting, so
+# remove it at your own risk!
+# ...
+# besides the modules that use it, you might want to override deeply nested hash
+# values, too!
+:merge_behavior: deeper
