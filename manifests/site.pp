@@ -69,6 +69,9 @@ node default {
   class { 'nodejs::global':
     version => 'v0.10'
   }
+  nodejs::module { 'grunt-cli':
+    node_version => 'v0.10'
+  }
 
   include apache
   include php
