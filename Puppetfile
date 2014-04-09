@@ -23,7 +23,7 @@ end
 
 # Shortcut for a module under development
 def dev(name, *args)
-  mod name, :path => "#{ENV['HOME']}/src/oddboxen/puppet-#{name}"
+  mod name, :path => "/opt/boxen/repo/puppet-#{name}"
 end
 
 # Includes many of our custom types and providers, as well as global
