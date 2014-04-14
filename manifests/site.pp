@@ -81,6 +81,7 @@ node default {
   include java
   include solr
   include stagingsync
+  include wget
 
   # common, useful packages
   package {
