@@ -30,3 +30,6 @@ the repository.
 It ends up adding a negligible amount of disk space in return for much faster runtimes
 for other folks on your team (since they don't have to fetch the tarballs one-by-one
 through the GitHub API any time a module version changes).
+
+### Q: OMG JSON Gem won't install!!!
+See this site for more information: https://langui.sh/2014/03/10/wunused-command-line-argument-hard-error-in-future-is-a-harsh-mistress/
