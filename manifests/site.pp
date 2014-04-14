@@ -69,6 +69,11 @@ node default {
   class { 'ruby::global':
     version => '2.1.1'
   }
+  ruby::gem { 'sass':
+    gem     => 'sass',
+    ruby    => '2.1.1',
+  }
+
   class { 'nodejs::global':
     version => 'v0.10'
   }
