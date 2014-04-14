@@ -7,24 +7,21 @@ This will automatically point any .dev domain to your locahost and enable dynami
 
 ## What's included?
 
+This is a list that points out the most relevant parts for this development environment. For a full list and further information, please refer to the repository for [our-boxen](https://github.com/boxen/our-boxen).
+
 * Homebrew
 * Git
-* Hub
-* dnsmasq
-* rbenv
-* Node.js 0.10
-* Ruby 1.9.3
-* Ruby 2.0.0
-* Ruby 2.1.0
-* Ruby 2.1.1
-* ack
-* Findutils
-* GNU tar
+* Node.js
+  * Grunt CLI
+* Ruby
+  * Sass
+* Drush
+  * Registry Rebuild
 * Apache configuration
-* Support for HTTPS
+  * Dynamic document root
+  * Support for HTTPS
 * PHP configuration
 * MySQL
-* Drush
 * MongoDB
 * Solr
 
