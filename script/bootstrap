@@ -27,4 +27,4 @@ set -e
 /usr/bin/bundle install --binstubs bin --path .bundle --quiet "$@"
 
 # Fix the binstubs to use system ruby
-find bin -type f -print0 | xargs -0 sed -i '' 's|/usr/bin/env ruby|/usr/bin/ruby|g'
+find bin -not -path 'bin/\.*' -type f -print0 | xargs -0 /usr/bin/sed -i '' 's|/usr/bin/env ruby|/usr/bin/ruby|g'

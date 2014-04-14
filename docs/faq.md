@@ -19,5 +19,14 @@ One approach is to delete the Gemfile.lock and Puppetfile.lock and run:
 
     # Regenerates Puppetfile.lock and caches tarballs
     bundle exec librarian-puppet install --clean
-    
+
 These will generate the respective lock files suitable for committing. Hope that helps.
+
+### Q: Should you keep the cache of the module and gem in the repository?
+
+We recommend yout to keep the files inside `vendor/cache` and `vendor/puppet/cache` inside
+the repository.
+
+It ends up adding a negligible amount of disk space in return for much faster runtimes
+for other folks on your team (since they don't have to fetch the tarballs one-by-one
+through the GitHub API any time a module version changes).
