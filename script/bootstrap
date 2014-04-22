@@ -3,6 +3,19 @@
 
 set -e
 
+#Add fake group to fix GID/domain issues (https://github.com/boxen/our-boxen/issues/235)
+GID=`id -g`
+USERNAME=`id -u -nr`
+
+if grep $GID /etc/group >/dev/null
+then
+    echo "Fake group already exists - No action required"
+else
+    echo "Installing fake group"
+    sudo sh -c "echo $USERNAME:*:$GID:$USERNAME >> /etc/group"
+    echo "Fake group added!"
+fi
+
 # FIX: only sudo if gem home isn't writable
 
 (/usr/bin/gem list -i bundler -v '~> 1.5.3' > /dev/null) || {
