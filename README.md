@@ -197,6 +197,7 @@ This template project provides the following by default:
 
 * Now you've installed boxen, you should check packages are up-to-date.
 * Run `bundle exec librarian-puppet outdated` to check the version of the boxen modules that have been installed
+  * Note: You'll probably need a Github API Token [see above](#github-api-token) to avoid Github's API rate limits
 * Note the version number refers to a repo tag
 * Update your Puppetfile to change the version. See below.
 
