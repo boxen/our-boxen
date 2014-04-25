@@ -315,6 +315,43 @@ fork.
 You'll still be the maintainer, you'll still own the issues and PRs.
 It'll just be listed under the boxen org so folks can find it more easily.
 
+##upgrading boxen
+distilled from http://grahamgilbert.com/blog/2014/04/04/updating-boxen/
+As Boxen is made by GitHub, updating it is much like updating any other project on there that you’ve made a fork of. First we’re going to add it as a remote repository:
+
+```bash
+cd ~/src/our-boxen
+git remote add upstream https://github.com/boxen/our-boxen.git
+```
+Then we’re going to fetch the stuff from the upstream repository:
+
+```bash
+git fetch upstream
+```
+
+Now we’re going to merge the updated repository with our own:
+
+```bash
+git checkout master
+git merge upstream/master
+```
+
+Now deal with conflicts in (Puppetfile, manifests/site.pp), ignore any diffs in Puppetfile.lock and Gemfile.lock.
+
+
+```bash
+git mergetool
+```
+
+The next step is to update your Puppet modules and RubyGems. First delete Puppetfile.lock and Gemfile.lock. Now go back to your trusty Terminal and:
+
+```bash
+rm Puppetfile.lock Gemfile.lock
+bundle install --without development
+bundle exec librarian-puppet install --clean
+```
+
+
 ## Integrating with Github Enterprise
 
 If you're using a Github Enterprise instance rather than github.com,
