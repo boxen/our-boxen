@@ -31,19 +31,27 @@ and detect most of these and tell you anyway):
 
 ### Dependencies
 
+#### XCode
+
 **Install the Xcode Command Lines Tools and/or full Xcode.**
 This will grant you the most predictable behavior in building apps like
 MacVim.
 
 How do you do it?
 
-#### OS X 10.9 (Mavericks)
+##### OS X 10.9 (Mavericks) with boxen-web
 
 If you are using [`b26abd0` of boxen-web](https://github.com/boxen/boxen-web/commit/b26abd0d681129eba0b5f46ed43110d873d8fdc2)
 or newer, it will be automatically installed as part of Boxen.
 Otherwise, follow instructions below.
 
-#### OS X < 10.9
+##### OS X < 10.9 (Mavericks) without auto install
+
+1. Install Xcode from the Mac App Store.
+1. In terminal, run `xcode-select --install`
+1. Confirm the pop-up `Install`
+
+##### OS X < 10.9
 
 1. Install Xcode from the Mac App Store.
 1. Open Xcode.
@@ -51,7 +59,30 @@ Otherwise, follow instructions below.
 1. Go to the Downloads tab.
 1. Install the Command Line Tools.
 
+#### Full Disk Encryption
+
+Boxen's default assumes Full Disk Encryption. You need to enable this in `System Preferences / Security & Privacy / FileVault` and then restart to apply this.
+
+If you don't want FDE, see the note below
+
+#### SSH Keys
+
+You'll need an SSH key to connect to Github. See https://help.github.com/articles/generating-ssh-keys
+
+#### Github API Token
+
+You may need command line access to Github with an API token
+
+* Get a token from https://github.com/settings/applications#personal-access-tokens
+* Add the token using export GITHUB_API_TOKEN=[token]
+
+#### Finder
+
+You may want to ensure that the boxen files are visible in the finder GUI. Run `sudo SetFile -a v /opt`.
+
 ### Bootstrapping
+
+#### Basics
 
 Create a **new** git repository somewhere on the internet.
 It can be private or public -- it really doesn't matter.
@@ -59,6 +90,7 @@ If you're making a repository on GitHub, you _may not_ want to fork this repo
 to get started.
 The reason for that is that you can't really make private forks of public
 repositories easily.
+An empty repo with no README should work well.
 
 Once you've done that, you can run the following to bootstrap
 your boxen:
@@ -72,6 +104,11 @@ git remote rm origin
 git remote add origin <the location of my new git repository>
 git push -u origin master
 ```
+
+You _may_ want to skip the next steps and <a href="#customizing">customize your
+boxen</a> before installing it.
+
+#### Standard
 
 Now that your boxen is bootstrapped, you can run the following to
 install the default configuration from this repo:
@@ -91,9 +128,31 @@ cd /opt/boxen/repo
 ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future ./script/boxen
 ```
 
-You can also skip the above steps and <a href="#customizing">customize your
-boxen</a> before installing it.
+#### Without Full Disk Encryption
 
+Keep in mind this requires you to encrypt your hard drive by default.
+If you do not want to do encrypt your hard drive, you can use the `--no-fde`.
+
+```
+./script/boxen --no-fde
+```
+
+#### Checking
+
+It should run successfully, and should tell you to source a shell script
+in your environment.
+
+For users without a bash or zsh config or a `~/.profile` file,
+Boxen will create a shim for you that will work correctly.
+If you do have a `~/.bashrc` or `~/.zshrc`, your shell will not use
+`~/.profile` so you'll need to add a line like so at _the end of your config_:
+
+``` sh
+[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+```
+Once your shell is ready, open a new tab/window in your Terminal
+and you should be able to successfully run `boxen --env` to display the current config.
+If that runs cleanly, you're in good shape.
 
 ### Distributing
 
@@ -112,28 +171,6 @@ git clone <location of my new git repository> /opt/boxen/repo
 cd /opt/boxen/repo
 ./script/boxen
 ```
-
-Keep in mind this requires you to encrypt your hard drive by default.
-If you do not want to do encrypt your hard drive, you can use the `--no-fde`.
-
-```
-./script/boxen --no-fde
-```
-
-It should run successfully, and should tell you to source a shell script
-in your environment.
-For users without a bash or zsh config or a `~/.profile` file,
-Boxen will create a shim for you that will work correctly.
-If you do have a `~/.bashrc` or `~/.zshrc`, your shell will not use
-`~/.profile` so you'll need to add a line like so at _the end of your config_:
-
-``` sh
-[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
-```
-
-Once your shell is ready, open a new tab/window in your Terminal
-and you should be able to successfully run `boxen --env`.
-If that runs cleanly, you're in good shape.
 
 ## What You Get
 
@@ -155,6 +192,14 @@ This template project provides the following by default:
 * ack
 * Findutils
 * GNU tar
+
+### Checking
+
+* Now you've installed boxen, you should check packages are up-to-date.
+* Run `bundle exec librarian-puppet outdated` to check the version of the boxen modules that have been installed
+  * Note: You'll probably need a Github API Token [see above](#github-api-token) to avoid Github's API rate limits
+* Note the version number refers to a repo tag
+* Update your Puppetfile to change the version. See below.
 
 ## Customizing
 
@@ -192,7 +237,9 @@ boxen repo (ex. /path/to/your-boxen/Puppetfile):
 
 In the above snippet of a customized Puppetfile, the bottom line
 includes the Java module from Github using the tag "1.1.0" from the github repository
-"boxen/puppet-java".  The function "github" is defined at the top of the Puppetfile
+"boxen/puppet-java".  
+
+The function "github" is defined at the top of the Puppetfile
 and takes the name of the module, the version, and optional repo location:
 
     def github(name, version, options = nil)
