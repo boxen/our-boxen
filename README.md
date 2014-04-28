@@ -81,20 +81,6 @@ cd /opt/boxen/repo
 ./script/boxen
 ```
 
-**Note**
-If you are creating a fresh install on Xcode 5.1 there is a clang issue with
-certain Ruby Gems. There is a Stackoverflow post [here](http://stackoverflow.com/questions/22352838/ruby-gem-install-json-fails-on-mavericks-and-xcode-5-1-unknown-argument-mul)
-
-To run the Boxen script follow these instructions
-```
-cd /opt/boxen/repo
-ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future ./script/boxen
-```
-
-You can also skip the above steps and <a href="#customizing">customize your
-boxen</a> before installing it.
-
-
 ### Distributing
 
 That's enough to get your boxen into a usable state on other machines,
