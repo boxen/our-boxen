@@ -51,7 +51,7 @@ If you have any installations that are included within Odd Boxen, make sure that
 	```
 	sudo mkdir -p /opt/boxen
 	sudo chown ${USER}:staff /opt/boxen
-	git clone git@github.com:oddhill/oddboxen.git /opt/boxen/repo
+	git clone https://github.com/oddhill/oddboxen.git /opt/boxen/repo
 	cd /opt/boxen/repo
 	script/boxen
 	```
