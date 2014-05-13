@@ -33,7 +33,6 @@ If you have any installations that are included within Odd Boxen, make sure that
 ## Known issues
 
 * When installing for the first time, you will se error messages like `Could not set 'file' on ensure: No such file or directory`. This is beacuse Odd Boxen is trying to create settings file for Solr before Solr has been installed. After the installation has finished, run `boxen` once again, and these files will be created.
-* There seems to be a problem with the latest version of Command Line Tools. If the installation aborts and you see an error message like `An error occurred while installing json (1.8.1) and bundler cannot continue`, you'll need to install the version from October 2013 manually.
 
 
 ## Installation
