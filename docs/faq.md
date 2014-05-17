@@ -10,7 +10,7 @@ When removing applications make sure to remove the corresponding `/var/db/.puppe
 
 Run `script/nuke` from inside the `/opt/boxen/repo` directory.
 
-### Q: How do you upgrade your boxem from the public our-boxen?
+### Q: How do you upgrade your boxen from the public our-boxen?
 Anwser distilled from http://grahamgilbert.com/blog/2014/04/04/updating-boxen/
 As Boxen is made by GitHub, updating it is much like updating any other project on there that you’ve made a fork of. First we’re going to add it as a remote repository:
 
