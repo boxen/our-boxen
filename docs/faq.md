@@ -10,6 +10,43 @@ When removing applications make sure to remove the corresponding `/var/db/.puppe
 
 Run `script/nuke` from inside the `/opt/boxen/repo` directory.
 
+### Q: How do you upgrade your boxen from the public our-boxen?
+Anwser distilled from http://grahamgilbert.com/blog/2014/04/04/updating-boxen/
+As Boxen is made by GitHub, updating it is much like updating any other project on there that you’ve made a fork of. First we’re going to add it as a remote repository:
+
+```bash
+cd ~/src/our-boxen
+git remote add upstream https://github.com/boxen/our-boxen.git
+```
+Then we’re going to fetch the stuff from the upstream repository:
+
+```bash
+git fetch upstream
+```
+
+Now we’re going to merge the updated repository with our own:
+
+```bash
+git checkout master
+git merge upstream/master
+```
+
+Now deal with conflicts in (Puppetfile, manifests/site.pp), ignore any diffs in Puppetfile.lock and Gemfile.lock.
+
+
+```bash
+git mergetool
+```
+
+The next step is to update your Puppet modules and RubyGems. First delete Puppetfile.lock and Gemfile.lock. Now go back to your trusty Terminal and:
+
+```bash
+rm Puppetfile.lock Gemfile.lock
+bundle install --no-deployment --without development
+bundle exec librarian-puppet install --clean
+```
+
+
 ### Q: What's a good approach to merging our-boxen back into my private fork?
 
 One approach is to delete the Gemfile.lock and Puppetfile.lock and run:

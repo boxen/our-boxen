@@ -301,6 +301,9 @@ fork.
 You'll still be the maintainer, you'll still own the issues and PRs.
 It'll just be listed under the boxen org so folks can find it more easily.
 
+##upgrading boxen
+See [FAQ-Upgrading](https://github.com/boxen/our-boxen/blob/master/docs/faq.md#q-how-do-you-upgrade-your-boxen-from-the-public-our-boxen).
+
 ## Integrating with Github Enterprise
 
 If you're using a Github Enterprise instance rather than github.com,
