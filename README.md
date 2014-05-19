@@ -316,7 +316,7 @@ You'll still be the maintainer, you'll still own the issues and PRs.
 It'll just be listed under the boxen org so folks can find it more easily.
 
 ##upgrading boxen
-See [FAQ-Upgrading](https://github.com/nbmorgan/our-boxen/blob/master/docs/faq.md#q-how-do-you-upgrade-your-boxem-from-the-public-our-boxen).
+See [FAQ-Upgrading](https://github.com/boxen/our-boxen/blob/master/docs/faq.md#q-how-do-you-upgrade-your-boxen-from-the-public-our-boxen).
 
 ## Integrating with Github Enterprise
 
