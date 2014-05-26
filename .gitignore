@@ -12,5 +12,3 @@
 /vendor/gems/
 /modules/people
 .node-version
-
-/Puppetfile.lock
