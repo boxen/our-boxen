@@ -23,7 +23,7 @@ if [ $? -eq 0 ]; then
 fi
 set -e
 
-CLT_VERSION=`pkgutil --pkg-info=com.apple.pkg.CLTools_Executables | grep version | cut -f 2 -d ' ' | awk ' { print $1; } '`
+CLT_VERSION=`pkgutil --pkg-info=com.apple.pkg.CLTools_Executables 2>/dev/null | grep version | cut -f 2 -d ' ' | awk ' { print $1; } '`
 
 # Bundle install unless we're already up to date.
 if [[ $CLT_VERSION =~ ^5\.1\.0\.0\.1\.1396320587 ]]; then
