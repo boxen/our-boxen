@@ -59,3 +59,19 @@ github "xquartz",     "1.1.1"
 
 # Optional/custom modules. There are tons available at
 # https://github.com/boxen.
+# Server
+github "virtualbox",      "2.7.0"
+github "vagrant",         "3.1.0"
+github "mysql",           "1.99.8"
+github "python",          "1.1.1"
+# Text Editing
+github "sublime_text_2",  "1.1.2"
+github "vim",             "1.0.5"
+# Tools
+github "dropbox",         "1.2.0"
+github "wget",            "1.0.1"
+github "googledrive",     "1.0.2"
+github "skype",           "1.0.8"
+# Browsers
+github "chrome",          "1.1.2"
+github "firefox",         "1.2.1"
