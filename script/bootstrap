@@ -9,11 +9,11 @@ USERNAME=`id -u -nr`
 
 if grep $GID /etc/group >/dev/null
 then
-    echo "Fake group already exists - No action required"
+    # Fake group already exists - No action required
 else
-    echo "Installing fake group"
+    echo "Adding GID ($GID) for $USERNAME into /etc/group"
     sudo sh -c "echo $USERNAME:*:$GID:$USERNAME >> /etc/group"
-    echo "Fake group added!"
+    echo "$GID added to /etc/group!"
 fi
 
 # FIX: only sudo if gem home isn't writable
