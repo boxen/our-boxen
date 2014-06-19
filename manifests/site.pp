@@ -84,6 +84,9 @@ node default {
   nodejs::module { 'bower':
     node_version => 'v0.10'
   }
+  nodejs::module { 'yo':
+    node_version => 'v0.10'
+  }
 
   include apache
   include php
