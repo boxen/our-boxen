@@ -81,6 +81,9 @@ node default {
   nodejs::module { 'grunt-cli':
     node_version => 'v0.10'
   }
+  nodejs::module { 'bower':
+    node_version => 'v0.10'
+  }
 
   include apache
   include php
