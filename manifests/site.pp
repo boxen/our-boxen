@@ -91,6 +91,7 @@ node default {
   include solr
   include stagingsync
   include wget
+  include postfix
 
   # common, useful packages
   package {

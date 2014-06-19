@@ -14,6 +14,11 @@ PATH
     php (0.0.1)
 
 PATH
+  remote: /opt/boxen/repo/puppet-postfix
+  specs:
+    postfix (0.0.1)
+
+PATH
   remote: /opt/boxen/repo/puppet-solr
   specs:
     solr (0.0.1)
@@ -165,6 +170,7 @@ DEPENDENCIES
   phantomjs (= 2.3.0)
   php (>= 0)
   pkgconfig (= 1.0.0)
+  postfix (>= 0)
   repository (= 2.3.0)
   ruby (= 8.0.4)
   solr (>= 0)
