@@ -57,11 +57,19 @@ node default {
   include git
   include hub
   include nginx
-
+  
   # fail if FDE is not enabled
   if $::root_encrypted == 'no' {
     fail('Please enable full disk encryption and try again')
   }
+
+  # optional modules
+  include osx::finder::show_all_on_desktop
+  include osx::global::expand_save_dialog
+  include osx::finder::unhide_library
+  include osx::no_network_dsstores
+  include osx::global::tap_to_click    
+  include github_for_mac
 
   # node versions
   include nodejs::v0_6

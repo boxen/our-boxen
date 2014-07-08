@@ -24,6 +24,11 @@ GITHUBTARBALL
     git (2.4.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-github_for_mac
+  specs:
+    github_for_mac (1.0.3)
+
+GITHUBTARBALL
   remote: boxen/puppet-go
   specs:
     go (1.1.0)
@@ -52,6 +57,11 @@ GITHUBTARBALL
   remote: boxen/puppet-openssl
   specs:
     openssl (1.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-osx
+  specs:
+    osx (2.7.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-phantomjs
@@ -104,6 +114,7 @@ DEPENDENCIES
   foreman (= 1.2.0)
   gcc (= 2.0.101)
   git (= 2.4.0)
+  github_for_mac (= 1.0.3)
   go (= 1.1.0)
   homebrew (= 1.9.3)
   hub (= 1.3.0)
@@ -112,6 +123,7 @@ DEPENDENCIES
   nginx (= 1.4.3)
   nodejs (= 3.7.0)
   openssl (= 1.0.0)
+  osx (= 2.7.0)
   phantomjs (= 2.3.0)
   pkgconfig (= 1.0.0)
   repository (= 2.3.0)
