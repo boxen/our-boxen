@@ -65,6 +65,11 @@ node default {
 
   # optional modules
   include osx::finder::show_all_on_desktop
+  include osx::global::expand_save_dialog
+  include osx::finder::unhide_library
+  include osx::no_network_dsstores
+    
+
 
   # node versions
   include nodejs::v0_6
