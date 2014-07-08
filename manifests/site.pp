@@ -68,8 +68,8 @@ node default {
   include osx::global::expand_save_dialog
   include osx::finder::unhide_library
   include osx::no_network_dsstores
-    
-
+  include osx::global::tap_to_click    
+  include github_for_mac
 
   # node versions
   include nodejs::v0_6

@@ -57,6 +57,7 @@ github "stdlib",      "4.2.1", :repo => "puppetlabs/puppetlabs-stdlib"
 github "sudo",        "1.0.0"
 github "xquartz",     "1.1.1"
 github "osx",         "2.7.0" 
+github "github_for_mac", "1.0.3"
 
 # Optional/custom modules. There are tons available at
 # https://github.com/boxen.
