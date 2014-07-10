@@ -87,6 +87,9 @@ node default {
   nodejs::module { 'yo':
     node_version => 'v0.10'
   }
+  nodejs::module { 'jshint':
+    node_version => 'v0.10'
+  }
 
   include apache
   include php
