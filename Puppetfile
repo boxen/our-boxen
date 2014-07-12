@@ -59,3 +59,6 @@ github "xquartz",     "1.1.1"
 
 # Optional/custom modules. There are tons available at
 # https://github.com/boxen.
+
+github "eclipse",	"2.4.1"
+github "iterm2",	"1.1.1"
