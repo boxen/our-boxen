@@ -31,3 +31,9 @@ repositories.
 For further documentation on how to use the `boxen::project` type,
 take a look at the documentation in the
 [source](https://github.com/boxen/puppet-boxen/blob/master/manifests/project.pp#L1-L61).
+
+### xip.io support
+
+[xip.io](http://xip.io) is also supported so you can access your project from
+remote machines on your network. Say your LAN IP address is `10.0.0.1`, you can
+visit http://trollin.10.0.0.1.xip.io to access the app.
