@@ -31,7 +31,7 @@ PATH
 GITHUBTARBALL
   remote: boxen/puppet-boxen
   specs:
-    boxen (3.6.1)
+    boxen (3.6.2)
 
 GITHUBTARBALL
   remote: boxen/puppet-dnsmasq
@@ -46,7 +46,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-gcc
   specs:
-    gcc (2.0.101)
+    gcc (2.1.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-git
@@ -61,7 +61,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-homebrew
   specs:
-    homebrew (1.9.3)
+    homebrew (1.9.4)
 
 GITHUBTARBALL
   remote: boxen/puppet-hub
@@ -86,7 +86,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-nodejs
   specs:
-    nodejs (3.7.0)
+    nodejs (3.8.1)
 
 GITHUBTARBALL
   remote: boxen/puppet-openssl
@@ -111,7 +111,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-ruby
   specs:
-    ruby (8.0.4)
+    ruby (8.1.2)
 
 GITHUBTARBALL
   remote: boxen/puppet-sudo
@@ -150,14 +150,14 @@ GITHUBTARBALL
 
 DEPENDENCIES
   apache (>= 0)
-  boxen (= 3.6.1)
+  boxen (= 3.6.2)
   dnsmasq (= 1.0.1)
   drush (= 0.0.1)
   foreman (= 1.2.0)
-  gcc (= 2.0.101)
+  gcc (= 2.1.0)
   git (= 2.4.0)
   go (= 1.1.0)
-  homebrew (= 1.9.3)
+  homebrew (= 1.9.4)
   hub (= 1.3.0)
   inifile (= 1.0.3)
   java (= 1.4.0)
@@ -165,14 +165,14 @@ DEPENDENCIES
   mongodb (= 2.6.1)
   mysql (>= 0)
   nginx (= 1.4.3)
-  nodejs (= 3.7.0)
+  nodejs (= 3.8.1)
   openssl (= 1.0.0)
   phantomjs (= 2.3.0)
   php (>= 0)
   pkgconfig (= 1.0.0)
   postfix (>= 0)
   repository (= 2.3.0)
-  ruby (= 8.0.4)
+  ruby (= 8.1.2)
   solr (>= 0)
   stagingsync (>= 0)
   stdlib (= 4.2.1)
