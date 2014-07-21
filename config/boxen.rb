@@ -2,7 +2,11 @@
 # it to provide any custom code or behavior your Boxen setup requires.
 
 # Change the prefix boxen is installed to.
-# ENV['BOXEN_HOME'] = '/opt/boxen'
+#ENV['BOXEN_HOME'] = '/opt/boxen'
+
+# This needs to be set on linux, or else boxen assumes that your home dir is just /Users/<user-name>
+puts "heyoheyo"
+ENV['BOXEN_SRC_DIR'] = "${HOME}/src"
 
 # Change the repo boxen will use.
 # ENV['BOXEN_REPO_NAME'] = 'boxen/our-boxen'

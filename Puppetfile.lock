@@ -1,7 +1,7 @@
-GITHUBTARBALL
-  remote: boxen/puppet-boxen
+PATH
+  remote: /home/tel/src/boxen/puppet-boxen
   specs:
-    boxen (3.6.1)
+    boxen (0.0.1)
 
 GITHUBTARBALL
   remote: boxen/puppet-foreman
@@ -69,7 +69,7 @@ GITHUBTARBALL
     homebrew (1.9.5)
 
 DEPENDENCIES
-  boxen (= 3.6.1)
+  boxen (>= 0)
   foreman (= 1.2.0)
   gcc (= 2.0.101)
   git (= 2.4.0)
