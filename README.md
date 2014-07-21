@@ -13,6 +13,9 @@ This is a list that points out the most relevant parts for this development envi
 * Git
 * Node.js
   * Grunt CLI
+  * Bower
+  * Yeoman
+  * JSHint
 * Ruby
   * Sass
 * Drush
@@ -21,6 +24,7 @@ This is a list that points out the most relevant parts for this development envi
   * Dynamic document root
   * Support for HTTPS
 * PHP configuration
+* Postfix relay for Mandrill
 * MySQL
 * MongoDB
 * Solr
@@ -53,13 +57,40 @@ If you have any installations that are included within Odd Boxen, make sure that
 	sudo chown ${USER}:staff /opt/boxen
 	git clone https://github.com/oddhill/oddboxen.git /opt/boxen/repo
 	cd /opt/boxen/repo
-	script/boxen
 	```
-	Expect this to take a while.
-	
-	
-	
-3. When you're back at the prompt, restart the shell, and you should be able to run `boxen --env`. This will display the current status of the environment.
+
+
+
+3. Create the Mandrill manifest:
+
+   ```
+   cp puppet-postfix/manifests/mandrill.pp.default puppet-postfix/manifests/mandrill.pp
+   ```
+
+
+
+4. Edit the Mandrill manifest with your favorite editor, e.g:
+
+   ```
+   pico puppet-postfix/manifests/mandrill.pp
+   ```
+
+   Enter the credentials for your [Mandrill account](https://mandrillapp.com).
+
+
+
+5. Install Odd Boxen:
+
+   ```
+   script/boxen
+   ```
+
+   Expect this to take a while.
+
+
+
+
+6. When you're back at the prompt, restart the shell, and you should be able to run `boxen --env`. This will display the current status of the environment.
 
 	If you can't run `boxen`, you'll need to add this line to the end of your *~/.profile* or *~/.bash_profile*:
 
@@ -67,6 +98,7 @@ If you have any installations that are included within Odd Boxen, make sure that
 	source /opt/boxen/env.sh
 	```
 	Then restart your shell, and try to run `boxen --env` again.
+
 
 
 ## Updating
