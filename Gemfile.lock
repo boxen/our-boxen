@@ -4,7 +4,7 @@ GEM
     CFPropertyList (2.2.8)
     addressable (2.3.6)
     ansi (1.4.3)
-    aws-sdk (1.48.1)
+    aws-sdk (1.49.0)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
     boxen (2.6.0)
