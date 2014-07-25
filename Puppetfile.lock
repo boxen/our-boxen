@@ -96,7 +96,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: ripienaar/puppet-module-data
   specs:
-    module-data (0.0.3)
+    module_data (0.0.3)
 
 DEPENDENCIES
   boxen (= 3.6.2)
@@ -108,7 +108,7 @@ DEPENDENCIES
   homebrew (= 1.9.4)
   hub (= 1.3.0)
   inifile (= 1.0.3)
-  module-data (= 0.0.3)
+  module_data (= 0.0.3)
   nginx (= 1.4.3)
   nodejs (= 3.8.1)
   openssl (= 1.0.0)
