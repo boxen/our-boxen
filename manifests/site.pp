@@ -116,7 +116,6 @@ node default {
     target => $boxen::config::repodir
   }
 
-  include git::config
   git::config::global{ 'core.filemode':
     value => false
   }
