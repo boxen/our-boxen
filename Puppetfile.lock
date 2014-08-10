@@ -86,7 +86,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: puppetlabs/puppetlabs-inifile
   specs:
-    inifile (1.0.3)
+    inifile (1.1.1)
 
 GITHUBTARBALL
   remote: puppetlabs/puppetlabs-stdlib
@@ -107,7 +107,7 @@ DEPENDENCIES
   go (= 1.1.0)
   homebrew (= 1.9.4)
   hub (= 1.3.0)
-  inifile (= 1.0.3)
+  inifile (= 1.1.1)
   module_data (= 0.0.3)
   nginx (= 1.4.3)
   nodejs (= 3.8.1)
