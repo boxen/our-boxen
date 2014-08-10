@@ -1,10 +1,19 @@
 #!/bin/bash
 # Make sure all our local dependencies are available.
 
+OS_TYPE=`uname -s`
 set -e
 
-# FIX: only sudo if gem home isn't writable
+# On Linux, install absolutely necessary Boxen dependencies (git and ruby)
+if [[ "$OS_TYPE" =~ 'Linux' ]]; then
+  /usr/bin/sudo -E -p "Need to install absolutely necessary Boxen dependencies (git and ruby), password for sudo: " \
+  /usr/bin/apt-get update
+  # probably don't need the second prompt, but what the hell
+  /usr/bin/sudo -E -p "Need to install absolutely necessary Boxen dependencies (git and ruby), password for sudo: " \
+  /usr/bin/apt-get install git-core ruby-dev
+fi
 
+# FIX: only sudo if gem home isn't writable
 (/usr/bin/gem list -i bundler -v '~> 1.5.3' > /dev/null) || {
   /usr/bin/sudo -E -p "Need to install Bundler for system ruby, password for sudo: " \
   /usr/bin/gem install bundler -v '~> 1.5.3' --no-rdoc --no-ri
@@ -16,7 +25,6 @@ rm -rf .bundle/config
 rm -rf .librarian/puppet/config
 
 # Skip a bunch of things if we aren't on OSX
-OS_TYPE=`uname -s`
 if [[ "$OS_TYPE" =~ 'Darwin' ]]; then
   # Put xcrun shim on PATH if on MoLo
   set +e

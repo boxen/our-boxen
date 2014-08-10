@@ -72,3 +72,4 @@ github "sudo",        "1.0.0"
 # https://github.com/boxen.
 dev "eclipse"
 dev "java"
+github "vim",         "1.0.5"
