@@ -90,4 +90,11 @@ node default {
     target => $boxen::config::repodir
   }
 }
+if $::osfamily != 'Darwin' 
+{ 
+  package {'pkg-config':
+    ensure => absent}
+}
 
+include eclipse
+include eclipse::plugins

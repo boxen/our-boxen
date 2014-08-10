@@ -36,6 +36,15 @@ dev "boxen"
 
 github "module-data", "0.0.3", :repo => "ripienaar/puppet-module-data"
 
+# If running on linux, include apt support
+if RUBY_PLATFORM =~ /linux/
+dev "apt"
+#  github 'apt',       "1.5.2", :repo => "puppetlabs/puppetlabs-apt"
+#  mod 'puppetlabs-apt',
+#  :git => "git://github.com/puppetlabs/puppetlabs-apt.git",
+#  :ref => '1.5.2'
+end
+
 # Core modules for a basic development environment. You can replace
 # some/most of these if you want, but it's not recommended.
 
@@ -61,4 +70,5 @@ github "sudo",        "1.0.0"
 
 # Optional/custom modules. There are tons available at
 # https://github.com/boxen.
-
+dev "eclipse"
+dev "java"
