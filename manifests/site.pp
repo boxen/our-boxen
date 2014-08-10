@@ -1,6 +1,14 @@
 require boxen::environment
 require homebrew
-require gcc
+
+if $::osfamily == 'Darwin' 
+{ 
+  require gcc
+}
+elsif $::osfamily == 'Debian'
+{
+  create_resources(package, hiera('debian_package::list'), hiera('debian_package::defaults'))
+}
 
 Exec {
   group       => 'staff',
