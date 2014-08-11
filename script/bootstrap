@@ -4,13 +4,21 @@
 OS_TYPE=`uname -s`
 set -e
 
-# On Linux, install absolutely necessary Boxen dependencies (git and ruby)
+# On Linux, 
+# install absolutely necessary Boxen dependencies (git and ruby)
 if [[ "$OS_TYPE" =~ 'Linux' ]]; then
-  /usr/bin/sudo -E -p "Need to install absolutely necessary Boxen dependencies (git and ruby), password for sudo: " \
-  /usr/bin/apt-get update
-  # probably don't need the second prompt, but what the hell
-  /usr/bin/sudo -E -p "Need to install absolutely necessary Boxen dependencies (git and ruby), password for sudo: " \
-  /usr/bin/apt-get install git-core ruby-dev
+  PKGS=""
+  for PKG in ruby-dev git-core
+  do
+    PKG_ARR+=$([[ "" == $(dpkg-query -W --showformat='${Status}\n' $PKG|grep "install ok installed") ]] && echo "$PKG " || echo "")
+  done
+  if [[ "$PKGS" != "" ]]; then
+    /usr/bin/sudo -E -p "Need to install absolutely necessary Boxen dependencies (git and ruby), password for sudo: " \
+    /usr/bin/apt-get update
+    # probably don't need the second prompt, but what the hell
+    /usr/bin/sudo -E -p "Need to install absolutely necessary Boxen dependencies (git and ruby), password for sudo: " \
+    /usr/bin/apt-get install $PKGS
+  fi
 fi
 
 # FIX: only sudo if gem home isn't writable

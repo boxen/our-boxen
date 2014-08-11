@@ -11,7 +11,7 @@ elsif $::osfamily == 'Debian'
 }
 
 Exec {
-  group       => 'staff',
+  group       => $boxen::config::group,
   logoutput   => on_failure,
   user        => $boxen_user,
 
@@ -33,7 +33,7 @@ Exec {
 }
 
 File {
-  group => 'staff',
+  group => $boxen::config::group,
   owner => $boxen_user
 }
 

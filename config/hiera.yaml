@@ -13,6 +13,9 @@
   :datadir: "%{::boxen_home}/repo/hiera"
 :hierarchy:
   - "users/%{github_login}"
+  - "%{::osfamily}/%{::macosx_productversion_major}"
+  - "%{::osfamily}/%{::lsbdistcodename}"
+  - "%{::osfamily}"
   - common
 
 # Many modules make their own hiera data available through the use of
