@@ -10,13 +10,13 @@ if [[ "$OS_TYPE" =~ 'Linux' ]]; then
   PKGS=""
   for PKG in ruby-dev git-core
   do
-    PKG_ARR+=$([[ "" == $(dpkg-query -W --showformat='${Status}\n' $PKG|grep "install ok installed") ]] && echo "$PKG " || echo "")
+    PKGS+=$([[ "" == $(dpkg-query -W --showformat='${Status}\n' $PKG 2>&1 |grep "install ok installed") ]] && echo "$PKG " || echo "")
   done
   if [[ "$PKGS" != "" ]]; then
-    /usr/bin/sudo -E -p "Need to install absolutely necessary Boxen dependencies (git and ruby), password for sudo: " \
+    /usr/bin/sudo -E -p "Need to install absolutely necessary Boxen dependencies ($PKGS), password for sudo: " \
     /usr/bin/apt-get update
     # probably don't need the second prompt, but what the hell
-    /usr/bin/sudo -E -p "Need to install absolutely necessary Boxen dependencies (git and ruby), password for sudo: " \
+    /usr/bin/sudo -E -p "Need to install absolutely necessary Boxen dependencies ($PKGS), password for sudo: " \
     /usr/bin/apt-get install $PKGS
   fi
 fi
