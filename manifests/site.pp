@@ -1,13 +1,17 @@
+if $::osfamily == 'Debian'
+{
+  stage { 'pre':
+    before => Stage["main"],
+  }
+  class{'boxen::debian_dependencies': 
+    stage => 'pre',
+  }
+}
 require boxen::environment
 require homebrew
-
 if $::osfamily == 'Darwin' 
 { 
   require gcc
-}
-elsif $::osfamily == 'Debian'
-{
-  create_resources(package, hiera('debian_package::list'), hiera('debian_package::defaults'))
 }
 
 Exec {
@@ -57,10 +61,20 @@ Service {
   provider => ghlaunchd
 }
 
-Homebrew::Formula <| |> -> Package <| |>
+Homebrew::Formula <| |> -> Package <| provider != apt |>
+
+# stages won't work here, and the linux dependency packages have to get installed before anything else, so inheritance it is!
+#node pre {
+#  require boxen::debian_package
+#}
 
 node default {
 
+#  if $::osfamily == 'Debian'
+#  {
+#    create_resources(package, hiera('debian_package::list'), hiera('debian_package::defaults'))
+#  }
+  
   # core modules, needed for most things
 # include dnsmasq
   include git

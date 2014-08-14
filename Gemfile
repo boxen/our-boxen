@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
-gem "boxen-linux",            "~> 2.7"
+#gem "boxen-linux",            "~> 2.7"
+gem "boxen-linux",            "~> 2.7", :path => "#{ENV['HOME']}/git/boxen_of_holding/boxen"
 gem "hiera",                  "~> 1.3.3"
 gem "librarian-puppet",       "~> 1.0.2"
 gem "puppet",                 "3.6.1"
