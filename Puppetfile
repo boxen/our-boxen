@@ -38,8 +38,8 @@ github "module-data", "0.0.3", :repo => "ripienaar/puppet-module-data"
 
 # If running on linux, include apt support
 if RUBY_PLATFORM =~ /linux/
-dev "apt"
-#  github 'apt',       "1.5.2", :repo => "puppetlabs/puppetlabs-apt"
+#dev "apt"
+  github 'apt',       "1.5.2", :repo => "puppetlabs/puppetlabs-apt"
 #  mod 'puppetlabs-apt',
 #  :git => "git://github.com/puppetlabs/puppetlabs-apt.git",
 #  :ref => '1.5.2'
