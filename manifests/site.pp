@@ -118,6 +118,5 @@ if $::osfamily != 'Darwin'
     ensure => absent}
 }
 
-include vim
 include eclipse
 include eclipse::plugins
