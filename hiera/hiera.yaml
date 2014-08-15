@@ -1,8 +1,0 @@
----
-:hierarchy:
-  - "%{::osfamily}/%{::macosx_productversion_major}"
-  - "%{::osfamily}/%{::lsbdistcodename}"
-  - "%{::osfamily}"
-  - common
-
-:merge_behavior: deeper
