@@ -119,4 +119,3 @@ if $::osfamily != 'Darwin'
 }
 
 include eclipse
-include eclipse::plugins
