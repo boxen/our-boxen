@@ -34,7 +34,8 @@ dev "boxen"
 
 # Support for default hiera data in modules
 
-github "module-data", "0.0.3", :repo => "ripienaar/puppet-module-data"
+#github "module-data", "0.0.3", :repo => "ripienaar/puppet-module-data"
+dev "module-data"
 
 # If running on linux, include apt support
 if RUBY_PLATFORM =~ /linux/
