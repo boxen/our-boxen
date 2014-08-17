@@ -37,13 +37,9 @@ dev "boxen"
 #github "module-data", "0.0.3", :repo => "ripienaar/puppet-module-data"
 dev "module-data"
 
-# If running on linux, include apt support
+# If running on linux, include support for doing fancy things with apt
 if RUBY_PLATFORM =~ /linux/
-#dev "apt"
   github 'apt',       "1.5.2", :repo => "puppetlabs/puppetlabs-apt"
-#  mod 'puppetlabs-apt',
-#  :git => "git://github.com/puppetlabs/puppetlabs-apt.git",
-#  :ref => '1.5.2'
 end
 
 # Core modules for a basic development environment. You can replace

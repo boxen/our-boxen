@@ -1,0 +1,76 @@
+---
+eclipse::workspace_mechanic_info:
+  workspace_mechanic:
+    plugin_name: com.google.eclipse.mechanic
+    repo: http://workspacemechanic.eclipselabs.org.codespot.com/git.update/mechanics
+
+eclipse::eclipse_installs:
+  eclipse_wo_plugins_info:
+    eclipse_dir: /Applications/eclipse_wo_plugins
+    eclipse_app_src: http://download.eclipse.org/eclipse/downloads/drops4/R-4.4-201406061215/eclipse-platform-4.4-linux-gtk-x86_64.tar.gz
+    
+    plugin_info:
+      c++_dev_tools:
+        plugin_name: epp.package.cpp # alternative name: org.eclipse.cdt.feature.group
+        repo: http://download.eclipse.org/releases/luna
+  
+  eclipse_w_plugins_info:
+    eclipse_dir: /Applications/eclipse_w_plugins
+    eclipse_app_src: http://download.eclipse.org/eclipse/downloads/drops4/R-4.4-201406061215/eclipse-platform-4.4-linux-gtk-x86_64.tar.gz
+    
+    plugin_info:
+      c++_dev_tools:
+        plugin_name: epp.package.cpp # alternative name: org.eclipse.cdt.feature.group
+        repo: http://download.eclipse.org/releases/luna
+      
+      cmakeed:
+        plugin_name: com.cthing.cmakeed.feature.feature.group
+        repo: http://cmakeed.sourceforge.net/eclipse/
+      
+      # the protobuf and puppet dev tools have a bunch of tangled dependencies (centering around different versions of the xtext plugins), and so need this hairball
+      puppet_protobuf_dev_tools:
+        plugin_name: com.puppetlabs.geppetto.feature.group,com.google.eclipse.protobuf.feature.group
+        repo: http://geppetto-updates.puppetlabs.com/4.x,http://protobuf-dt.googlecode.com/git/update-site,http://download.eclipse.org/releases/luna,http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/
+      
+      python_dev_tools:
+        plugin_name: org.python.pydev.feature.feature.group
+        repo: http://pydev.org/updates
+    
+      ruby_dev_tools:
+        plugin_name: org.eclipse.dltk.ruby.feature.group
+        repo: http://download.eclipse.org/releases/luna
+        
+      shell_dev_tools:
+        plugin_name: net.sourceforge.shelled.feature.group
+        repo: http://sourceforge.net/projects/shelled/files/shelled/update/,http://download.eclipse.org/releases/luna
+      
+#      puppet_dev_tools:
+#        plugin_name: com.puppetlabs.geppetto.feature.group
+#        repo: http://geppetto-updates.puppetlabs.com/4.x,http://download.eclipse.org/releases/luna,http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/
+#        eclipse_dir: "%{eclipse::eclipse_dir}"
+      
+#      protobuf_dev_tools:
+#        plugin_name: com.google.eclipse.protobuf.feature.group
+#        repo: http://protobuf-dt.googlecode.com/git/update-site,http://download.eclipse.org/releases/luna,http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/
+#        eclipse_dir: "%{eclipse::eclipse_dir}"
+#        require: Eclipse::Plugin['puppet_dev_tools']
+    
+#      xtext_ui:
+#        plugin_name: org.eclipse.xtext.ui
+#        repo: http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/
+    
+#      xtext:
+#        plugin_name: org.eclipse.xtext.ui.feature.group
+#        repo: http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/
+#        eclipse_dir: "%{eclipse::eclipse_dir}"
+    
+#      moonrise_theme:
+#        plugin_name: com.github.eclipseuitheme.themes.feature.feature.group
+#        repo: https://raw.github.com/guari/eclipse-ui-theme/master/com.github.eclipseuitheme.themes.updatesite
+#        eclipse_dir: "%{eclipse::eclipse_dir}"
+    
+#      org.dadacoalition.yedit.feature.group:
+#        plugin_name: org.dadacoalition.yedit.feature.group
+#        repo: http://download.eclipse.org/releases/luna
+#        eclipse_dir: "%{eclipse::eclipse_dir}"
+      

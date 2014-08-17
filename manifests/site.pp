@@ -15,9 +15,9 @@ if $::osfamily == 'Darwin'
 }
 
 Exec {
-  group       => $boxen::config::group,
   logoutput   => on_failure,
   user        => $boxen_user,
+  group       => $boxen::config::group,
 
   path => [
     "${boxen::config::home}/rbenv/shims",
