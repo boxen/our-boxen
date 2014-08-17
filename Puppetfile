@@ -29,7 +29,7 @@ end
 # Includes many of our custom types and providers, as well as global
 # config. Required.
 
-github "boxen", "3.7.0", :repo => telamonian/puppet-boxen
+github "boxen", "3.7.0", :repo => "telamonian/puppet-boxen"
 
 # Support for default hiera data in modules
 
@@ -60,7 +60,7 @@ github "openssl",     "1.0.0"
 github "phantomjs",   "2.3.0"
 github "pkgconfig",   "1.0.0"
 github "repository",  "2.3.0"
-github "ruby",        "8.2.0"
+github "ruby",        "8.2.0", :repo => "telamonian/puppet-ruby"
 github "stdlib",      "4.2.1", :repo => "puppetlabs/puppetlabs-stdlib"
 github "sudo",        "1.0.0"
 
