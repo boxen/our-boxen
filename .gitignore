@@ -11,3 +11,4 @@
 /shared/*
 !/shared/README.md
 /vendor/gems/
+/vendor/cache/ruby

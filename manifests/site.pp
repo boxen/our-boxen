@@ -63,18 +63,7 @@ Service {
 
 Homebrew::Formula <| |> -> Package <| provider != apt |>
 
-# stages won't work here, and the linux dependency packages have to get installed before anything else, so inheritance it is!
-#node pre {
-#  require boxen::debian_package
-#}
-
 node default {
-
-#  if $::osfamily == 'Debian'
-#  {
-#    create_resources(package, hiera('debian_package::list'), hiera('debian_package::defaults'))
-#  }
-  
   # core modules, needed for most things
 # include dnsmasq
   include git
@@ -114,8 +103,7 @@ node default {
 }
 if $::osfamily != 'Darwin' 
 { 
+  # TODO: deal with the fact that boxen realllly seems to want to install an extra pkg-config on linux systems in a more graceful way
   package {'pkg-config':
     ensure => absent}
 }
-
-include eclipse
