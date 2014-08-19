@@ -14,10 +14,10 @@ if [[ "$OS_TYPE" =~ 'Linux' ]]; then
   done
   if [[ "$PKGS" != "" ]]; then
     /usr/bin/sudo -E -p "Need to install absolutely necessary Boxen dependencies ($PKGS), password for sudo: " \
-    /usr/bin/apt-get update
+    /usr/bin/apt-get -y update
     # probably don't need the second prompt, but what the hell
     /usr/bin/sudo -E -p "Need to install absolutely necessary Boxen dependencies ($PKGS), password for sudo: " \
-    /usr/bin/apt-get install $PKGS
+    /usr/bin/apt-get -y install $PKGS
   fi
 fi
 
