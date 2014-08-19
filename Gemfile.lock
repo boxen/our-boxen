@@ -7,7 +7,7 @@ GEM
     aws-sdk (1.51.0)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
-    boxen-linux (2.7.7)
+    boxen-linux (2.7.8)
       ansi (~> 1.4)
       hiera (~> 1.0)
       highline (~> 1.6)
