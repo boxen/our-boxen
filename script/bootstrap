@@ -1,7 +1,7 @@
 #!/bin/bash
 # Make sure all our local dependencies are available.
 
-OS_TYPE=`uname -s`
+OS_TYPE="$(uname -s)"
 set -e
 
 # On Linux, 
