@@ -64,17 +64,14 @@ Service {
 
 Homebrew::Formula <| |> -> Package <| provider != apt |>
 
-# if a homebrew package build fails with a message like "Illegal instruction: 4" on a virtual machine, add the package title to $bottle_broken_packages
-if ($::is_virtual and $::osfamily == 'Darwin')
+# if a homebrew package build fails with a message like "Illegal instruction: 4" on a vbox VM, add the package title to $bottle_broken_packages
+if ($::virtual == 'virtualbox' and $::osfamily == 'Darwin')
 {
   $bottle_broken_packages = [ 'boxen/brews/gcc48' ]
   class {'boxen::bottle_fixes':
     formula_titles => $bottle_broken_packages,
-#    before         => Package['boxen/brews/gcc48']
   }
 }
-#Homebrew::Formula <| |> -> Boxen::Bottle_fix <| |>
-#Boxen::Bottle_fix <| |> -> Package <| |> 
 
 node default {
   # core modules, needed for most things
