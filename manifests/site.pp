@@ -65,17 +65,12 @@ Service {
 # the following resource collector ensures that every apt package is installed before any homebrew anything is run
 Homebrew::Formula <| |> -> Package <| provider != apt |>
 
-# the default behavior for boxen is to use bottles the boxen team brews themselves and hosts on their S3 site, rather than the default homebrew bottles
-# for "reasons"[https://github.com/boxen/puppet-homebrew/issues/18], this royally screws up installing certain programs (gcc,python,nginx,imagemagick) on older macs and virtual machines. If you have the related problem, your build will fail with something like "Illegal instruction: 4" 
-# the following resource collector fixes this on a package specific level by taking advantage of a quirk in the homebrew.rb provider
-Package <| (title == "boxen/brews/gcc48" or title == "other-failing-package,etc") and install_options == undef |> { 
-  install_options => [ '--verbose' ]
+# if a homebrew package build fails with a message like "Illegal instruction: 4" on a virtual machine, add the package title to the list bellow
+if $::is_virtual
+{
+  $bottle_broken_packages = [ 'boxen/brews/gcc48' ]
+	boxen::botle_fix($bottle_broken_packages)
 }
-
-# this resource collector does the same as above, but for all homebrew packages. Checking provider against undef is meant to capture packages which use the default provider, has not been tested
-#Package <| (provider == homebrew or provider == undef) and install_options == undef |> {
-#  install_options => [ '--verbose' ]
-#}
 
 node default {
   # core modules, needed for most things
