@@ -1,8 +1,9 @@
+stage { 'pre':
+  before => Stage["main"],
+}
+
 if $::osfamily == 'Debian'
 {
-  stage { 'pre':
-    before => Stage["main"],
-  }
   class{'boxen::debian_dependencies': 
     stage => 'pre',
   }
@@ -61,17 +62,19 @@ Service {
   provider => ghlaunchd
 }
 
-# things installed with apt deal with their own dependencies, whereas things installed with linuxbrew may depend on one or more apt packages
-# the following resource collector ensures that every apt package is installed before any homebrew anything is run
 Homebrew::Formula <| |> -> Package <| provider != apt |>
 
-# if a homebrew package build fails with a message like "Illegal instruction: 4" on a virtual machine, add the package title to the list bellow
-if $::is_virtual
+# if a homebrew package build fails with a message like "Illegal instruction: 4" on a virtual machine, add the package title to $bottle_broken_packages
+if ($::is_virtual and $::osfamily == 'Darwin')
 {
   $bottle_broken_packages = [ 'boxen/brews/gcc48' ]
-  boxen::bottle_fix { $bottle_broken_packages: }
+  class {'boxen::bottle_fixes':
+    formula_titles => $bottle_broken_packages,
+#    before         => Package['boxen/brews/gcc48']
+  }
 }
-Package <| (provider == homebrew or provider == undef) |> -> Bottle
+#Homebrew::Formula <| |> -> Boxen::Bottle_fix <| |>
+#Boxen::Bottle_fix <| |> -> Package <| |> 
 
 node default {
   # core modules, needed for most things
