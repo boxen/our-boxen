@@ -69,8 +69,9 @@ Homebrew::Formula <| |> -> Package <| provider != apt |>
 if $::is_virtual
 {
   $bottle_broken_packages = [ 'boxen/brews/gcc48' ]
-	boxen::botle_fix($bottle_broken_packages)
+  boxen::bottle_fix { $bottle_broken_packages: }
 }
+Package <| (provider == homebrew or provider == undef) |> -> Bottle
 
 node default {
   # core modules, needed for most things
