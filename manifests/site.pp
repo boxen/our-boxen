@@ -1,11 +1,24 @@
+
+if $::osfamily == 'Debian'
+{
+  stage { 'pre':
+    before => Stage["main"],
+  }
+  class{'boxen::debian_dependencies': 
+    stage => 'pre',
+  }
+}
 require boxen::environment
 require homebrew
-require gcc
+if $::osfamily == 'Darwin' 
+{ 
+  require gcc
+}
 
 Exec {
-  group       => 'staff',
   logoutput   => on_failure,
   user        => $boxen_user,
+  group       => $boxen::config::group,
 
   path => [
     "${boxen::config::home}/rbenv/shims",
@@ -25,7 +38,7 @@ Exec {
 }
 
 File {
-  group => 'staff',
+  group => $boxen::config::group,
   owner => $boxen_user
 }
 
@@ -49,14 +62,23 @@ Service {
   provider => ghlaunchd
 }
 
-Homebrew::Formula <| |> -> Package <| |>
+Homebrew::Formula <| |> -> Package <| provider != apt |>
+
+# if a homebrew package build fails with a message like "Illegal instruction: 4" on a vbox VM, add the package title to $bottle_broken_packages
+if ($::virtual == 'virtualbox' and $::osfamily == 'Darwin')
+{
+  $bottle_broken_packages = [ 'boxen/brews/gcc48' ]
+  class {'boxen::bottle_fixes':
+    formula_titles => $bottle_broken_packages,
+  }
+}
 
 node default {
   # core modules, needed for most things
-  include dnsmasq
+# include dnsmasq
   include git
   include hub
-  include nginx
+# include nginx
 
   # fail if FDE is not enabled
   if $::root_encrypted == 'no' {
@@ -64,15 +86,15 @@ node default {
   }
 
   # node versions
-  include nodejs::v0_6
-  include nodejs::v0_8
-  include nodejs::v0_10
+#  include nodejs::v0_6
+#  include nodejs::v0_8
+#  include nodejs::v0_10
 
   # default ruby versions
-  ruby::version { '1.9.3': }
-  ruby::version { '2.0.0': }
-  ruby::version { '2.1.0': }
-  ruby::version { '2.1.1': }
+#  ruby::version { '1.9.3': }
+#  ruby::version { '2.0.0': }
+#  ruby::version { '2.1.0': }
+#  ruby::version { '2.1.1': }
   ruby::version { '2.1.2': }
 
   # common, useful packages
@@ -88,4 +110,10 @@ node default {
     ensure => link,
     target => $boxen::config::repodir
   }
+}
+if $::osfamily != 'Darwin' 
+{ 
+  # TODO: deal with the fact that boxen realllly seems to want to install an extra pkg-config on linux systems in a more graceful way
+  package {'pkg-config':
+    ensure => absent}
 }

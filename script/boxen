@@ -66,10 +66,8 @@ unless ENV["BOXEN_NO_PULL"] ||
 end
 
 # Make sure our local dependencies are up to date.
-
 strap = %w(script/bootstrap --deployment --local --without development:test --no-cache)
 abort "Can't bootstrap, dependencies are outdated." unless system *strap
-
 # Set up our local configuration, deps, and load path.
 
 load "config/basic.rb"

@@ -1,5 +1,6 @@
 /.bundle
 /.librarian
+/.project
 /.projects
 /.snapshot
 /.tmp
@@ -10,3 +11,4 @@
 /shared/*
 !/shared/README.md
 /vendor/gems/
+/vendor/cache/ruby
