@@ -1,9 +1,9 @@
-stage { 'pre':
-  before => Stage["main"],
-}
 
 if $::osfamily == 'Debian'
 {
+  stage { 'pre':
+    before => Stage["main"],
+  }
   class{'boxen::debian_dependencies': 
     stage => 'pre',
   }
