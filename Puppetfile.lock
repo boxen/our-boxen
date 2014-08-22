@@ -49,9 +49,9 @@ GITHUBTARBALL
     sudo (1.0.0)
 
 GITHUBTARBALL
-  remote: puppetlabs/puppetlabs-apt
+  remote: boxen/puppet-xquartz
   specs:
-    apt (1.5.2)
+    xquartz (1.1.1)
 
 GITHUBTARBALL
   remote: puppetlabs/puppetlabs-inifile
@@ -66,12 +66,12 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: ripienaar/puppet-module-data
   specs:
-    module-data (0.0.3)
+    module-data (0.0.4)
 
 GITHUBTARBALL
   remote: telamonian/puppet-boxen
   specs:
-    boxen (3.7.0)
+    boxen (3.7.1)
 
 GITHUBTARBALL
   remote: telamonian/puppet-gcc
@@ -99,8 +99,7 @@ GITHUBTARBALL
     ruby (8.2.0)
 
 DEPENDENCIES
-  apt (= 1.5.2)
-  boxen (= 3.7.0)
+  boxen (= 3.7.1)
   dnsmasq (= 1.0.1)
   foreman (= 1.2.0)
   gcc (= 2.2.0)
@@ -109,7 +108,7 @@ DEPENDENCIES
   homebrew (= 2.0.0)
   hub (= 1.4.0)
   inifile (= 1.0.3)
-  module-data (= 0.0.3)
+  module-data (= 0.0.4)
   nginx (= 1.4.3)
   nodejs (= 3.7.0)
   openssl (= 1.0.0)
@@ -119,4 +118,5 @@ DEPENDENCIES
   ruby (= 8.2.0)
   stdlib (= 4.2.1)
   sudo (= 1.0.0)
+  xquartz (= 1.1.1)
 
