@@ -40,11 +40,11 @@ As of right now, these are the boxen modules which I've modded Linux support int
 
 ## Thing to be aware of
 - In order to deal with the difference in paths between OSX and Linux, boxen-linux creates a few directories and symlinks that vanilla boxen does not
-  -directories
-    -/User
-    -/var/db
-  -symlinks
-    -/User/${USER} -> /home/${USER}
+  - directories
+    - /User
+    - /var/db
+  - symlinks
+    - /User/${USER} -> /home/${USER}
 
 ## Still to come
 - Support for more versions of Linux
