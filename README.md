@@ -138,6 +138,7 @@ This template project provides the following by default:
 * Ruby 2.0.0
 * Ruby 2.1.0
 * Ruby 2.1.1
+* Ruby 2.1.2
 * ack
 * Findutils
 * GNU tar
