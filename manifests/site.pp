@@ -1,4 +1,3 @@
-
 if $::osfamily == 'Debian'
 {
   stage { 'pre':
@@ -17,8 +16,8 @@ if $::osfamily == 'Darwin'
 
 Exec {
   logoutput   => on_failure,
-  user        => $boxen_user,
-  group       => $boxen::config::group,
+  user        => $::boxen_user,
+  group       => $::boxen_group,
 
   path => [
     "${boxen::config::home}/rbenv/shims",
@@ -38,8 +37,8 @@ Exec {
 }
 
 File {
-  group => $boxen::config::group,
-  owner => $boxen_user
+  group => $::boxen_group,
+  owner => $::boxen_user
 }
 
 Package {
@@ -58,8 +57,10 @@ Repository {
   }
 }
 
-Service {
-  provider => ghlaunchd
+if $::osfamily == 'Darwin' {
+	Service {
+	  provider => ghlaunchd
+	}
 }
 
 Homebrew::Formula <| |> -> Package <| provider != apt |>
@@ -75,10 +76,14 @@ if ($::virtual == 'virtualbox' and $::osfamily == 'Darwin')
 
 node default {
   # core modules, needed for most things
-# include dnsmasq
+  include dnsmasq
   include git
   include hub
-# include nginx
+  include nginx
+  if $::kernel == 'Linux' 
+	{ 
+	  include pkgconfig
+	}
 
   # fail if FDE is not enabled
   if $::root_encrypted == 'no' {
@@ -86,15 +91,15 @@ node default {
   }
 
   # node versions
-#  include nodejs::v0_6
-#  include nodejs::v0_8
-#  include nodejs::v0_10
+  include nodejs::v0_6
+  include nodejs::v0_8
+  include nodejs::v0_10
 
   # default ruby versions
-#  ruby::version { '1.9.3': }
-#  ruby::version { '2.0.0': }
-#  ruby::version { '2.1.0': }
-#  ruby::version { '2.1.1': }
+  ruby::version { '1.9.3': }
+  ruby::version { '2.0.0': }
+  ruby::version { '2.1.0': }
+  ruby::version { '2.1.1': }
   ruby::version { '2.1.2': }
 
   # common, useful packages
@@ -110,10 +115,4 @@ node default {
     ensure => link,
     target => $boxen::config::repodir
   }
-}
-if $::osfamily != 'Darwin' 
-{ 
-  # TODO: deal with the fact that boxen realllly seems to want to install an extra pkg-config on linux systems in a more graceful way
-  package {'pkg-config':
-    ensure => absent}
 }

@@ -52,3 +52,9 @@ As of right now, these are the boxen modules which I've modded Linux support int
 
 ## Potential sources of bugs
 - If you want to deploy boxen on both OSX and Linux, you need to keep two versions of the facter gem in your vender/cache directory, facter-x.x.x.gem and facter-x.x.x-universal-darwin.gem. If you're running on OSX and you only have facter-x.x.x.gem, Puppet tries to use it and crashes.
+
+## Notes on writing boxen ports
+- A pretty good regex for finding platform specific lines of code in a module:
+```
+(?i)(?:plist)|(:?service)|(?:RUBY_PLATFORM)|(?:osfamily)|(?:wheel)|(?:staff)
+```
