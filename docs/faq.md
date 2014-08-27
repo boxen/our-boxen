@@ -61,7 +61,7 @@ These will generate the respective lock files suitable for committing. Hope that
 
 ### Q: Should you keep the cache of the module and gem in the repository?
 
-We recommend yout to keep the files inside `vendor/cache` and `vendor/puppet/cache` inside
+We recommend you to keep the files inside `vendor/cache` and `vendor/puppet/cache` inside
 the repository.
 
 It ends up adding a negligible amount of disk space in return for much faster runtimes
