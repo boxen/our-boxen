@@ -60,7 +60,7 @@ github "openssl",     "1.0.0"
 github "phantomjs",   "2.3.0"
 github "pkgconfig",   "1.1.0", :repo => "telamonian/puppet-pkgconfig"
 github "repository",  "2.3.0"
-github "ruby",        "8.2.0", :repo => "telamonian/puppet-ruby"
+github "ruby",        "8.3.0", :repo => "telamonian/puppet-ruby"
 github "stdlib",      "4.2.1", :repo => "puppetlabs/puppetlabs-stdlib"
 github "sudo",        "1.0.0"
 
