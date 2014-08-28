@@ -1,6 +1,6 @@
 # Boxen Linux
 
-A version of GitHub's our-boxen that works on both Linux and OSX. Has been tested on OSX 10.9.4 and Ubuntu 14.04.
+A version of GitHub's our-boxen that works on both Linux and OSX. All of the packages/modules from the OSX version of the vanilla our-boxen repo are now supported in Linux. Has been tested on OSX 10.9.4 and Ubuntu 14.04.
 
 ## Motivation
 
@@ -29,14 +29,18 @@ package { '<homebrew-formula-name>': }
 
 As of right now, these are the boxen modules which I've modded Linux support into
 
-- puppet-boxen 		(:repo => "telamonian/puppet-boxen")
-- puppet-eclipse 	(:repo => "telamonian/puppet-eclipse")
-- puppet-gcc 		(:repo => "telamonian/puppet-gcc")
-- puppet-git 		(:repo => "telamonian/puppet-git")
-- puppet-homebrew 	(:repo => "telamonian/puppet-homebrew")
-- puppet-hub 		(:repo => "telamonian/puppet-hub")
-- puppet-java 		(:repo => "telamonian/puppet-java")
-- puppet-ruby 		(:repo => "telamonian/puppet-ruby")
+- puppet-boxen 		    (:repo => "telamonian/puppet-boxen")
+- puppet-dnsmasq      (:repo => "telamonian/puppet-dnsmasq")
+- puppet-eclipse 	    (:repo => "telamonian/puppet-eclipse")
+- puppet-gcc 		      (:repo => "telamonian/puppet-gcc")
+- puppet-git 		      (:repo => "telamonian/puppet-git")
+- puppet-homebrew 	  (:repo => "telamonian/puppet-homebrew")
+- puppet-hub 		      (:repo => "telamonian/puppet-hub")
+- puppet-java 		    (:repo => "telamonian/puppet-java")
+- puppet-nginx 		    (:repo => "telamonian/puppet-nginx")
+- puppet-nodejs 	  	(:repo => "telamonian/puppet-nodejs")
+- puppet-pkgconfig    (:repo => "telamonian/puppet-pkgconfig")
+- puppet-ruby 		    (:repo => "telamonian/puppet-ruby")
 
 ## Thing to be aware of
 - In order to deal with the difference in paths between OSX and Linux, boxen-linux creates a few directories and symlinks that vanilla boxen does not

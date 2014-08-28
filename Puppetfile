@@ -29,7 +29,7 @@ end
 # Includes many of our custom types and providers, as well as global
 # config. Required.
 
-github "boxen", "3.7.1", :repo => "telamonian/puppet-boxen"
+github "boxen", "3.7.2", :repo => "telamonian/puppet-boxen"
 
 # Support for default hiera data in modules
 
@@ -46,7 +46,7 @@ end
 # Core modules for a basic development environment. You can replace
 # some/most of these if you want, but it's not recommended.
 
-github "dnsmasq",     "1.0.1"
+github "dnsmasq",     "1.2.0", :repo => "telamonian/puppet-dnsmasq"
 github "foreman",     "1.2.0"
 github "gcc",         "2.2.0", :repo => "telamonian/puppet-gcc"
 github "git",         "2.7.0", :repo => "telamonian/puppet-git"
@@ -54,8 +54,8 @@ github "go",          "1.1.0"
 github "homebrew",    "2.0.0", :repo => "telamonian/puppet-homebrew"
 github "hub",         "1.4.0", :repo => "telamonian/puppet-hub"
 github "inifile",     "1.1.1", :repo => "puppetlabs/puppetlabs-inifile"
-github "nginx",       "1.4.3"
-github "nodejs",      "3.8.1"
+github "nginx",       "1.5.0", :repo => "telamonian/puppet-nginx"
+github "nodejs",      "3.9.0", :repo => "telamonian/puppet-nodejs"
 github "openssl",     "1.0.0"
 github "phantomjs",   "2.3.0"
 github "pkgconfig",   "1.1.0", :repo => "telamonian/puppet-pkgconfig"
