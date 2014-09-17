@@ -84,11 +84,6 @@ GITHUBTARBALL
     openssl (1.0.0)
 
 GITHUBTARBALL
-  remote: boxen/puppet-osx
-  specs:
-    osx (2.7.1)
-
-GITHUBTARBALL
   remote: boxen/puppet-phantomjs
   specs:
     phantomjs (2.3.0)
@@ -154,6 +149,11 @@ GITHUBTARBALL
     zsh (1.0.0)
 
 GITHUBTARBALL
+  remote: moexmen/puppet-osx
+  specs:
+    osx (2.7.2)
+
+GITHUBTARBALL
   remote: moexmen/puppet-rubymine
   specs:
     rubymine (1.2.0)
@@ -190,7 +190,7 @@ DEPENDENCIES
   nodejs (= 4.0.0)
   mysql (= 1.2.2)
   openssl (= 1.0.0)
-  osx (= 2.7.1)
+  osx (= 2.7.2)
   phantomjs (= 2.3.0)
   pkgconfig (= 1.0.0)
   postgresql (= 3.0.1)
