@@ -124,6 +124,11 @@ GITHUBTARBALL
     sudo (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-sysctl
+  specs:
+    sysctl (1.0.1)
+
+GITHUBTARBALL
   remote: boxen/puppet-virtualbox
   specs:
     virtualbox (1.0.13)
@@ -196,6 +201,7 @@ DEPENDENCIES
   xquartz (= 1.2.1)
   rubymine (= 1.2.0)
   spotify (= 1.0.2)
+  sysctl (= 1.0.1)
   virtualbox (= 1.0.13)
   vlc (= 1.1.0)
   wget (= 1.0.1)
