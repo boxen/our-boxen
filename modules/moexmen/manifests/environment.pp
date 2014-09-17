@@ -38,4 +38,5 @@ class moexmen::environment {
   include rubymine
   include postgresql
   include zsh
+  include dropbox
 }
