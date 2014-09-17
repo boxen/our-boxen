@@ -6,7 +6,7 @@ class moexmen::environment {
   class { 'osx::dock::hot_corners':
     bottom_left => "Start Screen Saver",
     top_right => "Mission Control",
-    bottom_right => "Show the desktop"
+    bottom_right => "Desktop"
   }
   
   include osx::dock::hot_corners
