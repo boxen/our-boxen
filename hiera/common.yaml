@@ -1,0 +1,9 @@
+# See https://github.com/boxen/puppet-ruby for docs
+ruby::global::version: "2.1.2"
+ruby::rbenv_plugins:
+  rbenv-vars:
+    ensure: v1.0.0
+    source: sstephenson/rbenv-vars
+  ruby-build:
+    ensure: v20131225.1
+    source: sstephenson/ruby-build
