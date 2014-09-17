@@ -60,3 +60,17 @@ github "xquartz",     "1.2.1"
 
 # Optional/custom modules. There are tons available at
 # https://github.com/boxen.
+
+github "chrome",      "1.2.0"
+github "firefox",     "1.2.3"
+github "osx",         "2.7.1"
+github "heroku",      "2.0.0"
+github "virtualbox",  "1.0.13"
+github "java",        "1.7.0"
+github "vlc",         "1.1.0"
+github "spotify",     "1.0.2"
+github "mysql",       "1.2.2"
+github "wget",        "1.0.1"
+github "rubymine",    "1.2.0", :repo => "moexmen/puppet-rubymine"
+github "postgresql",  "3.0.1"
+github "zsh",         "1.0.0"
