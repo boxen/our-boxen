@@ -63,7 +63,7 @@ github "xquartz",     "1.2.1"
 
 github "chrome",      "1.2.0"
 github "firefox",     "1.2.3"
-github "osx",         "2.7.2", :repo => "moexmen/puppet-osx"
+github "osx",         "2.7.3", :repo => "moexmen/puppet-osx"
 github "heroku",      "2.0.0"
 github "virtualbox",  "1.0.13"
 github "java",        "1.7.0"
