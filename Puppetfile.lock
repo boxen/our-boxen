@@ -129,6 +129,11 @@ GITHUBTARBALL
     sysctl (1.0.1)
 
 GITHUBTARBALL
+  remote: boxen/puppet-tunnelblick
+  specs:
+    tunnelblick (1.0.7)
+
+GITHUBTARBALL
   remote: boxen/puppet-virtualbox
   specs:
     virtualbox (1.0.13)
@@ -154,6 +159,11 @@ GITHUBTARBALL
     zsh (1.0.0)
 
 GITHUBTARBALL
+  remote: erivello/puppet-ohmyzsh
+  specs:
+    ohmyzsh (1.0.0)
+
+GITHUBTARBALL
   remote: jsyeo/puppet-iterm2
   specs:
     iterm2 (1.2.1)
@@ -161,7 +171,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: moexmen/puppet-osx
   specs:
-    osx (2.7.2)
+    osx (2.7.3)
 
 GITHUBTARBALL
   remote: moexmen/puppet-rubymine
@@ -203,8 +213,11 @@ DEPENDENCIES
   nginx (= 1.4.4)
   nodejs (= 4.0.0)
   mysql (= 1.2.2)
+  nginx (= 1.4.3)
+  nodejs (= 3.8.1)
+  ohmyzsh (= 1.0.0)
   openssl (= 1.0.0)
-  osx (= 2.7.2)
+  osx (= 2.7.3)
   phantomjs (= 2.3.0)
   pkgconfig (= 1.0.0)
   postgresql (= 3.0.1)
@@ -216,6 +229,7 @@ DEPENDENCIES
   rubymine (= 1.2.0)
   spotify (= 1.0.2)
   sysctl (= 1.0.1)
+  tunnelblick (= 1.0.7)
   virtualbox (= 1.0.13)
   vlc (= 1.1.0)
   wget (= 1.0.1)
