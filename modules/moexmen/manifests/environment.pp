@@ -39,6 +39,8 @@ class moexmen::environment {
   include postgresql
   include zsh
   include dropbox
-  include iterm2::dev
+  include iterm2::stable
   include iterm2::colors::zenburn
+  include tunnelblick
+  include ohmyzsh
 }
