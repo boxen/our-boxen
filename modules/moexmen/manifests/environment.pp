@@ -41,6 +41,7 @@ class moexmen::environment {
   include dropbox
   include iterm2::stable
   include iterm2::colors::zenburn
+  include iterm2::disable_prompt_on_click
   include tunnelblick
   include ohmyzsh
 }
