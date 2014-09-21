@@ -17,6 +17,7 @@ class moexmen::environment {
   include osx::global::expand_print_dialog
   include osx::global::expand_save_dialog
   include osx::global::tap_to_click
+  include osx::keyboard::capslock_to_control
 
   include osx::finder::show_all_on_desktop
   include osx::finder::unhide_library
@@ -41,7 +42,6 @@ class moexmen::environment {
   include dropbox
   include iterm2::stable
   include iterm2::colors::zenburn
-  include iterm2::disable_prompt_on_quit
   include tunnelblick
   include ohmyzsh
 }
