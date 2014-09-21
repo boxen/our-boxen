@@ -17,6 +17,9 @@ class moexmen::environment {
   include osx::global::expand_print_dialog
   include osx::global::expand_save_dialog
   include osx::global::tap_to_click
+
+  include osx::menubar::show_battery_percent
+
   include osx::keyboard::capslock_to_control
 
   include osx::finder::show_all_on_desktop
