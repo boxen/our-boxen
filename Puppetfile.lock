@@ -176,7 +176,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: moexmen/puppet-osx
   specs:
-    osx (2.7.4)
+    osx (2.7.5)
 
 GITHUBTARBALL
   remote: moexmen/puppet-rubymine
@@ -222,7 +222,7 @@ DEPENDENCIES
   nodejs (= 3.8.1)
   ohmyzsh (= 1.0.0)
   openssl (= 1.0.0)
-  osx (= 2.7.4)
+  osx (= 2.7.5)
   phantomjs (= 2.3.0)
   pkgconfig (= 1.0.0)
   postgresql (= 3.0.1)
