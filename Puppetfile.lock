@@ -134,6 +134,11 @@ GITHUBTARBALL
     sysctl (1.0.1)
 
 GITHUBTARBALL
+  remote: boxen/puppet-thunderbird
+  specs:
+    thunderbird (1.4.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-tunnelblick
   specs:
     tunnelblick (1.0.7)
@@ -235,6 +240,7 @@ DEPENDENCIES
   rubymine (= 1.2.0)
   spotify (= 1.0.2)
   sysctl (= 1.0.1)
+  thunderbird (= 1.4.0)
   tunnelblick (= 1.0.7)
   virtualbox (= 1.0.13)
   vlc (= 1.1.0)
