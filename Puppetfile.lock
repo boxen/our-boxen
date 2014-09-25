@@ -81,7 +81,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-xquartz
   specs:
-    xquartz (1.1.1)
+    xquartz (1.2.1)
 
 GITHUBTARBALL
   remote: puppetlabs/puppetlabs-inifile
@@ -118,5 +118,5 @@ DEPENDENCIES
   ruby (= 8.1.2)
   stdlib (= 4.2.1)
   sudo (= 1.0.0)
-  xquartz (= 1.1.1)
+  xquartz (= 1.2.1)
 
