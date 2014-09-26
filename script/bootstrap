@@ -7,13 +7,17 @@ set -e
 GID=`id -g`
 USERNAME=`id -u -nr`
 
-if grep $GID /etc/group >/dev/null
+if !(grep $GID /etc/group >/dev/null)
 then
-    # Fake group already exists - No action required
-else
+  echo "Looks like you have some issues with your domain and GID"
+  echo "More details here: https://github.com/boxen/our-boxen/issues/235"
+  read -p "Do you want to add a new GID to the group to get this to work? (y/n) " -n 1
+  echo
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo "Adding GID ($GID) for $USERNAME into /etc/group"
     sudo sh -c "echo $USERNAME:*:$GID:$USERNAME >> /etc/group"
     echo "$GID added to /etc/group!"
+  fi
 fi
 
 # FIX: only sudo if gem home isn't writable
