@@ -1,4 +1,9 @@
 GITHUBTARBALL
+  remote: boxen/puppet-atom
+  specs:
+    atom (1.0.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-boxen
   specs:
     boxen (3.7.0)
@@ -99,6 +104,7 @@ GITHUBTARBALL
     module_data (0.0.3)
 
 DEPENDENCIES
+  atom (>= 0)
   boxen (= 3.7.0)
   dnsmasq (= 2.0.0)
   foreman (= 1.2.0)
@@ -119,3 +125,4 @@ DEPENDENCIES
   stdlib (= 4.2.1)
   sudo (= 1.0.0)
   xquartz (= 1.2.1)
+
