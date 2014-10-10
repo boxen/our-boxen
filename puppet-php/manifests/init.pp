@@ -23,6 +23,13 @@ class php {
     install_options => '--with-zlib-dir=/usr/include',
   }  
   
+  package { "php53-mongo":
+    ensure => present,
+    require => Package['php53'],
+    install_options => '--with-zlib-dir=/usr/include',
+    notify  => Service['org.apache.httpd'],
+  }
+  
   file { $php::config::log_dir:
     ensure => directory,
   }
