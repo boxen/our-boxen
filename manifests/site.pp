@@ -111,6 +111,11 @@ node default {
     ]:
   }
 
+  exec { "brew tap homebrew/php":
+    before => Package['drush'],
+    creates => "${boxen::config::home}/homebrew/Library/Taps/homebrew/homebrew-php",
+  }
+
   file { "${boxen::config::srcdir}/oddboxen":
     ensure => link,
     target => $boxen::config::repodir
