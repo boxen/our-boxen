@@ -36,7 +36,7 @@ If you have any installations that are included within Odd Boxen, make sure that
 
 ## Known issues
 
-* When installing for the first time, you will se error messages like `Could not set 'file' on ensure: No such file or directory`. This is beacuse Odd Boxen is trying to create settings file for Solr before Solr has been installed. After the installation has finished, run `boxen` once again, and these files will be created.
+Actually, none. Please [file an issue](https://github.com/oddhill/oddboxen/issues/new) if you experience any problems.
 
 
 ## Installation
