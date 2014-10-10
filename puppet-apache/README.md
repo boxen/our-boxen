@@ -8,5 +8,6 @@ include apache
 
 ## Required Puppet Modules
 
+* php
 * boxen
 * stdlib

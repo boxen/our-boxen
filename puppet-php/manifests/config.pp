@@ -2,7 +2,7 @@
 
 class php::config {
 
-  $inifile = '/etc/php.ini'
+  $inifile = '/opt/boxen/homebrew/etc/php/5.3/php.ini'
 
   $short_open_tag = 'Off'
   $expose_php = 'Off'
