@@ -57,6 +57,7 @@ node default {
   include git
   include hub
   include nginx
+  include zsh
 
   # fail if FDE is not enabled
   if $::root_encrypted == 'no' {
@@ -74,18 +75,6 @@ node default {
   ruby::version { '2.1.0': }
   ruby::version { '2.1.1': }
   ruby::version { '2.1.2': }
-  
-  #install atom
-  include atom
-
-  # common, useful packages
-  package {
-    [
-      'ack',
-      'findutils',
-      'gnu-tar'
-    ]:
-  }
 
   file { "${boxen::config::srcdir}/our-boxen":
     ensure => link,
