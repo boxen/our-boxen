@@ -15,6 +15,8 @@ class php::config {
   $display_startup_errors = 'On'
   $log_errors = 'On'
   $log_errors_max_len = '1024'
+  $log_dir = '/opt/boxen/log/php'
+  $error_log = '/opt/boxen/log/php/error.log'
   $ignore_repeated_errors = 'Off'
   $ignore_repeated_source = 'Off'
   $report_memleaks = 'On'

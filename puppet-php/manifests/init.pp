@@ -23,6 +23,10 @@ class php {
     install_options => '--with-zlib-dir=/usr/include',
   }  
   
+  file { $php::config::log_dir:
+    ensure => directory,
+  }
+  
   file { $php::config::inifile:
     content => template('php/php.ini.erb'),
     group   => 'wheel',
