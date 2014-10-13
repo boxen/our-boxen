@@ -109,9 +109,19 @@ GITHUBTARBALL
     sudo (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-vagrant
+  specs:
+    vagrant (3.2.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-vim
   specs:
     vim (1.0.5)
+
+GITHUBTARBALL
+  remote: boxen/puppet-vmware_fusion
+  specs:
+    vmware_fusion (1.2.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-wget
@@ -169,7 +179,9 @@ DEPENDENCIES
   ruby (= 8.1.4)
   stdlib (= 4.2.1)
   sudo (= 1.0.0)
+  vagrant (= 3.2.0)
   vim (= 1.0.5)
+  vmware_fusion (= 1.2.0)
   wget (= 1.0.0)
   xquartz (= 1.2.1)
   zsh (= 1.0.0)
