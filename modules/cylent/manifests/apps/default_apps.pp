@@ -8,11 +8,14 @@ class cylent::apps::default_apps {
   include xquartz
   include atom
   include hipchat
+  include vmware_fusion
 
   class {'intellij':
     edition => 'ultimate',
     version => '12.1.6'
   }
+
+  class {'vagrant':}
 
   # Homebrew Packages
   package {
