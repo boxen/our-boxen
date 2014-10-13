@@ -44,6 +44,11 @@ GITHUBTARBALL
     go (1.1.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-hipchat
+  specs:
+    hipchat (1.1.3)
+
+GITHUBTARBALL
   remote: boxen/puppet-homebrew
   specs:
     homebrew (1.9.5)
@@ -52,6 +57,11 @@ GITHUBTARBALL
   remote: boxen/puppet-hub
   specs:
     hub (1.3.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-intellij
+  specs:
+    intellij (1.5.1)
 
 GITHUBTARBALL
   remote: boxen/puppet-nginx
@@ -143,9 +153,11 @@ DEPENDENCIES
   gcc (= 2.2.0)
   git (= 2.5.0)
   go (= 1.1.0)
+  hipchat (= 1.1.3)
   homebrew (= 1.9.5)
   hub (= 1.3.0)
   inifile (= 1.1.1)
+  intellij (= 1.5.1)
   module_data (= 0.0.3)
   nginx (= 1.4.3)
   nodejs (= 3.8.1)

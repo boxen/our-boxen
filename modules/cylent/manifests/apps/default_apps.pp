@@ -7,6 +7,12 @@ class cylent::apps::default_apps {
   include wget
   include xquartz
   include atom
+  include hipchat
+
+  class {'intellij':
+    edition => 'ultimate',
+    version => '12.1.6'
+  }
 
   # Homebrew Packages
   package {
@@ -15,6 +21,7 @@ class cylent::apps::default_apps {
       'gnu-tar',
       'ack',
       'tree',
+      'watch',
     ]:
   }
 }
