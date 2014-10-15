@@ -132,4 +132,10 @@ node default {
     command => "drush dl registry_rebuild",
     creates => "/Users/${::boxen_user}/.drush/registry_rebuild",
   }
+  
+  exec {"drush-dl-module-builder":
+    cwd => "/Users/${::boxen_user}/.drush",
+    command => "drush dl module_builder && drush cc drush",
+    creates => "/Users/${::boxen_user}/.drush/module_builder",
+  }
 }
