@@ -44,7 +44,6 @@ class moexmen::environment {
   include zsh
   include dropbox
   include iterm2::stable
-  include iterm2::colors::zenburn
   include tunnelblick
   include ohmyzsh
 }
