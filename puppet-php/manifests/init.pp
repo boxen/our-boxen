@@ -7,11 +7,13 @@ class php {
   exec { "tap php":
     command => "brew tap homebrew/php",
     creates => "${boxen::config::home}/homebrew/Library/Taps/homebrew/homebrew-php",
+    require => Class["homebrew"],
   }
   
   exec { "tap dupes":
     command => "brew tap homebrew/dupes",
     creates => "${boxen::config::home}/homebrew/Library/Taps/homebrew/homebrew-dupes",
+    require => Class["homebrew"],
   }
   
   package { "php53":
