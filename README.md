@@ -47,10 +47,14 @@ Actually, none. Please [file an issue](https://github.com/oddhill/oddboxen/issue
 	xcode-select --install
 	```
 	This will ask for your password, and initiate the installation if needed. All you need to do is to follow the instructions.
+	
+	
+	
+2. Install [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12), and start Xcode in order to approve to the terms of use.
 
 
 
-2. Run the following commands exactly as they say:
+3. Run the following commands exactly as they say:
 
 	```
 	sudo mkdir -p /opt/boxen
@@ -61,7 +65,7 @@ Actually, none. Please [file an issue](https://github.com/oddhill/oddboxen/issue
 
 
 
-3. Create the Mandrill manifest:
+4. Create the Mandrill manifest:
 
    ```
    cp puppet-postfix/manifests/mandrill.pp.default puppet-postfix/manifests/mandrill.pp
@@ -69,7 +73,7 @@ Actually, none. Please [file an issue](https://github.com/oddhill/oddboxen/issue
 
 
 
-4. Edit the Mandrill manifest with your favorite editor, e.g:
+5. Edit the Mandrill manifest with your favorite editor, e.g:
 
    ```
    pico puppet-postfix/manifests/mandrill.pp
@@ -79,7 +83,7 @@ Actually, none. Please [file an issue](https://github.com/oddhill/oddboxen/issue
 
 
 
-5. Install Odd Boxen:
+6. Install Odd Boxen:
 
    ```
    script/boxen
@@ -90,7 +94,7 @@ Actually, none. Please [file an issue](https://github.com/oddhill/oddboxen/issue
 
 
 
-6. When you're back at the prompt, restart the shell, and you should be able to run `boxen --env`. This will display the current status of the environment.
+7. When you're back at the prompt, restart the shell, and you should be able to run `boxen --env`. This will display the current status of the environment.
 
 	If you can't run `boxen`, you'll need to add this line to the end of your *~/.profile* or *~/.bash_profile*:
 
