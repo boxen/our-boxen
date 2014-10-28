@@ -10,6 +10,10 @@ This will automatically point any .dev domain to your locahost and enable dynami
 This is a list that points out the most relevant parts for this development environment. For a full list and further information, please refer to the repository for [our-boxen](https://github.com/boxen/our-boxen).
 
 * Homebrew
+  * PHP 5.3
+  * MySQL
+  * MongoDB
+  * Solr
 * Git
 * Node.js
   * Grunt CLI
@@ -20,14 +24,11 @@ This is a list that points out the most relevant parts for this development envi
   * Sass
 * Drush
   * Registry Rebuild
+  * Module Builder
 * Apache configuration
   * Dynamic document root
   * Support for HTTPS
-* PHP configuration
 * Postfix relay for Mandrill
-* MySQL
-* MongoDB
-* Solr
 
 
 ## Prerequisites
