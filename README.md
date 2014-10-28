@@ -36,7 +36,7 @@ If you have any installations that are included within Odd Boxen, make sure that
 
 ## Known issues
 
-Actually, none. Please [file an issue](https://github.com/oddhill/oddboxen/issues/new) if you experience any problems.
+Actually, none. Please [file an issue](https://github.com/oddhill/oddboxen/issues/new) if you experience any problems. Make sure to read the [Troubleshooting](#troubleshooting) section first though, as this may solve your problems.
 
 
 ## Installation
@@ -110,3 +110,15 @@ Actually, none. Please [file an issue](https://github.com/oddhill/oddboxen/issue
 1. Run `brew update && brew upgrade` in order to update and upgrade all formulas and brews.
 
 2. Run `boxen` from the terminal. This will automatically pull the latest changes from this repository, and perform any required alterations.
+
+
+
+## Troubleshooting
+
+* Run `brew update && brew upgrade` in order to update and upgrade all formulas and brews.
+
+* Run `brew doctor` in order to check for any errors related to Homebrew. Take any actions necessary.
+
+* Make sure that Xcode is updated. Check the App Store for available updates.
+
+* Run `xcode-select --install` in order to update Xcode Command Line Tools.
