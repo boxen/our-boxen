@@ -103,4 +103,6 @@ Actually, none. Please [file an issue](https://github.com/oddhill/oddboxen/issue
 
 ## Updating
 
-Simply run `boxen` from the terminal. This will automatically pull the latest changes from this repository, and perform any required alterations.
+1. Run `brew update && brew upgrade` in order to update and upgrade all formulas and brews.
+
+2. Run `boxen` from the terminal. This will automatically pull the latest changes from this repository, and perform any required alterations.
