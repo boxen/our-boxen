@@ -32,6 +32,13 @@ class php {
     notify  => Service['org.apache.httpd'],
   }
   
+  exec { "install imagick":
+    command => 'touch $(brew --prefix php53)/lib/php/.lock && chmod 0644 $(brew --prefix php53)/lib/php/.lock && printf "/opt/boxen/homebrew/Cellar/imagemagick/6.8.9-1-boxen2/\n" | pecl install imagick',
+    creates => '/opt/boxen/homebrew/Cellar/php53/5.3.29/lib/php/extensions/no-debug-non-zts-20090626/imagick.so',
+    require => Class['imagemagick'],
+    notify  => Service['org.apache.httpd'],
+  }
+  
   file { $php::config::log_dir:
     ensure => directory,
   }

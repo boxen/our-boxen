@@ -101,6 +101,7 @@ node default {
   include stagingsync
   include wget
   include postfix
+  include imagemagick
 
   # common, useful packages
   package {
