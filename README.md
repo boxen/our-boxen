@@ -35,10 +35,6 @@ This is a list that points out the most relevant parts for this development envi
 
 If you have any installations that are included within Odd Boxen, make sure that they are completely uninstalled before you continue. Don't forget to backup any personal data, such as MySQL databases, before you uninstall these services!
 
-## Known issues
-
-* Apache might not be able to load PHP after updating to Yosemite. In order to fix this, you should reinstall PHP by running `brew uninstall php53 && boxen`.
-* Please [file an issue](https://github.com/oddhill/oddboxen/issues/new) if you experience any other problems. Make sure to read the [Troubleshooting](#troubleshooting) section first though, as this may solve your problems.
 
 
 ## Installation
@@ -112,6 +108,13 @@ If you have any installations that are included within Odd Boxen, make sure that
 1. Run `brew update && brew upgrade` in order to update and upgrade all formulas and brews.
 
 2. Run `boxen` from the terminal. This will automatically pull the latest changes from this repository, and perform any required alterations.
+
+
+
+## Known issues
+
+* Apache might not be able to load PHP after updating to Yosemite. In order to fix this, you should reinstall PHP by running `brew uninstall php53 && boxen`.
+* Please [file an issue](https://github.com/oddhill/oddboxen/issues/new) if you experience any other problems. Make sure to read the [Troubleshooting](#troubleshooting) section first though, as this may solve your problems.
 
 
 
