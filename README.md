@@ -37,7 +37,8 @@ If you have any installations that are included within Odd Boxen, make sure that
 
 ## Known issues
 
-Actually, none. Please [file an issue](https://github.com/oddhill/oddboxen/issues/new) if you experience any problems. Make sure to read the [Troubleshooting](#troubleshooting) section first though, as this may solve your problems.
+* Apache might not be able to load PHP after updating to Yosemite. In order to fix this, you should reinstall PHP by running `brew uninstall php53 && boxen`.
+* Please [file an issue](https://github.com/oddhill/oddboxen/issues/new) if you experience any other problems. Make sure to read the [Troubleshooting](#troubleshooting) section first though, as this may solve your problems.
 
 
 ## Installation
