@@ -9,4 +9,5 @@
 /tmp
 /shared/*
 !/shared/README.md
-/vendor/gems/
+/vendor/cache/*
+/vendor/puppet/cache

@@ -139,6 +139,16 @@ GITHUBTARBALL
     zsh (1.0.0)
 
 GITHUBTARBALL
+  remote: cylentsystems/puppet-docker
+  specs:
+    docker (1.0.14)
+
+GITHUBTARBALL
+  remote: cylentsystems/puppet-python
+  specs:
+    python (2.0.7)
+
+GITHUBTARBALL
   remote: puppetlabs/puppetlabs-inifile
   specs:
     inifile (1.1.1)
@@ -158,6 +168,7 @@ DEPENDENCIES
   boxen (= 3.7.0)
   chrome (= 1.2.0)
   dnsmasq (= 2.0.0)
+  docker (= 1.0.14)
   firefox (= 1.2.3)
   foreman (= 1.2.0)
   gcc (= 2.2.0)
@@ -175,6 +186,7 @@ DEPENDENCIES
   osx (= 2.7.1)
   phantomjs (= 2.3.0)
   pkgconfig (= 1.0.0)
+  python (= 2.0.7)
   repository (= 2.3.0)
   ruby (= 8.1.4)
   stdlib (= 4.2.1)

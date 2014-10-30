@@ -25,6 +25,7 @@ class cylent::apps::default_apps {
       'ack',
       'tree',
       'watch',
+      'git-crypt',
     ]:
   }
 }
