@@ -1,6 +1,7 @@
 class people::ryan00 {
   include cylent::dev_environment
   include python::virtualenvwrapper
+  include pycharm
 
   $home       = "/Users/${::boxen_user}"
   $repo_dir   = "${home}/cylent"

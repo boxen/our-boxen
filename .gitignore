@@ -9,5 +9,3 @@
 /tmp
 /shared/*
 !/shared/README.md
-/vendor/cache/*
-/vendor/puppet/cache
