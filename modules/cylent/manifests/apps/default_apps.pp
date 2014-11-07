@@ -9,6 +9,7 @@ class cylent::apps::default_apps {
   include atom
   include hipchat
   include vmware_fusion
+  include cmake
 
   class {'intellij':
     edition => 'ultimate',
