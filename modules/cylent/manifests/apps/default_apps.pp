@@ -3,11 +3,11 @@ class cylent::apps::default_apps {
 
   include chrome
   include firefox
-  include vim
   include wget
   include xquartz
   include atom
   include hipchat
+  include macvim
   include vmware_fusion
   include cmake
 
@@ -15,6 +15,7 @@ class cylent::apps::default_apps {
     edition => 'ultimate',
     version => '12.1.6'
   }
+
 
   class {'vagrant':}
 
