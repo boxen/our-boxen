@@ -1,6 +1,7 @@
 class people::steve450 {
   include cylent::dev_environment
   include python::virtualenvwrapper
+  include projects::portcullis
 
   $home       = "/Users/${::boxen_user}"
   $repo_dir   = "${home}/cylent"
