@@ -3,10 +3,6 @@ class projects::portcullis {
   $home       = "/Users/${::boxen_user}"
   $repo_dir   = "${home}/cylent"
 
-  file { $repo_dir:
-    ensure => directory
-  }
-
   repository { "${repo_dir}/vagrantfiles":
     source => 'cylentsystems/vagrantfiles',
     require => File[$repo_dir]

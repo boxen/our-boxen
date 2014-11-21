@@ -38,8 +38,13 @@ class people::steve450 {
     require => [Repository[$dotfiles],File[$env]]
   }
 
-  exec {"Show all files in Finder":
-    command => "/usr/bin/defaults write com.apple.Finder AppleShowAllFiles -boolean true",
+  boxen::osx_defaults { 'show all files in Finder':
+    ensure => present,
+    domain => 'com.apple.Finder',
+    key    => 'AppleShowAllFiles',
+    value  => 'true',
+    type   => 'bool',
+    user   => $::boxen_user
   }
 
   package {
