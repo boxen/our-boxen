@@ -42,7 +42,6 @@ class people::steve450 {
   include osx::global::enable_keyboard_control_access
   include osx::global::disable_autocorrect
   include osx::global::tap_to_click
-  include osx::dock::autohide
   include osx::finder::empty_trash_securely
   include osx::finder::show_hidden_files
   include osx::finder::show_all_filename_extensions
@@ -51,6 +50,12 @@ class people::steve450 {
   class { 'osx::global::natural_mouse_scrolling':
     enabled => false
   }
+
+  class { 'cylent::osx::dock::autohide':
+    enabled => false
+  }
+
+  include cylent::osx::dock::minimize_to_application
 
   include osx::dock::icon_size
 
