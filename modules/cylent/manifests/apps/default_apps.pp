@@ -10,6 +10,7 @@ class cylent::apps::default_apps {
   include macvim
   include vmware_fusion
   include cmake
+  include iterm2::dev
 
   class {'intellij':
     edition => 'ultimate',
