@@ -169,9 +169,19 @@ GITHUBTARBALL
     docker (1.0.14)
 
 GITHUBTARBALL
+  remote: cylentsystems/puppet-office
+  specs:
+    office (1.0.8)
+
+GITHUBTARBALL
   remote: cylentsystems/puppet-python
   specs:
     python (2.0.7)
+
+GITHUBTARBALL
+  remote: cylentsystems/s3bucket
+  specs:
+    s3bucket (1.0.8)
 
 GITHUBTARBALL
   remote: puppetlabs/puppetlabs-inifile
@@ -211,6 +221,7 @@ DEPENDENCIES
   module_data (= 0.0.3)
   nginx (= 1.4.3)
   nodejs (= 3.8.1)
+  office (= 1.0.8)
   openssl (= 1.0.0)
   osx (= 2.8.0)
   phantomjs (= 2.3.0)
@@ -219,6 +230,7 @@ DEPENDENCIES
   python (= 2.0.7)
   repository (= 2.3.0)
   ruby (= 8.1.4)
+  s3bucket (= 1.0.8)
   stdlib (= 4.2.1)
   sudo (= 1.0.0)
   tunnelblick (= 1.0.7)

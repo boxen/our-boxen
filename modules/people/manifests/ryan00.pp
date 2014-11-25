@@ -5,6 +5,7 @@ class people::ryan00 {
   include iterm2::dev
   include dropbox
   include projects::portcullis
+  include office
 
   ###### Environment Settings ##########
   include osx::dock::autohide
