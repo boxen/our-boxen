@@ -18,7 +18,9 @@ class cylent::apps::default_apps {
   }
 
 
-  class {'vagrant':}
+  class {'vagrant':
+    version => '1.6.5'
+  }
 
   # Homebrew Packages
   package {
