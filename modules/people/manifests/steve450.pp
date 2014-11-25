@@ -1,6 +1,7 @@
 class people::steve450 {
   include cylent::dev_environment
   include python::virtualenvwrapper
+  include projects::portcullis
 
   $home       = "/Users/${::boxen_user}"
   $repo_dir   = "${home}/cylent"
@@ -37,9 +38,35 @@ class people::steve450 {
     require => [Repository[$dotfiles],File[$env]]
   }
 
-  exec {"Show all files in Finder":
-    command => "/usr/bin/defaults write com.apple.Finder AppleShowAllFiles -boolean true",
+  # OSX Defaults
+  include osx::global::enable_keyboard_control_access
+  include osx::global::disable_autocorrect
+  include osx::global::tap_to_click
+  include osx::finder::empty_trash_securely
+  include osx::finder::show_hidden_files
+  include osx::finder::show_all_filename_extensions
+  include osx::safari::enable_developer_mode
+
+  class { 'osx::global::natural_mouse_scrolling':
+    enabled => false
   }
+
+  class { 'cylent::osx::dock::autohide':
+    enabled => false
+  }
+
+  include cylent::osx::dock::minimize_to_application
+
+  include osx::dock::icon_size
+
+  class { 'osx::dock::hot_corners':
+    top_left => "Launchpad",
+    bottom_left => "Mission Control",
+    top_right => "Start Screen Saver",
+    bottom_right => "Application Windows"
+  }
+
+  # End OSX Defaults
 
   package {
     [
