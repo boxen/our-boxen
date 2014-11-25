@@ -24,6 +24,11 @@ GITHUBTARBALL
     dnsmasq (2.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-dropbox
+  specs:
+    dropbox (1.4.1)
+
+GITHUBTARBALL
   remote: boxen/puppet-firefox
   specs:
     firefox (1.2.3)
@@ -129,6 +134,11 @@ GITHUBTARBALL
     sudo (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-tunnelblick
+  specs:
+    tunnelblick (1.0.7)
+
+GITHUBTARBALL
   remote: boxen/puppet-vagrant
   specs:
     vagrant (3.2.0)
@@ -185,6 +195,7 @@ DEPENDENCIES
   cmake (= 1.0.1)
   dnsmasq (= 2.0.0)
   docker (= 1.0.14)
+  dropbox (= 1.4.1)
   firefox (= 1.2.3)
   foreman (= 1.2.0)
   gcc (= 2.2.0)
@@ -210,6 +221,7 @@ DEPENDENCIES
   ruby (= 8.1.4)
   stdlib (= 4.2.1)
   sudo (= 1.0.0)
+  tunnelblick (= 1.0.7)
   vagrant (= 3.2.0)
   vmware_fusion (= 1.2.0)
   wget (= 1.0.0)

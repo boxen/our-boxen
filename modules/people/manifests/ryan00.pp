@@ -3,19 +3,50 @@ class people::ryan00 {
   include python::virtualenvwrapper
   include pycharm
   include iterm2::dev
+  include dropbox
 
+  ###### Environment Settings ##########
+  include osx::dock::autohide
+  include osx::dock::dim_hidden_apps
+  include osx::finder::show_all_on_desktop
+  include osx::finder::empty_trash_securely
+  include osx::finder::show_hidden_files
+
+  class { 'osx::global::natural_mouse_scrolling':
+    enabled => false
+  }
+
+  class { 'osx::dock::hot_corners':
+    top_right => 'Application Windows',
+    top_left  => 'Desktop',
+    bottom_right => 'Start Screen Saver',
+    bottom_left => 'Dashboard'
+  }
+
+  ######### repositories ###############
   $home       = "/Users/${::boxen_user}"
   $repo_dir   = "${home}/cylent"
   $dotfiles   = "${repo_dir}/dotfiles"
   $ansible    = "${repo_dir}/ansible"
   $python     = "${repo_dir}/puppet-python"
+  $aws_vpc    = "${repo_dir}/cylent-ansible"
+  $crypto_keys = "${home}/keys"
+
   $env        = "${home}/.env"
+
+  ##This is an encrypted repo talk to ryan@cylentsystems
+  ##if you feel you need access
+  $aws_mgmt   = "${repo_dir}/aws-mgmt"
 
   file { $repo_dir:
     ensure => directory
   }
 
   file {$env:
+    ensure => directory
+  }
+
+  file {$crypto_keys:
     ensure => directory
   }
 
@@ -58,8 +89,18 @@ class people::ryan00 {
 
   ########## ANSIBLE END ##########
 
+  repository { $aws_mgmt:
+    source => 'cylentsystems/aws-mgmt',
+    require => File[$repo_dir]
+  }
+
   repository { $python:
     source => 'cylentsystems/puppet-python',
+    require => File[$repo_dir]
+  }
+
+  repository { $aws_vpc:
+    source => 'cylentsystems/ansible',
     require => File[$repo_dir]
   }
 
