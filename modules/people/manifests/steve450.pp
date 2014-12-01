@@ -3,39 +3,34 @@ class people::steve450 {
   include python::virtualenvwrapper
   include projects::portcullis
 
-  $home       = "/Users/${::boxen_user}"
-  $repo_dir   = "${home}/cylent"
-  $dotfiles   = "${repo_dir}/dotfiles"
-  $env        = "${home}/.env"
-
-  file { $repo_dir:
+  file { $cylent_repo_dir:
     ensure => directory
   }
 
-  file {$env:
+  file {$cylent_env:
     ensure => directory
   }
 
-  repository { $dotfiles:
+  repository { $cylent_dotfiles:
     source => 'cylentsystems/dotfiles',
-    require => File[$repo_dir]
+    require => File[$cylent_repo_dir]
   }
 
-  repository {"${repo_dir}/oh-my-zsh":
+  repository {"${cylent_repo_dir}/oh-my-zsh":
     source => 'robbyrussell/oh-my-zsh',
-    require => File[$repo_dir]
+    require => File[$cylent_repo_dir]
   }
 
   file {"${home}/.zshrc":
     ensure  => link,
-    target => "${dotfiles}/zshrc",
-    require => Repository["${repo_dir}/oh-my-zsh"]
+    target => "${cylent_dotfiles}/zshrc",
+    require => Repository["${cylent_repo_dir}/oh-my-zsh"]
   }
 
-  file {"${env}/zsh":
+  file {"${cylent_env}/zsh":
     ensure => link,
-    target => "${dotfiles}/zsh",
-    require => [Repository[$dotfiles],File[$env]]
+    target => "${cylent_dotfiles}/zsh",
+    require => [Repository[$cylent_dotfiles],File[$cylent_env]]
   }
 
   # OSX Defaults
