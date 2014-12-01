@@ -1,9 +1,7 @@
 class cylent::vagrant::vagrant_vmware {
   notify { 'class cylent::vagrant::vagrant_vmware declared':}
 
-  $repo_dir = "/Users/${::boxen_user}/cylent"
-  $license_file = "${repo_dir}/licenses/vagrant-vmware-fusion/${github_login}/license.lic"
-
+  $license_file = "${cylent_repo_dir}/licenses/vagrant-vmware-fusion/${github_login}/license.lic"
   $install_cmd = "vagrant plugin install vagrant-vmware-fusion"
   $install_license_cmd = "vagrant plugin license vagrant-vmware-fusion ${license_file}"
 
@@ -17,7 +15,7 @@ class cylent::vagrant::vagrant_vmware {
     command     => $install_license_cmd,
     onlyif      => "test -e $license_file",
     refreshonly => true,
-    require     => Repository["${repo_dir}/licenses"],
+    require     => Repository["${cylent_repo_dir}/licenses"],
     subscribe   => Exec[$install_cmd],
   }
 }
