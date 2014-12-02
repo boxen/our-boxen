@@ -25,6 +25,8 @@ class people::ryan00 {
     bottom_left => 'Dashboard'
   }
 
+  include cylent::osx::dock::minimize_to_application
+
   ####### personal repositories #######
   $ansible    = "${cylent_repo_dir}/ansible"
   $python     = "${cylent_repo_dir}/puppet-python"

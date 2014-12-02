@@ -1,7 +1,5 @@
 class projects::portcullis {
 
-  include cylent::vagrant::vagrant_vmware
-
   repository { "${cylent_repo_dir}/CylentLogMonitor":
     source => 'cylentsystems/CylentLogMonitor',
     require => File[$cylent_repo_dir]
