@@ -11,6 +11,7 @@ class cylent::apps::default_apps {
   include vmware_fusion
   include cmake
   include iterm2::dev
+  include github_for_mac
 
   class {'intellij':
     edition => 'ultimate',
