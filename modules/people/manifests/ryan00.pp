@@ -25,28 +25,19 @@ class people::ryan00 {
     bottom_left => 'Dashboard'
   }
 
-  ######### repositories ###############
-  $home       = "/Users/${::boxen_user}"
-  $repo_dir   = "${home}/cylent"
-  $dotfiles   = "${repo_dir}/dotfiles"
-  $ansible    = "${repo_dir}/ansible"
-  $python     = "${repo_dir}/puppet-python"
-  $aws_vpc    = "${repo_dir}/cylent-ansible"
+  ####### personal repositories #######
+  $ansible    = "${cylent_repo_dir}/ansible"
+  $python     = "${cylent_repo_dir}/puppet-python"
+  $aws_vpc    = "${cylent_repo_dir}/cylent-ansible"
   $crypto_keys = "${home}/keys"
 
-  $env        = "${home}/.env"
+
 
   ##This is an encrypted repo talk to ryan@cylentsystems
   ##if you feel you need access
-  $aws_mgmt   = "${repo_dir}/aws-mgmt"
+  $aws_mgmt   = "${cylent_repo_dir}/aws-mgmt"
 
-  file { $repo_dir:
-    ensure => directory
-  }
 
-  file {$env:
-    ensure => directory
-  }
 
   file {$crypto_keys:
     ensure => directory
@@ -56,7 +47,7 @@ class people::ryan00 {
 
   repository {$ansible:
     source => 'ansible/ansible',
-    require => File[$repo_dir]
+    require => File[$cylent_repo_dir]
   }
 
   python::mkvirtualenv {'ansible':
@@ -93,39 +84,35 @@ class people::ryan00 {
 
   repository { $aws_mgmt:
     source => 'cylentsystems/aws-mgmt',
-    require => File[$repo_dir]
+    require => File[$cylent_repo_dir]
   }
 
   repository { $python:
     source => 'cylentsystems/puppet-python',
-    require => File[$repo_dir]
+    require => File[$cylent_repo_dir]
   }
 
   repository { $aws_vpc:
     source => 'cylentsystems/ansible',
-    require => File[$repo_dir]
+    require => File[$cylent_repo_dir]
   }
 
-  repository { $dotfiles:
-    source => 'cylentsystems/dotfiles',
-    require => File[$repo_dir]
-  }
 
-  repository {"${repo_dir}/oh-my-zsh":
+  repository {"${cylent_repo_dir}/oh-my-zsh":
     source => 'robbyrussell/oh-my-zsh',
-    require => File[$repo_dir]
+    require => File[$cylent_repo_dir]
   }
 
   file {"${home}/.zshrc":
     ensure  => link,
-    target => "${dotfiles}/zshrc",
-    require => Repository["${repo_dir}/oh-my-zsh"]
+    target => "${cylent_dotfiles}/zshrc",
+    require => Repository["${cylent_repo_dir}/oh-my-zsh"]
   }
 
-  file {"${env}/zsh":
+  file {"${cylent_env}/zsh":
     ensure => link,
-    target => "${dotfiles}/zsh",
-    require => [Repository[$dotfiles],File[$env]]
+    target => "${cylent_dotfiles}/zsh",
+    require => [Repository[$cylent_dotfiles],File[$cylent_env]]
   }
   ->
   exec { "chsh -s /opt/boxen/homebrew/bin/zsh":
@@ -137,9 +124,9 @@ class people::ryan00 {
 
 
   file {'ansible.zsh':
-    path => "${env}/ansible.zsh",
+    path => "${cylent_env}/ansible.zsh",
     ensure => file,
-    require => [Repository[$dotfiles],File[$env]],
+    require => [Repository[$cylent_dotfiles],File[$cylent_env]],
     content => template("cylent/ansible_env.erb")
   }
 }
