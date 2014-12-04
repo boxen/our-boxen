@@ -11,6 +11,7 @@ class cylent::apps::default_apps {
   include vmware_fusion
   include cmake
   include iterm2::dev
+  include tunnelblick
 
   class {'intellij':
     edition => 'ultimate',
