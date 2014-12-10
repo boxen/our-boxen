@@ -31,6 +31,7 @@ class people::ryan00 {
   $ansible    = "${cylent_repo_dir}/ansible"
   $python     = "${cylent_repo_dir}/puppet-python"
   $aws_vpc    = "${cylent_repo_dir}/cylent-ansible"
+  $kimya      = "${cylent_repo_dir}/kimya"
   $crypto_keys = "${home}/keys"
 
 
@@ -96,6 +97,11 @@ class people::ryan00 {
 
   repository { $aws_vpc:
     source => 'cylentsystems/ansible',
+    require => File[$cylent_repo_dir]
+  }
+
+  repository { $kimya:
+    source => 'cylentsystems/kimya',
     require => File[$cylent_repo_dir]
   }
 

@@ -134,11 +134,6 @@ GITHUBTARBALL
     sudo (1.0.0)
 
 GITHUBTARBALL
-  remote: boxen/puppet-tunnelblick
-  specs:
-    tunnelblick (1.0.7)
-
-GITHUBTARBALL
   remote: boxen/puppet-vagrant
   specs:
     vagrant (3.2.0)
@@ -177,6 +172,11 @@ GITHUBTARBALL
   remote: cylentsystems/puppet-python
   specs:
     python (2.0.7)
+
+GITHUBTARBALL
+  remote: cylentsystems/puppet-tunnelblick
+  specs:
+    tunnelblick (1.0.8)
 
 GITHUBTARBALL
   remote: cylentsystems/s3bucket
@@ -233,7 +233,7 @@ DEPENDENCIES
   s3bucket (= 1.0.8)
   stdlib (= 4.2.1)
   sudo (= 1.0.0)
-  tunnelblick (= 1.0.7)
+  tunnelblick (= 1.0.8)
   vagrant (= 3.2.0)
   vmware_fusion (= 1.2.0)
   wget (= 1.0.0)
