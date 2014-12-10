@@ -174,6 +174,11 @@ GITHUBTARBALL
     docker (1.0.14)
 
 GITHUBTARBALL
+  remote: cylentsystems/puppet-java6
+  specs:
+    java6 (1.0.0)
+
+GITHUBTARBALL
   remote: cylentsystems/puppet-office
   specs:
     office (1.0.8)
@@ -229,6 +234,7 @@ DEPENDENCIES
   intellij (= 1.5.1)
   iterm2 (= 1.2.2)
   java (= 1.7.1)
+  java6 (= 1.0.0)
   macvim (= 1.0.0)
   module_data (= 0.0.3)
   nginx (= 1.4.3)
