@@ -3,19 +3,6 @@ class people::steve450 {
   include python::virtualenvwrapper
   include projects::portcullis
 
-  file { $cylent_repo_dir:
-    ensure => directory
-  }
-
-  file {$cylent_env:
-    ensure => directory
-  }
-
-  repository { $cylent_dotfiles:
-    source => 'cylentsystems/dotfiles',
-    require => File[$cylent_repo_dir]
-  }
-
   repository {"${cylent_repo_dir}/oh-my-zsh":
     source => 'robbyrussell/oh-my-zsh',
     require => File[$cylent_repo_dir]

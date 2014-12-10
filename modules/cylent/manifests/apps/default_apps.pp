@@ -12,6 +12,8 @@ class cylent::apps::default_apps {
   include cmake
   include iterm2::dev
   include tunnelblick
+  include github_for_mac
+  include java
 
   class {'intellij':
     edition => 'ultimate',
