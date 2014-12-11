@@ -15,6 +15,7 @@ class cylent::apps::default_apps {
   include github_for_mac
   include java6 #needed for intellij
   include java
+  include maven
 
   class {'intellij':
     edition => 'ultimate',
