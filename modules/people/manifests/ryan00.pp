@@ -5,7 +5,6 @@ class people::ryan00 {
   include iterm2::dev
   include dropbox
   include projects::portcullis
-  include office
   include docker
 
   ###### Environment Settings ##########
@@ -84,7 +83,12 @@ class people::ryan00 {
   python::pip {'awscli':
     virtualenv => "${python::config::venv_home}/ansible"}
 
+
   ########## ANSIBLE END ##########
+
+  class { 'office'
+    require => Python::Pip['awscli']
+  }
 
   repository { $aws_mgmt:
     source => 'cylentsystems/aws-mgmt',
