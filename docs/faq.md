@@ -42,7 +42,7 @@ The next step is to update your Puppet modules and RubyGems. First delete Puppet
 
 ```bash
 rm Puppetfile.lock Gemfile.lock
-bundle install --no-deployment --without development
+bundle install --no-deployment --without development --path .bundle
 bundle exec librarian-puppet install --clean
 ```
 
@@ -52,7 +52,7 @@ bundle exec librarian-puppet install --clean
 One approach is to delete the Gemfile.lock and Puppetfile.lock and run:
 
     # Regenerates Gemfile.lock and installs new Gems
-    bundle install --without development
+    bundle install --without development --path .bundle
 
     # Regenerates Puppetfile.lock and caches tarballs
     bundle exec librarian-puppet install --clean
