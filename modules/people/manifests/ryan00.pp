@@ -82,13 +82,8 @@ class people::ryan00 {
   ->
   python::pip {'awscli':
     virtualenv => "${python::config::venv_home}/ansible"}
-
-
-  ########## ANSIBLE END ##########
-
-  class { 'office':
-    require => Python::Pip['awscli']
-  }
+  ->
+  class { 'office': }
 
   repository { $aws_mgmt:
     source => 'cylentsystems/aws-mgmt',
