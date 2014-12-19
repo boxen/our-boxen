@@ -19,7 +19,7 @@ class cylent::apps::default_apps {
 
   class {'intellij':
     edition => 'ultimate',
-    version => '12.1.6'
+    version => '14.0.2'
   }
 
 
