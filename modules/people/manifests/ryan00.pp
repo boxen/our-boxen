@@ -6,6 +6,7 @@ class people::ryan00 {
   include dropbox
   include projects::portcullis
   include office
+  include docker
 
   ###### Environment Settings ##########
   include osx::dock::autohide
