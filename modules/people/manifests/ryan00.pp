@@ -86,7 +86,7 @@ class people::ryan00 {
 
   ########## ANSIBLE END ##########
 
-  class { 'office'
+  class { 'office':
     require => Python::Pip['awscli']
   }
 
