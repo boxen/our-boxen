@@ -1,11 +1,11 @@
 class people::ryan00 {
   include cylent::dev_environment
-  include python::virtualenvwrapper
   include pycharm
   include iterm2::dev
   include dropbox
   include projects::portcullis
   include docker
+  include cylent::apps::ansible
 
   ###### Environment Settings ##########
   include osx::dock::autohide
@@ -28,79 +28,22 @@ class people::ryan00 {
   include cylent::osx::dock::minimize_to_application
 
   ####### personal repositories #######
-  $ansible    = "${cylent_repo_dir}/ansible"
   $python     = "${cylent_repo_dir}/puppet-python"
-  $aws_vpc    = "${cylent_repo_dir}/cylent-ansible"
   $kimya      = "${cylent_repo_dir}/kimya"
   $crypto_keys = "${home}/keys"
-
-
-
-  ##This is an encrypted repo talk to ryan@cylentsystems
-  ##if you feel you need access
-  $aws_mgmt   = "${cylent_repo_dir}/aws-mgmt"
-
-
 
   file {$crypto_keys:
     ensure => directory
   }
 
-  ########## ANSIBLE BEGIN ##########
+  notify {'awscli':}
+  ->
+  class { 'office':}
 
-  repository {$ansible:
-    source => 'ansible/ansible',
-    require => File[$cylent_repo_dir]
-  }
 
-  python::mkvirtualenv {'ansible':
-    ensure => present,
-    systempkgs => true,
-  }
-  ->
-  python::pip {'pyyaml':
-    virtualenv => "${python::config::venv_home}/ansible"
-  }
-  ->
-  python::pip {'jinja2':
-    virtualenv => "${python::config::venv_home}/ansible"
-  }
-  ->
-  python::pip {'paramiko':
-    virtualenv => "${python::config::venv_home}/ansible"
-  }
-  ->
-  python::pip {'httplib2':
-    virtualenv => "${python::config::venv_home}/ansible"
-  }
-  ->
-  python::pip {'boto':
-    virtualenv => "${python::config::venv_home}/ansible"}
-  ->
-  python::pip {'keyring':
-    virtualenv => "${python::config::venv_home}/ansible"}
-  ->
-  python::pip {'awscli':
-    virtualenv => "${python::config::venv_home}/ansible"}
-  ->
-  exec {'aws-set-version':
-    command => "${python::config::venv_home}/ansible/bin/aws configure set default.s3.signature_version s3v4"
-  }
-  ->
-  class { 'office': }
-
-  repository { $aws_mgmt:
-    source => 'cylentsystems/aws-mgmt',
-    require => File[$cylent_repo_dir]
-  }
 
   repository { $python:
     source => 'cylentsystems/puppet-python',
-    require => File[$cylent_repo_dir]
-  }
-
-  repository { $aws_vpc:
-    source => 'cylentsystems/ansible',
     require => File[$cylent_repo_dir]
   }
 
@@ -132,10 +75,4 @@ class people::ryan00 {
     onlyif => "bash -c test `dscl . -read /Users/${USER} UserShell | cut -d: -f2 | tr -d ' '` = /opt/boxen/homebrew/bin/zsh"
   }
 
-  file {'ansible.zsh':
-    path => "${cylent_env}/ansible.zsh",
-    ensure => file,
-    require => [Repository[$cylent_dotfiles],File[$cylent_env]],
-    content => template("cylent/ansible_env.erb")
-  }
 }
