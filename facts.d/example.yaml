@@ -1,0 +1,7 @@
+---
+# Any yaml or json files in this directory may be used to set
+# facts. This is useful, primarily, for things like homebrew_root,
+# which must be a fact rather than configured with hiera because
+# of how Puppet's custom resource providers work.
+
+# homebrew_root: /usr/local
