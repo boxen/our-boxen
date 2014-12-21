@@ -5,7 +5,8 @@ class cylent::dev_environment {
   include cylent::vagrant::vagrant_vmware
 
   file { $cylent_repo_dir:
-    ensure => directory
+    ensure => directory,
+    require  => File["${boxen::config::bindir}/boxen-git-credential"]
   }
 
   file {$cylent_env:
@@ -14,8 +15,7 @@ class cylent::dev_environment {
 
   repository { "${cylent_repo_dir}/vagrantfiles":
     source => 'cylentsystems/vagrantfiles',
-    require => File[$cylent_repo_dir],
-    require  => File["${boxen::config::bindir}/boxen-git-credential"]
+    require => File[$cylent_repo_dir]    
   }
   ->
   repository { "${cylent_repo_dir}/licenses":
