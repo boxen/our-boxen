@@ -1,5 +1,6 @@
 class cylent::dev_environment {
   notify { 'class cylent::dev_envronment declared': }
+  notify { 'Repository Defaults Set': }
 
   include cylent::apps::default_apps
   include cylent::vagrant::vagrant_vmware
@@ -15,7 +16,7 @@ class cylent::dev_environment {
 
   repository { "${cylent_repo_dir}/vagrantfiles":
     source => 'cylentsystems/vagrantfiles',
-    require => File[$cylent_repo_dir]    
+    require => File[$cylent_repo_dir]
   }
   ->
   repository { "${cylent_repo_dir}/licenses":
