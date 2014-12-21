@@ -16,6 +16,22 @@ log() {
     fi
 }
 
+#Add fake group to fix GID/domain issues (https://github.com/boxen/our-boxen/issues/235)
+GID=`id -g`
+USERNAME=`id -u -nr`
+if !(grep $GID /etc/group >/dev/null)
+then
+  echo "Looks like you have some issues with your domain and GID"
+  echo "More details here: https://github.com/boxen/our-boxen/issues/235"
+  read -p "Do you want to add a new GID to the group to get this to work? (y/n) " -n 1
+  echo
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    log "Adding GID ($GID) for $USERNAME into /etc/group"
+    sudo sh -c "echo $USERNAME:*:$GID:$USERNAME >> /etc/group"
+    log "$GID added to /etc/group!"
+  fi
+fi
+
 # Put xcrun shim on PATH if on Mountain Lion
 set +e
 OSX_VERSION_CHECK=`sw_vers | grep ProductVersion | cut -f 2 -d ':'  | egrep '10\.8'`
