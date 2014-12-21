@@ -1,7 +1,6 @@
 class cylent::dev_environment {
   notify { 'class cylent::dev_envronment declared': }
 
-
   include cylent::apps::default_apps
   include cylent::vagrant::vagrant_vmware
 
@@ -13,21 +12,10 @@ class cylent::dev_environment {
     ensure => directory
   }
 
-  Repository {
-    provider => git,
-    extra    => [
-      '--recurse-submodules'
-    ],
-    require  => File["${boxen::config::bindir}/boxen-git-credential"],
-    config   => {
-      'credential.helper' => "${boxen::config::bindir}/boxen-git-credential"
-    },
-    before => Notify['Repository Defaults Set']
-  }
-  ->
   repository { "${cylent_repo_dir}/vagrantfiles":
     source => 'cylentsystems/vagrantfiles',
-    require => File[$cylent_repo_dir]
+    require => File[$cylent_repo_dir],
+    require  => File["${boxen::config::bindir}/boxen-git-credential"]
   }
   ->
   repository { "${cylent_repo_dir}/licenses":
