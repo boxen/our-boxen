@@ -83,6 +83,10 @@ class people::ryan00 {
   python::pip {'awscli':
     virtualenv => "${python::config::venv_home}/ansible"}
   ->
+  exec {'aws-set-version':
+    command => "${python::config::venv_home}/ansible/bin/aws configure set default.s3.signature_version s3v4"
+  }
+  ->
   class { 'office': }
 
   repository { $aws_mgmt:
@@ -104,7 +108,6 @@ class people::ryan00 {
     source => 'cylentsystems/kimya',
     require => File[$cylent_repo_dir]
   }
-
 
   repository {"${cylent_repo_dir}/oh-my-zsh":
     source => 'robbyrussell/oh-my-zsh',
@@ -128,8 +131,6 @@ class people::ryan00 {
     path => ["/usr/bin","/bin"],
     onlyif => "bash -c test `dscl . -read /Users/${USER} UserShell | cut -d: -f2 | tr -d ' '` = /opt/boxen/homebrew/bin/zsh"
   }
-
-
 
   file {'ansible.zsh':
     path => "${cylent_env}/ansible.zsh",
