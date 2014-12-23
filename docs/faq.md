@@ -2,6 +2,16 @@
 
 Below you can find common questions and answers.
 
+### Q: Boxen Keychain Helper: Encountered error code: -25308
+If you run `boxen` in a session without GUI (e.g. via SSH), you will most likely need to unlock the keychain manually.
+
+```
+security create-keychain -p $your_password $keychain_name
+security default-keychain -d user -s $keychain_name
+# if necessary..
+security unlock-keychain -p $your_password # unlocks the default keychain, which boxen will use to store the token
+```
+
 ### Q: How do you uninstall an application and get it to reinstall in the application folder with boxen?
 
 When removing applications make sure to remove the corresponding `/var/db/.puppet_appdmg_installed_application` so that boxen will reinstall it.
