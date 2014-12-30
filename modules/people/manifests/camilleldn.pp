@@ -1,163 +1,180 @@
 class people::camilleldn {
 
-/**************************************
-  3D design and printing
-***************************************/
-  # 123D Design
-  # Art of Illusion
-  # AutoCAD
-  # Blender
-  # Cura
+  /**************************************
+    3D design and printing
+  ***************************************/
+    # 123D Design
+    # Art of Illusion
+    # AutoCAD
+    # Blender
+    # Cura
 
-/**************************************
-  Browsers
-***************************************/
-  # Chrome
-  # Chrome Canary
-  # Firefox
-  # Opera
+  /**************************************
+    Browsers
+  ***************************************/
+    include chrome
+    include chrome::canary
+    include firefox
+    include opera
 
-/**************************************
-  Communication
-***************************************/
-  # Airmail 2
-  # Colloquy
-  # Slack
-  # Skype
-  # TweetDeck
-  
-/**************************************
-  Cooking
-***************************************/
-  # Paprika Recipe Manager
- 
-/**************************************
-  Document management
-***************************************/
-  # Dropbox
-  # Google Drive
-  # Libre Office
-  # Spideroak
+  /**************************************
+    Communication
+  ***************************************/
+    # Airmail 2
+    include colloquy
+    # Slack
+    include skype
+    # TweetDeck
 
-/**************************************
-  Entertainment
-***************************************/
-  # Sonos
-  # Spotify
-  # Steam
-  # VLC
+  /**************************************
+    Cooking
+  ***************************************/
+    # Paprika Recipe Manager
 
-/**************************************
-  Graphics editor
-***************************************/
-  # GIFBrewery
-  # Pixelmator
-  # Photoshop suite
+  /**************************************
+    Document management
+  ***************************************/
+    include dropbox
+    # Google Drive
+    include libreoffice
+    # Spideroak
 
-/**************************************
-  Photography
-***************************************/
-  # Aperture
-  # gps4cam
+  /**************************************
+    Entertainment
+  ***************************************/
+    include sonos
+    include spotify
+    include steam
+    include vlc
 
-/**************************************
-  Presentations
-***************************************/
-  # Deckset
-  # Keynote
+  /**************************************
+    Graphics editor
+  ***************************************/
+    # GIFBrewery
+    # Pixelmator
+    # Photoshop suite
 
-/**************************************
-  Quantified self
-***************************************/
-  # Fitbit
+  /**************************************
+    Photography
+  ***************************************/
+    # Aperture
+    # gps4cam
 
-/**************************************
-  Reading
-***************************************/
+  /**************************************
+    Presentations
+  ***************************************/
+    # Deckset
+    # Keynote
+
+  /**************************************
+    Quantified self
+  ***************************************/
+    include fitbit
+
+  /**************************************
+    Reading
+  ***************************************/
   # Kindle
-  # Pocket
+    # Pocket
 
-/**************************************
-  Software development
-***************************************/
-  # Code editors
-  # Atom
-  # Macvim
-  # Rubymine
-  # Sublime Text
+  /**************************************
+    Software development
+  ***************************************/
+    # Code editors
+    include atom
+    include macvim
+    include rubymine
+    include sublime_text::v2
+    sublime_text::v2::package { 'Emmet':
+      source => 'sergeche/emmet-sublime'
+    }
 
-  # Documentation
-  # Dash
-  
-  # Languages (not in brew, osx or main manifest)
-  # Clojure
-  # Go
-  # Java
-  # PHP
-  # Python (+ pip, virtualenv)
-  
-  # Licencing
-  # Lice
+    # Documentation
+    include dash
 
-  # Pairing
-  # Screenhero
+    # Languages (not in brew, osx or main manifest)
+    include clojure
+    package { 'go':
+      ensure          => present,
+      install_options => '--cross-compile-common',
+    }
+    include java
+    include php
+    package {
+      [
+        'virtualenv',
+        'virtualenvwrapper'
+      ]:
+      ensure => present,
+      provider => pip,
+    }
 
-  # Source control
-  # Sourcetree
+    # Licencing
+    package { 'lice':
+      ensure   => present,
+  provider => 'pip',
+    }
 
-  # Teaching
-  # Scratch
-  # Sonic Pi
+    # Pairing
+    include screenhero
 
-  # Virtual machines
-  # Docker
-  # Vagrant
-  # Virtualbox
+    # Source control
+    include sourcetree
 
-/**************************************
-  Task management
-***************************************/
-  # Things
+    # Teaching
+    # Scratch
+    # Sonic Pi
 
-/**************************************
-  Utilities
-***************************************/
-  # Desktop/Bar/Window management
-  # Alfred
-  # Bartender
-  # Caffeine
-  # Flux
-  # Satellite Eyes
-  # SizeUp
-  # SlimBatteryMonitor
-  # SwitchResX
-  
-  # Password management
-  # LastPass
-  
-  # Memory/performance/disk management
-  # AppCleaner
-  # CleanMyMac 2
-  # XBench
+    # Virtual machines
+    include docker
+    include vagrant
+    include virtualbox
 
-  # Screen capture
-  # Licecap
-  # Paparazzi
-  # Reflector
-  # Screenflow
-  
-  # Security
-  # GPG tools
- 
-  # VPN
-  # PureVPN
+  /**************************************
+    Task management
+  ***************************************/
+    # Things
 
-/**************************************
-  Writing
-***************************************/
-  # Day One
-  # Evernote
-  # Mou
+  /**************************************
+    Utilities
+  ***************************************/
+    # Desktop/Bar/Window management
+    include alfred
+    include bartender
+    # Caffeine
+    include flux
+    # Satellite Eyes
+    include sizeup
+    # SlimBatteryMonitor
+    # SwitchResX
+
+    # Password management
+    # LastPass
+
+    # Memory/performance/disk management
+    include appcleaner
+    # CleanMyMac 2
+    # XBench
+
+    # Screen capture
+    # Licecap
+    # Paparazzi
+    # Reflector
+    # Screenflow
+
+    # Security
+    include gpgtools
+
+    # VPN
+    # PureVPN
+
+  /**************************************
+    Writing
+  ***************************************/
+    # Day One
+    include evernote
+    include mou
+    include mou::themes
 
   # Homebrew packages
   package {

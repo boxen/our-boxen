@@ -1,12 +1,77 @@
 GITHUBTARBALL
+  remote: boxen/puppet-atom
+  specs:
+    atom (1.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-autoconf
+  specs:
+    autoconf (1.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-bartender
+  specs:
+    bartender (1.0.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-boxen
   specs:
     boxen (3.7.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-chrome
+  specs:
+    chrome (1.2.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-clojure
+  specs:
+    clojure (1.3.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-colloquy
+  specs:
+    colloquy (1.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-dash
+  specs:
+    dash (1.0.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-dnsmasq
   specs:
     dnsmasq (2.0.1)
+
+GITHUBTARBALL
+  remote: boxen/puppet-docker
+  specs:
+    docker (0.8.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-dropbox
+  specs:
+    dropbox (1.4.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-evernote
+  specs:
+    evernote (2.0.6)
+
+GITHUBTARBALL
+  remote: boxen/puppet-firefox
+  specs:
+    firefox (1.2.3)
+
+GITHUBTARBALL
+  remote: boxen/puppet-fitbit
+  specs:
+    fitbit (1.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-flux
+  specs:
+    flux (1.0.1)
 
 GITHUBTARBALL
   remote: boxen/puppet-foreman
@@ -29,6 +94,11 @@ GITHUBTARBALL
     go (2.1.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-gpgtools
+  specs:
+    gpgtools (1.0.3)
+
+GITHUBTARBALL
   remote: boxen/puppet-homebrew
   specs:
     homebrew (1.9.8)
@@ -37,6 +107,36 @@ GITHUBTARBALL
   remote: boxen/puppet-hub
   specs:
     hub (1.3.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-java
+  specs:
+    java (1.8.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-libpng
+  specs:
+    libpng (1.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-libreoffice
+  specs:
+    libreoffice (4.2.6)
+
+GITHUBTARBALL
+  remote: boxen/puppet-libtool
+  specs:
+    libtool (1.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-macvim
+  specs:
+    macvim (1.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-mou
+  specs:
+    mou (1.1.3)
 
 GITHUBTARBALL
   remote: boxen/puppet-nginx
@@ -54,9 +154,24 @@ GITHUBTARBALL
     openssl (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-opera
+  specs:
+    opera (0.3.3)
+
+GITHUBTARBALL
+  remote: boxen/puppet-pcre
+  specs:
+    pcre (1.0.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-phantomjs
   specs:
     phantomjs (2.3.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-php
+  specs:
+    php (1.2.6)
 
 GITHUBTARBALL
   remote: boxen/puppet-pkgconfig
@@ -74,9 +189,74 @@ GITHUBTARBALL
     ruby (8.1.7)
 
 GITHUBTARBALL
+  remote: boxen/puppet-rubymine
+  specs:
+    rubymine (1.1.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-screenhero
+  specs:
+    screenhero (1.0.1)
+
+GITHUBTARBALL
+  remote: boxen/puppet-sizeup
+  specs:
+    sizeup (1.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-skype
+  specs:
+    skype (1.0.9)
+
+GITHUBTARBALL
+  remote: boxen/puppet-sonos
+  specs:
+    sonos (1.0.4)
+
+GITHUBTARBALL
+  remote: boxen/puppet-sourcetree
+  specs:
+    sourcetree (1.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-spotify
+  specs:
+    spotify (1.0.2)
+
+GITHUBTARBALL
+  remote: boxen/puppet-steam
+  specs:
+    steam (1.0.1)
+
+GITHUBTARBALL
+  remote: boxen/puppet-sublime_text
+  specs:
+    sublime_text (1.1.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-sudo
   specs:
     sudo (1.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-vagrant
+  specs:
+    vagrant (3.2.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-virtualbox
+  specs:
+    virtualbox (1.0.10)
+
+GITHUBTARBALL
+  remote: boxen/puppet-vlc
+  specs:
+    vlc (1.1.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-wget
+  specs:
+    wget (1.0.1)
 
 GITHUBTARBALL
   remote: boxen/puppet-xquartz
@@ -99,24 +279,60 @@ GITHUBTARBALL
     module_data (0.0.3)
 
 DEPENDENCIES
+  atom (= 1.0.0)
+  autoconf (= 1.0.0)
+  bartender (= 1.0.0)
   boxen (= 3.7.0)
+  chrome (= 1.2.0)
+  clojure (= 1.3.0)
+  colloquy (= 1.0.0)
+  dash (= 1.0.0)
   dnsmasq (= 2.0.1)
+  docker (= 0.8.0)
+  dropbox (= 1.4.0)
+  evernote (= 2.0.6)
+  firefox (= 1.2.3)
+  fitbit (= 1.0.0)
+  flux (= 1.0.1)
   foreman (= 1.2.0)
   gcc (= 2.2.0)
   git (= 2.7.1)
   go (= 2.1.0)
+  gpgtools (= 1.0.3)
   homebrew (= 1.9.8)
   hub (= 1.3.0)
   inifile (= 1.1.1)
+  java (= 1.8.0)
+  libpng (= 1.0.0)
+  libreoffice (= 4.2.6)
+  libtool (= 1.0.0)
+  macvim (= 1.0.0)
   module_data (= 0.0.3)
+  mou (= 1.1.3)
   nginx (= 1.4.4)
   nodejs (= 4.0.0)
   openssl (= 1.0.0)
+  opera (= 0.3.3)
+  pcre (= 1.0.0)
   phantomjs (= 2.3.0)
+  php (= 1.2.6)
   pkgconfig (= 1.0.0)
   repository (= 2.3.0)
   ruby (= 8.1.7)
+  rubymine (= 1.1.0)
+  screenhero (= 1.0.1)
+  sizeup (= 1.0.0)
+  skype (= 1.0.9)
+  sonos (= 1.0.4)
+  sourcetree (= 1.0.0)
+  spotify (= 1.0.2)
   stdlib (= 4.2.1)
+  steam (= 1.0.1)
+  sublime_text (= 1.1.0)
   sudo (= 1.0.0)
+  vagrant (= 3.2.0)
+  virtualbox (= 1.0.10)
+  vlc (= 1.1.0)
+  wget (= 1.0.1)
   xquartz (= 1.2.1)
 
