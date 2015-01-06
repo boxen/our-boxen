@@ -100,7 +100,7 @@ elsif !%x(git status --porcelain).chomp.empty?
     switch to a branch, rather than working on master? This way I'll
     know that you're trying something new, and won't do things like
     automatically update, or submit issues, while you're making
-    changes. It makes everyone's life a bit easier :heart:
+    changes. It makes everyone's life a bit easier \xE2\x9D\xA4
 
     Now, if you *weren't* expecting any changes, here's how to get
     back on the golden path:
