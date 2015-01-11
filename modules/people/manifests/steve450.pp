@@ -2,6 +2,19 @@ class people::steve450 {
   include cylent::dev_environment
   include python::virtualenvwrapper
   include projects::portcullis
+  include projects::bamboo_slack_plugin
+
+  ### personal repositories
+  $ansible    = "${cylent_repo_dir}/ansible"
+
+  $crypto_keys = "${home}/keys"
+
+  file {$crypto_keys:
+    ensure => directory
+  }
+
+  include docker
+  include virtualbox
 
   repository {"${cylent_repo_dir}/oh-my-zsh":
     source => 'robbyrussell/oh-my-zsh',
@@ -49,6 +62,52 @@ class people::steve450 {
   }
 
   # End OSX Defaults
+
+  ########## ANSIBLE BEGIN ##########
+
+  repository {$ansible:
+    source => 'ansible/ansible',
+    require => File[$cylent_repo_dir]
+  }
+
+  python::mkvirtualenv {'ansible':
+    ensure => present,
+    systempkgs => true,
+  }
+  ->
+  python::pip {'pyyaml':
+    virtualenv => "${python::config::venv_home}/ansible"
+  }
+  ->
+  python::pip {'jinja2':
+    virtualenv => "${python::config::venv_home}/ansible"
+  }
+  ->
+  python::pip {'paramiko':
+    virtualenv => "${python::config::venv_home}/ansible"
+  }
+  ->
+  python::pip {'httplib2':
+    virtualenv => "${python::config::venv_home}/ansible"
+  }
+  ->
+  python::pip {'boto':
+    virtualenv => "${python::config::venv_home}/ansible"}
+  ->
+  python::pip {'keyring':
+    virtualenv => "${python::config::venv_home}/ansible"}
+  ->
+  python::pip {'awscli':
+    virtualenv => "${python::config::venv_home}/ansible"}
+
+  file {'ansible.zsh':
+    path => "${cylent_env}/ansible.zsh",
+    ensure => file,
+    require => [Repository[$cylent_dotfiles],File[$cylent_env]],
+    content => template("cylent/ansible_env.erb")
+  }
+
+  ########## ANSIBLE END ##########
 
   package {
     [
