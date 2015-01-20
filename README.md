@@ -29,7 +29,7 @@ and detect most of these and tell you anyway):
 
 ### Dependencies
 
-**Install Xcode.**
+#### Install Xcode
 This will grant you the most predictable behavior in building apps like
 MacVim.
 
@@ -40,6 +40,11 @@ How do you do it?
 1. Open the Preferences window (`Cmd-,`).
 1. Go to the Downloads tab.
 1. Install the Command Line Tools.
+
+#### CYLENT Github Organization
+Ensure that your github account has been added to the CYLENT github organization, and that you have been added to the appropriate teams. Boxen requires access to some private CYLENT repositories, and so will fail if you don't have access.
+
+If you received an email invitation to the CYLENT github organization, make sure that you have accepted the invitation before proceeding.
 
 ### Bootstrapping
 
