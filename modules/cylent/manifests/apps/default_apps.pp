@@ -18,6 +18,13 @@ class cylent::apps::default_apps {
   include maven
   include googledrive
 
+  file {'node.zsh':
+    path => "${cylent_env}/node.zsh",
+    ensure => file,
+    require => [Repository[$cylent_dotfiles],File[$cylent_env]],
+    content => template("cylent/node_env.erb")
+  }
+
   class {'intellij':
     edition => 'ultimate',
     version => '14.0.2'

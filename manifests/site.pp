@@ -70,6 +70,8 @@ node default {
   nodejs::version { 'v0.8': }
   nodejs::version { 'v0.10': }
 
+
+
   # set the global nodejs version
   class { 'nodejs::global': version => 'v0.10.31' }
   # default ruby versions
