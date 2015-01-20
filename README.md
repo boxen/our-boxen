@@ -80,6 +80,17 @@ If that runs cleanly, you're in good shape.
 
 At this point, you should be able to run `boxen` from a terminal to re-run boxen at any point. If you or someone else updates our boxen configuration, for example to add a new application, then running `boxen` should add the new application
 
+### Adding projects
+Common boxen configurations are encapsulated in projects. Configuring your machine for a particular project is as simple as adding that project to your personal boxen file. The projects that you add to your personal boxen file will be based on the type of work that you will be doing.
+
+For example, someone that will be working on the endpoint (hypervisor or node layer) would add the endpoint project to their boxen file by adding this line:
+
+```
+include projects::endpoint
+```
+
+All available projects can be found at /opt/boxen/repo/modules/projects/manifests
+
 You can stop reading here, and have a fully functioning boxen environment. Everything below is copied from Github's Boxen template project. Keep reading for additional information on using/customizing Boxen.
 
 ## Customizing
