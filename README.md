@@ -29,7 +29,7 @@ and detect most of these and tell you anyway):
 
 ### Dependencies
 
-**Install the Xcode Command Lines Tools and/or full Xcode.**
+**Install Xcode.**
 This will grant you the most predictable behavior in building apps like
 MacVim.
 
