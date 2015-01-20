@@ -1,7 +1,7 @@
 class projects::endpoint {
 
-  repository { "${cylent_repo_dir}/portcullis":
-    source => 'cylentsystems/portcullis',
+  repository { "${cylent_repo_dir}/kale":
+    source => 'cylentsystems/kale',
     require => File[$cylent_repo_dir]
   }
 
@@ -18,5 +18,9 @@ class projects::endpoint {
   repository { "${cylent_repo_dir}/endpoint-distribution":
     source => 'cylentsystems/endpoint-distribution',
     require => File[$cylent_repo_dir]
+  }
+
+  nodejs::module {'coffee-script':
+    node_version => 'v0.10.31'
   }
 }

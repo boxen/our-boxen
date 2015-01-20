@@ -16,6 +16,7 @@ class cylent::apps::default_apps {
   include java6 #needed for intellij
   include java
   include maven
+  include googledrive
 
   class {'intellij':
     edition => 'ultimate',
