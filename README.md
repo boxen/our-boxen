@@ -62,7 +62,7 @@ cp default.pp <your-github-username>.pp
 Then open the newly created .pp file, and change the top line from "people::default" to "people::(your-github-username)"
 
 Now that your boxen is bootstrapped, you can run the following to
-install the default configuration from this repo:
+install the default configuration from this repo. __Running boxen the first time will take awhile__.
 
 ```
 cd /opt/boxen/repo
