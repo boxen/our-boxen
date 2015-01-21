@@ -23,4 +23,9 @@ class projects::endpoint {
   nodejs::module {'coffee-script':
     node_version => 'v0.10.31'
   }
+
+  nodejs::module {'grunt-cli':
+    node_version => 'v0.10.31'
+  }
+
 }

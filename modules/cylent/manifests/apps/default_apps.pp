@@ -19,7 +19,7 @@ class cylent::apps::default_apps {
   include googledrive
 
   file {'node.zsh':
-    path => "${cylent_env}/node.zsh",
+    path => "${cylent_env}/zsh/node.zsh",
     ensure => file,
     require => [Repository[$cylent_dotfiles],File[$cylent_env]],
     content => template("cylent/node_env.erb")
