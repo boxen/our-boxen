@@ -1,9 +1,11 @@
 class people::steve450 {
   include cylent::dev_environment
   include python::virtualenvwrapper
-  include projects::portcullis
+#  include projects::portcullis
+  include projects::endpoint
   include projects::bamboo_slack_plugin
   include cylent::apps::ansible
+#  include pathfinder
 
   #Needed for ansible
   notify {'awscli':}
