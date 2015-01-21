@@ -1,0 +1,13 @@
+HOSTS:
+  osx-1010-x64:
+    roles:
+      - master
+    platform: osx-1010-x64
+    box : osx-yosemite-0.2.0
+    box_url : http://files.dryga.com/boxes/osx-yosemite-0.2.0.box
+    hypervisor : boxen
+    user : vagrant
+CONFIG:
+  log_level : debug
+  type: git
+  configure : false

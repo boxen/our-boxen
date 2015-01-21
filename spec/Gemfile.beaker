@@ -1,0 +1,8 @@
+source "https://rubygems.org"
+
+group :system_tests do
+  gem 'beaker', :github => 'puppetlabs/beaker', :require => false
+  gem 'beaker-boxen', :github => 'petems/beaker-boxen', :require => false
+  gem 'beaker-rspec', :github => 'puppetlabs/beaker-rspec', :require => false
+  gem 'serverspec', :github => 'serverspec/serverspec', :require => false
+end
