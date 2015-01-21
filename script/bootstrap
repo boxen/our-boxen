@@ -87,7 +87,7 @@ else
     fi
 
     log "====> Installing gem dependencies"
-    /usr/bin/bundle install --binstubs bin --path .bundle --quiet "$@" && write_checksum
+    ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future /usr/bin/bundle install --binstubs bin --path .bundle --quiet "$@" && write_checksum
 fi
 
 # Fix the binstubs to use system ruby
