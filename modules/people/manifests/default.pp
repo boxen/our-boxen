@@ -1,6 +1,6 @@
 class people::default {
   include cylent::dev_environment
-  
+
   ###### Environment Settings ##########
   include osx::dock::autohide
   include osx::dock::dim_hidden_apps

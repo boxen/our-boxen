@@ -6,6 +6,9 @@ class people::ryan00 {
   include projects::portcullis
   include docker
   include cylent::apps::ansible
+  include projects::endpoint
+
+  class { 'gpgtools': }
 
   ###### Environment Settings ##########
   include osx::dock::autohide
@@ -29,7 +32,6 @@ class people::ryan00 {
 
   ####### personal repositories #######
   $python     = "${cylent_repo_dir}/puppet-python"
-  $kimya      = "${cylent_repo_dir}/kimya"
   $crypto_keys = "${home}/keys"
 
   file {$crypto_keys:
@@ -44,11 +46,6 @@ class people::ryan00 {
 
   repository { $python:
     source => 'cylentsystems/puppet-python',
-    require => File[$cylent_repo_dir]
-  }
-
-  repository { $kimya:
-    source => 'cylentsystems/kimya',
     require => File[$cylent_repo_dir]
   }
 

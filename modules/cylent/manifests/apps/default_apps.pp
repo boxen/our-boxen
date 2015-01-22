@@ -16,6 +16,14 @@ class cylent::apps::default_apps {
   include java6 #needed for intellij
   include java
   include maven
+  include googledrive
+
+  file {'node.zsh':
+    path => "${cylent_env}/zsh/node.zsh",
+    ensure => file,
+    require => [Repository[$cylent_dotfiles],File[$cylent_env]],
+    content => template("cylent/node_env.erb")
+  }
 
   class {'intellij':
     edition => 'ultimate',
