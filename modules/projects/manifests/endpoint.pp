@@ -9,4 +9,9 @@ class projects::endpoint {
     source => 'cylentsystems/trebuchet-x86',
     require => File[$cylent_repo_dir]
   }
+
+  repository { "${cylent_repo_dir}/bandit":
+    source => 'cylentsystems/bandit',
+    require => File[$cylent_repo_dir]
+  }
 }
