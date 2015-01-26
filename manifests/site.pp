@@ -58,7 +58,7 @@ node default {
   include hub
 
   # node versions
-  include nodejs::v0_10
+  nodejs::version { 'v0.10': }
 
   # default ruby versions
   ruby::version { '1.9.3': }

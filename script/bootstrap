@@ -3,36 +3,92 @@
 
 set -e
 
-# FIX: only sudo if gem home isn't writable
+VERBOSE=1
+for arg in "$@"; do
+    if [ "$arg" = "--quiet" ]; then
+        VERBOSE=0
+    fi
+done
 
-(/usr/bin/gem list -i bundler -v '~> 1.5.3' > /dev/null) || {
-  /usr/bin/sudo -E -p "Need to install Bundler for system ruby, password for sudo: " \
-  /usr/bin/gem install bundler -v '~> 1.5.3' --no-rdoc --no-ri
+log() {
+    if [ "$VERBOSE" = "1" ]; then
+        echo "$@"
+    fi
 }
 
-# We don't want old config hanging around.
+#Add fake group to fix GID/domain issues (https://github.com/boxen/our-boxen/issues/235)
+GID=`id -g`
+USERNAME=`id -u -nr`
+if !(grep $GID /etc/group >/dev/null)
+then
+  echo "Looks like you have some issues with your domain and GID"
+  echo "More details here: https://github.com/boxen/our-boxen/issues/235"
+  read -p "Do you want to add a new GID to the group to get this to work? (y/n) " -n 1
+  echo
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    log "Adding GID ($GID) for $USERNAME into /etc/group"
+    sudo sh -c "echo $USERNAME:*:$GID:$USERNAME >> /etc/group"
+    log "$GID added to /etc/group!"
+  fi
+fi
 
-rm -rf .bundle/config
-rm -rf .librarian/puppet/config
-
-# Put xcrun shim on PATH if on MoLo
+# Put xcrun shim on PATH if on Mountain Lion
 set +e
 OSX_VERSION_CHECK=`sw_vers | grep ProductVersion | cut -f 2 -d ':'  | egrep '10\.8'`
 if [ $? -eq 0 ]; then
-  export PATH=$(pwd)/vendor/shims:$PATH
+    export PATH=$(pwd)/vendor/shims:$PATH
 fi
 set -e
 
-CLT_VERSION=`pkgutil --pkg-info=com.apple.pkg.CLTools_Executables | grep version | cut -f 2 -d ' ' | awk ' { print $1; } '`
+# Set ARCHFLAGS for XCode 5.1 so that installing some gems with
+# native extensions won't fail, e.g. json
+# See https://developer.apple.com/library/ios/releasenotes/developertools/rn-xcode/Introduction/Introduction.html
+set +e
+CLTOOLS_VERSION_CHECK=`pkgutil --pkg-info=com.apple.pkg.CLTools_Executables | awk '/^version:/ {print $2}' | egrep -q '^5\.1' 2>/dev/null`
+if [ $? -eq 0 ]; then
+    export ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future
+fi
+set -e
 
-# Bundle install unless we're already up to date.
-if [[ $CLT_VERSION =~ ^5\.1\.0\.0\.1\.1396320587 ]]; then
-  # Fix for LLVM that ships with Xcode 5.1
-  ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future /usr/bin/bundle install --binstubs bin --path .bundle --quiet "$@"
-else
-  /usr/bin/bundle install --binstubs bin --path .bundle --quiet "$@"
+# FIX: only sudo if gem home isn't writable
+
+(/usr/bin/gem spec bundler -v '~> 1.5.3' >/dev/null 2>&1) || {
+    log "====> Installing bundler to system ruby"
+    /usr/bin/sudo -p "Password for sudo to install bundler: " \
+        /usr/bin/gem install bundler -v '~> 1.5.3' --no-rdoc --no-ri
+}
+
+# Use checksums to quickly determine if we need to re-bundle
+
+checksum_bundle() {
+    (((find Gemfile Gemfile.lock bin -type f) | xargs cat) && /usr/bin/ruby -v && /usr/bin/bundle -v) | md5
+}
+
+write_checksum() {
+    mkdir -p tmp
+    checksum_bundle > tmp/bundle_checksum.txt
+}
+
+mkdir -p bin
+
+if [ "$1" = "--pristine" ]; then
+    log "====> Cleaning installed gems"
+    git clean -xdf bin/ vendor/gems/* tmp/bundle_checksum.txt
+    shift
 fi
 
+if [ "$(checksum_bundle)" = "$(cat tmp/bundle_checksum.txt 2>/dev/null)" ]; then
+    log "====> Bundle already up-to-date!"
+else
+    # handle this not being a git repo (e.g. a brand new install!)
+    if [ -d .git ]; then
+        # always regenerate config and binstubs
+        git clean -xdfq -- bin .bundle/config .librarian/puppet/config
+    fi
+
+    log "====> Installing gem dependencies"
+    /usr/bin/bundle install --binstubs bin --path .bundle --quiet "$@" && write_checksum
+fi
 
 # Fix the binstubs to use system ruby
 find bin -not -path 'bin/\.*' -type f -print0 | xargs -0 /usr/bin/sed -i '' 's|/usr/bin/env ruby|/usr/bin/ruby|g'

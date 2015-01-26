@@ -25,49 +25,134 @@ Dir.chdir Pathname.new(__FILE__).realpath + "../.."
 
 # Auto-update code. This is done as early as possible so that changes
 # to boxen support code or dependencies can be grabbed.
-NO_PULL_ARGS = %w[--no-pull -h -? --help] + [/-service/]
-unless ENV["BOXEN_NO_PULL"] ||
-  ARGV.any? { |arg|  NO_PULL_ARGS.any? { |no|  arg.match(no) } }
-  quietly = "> /dev/null 2>&1"
 
-  if system("which git > /dev/null") && File.directory?(".git") \
-    && system("git fetch -q origin")
+puts "\e[0;36m--> Preparing to auto-update...\e[0m"
 
-    clean  = `git status --porcelain`.empty?
-    current_branch = `git symbolic-ref HEAD`.chomp
-    master = current_branch == "refs/heads/master"
+def no_pull_arg?(arg)
+  %w[--no-pull -h -? --help].include?(arg) ||
+    [/-service/].any? { |regex| regex.match(arg) }
+end
 
-    upstream_changes = `git rev-list --count master..origin/master`.chomp != '0'
-    fast_forwardable = `git rev-list --count origin/master..master`.chomp == '0'
+def update_failed(*args)
+  skip_auto_update(*args)
 
-    if current_branch.empty?
-      ref = `git log -1 --pretty=format:%h`
-      warn "Boxen not currently on any branch (ref: #{ref}), won't auto-update!"
-    elsif !master
-      local_branch =  current_branch.split('/')[2..-1].join('/')
-      warn "Boxen on a non-master branch '#{local_branch}', won't auto-update!"
-    elsif !fast_forwardable
-      warn "Boxen's master branch is out of sync, won't auto-update!"
-    elsif !clean
-      warn "Boxen has a dirty tree, won't auto-update!"
-    elsif !upstream_changes
-      warn "Boxen is up-to-date."
-    end
-
-    if clean && master && fast_forwardable && upstream_changes
-      reset   = "(git reset --hard origin/master #{quietly})"
-      reclean = "(git clean -qdf)"
-
-      unless system "#{reset} && #{reclean}"
-        warn "Auto-update of Boxen FAILED, continuing."
-      end
-    end
+  puts "\e[1;31mWould you like to run Boxen anyway, without the latest updates?\e[0m [y/N]"
+  if $stdin.gets.chomp.downcase != 'y'
+    puts
+    puts "Ok, bailing out!"
+    exit 1
   end
+end
+
+def skip_auto_update(reason, long_description = nil)
+  puts "\e[0;33m--> Skipping auto-update, #{reason}\e[0m"
+  puts
+  if long_description
+    # Un-indent the long description, since it's usually come from an indented
+    # HEREDOC style string
+    indent = long_description.scan(/^\s*/).min_by{|l|l.length}
+    long_description.each_line do |line|
+      puts "\e[0m" + line.gsub(/^#{indent}/, '').chomp + "\e[0m"
+    end
+    puts
+    puts "For more info on how the simple git-based updates work, have a gander at"
+    puts "https://github.com/boxen/our-boxen/blob/master/docs/updates.md"
+    puts
+  end
+end
+
+current_branch = File.directory?('.git') ? %x(git symbolic-ref HEAD).chomp : ''
+
+if ENV["BOXEN_NO_PULL"] || ARGV.any? { |arg| no_pull_arg?(arg) }
+  skip_auto_update "as requested"
+
+elsif !File.directory?(".git")
+  skip_auto_update "since this isn't a git checkout yet"
+
+elsif current_branch.empty?
+  update_failed "because your boxen checkout isn't on a branch", <<-END
+    This is unusual, and will prevent me from updating in the future, too.
+
+    Unless you know what you're doing, and expect to be in a "detached HEAD"
+    state (which sounds quite uncomfortable!), I recommend that you do this
+    to get sorted out:
+
+      cd #{Dir.pwd}
+      git checkout master
+      boxen
+
+    For serious, you probably don't want to run with a detached head.
+  END
+
+elsif current_branch != "refs/heads/master"
+  skip_auto_update "because your boxen checkout isn't on master", <<-END
+    Working on something special, over here on a branch? That's cool! Once
+    you're done, you'll probably want to submit a pull request and get back
+    onto master so that you can get some sweet, sweet updates again, though.
+  END
+
+elsif !%x(git status --porcelain).chomp.empty?
+  update_failed "because you've got uncommitted changes:", <<-END
+    #{%x(git status --porcelain)}
+    Since you've got some uncommitted changes to those files, I'm
+    going to take the safe road and not automatically update anything.
+    If you're actively working on some Boxen, maybe you'd like to
+    switch to a branch, rather than working on master? This way I'll
+    know that you're trying something new, and won't do things like
+    automatically update, or submit issues, while you're making
+    changes. It makes everyone's life a bit easier \xE2\x9D\xA4
+
+    Now, if you *weren't* expecting any changes, here's how to get
+    back on the golden path:
+
+      cd #{Dir.pwd}
+      git reset --hard origin/master
+      boxen
+  END
+
+elsif !system("git fetch --quiet origin")
+  update_failed "because running `git fetch` failed", <<-END
+    Well that's disappointing! Are you having network trouble? Is github.com
+    under attack? Given the potential for all sorts of boxen-y things failing
+    without the ability to pull from github, I'm going to abort for now.
+
+    Check that you can hit github, see if there are any ongoing issues with
+    the site and/or your network, and try again ASAP!
+  END
+
+elsif %x(git rev-list --count origin/master..master).chomp != "0"
+  update_failed "because you have unpushed commits on master", <<-END
+    Committing directly to master? You should be ashamed!
+
+    ...
+
+    It's ok, you're forgiven. But you probably want to push up your changes
+    soon. Even better, move them to a branch, push it and open a pull request!
+
+      git checkout -b my-cool-branch
+      git push -u origin my-cool-branch
+      git checkout master
+      git reset --hard origin/master
+  END
+
+elsif %x(git rev-list --count HEAD..origin/master).chomp == "0"
+  puts "\e[0;36m--> Complete! Nothing new from upstream.\e[0m"
+
+elsif !system("git reset --hard origin/master 2>&1 >/dev/null")
+  update_failed "because resetting to origin/master was unsuccessful"
+
+elsif !system("git clean -qdf")
+  update_failed "because cleaning up your repo failed"
+
+else
+  # Success!
+  ref = %x(git log -1 --pretty=format:%h)
+  puts "\e[0;32m--> Updated successfully to #{ref}!\e[0m"
 end
 
 # Make sure our local dependencies are up to date.
 
-strap = %w(script/bootstrap --deployment --local --without development:test --no-cache)
+strap = %w(script/bootstrap --quiet --deployment --local --without development:test --no-cache)
 abort "Can't bootstrap, dependencies are outdated." unless system *strap
 
 # Set up our local configuration, deps, and load path.
