@@ -1,3 +1,33 @@
+PATH
+  remote: /opt/boxen/repo/puppet-apache
+  specs:
+    puppet-apache (0.0.1)
+
+PATH
+  remote: /opt/boxen/repo/puppet-mysql
+  specs:
+    puppet-mysql (0.0.1)
+
+PATH
+  remote: /opt/boxen/repo/puppet-php
+  specs:
+    puppet-php (0.0.1)
+
+PATH
+  remote: /opt/boxen/repo/puppet-postfix
+  specs:
+    puppet-postfix (0.0.1)
+
+PATH
+  remote: /opt/boxen/repo/puppet-solr
+  specs:
+    puppet-solr (0.0.1)
+
+PATH
+  remote: /opt/boxen/repo/puppet-stagingsync
+  specs:
+    puppet-stagingsync (0.0.1)
+
 GITHUBTARBALL
   remote: boxen/puppet-boxen
   specs:
@@ -44,6 +74,16 @@ GITHUBTARBALL
     hub (1.3.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-imagemagick
+  specs:
+    imagemagick (1.3.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-java
+  specs:
+    java (1.7.1)
+
+GITHUBTARBALL
   remote: boxen/puppet-nginx
   specs:
     nginx (1.4.4)
@@ -84,9 +124,19 @@ GITHUBTARBALL
     sudo (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-wget
+  specs:
+    wget (1.0.1)
+
+GITHUBTARBALL
   remote: boxen/puppet-xquartz
   specs:
     xquartz (1.2.1)
+
+GITHUBTARBALL
+  remote: jenslind/puppet-mongodb
+  specs:
+    mongodb (2.6.5)
 
 GITHUBTARBALL
   remote: puppetlabs/puppetlabs-inifile
@@ -103,26 +153,42 @@ GITHUBTARBALL
   specs:
     module_data (0.0.3)
 
+GITHUBTARBALL
+  remote: webflo/puppet-drush-boxen
+  specs:
+    drush (0.0.1)
+
 DEPENDENCIES
   boxen (= 3.10.1)
   brewcask (= 0.0.4)
   dnsmasq (= 2.0.1)
+  drush (= 0.0.1)
   foreman (= 1.2.0)
   gcc (= 2.2.0)
   git (= 2.7.1)
   go (= 2.1.0)
   homebrew (= 1.11.2)
   hub (= 1.3.0)
+  imagemagick (= 1.3.0)
   inifile (= 1.1.1)
+  java (= 1.7.1)
   module_data (= 0.0.3)
+  mongodb (= 2.6.5)
   nginx (= 1.4.4)
   nodejs (= 4.0.0)
   openssl (= 1.0.0)
   phantomjs (= 2.3.0)
   pkgconfig (= 1.0.0)
+  puppet-apache (>= 0)
+  puppet-mysql (>= 0)
+  puppet-php (>= 0)
+  puppet-postfix (>= 0)
+  puppet-solr (>= 0)
+  puppet-stagingsync (>= 0)
   repository (= 2.3.0)
   ruby (= 8.1.7)
   stdlib (= 4.2.1)
   sudo (= 1.0.0)
+  wget (= 1.0.1)
   xquartz (= 1.2.1)
 
