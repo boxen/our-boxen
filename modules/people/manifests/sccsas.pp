@@ -17,7 +17,6 @@ class people::sccsas {
 
   class { 'osx::dock::hot_corners':
     top_right => 'Put Display to Sleep',
-    top_left  => '',
     bottom_right => 'Start Screen Saver',
     bottom_left => 'Dashboard'
   }
