@@ -149,15 +149,14 @@ GITHUBTARBALL
     ruby (8.1.7)
 
 GITHUBTARBALL
-<<<<<<< HEAD
   remote: boxen/puppet-skype
   specs:
     skype (1.1.0)
-=======
+    
+GITHUBTARBALL
   remote: boxen/puppet-spectacle
   specs:
     spectacle (1.0.0)
->>>>>>> d6700221445145ca98058731350a730c0e4e8b5a
 
 GITHUBTARBALL
   remote: boxen/puppet-sudo
