@@ -283,11 +283,8 @@ DEPENDENCIES
   repository (= 2.3.0)
   ruby (= 8.1.7)
   s3bucket (= 1.0.8)
-<<<<<<< HEAD
   skype (= 1.1.0)
-=======
   spectacle (= 1.0.0)
->>>>>>> d6700221445145ca98058731350a730c0e4e8b5a
   stdlib (= 4.2.1)
   sudo (= 1.0.0)
   tunnelblick (= 1.0.8)
@@ -297,4 +294,3 @@ DEPENDENCIES
   wget (= 1.0.0)
   xquartz (= 1.2.1)
   zsh (= 1.0.0)
-

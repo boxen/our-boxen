@@ -10,6 +10,7 @@ class people::ryan00 {
   include projects::confd
   include projects::etcd
   include skype
+  include spectacle
 
   class { 'gpgtools': }
 
