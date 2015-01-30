@@ -1,5 +1,9 @@
 class people::sccsns {
   include cylent::dev_environment
+  include spectacle
+
+  #### iTem2 Settings
+  include iterm2::colors::solarized_dark
 
   ###### Environment Settings ##########
   include osx::dock::autohide
@@ -7,10 +11,6 @@ class people::sccsns {
   include osx::finder::show_all_on_desktop
   include osx::finder::empty_trash_securely
   include osx::finder::show_hidden_files
-
-  class { 'osx::global::natural_mouse_scrolling':
-    enabled => false
-  }
 
   class { 'osx::dock::hot_corners':
     top_right => 'Desktop',
