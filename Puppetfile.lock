@@ -149,6 +149,11 @@ GITHUBTARBALL
     ruby (8.1.7)
 
 GITHUBTARBALL
+  remote: boxen/puppet-skype
+  specs:
+    skype (1.1.0)
+    
+GITHUBTARBALL
   remote: boxen/puppet-spectacle
   specs:
     spectacle (1.0.0)
@@ -277,6 +282,7 @@ DEPENDENCIES
   repository (= 2.3.0)
   ruby (= 8.1.7)
   s3bucket (= 1.0.8)
+  skype (= 1.1.0)
   spectacle (= 1.0.0)
   stdlib (= 4.2.1)
   sudo (= 1.0.0)
@@ -287,4 +293,3 @@ DEPENDENCIES
   wget (= 1.0.0)
   xquartz (= 1.2.1)
   zsh (= 1.0.0)
-
