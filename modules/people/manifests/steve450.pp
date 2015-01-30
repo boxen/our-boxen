@@ -5,6 +5,7 @@ class people::steve450 {
   include projects::endpoint
   include projects::bamboo_slack_plugin
   include cylent::apps::ansible
+  include spectacle
 #  include pathfinder
 
   #Needed for ansible
