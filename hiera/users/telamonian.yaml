@@ -1,8 +1,8 @@
 ---
 eclipse::workspace_mechanic_info:
   workspace_mechanic:
-    plugin_name: com.google.eclipse.mechanic
-    repo: http://workspacemechanic.eclipselabs.org.codespot.com/git.update/mechanics
+    plugin_name: com.google.eclipse.mechanic/0.4.0
+    repo: http://workspacemechanic.eclipselabs.org.codespot.com/git.update/mechanic
 
 eclipse::eclipse_installs:
   eclipse_wo_plugins_info:
@@ -71,6 +71,8 @@ eclipse::eclipse_installs:
     
 #      org.dadacoalition.yedit.feature.group:
 #        plugin_name: org.dadacoalition.yedit.feature.group
-#        repo: http://download.eclipse.org/releases/luna
+#        repo: http://dadacoalition.org/yedit
 #        eclipse_dir: "%{eclipse::eclipse_dir}"
-      
+
+# for "manual" install through eclipse-p2 itself
+# ./eclipse -application org.eclipse.equinox.p2.director -noSplash -repository http://download.eclipse.org/releases/luna,http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/,http://geppetto-updates.puppetlabs.com/4.x,http://protobuf-dt.googlecode.com/git/update-site,http://workspacemechanic.eclipselabs.org.codespot.com/git.update/mechanic,http://cmakeed.sourceforge.net/eclipse/,http://pydev.org/updates,http://sourceforge.net/projects/shelled/files/shelled/update/,http://dadacoalition.org/yedit,https://raw.github.com/guari/eclipse-ui-theme/master/com.github.eclipseuitheme.themes.updatesite -installIU com.google.eclipse.mechanic/0.4.0,epp.package.cpp,com.cthing.cmakeed.feature.feature.group,com.puppetlabs.geppetto.feature.group,com.google.eclipse.protobuf.feature.group,org.python.pydev.feature.feature.group,org.eclipse.dltk.ruby.feature.group,net.sourceforge.shelled.feature.group,org.dadacoalition.yedit.feature.group,com.github.eclipseuitheme.themes.feature.feature.group  -profile SDKProfile
