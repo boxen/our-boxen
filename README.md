@@ -46,6 +46,11 @@ Ensure that your github account has been added to the CYLENT github organization
 
 If you received an email invitation to the CYLENT github organization, make sure that you have accepted the invitation before proceeding.
 
+#### Enable FileVault
+FileVault must be enabled prior to running boxen. After enabling FileVault, make sure to reboot before proceeding.
+
+If you must run boxen without enabling FileVault (which should be avoided), you can run boxen with the `--no-fde` option.
+
 ### Bootstrapping
 
 Run the following commands to bootstrap your boxen environment. This only needs
