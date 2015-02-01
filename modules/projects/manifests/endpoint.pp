@@ -15,6 +15,11 @@ class projects::endpoint {
     require => File[$cylent_repo_dir]
   }
 
+  repository { "${cylent_repo_dir}/easyloggingpp":
+    source => 'easylogging/easyloggingpp',
+    require => File[$cylent_repo_dir]
+  }
+
   nodejs::module {'coffee-script':
     node_version => 'v0.10.31'
   }
