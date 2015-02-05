@@ -49,6 +49,11 @@ GITHUBTARBALL
     gcc (2.2.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-gimp
+  specs:
+    gimp (1.0.1)
+
+GITHUBTARBALL
   remote: boxen/puppet-git
   specs:
     git (2.7.1)
@@ -141,7 +146,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-redis
   specs:
-    redis (1.0.0)
+    redis (3.1.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-repository
@@ -259,6 +264,7 @@ DEPENDENCIES
   firefox (= 1.2.3)
   foreman (= 1.2.0)
   gcc (= 2.2.0)
+  gimp (= 1.0.1)
   git (= 2.7.1)
   github_for_mac (= 1.0.3)
   go (= 2.1.0)
@@ -284,7 +290,7 @@ DEPENDENCIES
   pkgconfig (= 1.0.0)
   pycharm (= 1.0.4)
   python (= 2.0.7)
-  redis (= 1.0.0)
+  redis (= 3.1.0)
   repository (= 2.3.0)
   ruby (= 8.1.7)
   s3bucket (= 1.0.8)
