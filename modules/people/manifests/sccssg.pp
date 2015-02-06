@@ -3,7 +3,7 @@ class people::sccssg {
   include spectacle
   include homebrew
   include quicksilver
-  include cylent::apps::portal
+  include projects::portal
 #  include cylent::apps::ansible
 #  notify {'awscli':}
   include cylent::dev_environment
