@@ -234,6 +234,11 @@ GITHUBTARBALL
     office (1.0.8)
 
 GITHUBTARBALL
+  remote: cylentsystems/puppet-postgresql
+  specs:
+    postgresql (3.0.3clientonly)
+
+GITHUBTARBALL
   remote: cylentsystems/puppet-python
   specs:
     python (2.0.7)
@@ -262,11 +267,6 @@ GITHUBTARBALL
   remote: ripienaar/puppet-module-data
   specs:
     module_data (0.0.3)
-
-GITHUBTARBALL
-  remote: sccssg/puppet-postgresql
-  specs:
-    postgresql (3.0.3clientonly)
 
 DEPENDENCIES
   atom (= 1.0.0)
