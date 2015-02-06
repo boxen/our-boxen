@@ -1,16 +1,11 @@
 class people::sccssg {
   ##### Custom Apps #####
   include spectacle
-  include virtualbox
-  include docker
-  include redis
   include homebrew
-  include stdlib
   include quicksilver
+  include cylent::apps::portal
 #  include cylent::apps::ansible
 #  notify {'awscli':}
-  include sysctl
-  include postgresql
   include cylent::dev_environment
   # TODO: include menumeters
 
@@ -29,7 +24,7 @@ class people::sccssg {
     top_right => "Put Display to Sleep",
     top_left  => "Disable Screen Saver",
     bottom_right => "Put Display to Sleep",
-    bottom_left  => "Put Display to Sleep" 
+    bottom_left  => "Put Display to Sleep"
   }
 
   include cylent::osx::dock::minimize_to_application
