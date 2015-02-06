@@ -2,6 +2,7 @@ class people::sccsas {
   ##### Custom Apps #####
   include spectacle
   include gimp
+  include redis
 
   include cylent::dev_environment
 
