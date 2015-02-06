@@ -134,9 +134,24 @@ GITHUBTARBALL
     pkgconfig (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-postgresql
+  specs:
+    postgresql (2.2.7)
+
+GITHUBTARBALL
   remote: boxen/puppet-pycharm
   specs:
     pycharm (1.0.4)
+
+GITHUBTARBALL
+  remote: boxen/puppet-quicksilver
+  specs:
+    quicksilver (1.3.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-redis
+  specs:
+    redis (3.1.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-repository
@@ -152,7 +167,7 @@ GITHUBTARBALL
   remote: boxen/puppet-skype
   specs:
     skype (1.1.0)
-    
+
 GITHUBTARBALL
   remote: boxen/puppet-spectacle
   specs:
@@ -162,6 +177,11 @@ GITHUBTARBALL
   remote: boxen/puppet-sudo
   specs:
     sudo (1.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-sysctl
+  specs:
+    sysctl (1.0.1)
 
 GITHUBTARBALL
   remote: boxen/puppet-vagrant
@@ -277,8 +297,11 @@ DEPENDENCIES
   osx (= 2.8.0)
   phantomjs (= 2.3.0)
   pkgconfig (= 1.0.0)
+  postgresql (= 2.2.7)
   pycharm (= 1.0.4)
   python (= 2.0.7)
+  quicksilver (= 1.3.0)
+  redis (= 3.1.0)
   repository (= 2.3.0)
   ruby (= 8.1.7)
   s3bucket (= 1.0.8)
@@ -286,6 +309,7 @@ DEPENDENCIES
   spectacle (= 1.0.0)
   stdlib (= 4.2.1)
   sudo (= 1.0.0)
+  sysctl (= 1.0.1)
   tunnelblick (= 1.0.8)
   vagrant (= 3.2.0)
   virtualbox (= 1.0.13)
@@ -293,3 +317,4 @@ DEPENDENCIES
   wget (= 1.0.0)
   xquartz (= 1.2.1)
   zsh (= 1.0.0)
+
