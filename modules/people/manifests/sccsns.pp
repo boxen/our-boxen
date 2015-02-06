@@ -1,6 +1,7 @@
 class people::sccsns {
   include cylent::dev_environment
   include spectacle
+  include redis
 
   #### iTem2 Settings
   include iterm2::colors::solarized_dark

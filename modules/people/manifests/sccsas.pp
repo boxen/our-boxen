@@ -1,6 +1,7 @@
 class people::sccsas {
   ##### Custom Apps #####
   include spectacle
+  include gimp
 
   include cylent::dev_environment
 
