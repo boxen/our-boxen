@@ -17,6 +17,7 @@ class cylent::apps::default_apps {
   include java
   include maven
   include googledrive
+  include docker
 
   file {'node.zsh':
     path => "${cylent_env}/zsh/node.zsh",
