@@ -4,10 +4,10 @@ class people::sccssg {
   include homebrew
   include quicksilver
   include projects::portal
-#  include cylent::apps::ansible
-#  notify {'awscli':}
+  include cylent::apps::ansible
+  notify {'awscli':}
   include cylent::dev_environment
-  # TODO: include menumeters
+  include menumeters
 
   ###### Environment Settings ##########
   include osx::dock::autohide

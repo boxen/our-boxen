@@ -1,4 +1,9 @@
 GITHUBTARBALL
+  remote: Vodeclic/puppet-menumeters
+  specs:
+    menumeters (1.0.1)
+
+GITHUBTARBALL
   remote: boxen/puppet-atom
   specs:
     atom (1.0.0)
@@ -295,6 +300,7 @@ DEPENDENCIES
   java6 (= 1.0.0)
   macvim (= 1.0.0)
   maven (= 1.0.0)
+  menumeters (= 1.0.1)
   module_data (= 0.0.3)
   nginx (= 1.4.4)
   nodejs (= 4.0.0)
