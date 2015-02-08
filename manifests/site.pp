@@ -74,6 +74,10 @@ node default {
     gem     => 'sass',
     ruby_version    => '2.1.1'
   }
+  ruby_gem { 'compass':
+    gem     => 'compass',
+    ruby_version    => '2.1.1'
+  }
 
   class { 'nodejs::global':
     version => 'v0.10'
