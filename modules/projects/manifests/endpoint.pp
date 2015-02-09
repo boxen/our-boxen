@@ -16,7 +16,7 @@ class projects::endpoint {
   }
 
   repository { "${cylent_repo_dir}/easyloggingpp":
-    source => 'easylogging/easyloggingpp',
+    source => 'cylentsystems/easyloggingpp',
     require => File[$cylent_repo_dir]
   }
 
