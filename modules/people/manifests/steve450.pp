@@ -6,6 +6,7 @@ class people::steve450 {
   include projects::bamboo_slack_plugin
   include cylent::apps::ansible
   include spectacle
+  include projects::portal
 #  include pathfinder
 
   #Needed for ansible
@@ -59,9 +60,9 @@ class people::steve450 {
   include osx::dock::icon_size
 
   class { 'osx::dock::hot_corners':
-    top_left => "Launchpad",
-    bottom_left => "Mission Control",
-    top_right => "Start Screen Saver",
+    top_left => "Mission Control",
+    bottom_left => "Start Screen Saver",
+    top_right => "Launchpad",
     bottom_right => "Application Windows"
   }
 
