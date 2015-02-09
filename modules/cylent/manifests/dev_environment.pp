@@ -14,6 +14,10 @@ class cylent::dev_environment {
     ensure => directory
   }
 
+  git::config::global { 'core.autocrlf':
+    value => 'input'
+  }
+
   repository { "${cylent_repo_dir}/vagrantfiles":
     source => 'cylentsystems/vagrantfiles',
     require => File[$cylent_repo_dir]
