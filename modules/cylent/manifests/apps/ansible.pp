@@ -9,6 +9,7 @@ class cylent::apps::ansible {
   ##This is an encrypted repo talk to ryan@cylentsystems
   ##if you feel you need access
   $aws_mgmt   = "${cylent_repo_dir}/aws-mgmt"
+  $aws_dev    = "${cylent_repo_dir}/aws-dev"
 
   ########## ANSIBLE BEGIN ##########
 
@@ -60,6 +61,11 @@ class cylent::apps::ansible {
 
   repository { $aws_mgmt:
     source => 'cylentsystems/aws-mgmt',
+    require => File[$cylent_repo_dir]
+  }
+
+  repository { $aws_dev:
+    source => 'cylentsystems/aws-dev',
     require => File[$cylent_repo_dir]
   }
 
