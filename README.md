@@ -36,10 +36,7 @@ MacVim.
 How do you do it?
 
 1. Install Xcode from the Mac App Store.
-1. Open Xcode.
-1. Open the Preferences window (`Cmd-,`).
-1. Go to the Downloads tab.
-1. Install the Command Line Tools.
+1. Open a terminal, and run `xcode-select --install` to install the Xcode command line tools
 
 #### CYLENT Github Organization
 Ensure that your github account has been added to the CYLENT github organization, and that you have been added to the appropriate teams. Boxen requires access to some private CYLENT repositories, and so will fail if you don't have access.
@@ -82,6 +79,8 @@ cd /opt/boxen/repo
 Assuming that runs successfully, open a new tab/window in your Terminal
 and you should be able to successfully run `boxen --env`.
 If that runs cleanly, you're in good shape.
+
+__Note that all repositories cloned by boxen will be placed in ~/cylent.__
 
 At this point, you should be able to run `boxen` from a terminal to re-run boxen at any point. If you or someone else updates our boxen configuration, for example to add a new application, then running `boxen` should add the new application
 
