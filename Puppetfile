@@ -29,7 +29,7 @@ end
 # Includes many of our custom types and providers, as well as global
 # config. Required.
 
-github "boxen", "3.10.1"
+github "boxen", "3.10.2"
 
 # Support for default hiera data in modules
 
