@@ -50,6 +50,13 @@ class php {
     notify  => Service['org.apache.httpd'],
   }
   
+  package { "php54-mcrypt":
+    ensure => present,
+    require => Package['php54'],
+    install_options => '--with-zlib-dir=/usr/include',
+    notify  => Service['org.apache.httpd'],
+  }
+  
   exec { "install imagick":
     command => 'touch $(brew --prefix php54)/lib/php/.lock && chmod 0644 $(brew --prefix php54)/lib/php/.lock && printf "/opt/boxen/homebrew/Cellar/imagemagick/6.8.9-1-boxen2/\n" | pecl install imagick',
     creates => '/opt/boxen/homebrew/Cellar/php54/5.4.37/lib/php/extensions/no-debug-non-zts-20100525/imagick.so',
