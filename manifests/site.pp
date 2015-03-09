@@ -106,6 +106,7 @@ node default {
   include wget
   include postfix
   include imagemagick
+  include heroku
 
   # common, useful packages
   package {

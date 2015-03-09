@@ -64,6 +64,11 @@ GITHUBTARBALL
     go (2.1.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-heroku
+  specs:
+    heroku (2.0.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-homebrew
   specs:
     homebrew (1.11.2)
@@ -167,6 +172,7 @@ DEPENDENCIES
   gcc (= 2.2.0)
   git (= 2.7.1)
   go (= 2.1.0)
+  heroku (= 2.0.0)
   homebrew (= 1.11.2)
   hub (= 1.3.0)
   imagemagick (= 1.3.0)
