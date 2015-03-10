@@ -59,7 +59,7 @@ class php {
   
   exec { "install imagick":
     command => 'touch $(brew --prefix php54)/lib/php/.lock && chmod 0644 $(brew --prefix php54)/lib/php/.lock && printf "/opt/boxen/homebrew/Cellar/imagemagick/6.8.9-1-boxen2/\n" | pecl install imagick',
-    creates => '/opt/boxen/homebrew/Cellar/php54/5.4.37/lib/php/extensions/no-debug-non-zts-20100525/imagick.so',
+    creates => '/opt/boxen/homebrew/opt/php54/lib/php/extensions/no-debug-non-zts-20100525/imagick.so',
     require => [
       Class['imagemagick'],
       Package['php54'],
