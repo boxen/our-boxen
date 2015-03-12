@@ -3,7 +3,7 @@
 
 require "pathname"
 require "tempfile"
-require "json"
+require "base64"
 
 # Put us where we belong, in the root dir of our boxen repo.
 
@@ -11,7 +11,7 @@ Dir.chdir Pathname.new(__FILE__).realpath + "../.."
 
 # Make sure our local dependencies are up to date.
 
-abort "Sorry, can't bootstrap." unless system "script/bootstrap"
+abort "Sorry, can't bootstrap." unless system "script/bootstrap --without ''"
 
 # Set up our local configuration, deps, and load path.
 
