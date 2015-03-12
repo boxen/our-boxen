@@ -7,6 +7,8 @@ VERBOSE=1
 for arg in "$@"; do
     if [ "$arg" = "--quiet" ]; then
         VERBOSE=0
+    elif [ "$arg" = "--without" ]; then
+        WITHOUT=1
     fi
 done
 
@@ -77,7 +79,7 @@ if [ "$1" = "--pristine" ]; then
     shift
 fi
 
-if [ "$(checksum_bundle)" = "$(cat tmp/bundle_checksum.txt 2>/dev/null)" ]; then
+if [ -z "$WITHOUT" ] && [ "$(checksum_bundle)" = "$(cat tmp/bundle_checksum.txt 2>/dev/null)" ]; then
     log "====> Bundle already up-to-date!"
 else
     # handle this not being a git repo (e.g. a brand new install!)

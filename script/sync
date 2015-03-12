@@ -3,7 +3,7 @@
 
 require "pathname"
 require "tempfile"
-require "json"
+require "base64"
 
 # Put us where we belong, in the root dir of our boxen repo.
 
@@ -11,7 +11,7 @@ Dir.chdir Pathname.new(__FILE__).realpath + "../.."
 
 # Make sure our local dependencies are up to date.
 
-abort "Sorry, can't bootstrap." unless system "script/bootstrap"
+abort "Sorry, can't bootstrap." unless system "script/bootstrap --without ''"
 
 # Set up our local configuration, deps, and load path.
 
@@ -22,11 +22,11 @@ require "boxen/config"
 
 @access_key  = ENV["BOXEN_S3_ACCESS_KEY"]
 @secret_key  = ENV["BOXEN_S3_SECRET_KEY"]
-@bucket_name = ENV["BOXEN_S3_BUCKET"]
+@bucket_name = ENV["BOXEN_S3_BUCKET"] || "boxen-downloads"
 @region      = ENV["BOXEN_S3_REGION"] || "us-east-1"
 
 unless @access_key && @secret_key && @bucket_name
-  abort "Please set the BOXEN_S3_{ACCESS_KEY,SECRET_KEY,BUCKET} env vars."
+  abort "Please set the BOXEN_S3_{ACCESS_KEY,SECRET_KEY} env vars."
 end
 
 def os
@@ -45,6 +45,10 @@ def config
   @config ||= Boxen::Config.load
 end
 
+def homebrew_cellar
+  cellar ||= "#{ENV['HOMEBREW_ROOT'] || File.join(config.homedir, 'homebrew')}/Cellar"
+end
+
 def object_exists?(key)
   puts "Testing for #{key}"
   begin
@@ -57,18 +61,31 @@ def object_exists?(key)
   end
 end
 
+# Keep in sync with same-named functions in:
+# https://github.com/boxen/puppet-homebrew/blob/master/files/boxen-bottle-hooks.rb
+# https://github.com/boxen/puppet-ruby/blob/master/lib/puppet/provider/ruby/rubybuild.rb
+def s3_cellar
+  case homebrew_cellar.to_s
+  when "/opt/boxen/homebrew/Cellar" then ""
+  when "/usr/local/Cellar" then "default/"
+  else "#{Base64.strict_encode64(HOMEBREW_CELLAR.to_s)}/"
+  end
+end
+
 def sync_brew(name, version)
-  cellar = "#{config.homedir}/homebrew/Cellar"
   dir = "#{name}/#{version}"
-  receipt = IO.read "#{cellar}/#{dir}/INSTALL_RECEIPT.json"
+  receipt = IO.read "#{homebrew_cellar}/#{dir}/INSTALL_RECEIPT.json"
   json = JSON.parse receipt
-  unless json["built_as_bottle"]
+  if json["poured_from_bottle"]
+    puts "Skipping #{name} #{version}: installed from a Homebrew bottle"
+    return
+  elsif !json["built_as_bottle"]
     puts "Skipping #{name} #{version}: not built as a bottle"
     puts "Please set the HOMEBREW_BUILD_BOTTLE env var and reinstall."
     return
   end
 
-  path = "homebrew/#{os}/#{name}-#{version}.tar.bz2"
+  path = "homebrew/#{s3_cellar}#{os}/#{name}-#{version}.tar.bz2"
 
   return if object_exists?(path)
 
@@ -77,7 +94,7 @@ def sync_brew(name, version)
     printf "Snapshotting #{name} #{version}... "
     $stdout.flush
 
-    Dir.chdir(cellar) do
+    Dir.chdir(homebrew_cellar) do
       system "tar", "-cjf", tempfile.path, dir
       puts "done."
     end
@@ -86,7 +103,6 @@ def sync_brew(name, version)
     $stdout.flush
 
     File.open(tempfile, "r") do |tarball|
-      puts "s3.put_object(#{{bucket: @bucket_name, key: path, acl: "public-read", body: tarball}.inspect})"
       s3.put_object(bucket: @bucket_name, key: path, acl: "public-read", body: tarball)
     end
     puts "done."
@@ -96,7 +112,7 @@ def sync_brew(name, version)
 end
 
 def sync_ruby(version)
-  s3_key = "rubies/Darwin/#{os}/#{version}.tar.bz2"
+  s3_key = "rubies/Darwin/#{s3_cellar}#{os}/#{version}.tar.bz2"
   tempfile = Tempfile.new "boxen-ruby"
 
   return if object_exists?(s3_key)
@@ -120,7 +136,7 @@ def sync_ruby(version)
 end
 
 def sync_homebrew_packages
-  Dir.chdir "#{config.homedir}/homebrew/Cellar" do
+  Dir.chdir(homebrew_cellar) do
     Dir["*/*"].each do |dir|
       name, version = File.split dir
       sync_brew name, version
