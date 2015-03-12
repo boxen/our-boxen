@@ -22,11 +22,11 @@ require "boxen/config"
 
 @access_key  = ENV["BOXEN_S3_ACCESS_KEY"]
 @secret_key  = ENV["BOXEN_S3_SECRET_KEY"]
-@bucket_name = ENV["BOXEN_S3_BUCKET"]
+@bucket_name = ENV["BOXEN_S3_BUCKET"] || "boxen-downloads"
 @region      = ENV["BOXEN_S3_REGION"] || "us-east-1"
 
 unless @access_key && @secret_key && @bucket_name
-  abort "Please set the BOXEN_S3_{ACCESS_KEY,SECRET_KEY,BUCKET} env vars."
+  abort "Please set the BOXEN_S3_{ACCESS_KEY,SECRET_KEY} env vars."
 end
 
 def os
