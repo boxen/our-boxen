@@ -98,6 +98,12 @@ node default {
 
   include apache
   include php
+  include autoconf
+  include libtool
+  include pcre
+  include libpng
+  include php::5_4
+  include php::composer
   include mysql
   include drush
   include mongodb
@@ -109,6 +115,28 @@ node default {
   include imagemagick
   include heroku
 
+  class { 'php::global':
+    version => '5.4.29'
+  }
+
+  php::extension::mcrypt { "mcrypt for 5.4.29":
+  	php => '5.4.29'
+  }
+
+  php::extension::mongo { "mongo for 5.4.29":
+  	php => '5.4.29'
+  }
+
+  exec { "install imagick":
+	command => 'touch $(brew --prefix php54)/lib/php/.lock && chmod 0644 $(brew --prefix php54)/lib/php/.lock && printf "/opt/boxen/homebrew/Cellar/imagemagick/6.8.9-1-boxen2/\n" | pecl install imagick',
+	creates => '/opt/boxen/homebrew/opt/php54/lib/php/extensions/no-debug-non-zts-20100525/imagick.so',
+	require => [
+	  Class['imagemagick'],
+	  Class['php'],
+	],
+	notify => Service['org.apache.httpd'],
+  }
+
   # common, useful packages
   package {
     [
@@ -116,11 +144,6 @@ node default {
       'findutils',
       'gnu-tar'
     ]:
-  }
-
-  exec { "brew tap homebrew/php":
-    before => Package['drush'],
-    creates => "${boxen::config::home}/homebrew/Library/Taps/homebrew/homebrew-php",
   }
 
   file { "${boxen::config::srcdir}/oddboxen":

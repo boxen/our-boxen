@@ -62,7 +62,11 @@ github "xquartz",     "1.2.1"
 # https://github.com/boxen.
 
 dev "apache"
-dev "php"
+github "autoconf"
+github "libtool"
+github "pcre"
+github "libpng"
+github "php", "1.2.8", :repo => "jenslind/puppet-php"
 dev "mysql"
 github "drush",     "0.0.1", :repo => "webflo/puppet-drush-boxen"
 github "mongodb",    "1.3.3"
