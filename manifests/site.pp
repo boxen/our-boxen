@@ -97,7 +97,6 @@ node default {
   }
 
   include apache
-  include php
   include autoconf
   include libtool
   include pcre
@@ -127,14 +126,9 @@ node default {
   	php => '5.4.29'
   }
 
-  exec { "install imagick":
-	command => 'touch $(brew --prefix php54)/lib/php/.lock && chmod 0644 $(brew --prefix php54)/lib/php/.lock && printf "/opt/boxen/homebrew/Cellar/imagemagick/6.8.9-1-boxen2/\n" | pecl install imagick',
-	creates => '/opt/boxen/homebrew/opt/php54/lib/php/extensions/no-debug-non-zts-20100525/imagick.so',
-	require => [
-	  Class['imagemagick'],
-	  Class['php'],
-	],
-	notify => Service['org.apache.httpd'],
+  php::extension::imagick { "imagick for 5.4.29":
+    php => '5.4.29',
+    version => '3.1.2'
   }
 
   # common, useful packages
