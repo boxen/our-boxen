@@ -1,6 +1,6 @@
 # Odd Boxen
 
-Odd Boxen is a web development environment for Mavericks based on [GitHubs Boxen](http://boxen.github.com).
+Odd Boxen is a web development environment for Yosemite based on [GitHubs Boxen](http://boxen.github.com).
 
 This will automatically point any .dev domain to your locahost and enable dynamic virtual hosts for every folder in your ~/Sites folder. This means that you'll be able to setup a site by creating a folder, *example*, in your ~/Sites folder and access it from http://example.dev, or https://example.dev if you want to use a secure connection.
 
@@ -10,7 +10,7 @@ This will automatically point any .dev domain to your locahost and enable dynami
 This is a list that points out the most relevant parts for this development environment. For a full list and further information, please refer to the repository for [our-boxen](https://github.com/boxen/our-boxen).
 
 * Homebrew
-  * PHP 5.3
+  * PHP 5.4
   * MySQL
   * MongoDB
   * Solr
