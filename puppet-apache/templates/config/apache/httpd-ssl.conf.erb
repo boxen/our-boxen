@@ -65,4 +65,6 @@ SSLSessionCacheTimeout  300
 #   Semaphore:
 #   Configure the path to the mutual exclusion semaphore the
 #   SSL engine uses internally for inter-process synchronization.
-SSLMutex  "file:/private/var/run/ssl_mutex"
+#SSLMutex  "file:/private/var/run/ssl_mutex"
+Mutex sysvsem default
+

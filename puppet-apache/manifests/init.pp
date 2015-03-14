@@ -11,14 +11,9 @@ class apache {
     owner   => 'root'
   }
 
-  # Use different configs for apache 2.4
-  if $operatingsystemmajrelease >= 14 {
-    $httpd_conf_template = 'apache/config/apache-2-4/httpd.conf.erb'
-    $httpd_ssl_conf_template = 'apache/config/apache-2-4/httpd-ssl.conf.erb'
-  } else {
-    $httpd_conf_template = 'apache/config/apache/httpd.conf.erb'
-    $httpd_ssl_conf_template = 'apache/config/apache/httpd-ssl.conf.erb'
-  }
+  # Set path to configs
+  $httpd_conf_template = 'apache/config/apache/httpd.conf.erb'
+  $httpd_ssl_conf_template = 'apache/config/apache/httpd-ssl.conf.erb'
 
   # Add all the directories and files Apache is expecting
   # Most of these should already exist on Mountain Lion

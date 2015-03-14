@@ -54,18 +54,20 @@ LoadModule authn_file_module libexec/apache2/mod_authn_file.so
 LoadModule authn_dbm_module libexec/apache2/mod_authn_dbm.so
 LoadModule authn_anon_module libexec/apache2/mod_authn_anon.so
 LoadModule authn_dbd_module libexec/apache2/mod_authn_dbd.so
-LoadModule authn_default_module libexec/apache2/mod_authn_default.so
+#LoadModule authn_default_module libexec/apache2/mod_authn_default.so
+LoadModule authn_core_module libexec/apache2/mod_authn_core.so
 LoadModule authz_host_module libexec/apache2/mod_authz_host.so
 LoadModule authz_groupfile_module libexec/apache2/mod_authz_groupfile.so
 LoadModule authz_user_module libexec/apache2/mod_authz_user.so
 LoadModule authz_dbm_module libexec/apache2/mod_authz_dbm.so
 LoadModule authz_owner_module libexec/apache2/mod_authz_owner.so
-LoadModule authz_default_module libexec/apache2/mod_authz_default.so
+#LoadModule authz_default_module libexec/apache2/mod_authz_default.so
+LoadModule authz_core_module libexec/apache2/mod_authz_core.so
 LoadModule auth_basic_module libexec/apache2/mod_auth_basic.so
 LoadModule auth_digest_module libexec/apache2/mod_auth_digest.so
 LoadModule cache_module libexec/apache2/mod_cache.so
-LoadModule disk_cache_module libexec/apache2/mod_disk_cache.so
-LoadModule mem_cache_module libexec/apache2/mod_mem_cache.so
+#LoadModule disk_cache_module libexec/apache2/mod_disk_cache.so
+#LoadModule mem_cache_module libexec/apache2/mod_mem_cache.so
 LoadModule dbd_module libexec/apache2/mod_dbd.so
 LoadModule dumpio_module libexec/apache2/mod_dumpio.so
 LoadModule reqtimeout_module libexec/apache2/mod_reqtimeout.so
@@ -79,10 +81,10 @@ LoadModule log_forensic_module libexec/apache2/mod_log_forensic.so
 LoadModule logio_module libexec/apache2/mod_logio.so
 LoadModule env_module libexec/apache2/mod_env.so
 LoadModule mime_magic_module libexec/apache2/mod_mime_magic.so
-LoadModule cern_meta_module libexec/apache2/mod_cern_meta.so
+#LoadModule cern_meta_module libexec/apache2/mod_cern_meta.so
 LoadModule expires_module libexec/apache2/mod_expires.so
 LoadModule headers_module libexec/apache2/mod_headers.so
-LoadModule ident_module libexec/apache2/mod_ident.so
+#LoadModule ident_module libexec/apache2/mod_ident.so
 LoadModule usertrack_module libexec/apache2/mod_usertrack.so
 #LoadModule unique_id_module libexec/apache2/mod_unique_id.so
 LoadModule setenvif_module libexec/apache2/mod_setenvif.so
@@ -93,7 +95,7 @@ LoadModule proxy_ftp_module libexec/apache2/mod_proxy_ftp.so
 LoadModule proxy_http_module libexec/apache2/mod_proxy_http.so
 LoadModule proxy_scgi_module libexec/apache2/mod_proxy_scgi.so
 LoadModule proxy_ajp_module libexec/apache2/mod_proxy_ajp.so
-LoadModule proxy_balancer_module libexec/apache2/mod_proxy_balancer.so
+#LoadModule proxy_balancer_module libexec/apache2/mod_proxy_balancer.so
 LoadModule ssl_module libexec/apache2/mod_ssl.so
 LoadModule mime_module libexec/apache2/mod_mime.so
 LoadModule dav_module libexec/apache2/mod_dav.so
@@ -113,7 +115,10 @@ LoadModule userdir_module libexec/apache2/mod_userdir.so
 LoadModule alias_module libexec/apache2/mod_alias.so
 LoadModule rewrite_module libexec/apache2/mod_rewrite.so
 #LoadModule perl_module libexec/apache2/mod_perl.so
-LoadModule php5_module /opt/boxen/homebrew/Cellar/php54/5.4.37/libexec/apache2/libphp5.so
+LoadModule unixd_module libexec/apache2/mod_unixd.so
+LoadModule access_compat_module libexec/apache2/mod_access_compat.so
+LoadModule socache_shmcb_module libexec/apache2/mod_socache_shmcb.so
+LoadModule php5_module /opt/boxen/homebrew/opt/php54/libexec/apache2/libphp5.so
 #LoadModule hfs_apple_module libexec/apache2/mod_hfs_apple.so
 
 <IfModule !mpm_netware_module>
@@ -372,7 +377,7 @@ LogLevel warn
 # keep browsers from trying to display binary files as though they are
 # text.
 #
-DefaultType text/plain
+#DefaultType text/plain
 
 <IfModule mime_module>
     #
@@ -512,4 +517,4 @@ SSLRandomSeed connect builtin
 
 Include <%= scope.lookupvar "apache::config::configdir" %>/other/*.conf
 
-Include <%= scope.lookupvar "apache::config::sitesdir" %>/*.conf
+#Include <%= scope.lookupvar "apache::config::sitesdir" %>/*.conf
