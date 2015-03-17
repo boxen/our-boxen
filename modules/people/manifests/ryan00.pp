@@ -7,8 +7,8 @@ class people::ryan00 {
   include docker
   include cylent::apps::ansible
   include projects::endpoint
-  include projects::confd
-  include projects::etcd
+  include projects::portal
+  include projects::bamboo-docker-plugin
   include skype
   include spectacle
 

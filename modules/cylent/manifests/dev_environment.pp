@@ -5,6 +5,7 @@ class cylent::dev_environment {
   include cylent::apps::default_apps
   include cylent::vagrant::vagrant_vmware
 
+
   file { $cylent_repo_dir:
     ensure => directory,
     require  => File["${boxen::config::bindir}/boxen-git-credential"]
@@ -31,5 +32,12 @@ class cylent::dev_environment {
   repository { $cylent_dotfiles:
     source => 'cylentsystems/dotfiles',
     require => File[$cylent_repo_dir]
+  }
+
+  homebrew::tap { 'atlassian/tap': }
+
+  package { "atlassian/tap/atlassian-plugin-sdk":
+    ensure => present,
+    require => Homebrew::Tap['atlassian/tap'],
   }
 }

@@ -2,7 +2,6 @@ class cylent::apps::default_apps {
   notify { 'class cylent::apps::default_apps declared': }
 
   include chrome
-  include firefox
   include wget
   include xquartz
   include atom
@@ -18,6 +17,10 @@ class cylent::apps::default_apps {
   include maven
   include googledrive
   include docker
+
+  class { 'firefox':
+     version => '36.0'
+  }
 
   file {'node.zsh':
     path => "${cylent_env}/zsh/node.zsh",
@@ -45,6 +48,7 @@ class cylent::apps::default_apps {
       'tree',
       'watch',
       'git-crypt',
+      'go',
     ]:
   }
   ->

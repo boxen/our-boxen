@@ -288,6 +288,7 @@ DEPENDENCIES
   git (= 2.7.1)
   github_for_mac (= 1.0.3)
   go (= 2.1.0)
+  go (= 2.1.0)
   googledrive (= 1.0.2)
   gpgtools (= 1.0.4)
   hipchat (= 1.1.3)
