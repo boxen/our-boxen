@@ -3,8 +3,10 @@ class people::sccsas {
   include spectacle
   include gimp
   include redis
+  include virtualbox
 
   include cylent::dev_environment
+  include projects::portal
 
   ###### Environment Settings ##########
   include osx::dock::autohide
