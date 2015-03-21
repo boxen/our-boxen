@@ -40,7 +40,7 @@ How do you do it?
 #### OS X 10.9 (Mavericks)
 
 If you are using [`b26abd0` of boxen-web](https://github.com/boxen/boxen-web/commit/b26abd0d681129eba0b5f46ed43110d873d8fdc2)
-or newer, it will be automatically installed as part of Boxen.
+or newer, Xcode Command Line Tools will be automatically installed as part of Boxen.
 Otherwise, follow instructions below.
 
 #### OS X < 10.9
@@ -89,7 +89,7 @@ From there, we recommend setting up
 [boxen-web](https://github.com/boxen/boxen-web)
 as an easy way to automate letting other folks install your boxen.
 
-If you _don't_ want to use boxen-web, folks can get using your boxen like so:
+If you _don't_ want to use boxen-web, folks can start using your boxen like so:
 
 ```
 sudo mkdir -p /opt/boxen
@@ -296,7 +296,7 @@ See `config/boxen.rb` for the environment variables to define.
 If you've got a Boxen module you'd like to be grouped under the Boxen org,
 (so it can easily be found by others), please file an issue on this
 repository with a link to your module.
-We'll review the code briefly, and if things look pretty all right,
+We'll review the code, and if things look good,
 we'll fork it under the Boxen org and give you read+write access to our
 fork.
 You'll still be the maintainer, you'll still own the issues and PRs.
