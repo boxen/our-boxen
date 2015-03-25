@@ -18,6 +18,10 @@ class cylent::dev_environment {
   git::config::global { 'core.autocrlf':
     value => 'input'
   }
+  
+  git::config::global { 'push.default':
+    value => 'simple'
+  }
 
   repository { "${cylent_repo_dir}/vagrantfiles":
     source => 'cylentsystems/vagrantfiles',
