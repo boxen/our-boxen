@@ -1,5 +1,8 @@
 class people::sccsas {
   ##### Custom Apps #####
+  include cylent::dev_environment
+  include iterm2::dev
+  include docker
   include spectacle
   include gimp
   include redis
