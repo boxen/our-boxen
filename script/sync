@@ -73,6 +73,9 @@ def s3_cellar
 end
 
 def sync_brew(name, version)
+  path = "homebrew/#{s3_cellar}#{os}/#{name}-#{version}.tar.bz2"
+  return if object_exists?(path)
+
   dir = "#{name}/#{version}"
   receipt = IO.read "#{homebrew_cellar}/#{dir}/INSTALL_RECEIPT.json"
   json = JSON.parse receipt
@@ -84,10 +87,6 @@ def sync_brew(name, version)
     puts "Please set the HOMEBREW_BUILD_BOTTLE env var and reinstall."
     return
   end
-
-  path = "homebrew/#{s3_cellar}#{os}/#{name}-#{version}.tar.bz2"
-
-  return if object_exists?(path)
 
   tempfile = Tempfile.new "homebrew"
   begin
