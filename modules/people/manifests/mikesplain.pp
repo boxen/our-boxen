@@ -1,7 +1,7 @@
 class people::mikesplain {
   include cylent::dev_environment
   include python::virtualenvwrapper
-  include cylent::apps::ansible
+  #include cylent::apps::ansible
 
 
   include spectacle
@@ -58,10 +58,10 @@ class people::mikesplain {
   include osx::no_network_dsstores
 
   class { 'osx::global::key_repeat_delay':
-    delay => 2
+    delay => 15
   }
   class { 'osx::global::key_repeat_rate':
-    rate => 10
+    rate => 2
   }
 
   ###### Environment Settings ##########
