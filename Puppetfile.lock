@@ -14,6 +14,11 @@ GITHUBTARBALL
     boxen (3.9.1)
 
 GITHUBTARBALL
+  remote: boxen/puppet-brewcask
+  specs:
+    brewcask (0.0.6)
+
+GITHUBTARBALL
   remote: boxen/puppet-chrome
   specs:
     chrome (1.2.0)
@@ -91,7 +96,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-homebrew
   specs:
-    homebrew (1.9.8)
+    homebrew (1.12.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-hub
@@ -184,6 +189,11 @@ GITHUBTARBALL
     skype (1.1.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-sourcetree
+  specs:
+    sourcetree (1.0.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-spectacle
   specs:
     spectacle (1.0.0)
@@ -197,6 +207,11 @@ GITHUBTARBALL
   remote: boxen/puppet-sysctl
   specs:
     sysctl (1.0.1)
+
+GITHUBTARBALL
+  remote: boxen/puppet-tmux
+  specs:
+    tmux (1.0.2)
 
 GITHUBTARBALL
   remote: boxen/puppet-vagrant
@@ -286,6 +301,7 @@ GITHUBTARBALL
 DEPENDENCIES
   atom (= 1.0.0)
   boxen (= 3.9.1)
+  brewcask (= 0.0.6)
   chrome (= 1.2.0)
   cmake (= 1.0.1)
   dnsmasq (= 2.0.1)
@@ -304,7 +320,7 @@ DEPENDENCIES
   googledrive (>= 0)
   gpgtools (= 1.0.4)
   hipchat (= 1.1.3)
-  homebrew (= 1.9.8)
+  homebrew (= 1.12.0)
   hub (= 1.3.0)
   inifile (= 1.1.1)
   intellij (= 1.5.1)
@@ -332,10 +348,12 @@ DEPENDENCIES
   ruby (= 8.1.7)
   s3bucket (= 1.0.8)
   skype (= 1.1.0)
+  sourcetree (= 1.0.0)
   spectacle (= 1.0.0)
   stdlib (= 4.2.1)
   sudo (= 1.0.0)
   sysctl (= 1.0.1)
+  tmux (= 1.0.2)
   tunnelblick (= 1.0.8)
   vagrant (= 3.2.0)
   virtualbox (= 1.0.13)
