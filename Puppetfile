@@ -96,3 +96,8 @@ github "quicksilver", "1.3.0"
 github "gimp", "1.0.1"
 github "menumeters", "1.0.1", :repo => "Vodeclic/puppet-menumeters"
 github "go", "2.1.0"
+github "onepassword"
+github "evernote"
+github "googledrive"
+
+
