@@ -8,9 +8,6 @@ class people::default {
   include osx::finder::empty_trash_securely
   include osx::finder::show_hidden_files
 
-  class { 'osx::global::natural_mouse_scrolling':
-    enabled => false
-  }
 
   class { 'osx::dock::hot_corners':
     top_right => 'Application Windows',
