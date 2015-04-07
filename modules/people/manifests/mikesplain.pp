@@ -1,7 +1,7 @@
 class people::mikesplain {
   include cylent::dev_environment
   include python::virtualenvwrapper
-  #include cylent::apps::ansible
+  include cylent::apps::ansible
 
 
   include spectacle
@@ -9,6 +9,9 @@ class people::mikesplain {
   include menumeters
   include sourcetree
   include tmux
+  include docker
+  include virtualbox
+
 
   include brewcask
   homebrew::tap { 'homebrew/dupes': }
@@ -30,7 +33,8 @@ class people::mikesplain {
               'sequel-pro',
               'spotify',
               'torbrowser',
-              'vlc'
+              'vlc',
+              'menumeters'
             ]: provider => 'brewcask'
           }
   package {
@@ -42,7 +46,14 @@ class people::mikesplain {
   }
 
   #Needed for ansible
+  $crypto_keys = "${home}/keys"
+
+  file {$crypto_keys:
+    ensure => directory
+  }
+
   notify {'awscli':}
+
 
   class { 'osx::dock::icon_size':
     size => 25
