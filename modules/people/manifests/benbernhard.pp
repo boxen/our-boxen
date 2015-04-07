@@ -13,3 +13,4 @@ class people::benbernhard {
   include osx::dock::magnification
 
 
+}
