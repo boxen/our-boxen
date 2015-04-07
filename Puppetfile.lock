@@ -323,7 +323,6 @@ DEPENDENCIES
   go (= 2.1.0)
   go (= 2.1.0)
   googledrive (= 1.0.2)
-  googledrive (>= 0)
   gpgtools (= 1.0.4)
   hipchat (= 1.1.3)
   homebrew (= 1.12.0)
