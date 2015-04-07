@@ -7,6 +7,7 @@ class people::steve450 {
   include cylent::apps::ansible
   include spectacle
   include projects::portal
+  include caffeine
 #  include pathfinder
 
   #Needed for ansible

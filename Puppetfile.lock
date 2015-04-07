@@ -19,6 +19,11 @@ GITHUBTARBALL
     brewcask (0.0.6)
 
 GITHUBTARBALL
+  remote: boxen/puppet-caffeine
+  specs:
+    caffeine (1.0.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-chrome
   specs:
     chrome (1.2.0)
@@ -302,6 +307,7 @@ DEPENDENCIES
   atom (= 1.0.0)
   boxen (= 3.9.1)
   brewcask (= 0.0.6)
+  caffeine (= 1.0.0)
   chrome (= 1.2.0)
   cmake (= 1.0.1)
   dnsmasq (= 2.0.1)
@@ -316,8 +322,8 @@ DEPENDENCIES
   github_for_mac (= 1.0.3)
   go (= 2.1.0)
   go (= 2.1.0)
-  googledrive (>= 0)
   googledrive (= 1.0.2)
+  googledrive (>= 0)
   gpgtools (= 1.0.4)
   hipchat (= 1.1.3)
   homebrew (= 1.12.0)

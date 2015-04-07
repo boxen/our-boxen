@@ -63,6 +63,7 @@ github "xquartz",     "1.2.1"
 # PLEASE KEEP IN ALPHABETICAL ORDER
 github "atom",        "1.0.0"
 github "brewcask", "0.0.6"
+github "caffeine", "1.0.0"
 github "chrome",      "1.2.0"
 github "cmake",       "1.0.1"
 github "docker",      "0.7.0"
