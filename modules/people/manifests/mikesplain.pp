@@ -3,6 +3,9 @@ class people::mikesplain {
   include python::virtualenvwrapper
   include cylent::apps::ansible
 
+  include projects::endpoint
+  include projects::portal
+
 
   include spectacle
   include dropbox
@@ -11,6 +14,8 @@ class people::mikesplain {
   include tmux
   include docker
   include virtualbox
+  include caffeine
+  include flux
 
 
   include brewcask
@@ -18,23 +23,23 @@ class people::mikesplain {
 
   package {
             [
-              'evernote',
-              'slack',
               '1password',
               'alfred',
               'cakebrew',
-              #'ccmenu',
               'charles',
               'cyberduck',
+              'evernote',
               'flash',
-              #'kaleidoscope',
               'launchrocket',
+              'menumeters',
               'mou',
               'sequel-pro',
+              'slack',
               'spotify',
               'torbrowser',
-              'vlc',
-              'menumeters'
+              'vlc'
+              #'ccmenu',
+              #'kaleidoscope',
             ]: provider => 'brewcask'
           }
   package {
