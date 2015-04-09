@@ -8,6 +8,7 @@ class people::steve450 {
   include spectacle
   include projects::portal
   include caffeine
+  include flux
 #  include pathfinder
 
   #Needed for ansible
