@@ -7,6 +7,7 @@ class people::sccsas {
   include gimp
   include redis
   include virtualbox
+  include flux
 
   include cylent::dev_environment
   include projects::portal
