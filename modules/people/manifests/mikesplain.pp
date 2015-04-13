@@ -16,7 +16,7 @@ class people::mikesplain {
   include virtualbox
   include caffeine
   include flux
-
+  include spf13vim3
 
   include brewcask
   homebrew::tap { 'homebrew/dupes': }
@@ -46,7 +46,8 @@ class people::mikesplain {
     [
       'rainbarf',
       'homebrew/dupes/grep',
-      'reattach-to-user-namespace'
+      'reattach-to-user-namespace',
+      'mercurial'
     ]:
   }
 

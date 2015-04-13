@@ -226,7 +226,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-vagrant
   specs:
-    vagrant (3.2.0)
+    vagrant (3.3.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-virtualbox
@@ -308,6 +308,11 @@ GITHUBTARBALL
   specs:
     module_data (0.0.3)
 
+GITHUBTARBALL
+  remote: samjsharpe/puppet-spf13vim3
+  specs:
+    spf13vim3 (1.0.0)
+
 DEPENDENCIES
   atom (= 1.0.0)
   boxen (= 3.9.1)
@@ -361,12 +366,13 @@ DEPENDENCIES
   skype (= 1.1.0)
   sourcetree (= 1.0.0)
   spectacle (= 1.0.0)
+  spf13vim3 (= 1.0.0)
   stdlib (= 4.2.1)
   sudo (= 1.0.0)
   sysctl (= 1.0.1)
   tmux (= 1.0.2)
   tunnelblick (= 1.0.8)
-  vagrant (= 3.2.0)
+  vagrant (= 3.3.0)
   virtualbox (= 1.0.13)
   vmware_fusion (= 1.2.0)
   wget (= 1.0.0)
