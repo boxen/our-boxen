@@ -36,7 +36,9 @@ MacVim.
 How do you do it?
 
 1. Install Xcode from the Mac App Store.
+1. Complete the installation by opening the Xcode app, accepting the licentse agreement, and waiting until the installation completes.
 1. Open a terminal, and run `xcode-select --install` to install the Xcode command line tools
+
 
 #### CYLENT Github Organization
 Ensure that your github account has been added to the CYLENT github organization, and that you have been added to the appropriate teams. Boxen requires access to some private CYLENT repositories, and so will fail if you don't have access.
