@@ -16,6 +16,7 @@ class cylent::apps::default_apps {
   include java
   include maven
   include googledrive
+  include virtualbox
   include docker
 
   class { 'firefox':
