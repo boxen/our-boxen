@@ -1,7 +1,6 @@
 class people::steve450 {
   include cylent::dev_environment
   include python::virtualenvwrapper
-#  include projects::portcullis
   include projects::endpoint
   include projects::bamboo_slack_plugin
   include cylent::apps::ansible
@@ -19,9 +18,6 @@ class people::steve450 {
   file {$crypto_keys:
     ensure => directory
   }
-
-  include docker
-  include virtualbox
 
   repository {"${cylent_repo_dir}/oh-my-zsh":
     source => 'robbyrussell/oh-my-zsh',
