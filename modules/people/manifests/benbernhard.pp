@@ -7,7 +7,7 @@ class people::benbernhard {
   include onepassword
   include evernote
   include googledrive
-
+  include caffeine
 
   include osx::global::natural_mouse_scrolling
   include osx::dock::magnification
