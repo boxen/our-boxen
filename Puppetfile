@@ -29,11 +29,11 @@ end
 # Includes many of our custom types and providers, as well as global
 # config. Required.
 
-github "boxen", "3.10.2"
+github "boxen", "3.10.4"
 
 # Support for default hiera data in modules
 
-github "module_data", "0.0.3", :repo => "ripienaar/puppet-module-data"
+github "module_data", "0.0.4", :repo => "ripienaar/puppet-module-data"
 
 # Core modules for a basic development environment. You can replace
 # some/most of these if you want, but it's not recommended.
@@ -42,19 +42,19 @@ github "brewcask",    "0.0.6"
 github "dnsmasq",     "2.0.1"
 github "foreman",     "1.2.0"
 github "gcc",         "2.2.0"
-github "git",         "2.7.5"
+github "git",         "2.7.7"
 github "go",          "2.1.0"
-github "homebrew",    "1.11.2"
-github "hub",         "1.4.0"
-github "inifile",     "1.1.1", :repo => "puppetlabs/puppetlabs-inifile"
-github "nginx",       "1.4.4"
+github "homebrew",    "1.12.0"
+github "hub",         "1.4.1"
+github "inifile",     "1.2.0", :repo => "puppetlabs/puppetlabs-inifile"
+github "nginx",       "1.4.5"
 github "nodejs",      "4.0.1"
 github "openssl",     "1.0.0"
 github "phantomjs",   "2.3.0"
 github "pkgconfig",   "1.0.0"
 github "repository",  "2.3.0"
-github "ruby",        "8.1.7"
-github "stdlib",      "4.2.1", :repo => "puppetlabs/puppetlabs-stdlib"
+github "ruby",        "8.5.1"
+github "stdlib",      "4.6.0", :repo => "puppetlabs/puppetlabs-stdlib"
 github "sudo",        "1.0.0"
 github "xquartz",     "1.2.1"
 
