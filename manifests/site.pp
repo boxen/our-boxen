@@ -95,9 +95,6 @@ node default {
   nodejs::module { 'jshint':
     node_version => 'v0.12.0'
   }
-  nodejs::module { 'generator-odd':
-    node_version => 'v0.12.0'
-  }
 
   include apache
   include autoconf
