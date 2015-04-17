@@ -59,7 +59,7 @@ node default {
 
   # node versions
   nodejs::version { 'v0.10': }
-  nodejs::version { 'v0.12.0': }
+  nodejs::version { 'v0.12': }
 
   # default ruby versions
   ruby::version { '1.9.3': }
@@ -84,16 +84,16 @@ node default {
     version => 'v0.12.0'
   }
   nodejs::module { 'grunt-cli':
-    node_version => 'v0.12.0'
+    node_version => 'v0.12'
   }
   nodejs::module { 'bower':
-    node_version => 'v0.12.0'
+    node_version => 'v0.12'
   }
   nodejs::module { 'yo':
-    node_version => 'v0.12.0'
+    node_version => 'v0.12'
   }
   nodejs::module { 'jshint':
-    node_version => 'v0.12.0'
+    node_version => 'v0.12'
   }
 
   include apache
