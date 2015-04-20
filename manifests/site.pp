@@ -108,7 +108,6 @@ node default {
   include mongodb
   include java
   include solr
-  include stagingsync
   include wget
   include postfix
   include imagemagick
