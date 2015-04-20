@@ -139,6 +139,11 @@ GITHUBTARBALL
     wget (1.0.1)
 
 GITHUBTARBALL
+  remote: boxen/puppet-xquartz
+  specs:
+    xquartz (1.2.1)
+
+GITHUBTARBALL
   remote: jenslind/puppet-php
   specs:
     php (1.2.9)
@@ -197,4 +202,5 @@ DEPENDENCIES
   stdlib (= 4.6.0)
   sudo (= 1.0.0)
   wget (= 1.0.1)
+  xquartz (= 1.2.1)
 
