@@ -101,7 +101,7 @@ node default {
   include libtool
   include pcre
   include libpng
-  include php::5_4
+  include php::5_4_29
   include php::composer
   include mysql
   include drush
