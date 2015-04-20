@@ -113,6 +113,10 @@ node default {
   include postfix
   include drush
 
+  homebrew::tap { 'homebrew/php':
+    before => Package['drush']
+  }
+
   class { 'php::global':
     version => '5.4.29'
   }
