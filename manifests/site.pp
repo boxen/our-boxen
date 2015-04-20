@@ -97,21 +97,21 @@ node default {
   }
 
   include apache
+  include php::5_4_29
+  include php::composer
+  include wget
   include autoconf
   include libtool
   include pcre
   include libpng
-  include php::5_4_29
-  include php::composer
-  include mysql
-  include drush
-  include mongodb
-  include java
-  include solr
-  include wget
-  include postfix
   include imagemagick
+  include mysql
+  include mongodb
+  include solr
+  include java
   include heroku
+  include postfix
+  include drush
 
   class { 'php::global':
     version => '5.4.29'
