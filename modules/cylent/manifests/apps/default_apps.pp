@@ -17,7 +17,6 @@ class cylent::apps::default_apps {
   include maven
   include googledrive
   include virtualbox
-  include docker
 
   class { 'firefox':
      version => '36.0'
@@ -38,6 +37,10 @@ class cylent::apps::default_apps {
 
   class {'vagrant':
     version => '1.7.2'
+  }
+
+  class {'docker':
+    version => '1.6.0'
   }
 
   # Homebrew Packages
