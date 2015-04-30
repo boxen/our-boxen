@@ -79,6 +79,10 @@ node default {
     gem     => 'compass',
     ruby_version    => '2.1.1'
   }
+  ruby_gem { 'scss-lint':
+    gem     => 'scss-lint',
+    ruby_version    => '2.1.1'
+  }
 
   class { 'nodejs::global':
     version => 'v0.12.0'
@@ -159,7 +163,7 @@ node default {
     command => "drush dl registry_rebuild",
     creates => "/Users/${::boxen_user}/.drush/registry_rebuild",
   }
-  
+
   exec {"drush-dl-module-builder":
     cwd => "/Users/${::boxen_user}/.drush",
     command => "drush dl module_builder && drush cc drush",
