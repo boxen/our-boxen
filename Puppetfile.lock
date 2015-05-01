@@ -274,6 +274,11 @@ GITHUBTARBALL
     office (1.0.8)
 
 GITHUBTARBALL
+  remote: cylentsystems/puppet-packer
+  specs:
+    packer (0.6.2)
+
+GITHUBTARBALL
   remote: cylentsystems/puppet-postgresql
   specs:
     postgresql (3.0.3clientonly)
@@ -359,6 +364,7 @@ DEPENDENCIES
   onepassword (>= 0)
   openssl (= 1.0.0)
   osx (= 2.8.0)
+  packer (= 0.6.2)
   phantomjs (= 2.3.0)
   pkgconfig (= 1.0.0)
   postgresql (= 3.0.3clientonly)
