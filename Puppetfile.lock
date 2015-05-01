@@ -199,6 +199,11 @@ GITHUBTARBALL
     ruby (8.1.7)
 
 GITHUBTARBALL
+  remote: boxen/puppet-screenhero
+  specs:
+    screenhero (1.0.1)
+
+GITHUBTARBALL
   remote: boxen/puppet-skype
   specs:
     skype (1.1.0)
@@ -375,6 +380,7 @@ DEPENDENCIES
   repository (= 2.3.0)
   ruby (= 8.1.7)
   s3bucket (= 1.0.8)
+  screenhero (= 1.0.1)
   skype (= 1.1.0)
   sourcetree (= 1.0.0)
   spectacle (= 1.0.0)

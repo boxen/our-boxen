@@ -17,6 +17,7 @@ class cylent::apps::default_apps {
   include maven
   include googledrive
   include virtualbox
+  include screenhero
 
   class { 'firefox':
      version => '36.0'
