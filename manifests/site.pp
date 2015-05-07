@@ -83,7 +83,11 @@ node default {
     gem     => 'scss-lint',
     ruby_version    => '2.1.1'
   }
-
+  ruby_gem { 'sass-globbing':
+    gem     => 'sass-globbing',
+    version => '1.1.0',
+    ruby_version    => '2.1.1'
+  }
   class { 'nodejs::global':
     version => 'v0.12.0'
   }
