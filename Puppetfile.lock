@@ -129,11 +129,6 @@ GITHUBTARBALL
     iterm2 (1.2.2)
 
 GITHUBTARBALL
-  remote: boxen/puppet-java
-  specs:
-    java (1.7.1)
-
-GITHUBTARBALL
   remote: boxen/puppet-macvim
   specs:
     macvim (1.0.0)
@@ -264,6 +259,11 @@ GITHUBTARBALL
     gpgtools (1.0.4)
 
 GITHUBTARBALL
+  remote: cylentsystems/puppet-java
+  specs:
+    java (1.8.3)
+
+GITHUBTARBALL
   remote: cylentsystems/puppet-java6
   specs:
     java6 (1.0.0)
@@ -357,7 +357,7 @@ DEPENDENCIES
   inifile (= 1.1.1)
   intellij (= 1.5.1)
   iterm2 (= 1.2.2)
-  java (= 1.7.1)
+  java (= 1.8.3)
   java6 (= 1.0.0)
   macvim (= 1.0.0)
   maven (= 1.0.0)
