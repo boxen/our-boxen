@@ -6,6 +6,7 @@ class people::mikesplain {
   include projects::endpoint
   include projects::portal
 
+  include packer
 
   include spectacle
   include dropbox
