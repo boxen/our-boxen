@@ -57,7 +57,7 @@ to be done once.
 
 ```
 sudo mkdir -p /opt/boxen
-sudo chown ${USER}:staff /opt/boxen
+sudo chown -R ${USER}:staff /opt/boxen
 git clone https://github.com/cylentsystems/our-boxen.git /opt/boxen/repo
 ```
 
