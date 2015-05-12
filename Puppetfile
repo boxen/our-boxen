@@ -84,3 +84,4 @@ github "skype", '1.1.0'
 github "skitch", '1.0.3'
 github "virtualbox", "1.0.1"
 github "textmate", "1.1.0"
+github "redis",       "3.1.0"

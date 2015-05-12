@@ -18,6 +18,7 @@ class people::bigfleet {
   include skype
   include skitch
   include virtualbox
+  include redis
 
   $home     = "/Users/${::boxen_user}"
   $my       = "${home}/my"

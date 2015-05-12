@@ -10,7 +10,6 @@
 # See https://github.com/boxen/puppet-ruby for docs
 boxen::personal::homebrew_packages:
   - most
-  - redis
   - tree
 ruby::global::version: "2.1.2"
 ruby::rbenv_plugins:

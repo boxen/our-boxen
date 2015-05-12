@@ -144,6 +144,11 @@ GITHUBTARBALL
     rdio (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-redis
+  specs:
+    redis (3.1.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-repository
   specs:
     repository (2.4.1)
@@ -222,7 +227,7 @@ DEPENDENCIES
   airfoil (= 0.0.1)
   alfred (= 1.4.0)
   atom (= 1.2.0)
-  boxen (= 3.10.2)
+  boxen (= 3.10.4)
   brewcask (= 0.0.6)
   chrome (= 1.2.0)
   crashplan (= 1.0.1)
@@ -236,7 +241,7 @@ DEPENDENCIES
   googledrive (= 1.0.2)
   handbrake (= 1.0.1)
   heroku (= 2.0.0)
-  homebrew (= 1.11.2)
+  homebrew (= 1.12.0)
   hub (= 1.4.1)
   inifile (= 1.1.1)
   iterm2 (= 1.2.4)
@@ -246,12 +251,13 @@ DEPENDENCIES
   nodejs (= 4.0.1)
   openssl (= 1.0.0)
   osx (= 2.8.0)
-  phantomjs (= 2.3.0)
+  phantomjs (= 2.4.0)
   pkgconfig (= 1.0.0)
   postgresql (= 3.0.3)
   rdio (= 1.0.0)
-  repository (= 2.3.0)
-  ruby (= 8.1.7)
+  redis (= 3.1.0)
+  repository (= 2.4.1)
+  ruby (= 8.5.2)
   sizeup (= 1.0.0)
   skitch (= 1.0.3)
   skype (= 1.1.0)
