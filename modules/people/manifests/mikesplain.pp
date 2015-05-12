@@ -33,6 +33,8 @@ class people::mikesplain {
               'evernote',
               'flash',
               'launchrocket',
+              'thunderbird',
+              'gpgtools',
               'menumeters',
               'mou',
               'sequel-pro',
