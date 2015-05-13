@@ -1,11 +1,19 @@
 class people::jockod {
   include cylent::dev_environment
+  include python::virtualenvwrapper
+
+  include projects::endpoint
+  include projects::portal
+  include caffeine
+
 
   ###### Environment Settings ##########
 #  include osx::dock::autohide
 #  include osx::dock::dim_hidden_apps
 #  include osx::finder::show_all_on_desktop
   include osx::finder::empty_trash_securely
+  include osx::global::tap_to_click
+
 #  include osx::finder::show_hidden_files
 
 
