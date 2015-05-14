@@ -1,4 +1,4 @@
-class people::jockod {
+class people::CaptMikeDuffy {
   include cylent::dev_environment
   include python::virtualenvwrapper
 
