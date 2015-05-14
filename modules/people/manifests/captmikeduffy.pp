@@ -1,4 +1,4 @@
-class people::CaptMikeDuffy {
+class people::captmikeduffy {
   include cylent::dev_environment
   include python::virtualenvwrapper
 
