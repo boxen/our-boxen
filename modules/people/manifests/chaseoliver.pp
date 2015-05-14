@@ -1,6 +1,8 @@
 class people::chaseoliver {
   include cylent::dev_environment
   include projects::portal
+  include virtualbox
+  include docker
 
   ###### Environment Settings ##########
   include osx::dock::autohide
@@ -14,10 +16,10 @@ class people::chaseoliver {
   }
 
   class { 'osx::dock::hot_corners':
-    top_right => 'Application Windows',
-    top_left  => 'Desktop',
-    bottom_right => 'Start Screen Saver',
-    bottom_left => 'Dashboard'
+    top_right => '',
+    top_left  => '',
+    bottom_right => '',
+    bottom_left => ''
   }
 
   include cylent::osx::dock::minimize_to_application
