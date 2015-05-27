@@ -1,23 +1,25 @@
-class people::bigfleet {
+class people::masonpackard {
 
   include textmate::textmate2::beta
   include sizeup
   include zsh
   include postgresql
-  include alfred
+  include alfred::v1
   include dropbox
-  include handbrake
   include heroku
   include chrome
   include rdio
   include googledrive
   include iterm2::dev
-  include airfoil
   include github_for_mac
   include skype
   include skitch
   include virtualbox
   include redis
+  include sublime_text
+    sublime_text::package { 'Emmet':
+    source => 'sergeche/emmet-sublime'
+  }
 
   $home     = "/Users/${::boxen_user}"
   $my       = "${home}/my"

@@ -72,7 +72,6 @@ github "handbrake", '1.0.1'
 github "steam", "1.0.1"
 github "heroku", "2.0.0"
 github "chrome", '1.2.0'
-github "crashplan", "1.0.1"
 github "rdio", "1.0.0"
 github "googledrive", "1.0.2"
 github "iterm2", '1.2.4'
@@ -82,6 +81,7 @@ github "osx", '2.8.0'
 github "sysctl", '1.0.1'
 github "skype", '1.1.0'
 github "skitch", '1.0.3'
-github "virtualbox", "1.0.1"
+github "virtualbox", "1.0.13"
 github "textmate", "1.1.0"
 github "redis",       "3.1.0"
+github "sublime_text", "1.1.0"

@@ -179,6 +179,11 @@ GITHUBTARBALL
     steam (1.0.1)
 
 GITHUBTARBALL
+  remote: boxen/puppet-sublime_text
+  specs:
+    sublime_text (1.1.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-sudo
   specs:
     sudo (1.0.0)
@@ -196,7 +201,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-virtualbox
   specs:
-    virtualbox (1.0.1)
+    virtualbox (1.0.13)
 
 GITHUBTARBALL
   remote: boxen/puppet-xquartz
@@ -263,10 +268,11 @@ DEPENDENCIES
   skype (= 1.1.0)
   stdlib (= 4.2.1)
   steam (= 1.0.1)
+  sublime_text (= 1.1.0)
   sudo (= 1.0.0)
   sysctl (= 1.0.1)
   textmate (= 1.1.0)
-  virtualbox (= 1.0.1)
+  virtualbox (= 1.0.13)
   xquartz (= 1.2.1)
   zsh (= 1.0.0)
 
