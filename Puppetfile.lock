@@ -1,4 +1,19 @@
 GITHUBTARBALL
+  remote: boxen/puppet-airfoil
+  specs:
+    airfoil (0.0.1)
+
+GITHUBTARBALL
+  remote: boxen/puppet-alfred
+  specs:
+    alfred (1.4.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-atom
+  specs:
+    atom (1.2.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-boxen
   specs:
     boxen (3.10.4)
@@ -9,9 +24,24 @@ GITHUBTARBALL
     brewcask (0.0.6)
 
 GITHUBTARBALL
+  remote: boxen/puppet-chrome
+  specs:
+    chrome (1.2.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-crashplan
+  specs:
+    crashplan (1.0.1)
+
+GITHUBTARBALL
   remote: boxen/puppet-dnsmasq
   specs:
     dnsmasq (2.0.1)
+
+GITHUBTARBALL
+  remote: boxen/puppet-dropbox
+  specs:
+    dropbox (1.4.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-foreman
@@ -29,9 +59,29 @@ GITHUBTARBALL
     git (2.7.9)
 
 GITHUBTARBALL
+  remote: boxen/puppet-github_for_mac
+  specs:
+    github_for_mac (1.0.3)
+
+GITHUBTARBALL
   remote: boxen/puppet-go
   specs:
     go (2.1.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-googledrive
+  specs:
+    googledrive (1.0.2)
+
+GITHUBTARBALL
+  remote: boxen/puppet-handbrake
+  specs:
+    handbrake (1.0.1)
+
+GITHUBTARBALL
+  remote: boxen/puppet-heroku
+  specs:
+    heroku (2.0.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-homebrew
@@ -42,6 +92,16 @@ GITHUBTARBALL
   remote: boxen/puppet-hub
   specs:
     hub (1.4.1)
+
+GITHUBTARBALL
+  remote: boxen/puppet-iterm2
+  specs:
+    iterm2 (1.2.4)
+
+GITHUBTARBALL
+  remote: boxen/puppet-macvim
+  specs:
+    macvim (1.0.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-nginx
@@ -59,6 +119,11 @@ GITHUBTARBALL
     openssl (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-osx
+  specs:
+    osx (2.8.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-phantomjs
   specs:
     phantomjs (2.4.0)
@@ -67,6 +132,21 @@ GITHUBTARBALL
   remote: boxen/puppet-pkgconfig
   specs:
     pkgconfig (1.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-postgresql
+  specs:
+    postgresql (3.0.3)
+
+GITHUBTARBALL
+  remote: boxen/puppet-rdio
+  specs:
+    rdio (1.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-redis
+  specs:
+    redis (3.1.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-repository
@@ -79,14 +159,59 @@ GITHUBTARBALL
     ruby (8.5.2)
 
 GITHUBTARBALL
+  remote: boxen/puppet-sizeup
+  specs:
+    sizeup (1.0.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-skitch
+  specs:
+    skitch (1.0.3)
+
+GITHUBTARBALL
+  remote: boxen/puppet-skype
+  specs:
+    skype (1.1.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-steam
+  specs:
+    steam (1.0.1)
+
+GITHUBTARBALL
+  remote: boxen/puppet-sublime_text
+  specs:
+    sublime_text (1.1.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-sudo
   specs:
     sudo (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-sysctl
+  specs:
+    sysctl (1.0.1)
+
+GITHUBTARBALL
+  remote: boxen/puppet-textmate
+  specs:
+    textmate (1.1.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-virtualbox
+  specs:
+    virtualbox (1.0.13)
+
+GITHUBTARBALL
   remote: boxen/puppet-xquartz
   specs:
     xquartz (1.2.1)
+
+GITHUBTARBALL
+  remote: boxen/puppet-zsh
+  specs:
+    zsh (1.0.0)
 
 GITHUBTARBALL
   remote: puppetlabs/puppetlabs-inifile
@@ -104,25 +229,50 @@ GITHUBTARBALL
     module_data (0.0.3)
 
 DEPENDENCIES
+  airfoil (= 0.0.1)
+  alfred (= 1.4.0)
+  atom (= 1.2.0)
   boxen (= 3.10.4)
   brewcask (= 0.0.6)
+  chrome (= 1.2.0)
+  crashplan (= 1.0.1)
   dnsmasq (= 2.0.1)
+  dropbox (= 1.4.0)
   foreman (= 1.2.0)
   gcc (= 2.2.1)
   git (= 2.7.9)
+  github_for_mac (= 1.0.3)
   go (= 2.1.0)
+  googledrive (= 1.0.2)
+  handbrake (= 1.0.1)
+  heroku (= 2.0.0)
   homebrew (= 1.12.0)
   hub (= 1.4.1)
   inifile (= 1.1.1)
+  iterm2 (= 1.2.4)
+  macvim (= 1.0.0)
   module_data (= 0.0.3)
   nginx (= 1.4.5)
   nodejs (= 4.0.1)
   openssl (= 1.0.0)
+  osx (= 2.8.0)
   phantomjs (= 2.4.0)
   pkgconfig (= 1.0.0)
+  postgresql (= 3.0.3)
+  rdio (= 1.0.0)
+  redis (= 3.1.0)
   repository (= 2.4.1)
   ruby (= 8.5.2)
+  sizeup (= 1.0.0)
+  skitch (= 1.0.3)
+  skype (= 1.1.0)
   stdlib (= 4.2.1)
+  steam (= 1.0.1)
+  sublime_text (= 1.1.0)
   sudo (= 1.0.0)
+  sysctl (= 1.0.1)
+  textmate (= 1.1.0)
+  virtualbox (= 1.0.13)
   xquartz (= 1.2.1)
+  zsh (= 1.0.0)
 
