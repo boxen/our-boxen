@@ -78,6 +78,10 @@ class people::mikesplain {
   include osx::safari::enable_developer_mode
   include osx::no_network_dsstores
 
+  include osx::dock::autohide
+  include cylent::osx::dock::autohide-time-modifier
+
+
   class { 'osx::global::key_repeat_delay':
     delay => 15
   }
