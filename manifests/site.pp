@@ -73,6 +73,7 @@ node default {
   }
   ruby_gem { 'sass':
     gem     => 'sass',
+    version => '3.4.14',
     ruby_version    => '2.1.1'
   }
   ruby_gem { 'compass':
