@@ -39,11 +39,6 @@ GITHUBTARBALL
     dnsmasq (2.0.1)
 
 GITHUBTARBALL
-  remote: boxen/puppet-docker
-  specs:
-    docker (0.9.0)
-
-GITHUBTARBALL
   remote: boxen/puppet-dropbox
   specs:
     dropbox (1.4.1)
@@ -254,6 +249,11 @@ GITHUBTARBALL
     zsh (1.0.0)
 
 GITHUBTARBALL
+  remote: cylentsystems/puppet-docker-1
+  specs:
+    docker (0.9.1)
+
+GITHUBTARBALL
   remote: cylentsystems/puppet-gpgtools
   specs:
     gpgtools (1.0.4)
@@ -336,7 +336,7 @@ DEPENDENCIES
   chrome (= 1.2.0)
   cmake (= 1.0.1)
   dnsmasq (= 2.0.1)
-  docker (= 0.9.0)
+  docker (= 0.9.1)
   dropbox (= 1.4.1)
   evernote (>= 0)
   firefox (= 1.2.3)
