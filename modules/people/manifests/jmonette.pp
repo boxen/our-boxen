@@ -1,11 +1,12 @@
 class people::jmonette {
-  include emacs   # requires emacs module in Puppetfile
-  include iterm2:stable
   include brewcask
+  include emacs
+  include iterm2:stable
   include chrome
   include skype
 
-  package {
-    'skype': provier => 'brewcask'
-  }
+  package { 'skype': provider => 'brewcask' }
+  package { 'emacs': provider => 'brewcask' }
+  package { 'iterm2': provider => 'brewcask' }
+  package { 'chrome': provider => 'brewcask' }
 }
