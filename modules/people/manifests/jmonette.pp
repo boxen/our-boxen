@@ -1,7 +1,7 @@
 class people::jmonette {
   include brewcask
   include emacs
-  include iterm2:stable
+  include iterm2::stable
   include chrome
   include skype
 
