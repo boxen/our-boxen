@@ -134,6 +134,30 @@ def sync_ruby(version)
   puts "done."
 end
 
+def sync_node(version)
+  s3_key = "nodes/Darwin/#{s3_cellar}#{os}/#{version}.tar.bz2"
+  tempfile = Tempfile.new "boxen-nodejs"
+
+  return if object_exists?(s3_key)
+
+  printf "Snapshotting node #{version}... "
+  $stdout.flush
+
+  Dir.chdir("/opt/nodes") do
+    system "tar", "-cjf", tempfile.path, version
+  end
+  puts "done."
+
+  printf "Shipping node #{version} to S3... "
+  $stdout.flush
+
+  File.open(tempfile, "r") do |tarball|
+    puts "s3.put_object(#{{bucket: @bucket_name, key: s3_key, acl: "public-read", body: tarball}.inspect})"
+    s3.put_object(bucket: @bucket_name, key: s3_key, acl: "public-read", body: tarball)
+  end
+  puts "done."
+end
+
 def sync_homebrew_packages
   Dir.chdir(homebrew_cellar) do
     Dir["*/*"].each do |dir|
@@ -152,6 +176,15 @@ def sync_rubies
   end
 end
 
+def sync_nodes
+  Dir.chdir "/opt/nodes" do
+    Dir["*"].each do |dir|
+      next if File.symlink? dir
+      sync_node File.split(dir).last
+    end
+  end
+end
+
 if ARGV.include? "--help" or ARGV.include? "-h"
   $stderr.puts "Usage: #{$0} [-h|--help] [1.9.3-p448] [emacs/24.3-boxen2]"
   $stderr.puts
@@ -163,6 +196,7 @@ elsif ARGV[0].nil?
   # sync everything
   sync_homebrew_packages
   sync_rubies
+  sync_nodes
 else
   package, version = ARGV[0].split("/")
 
