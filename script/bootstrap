@@ -59,11 +59,12 @@ set -e
     /usr/bin/sudo -p "Password for sudo to install bundler: " \
         /usr/bin/gem install bundler -v '~> 1.5.3' --no-rdoc --no-ri
 }
+PATH="/Library/Ruby/bin:$PATH"
 
 # Use checksums to quickly determine if we need to re-bundle
 
 checksum_bundle() {
-    (((find Gemfile Gemfile.lock bin -type f) | xargs cat) && /usr/bin/ruby -v && /usr/bin/bundle -v) | md5
+    (((find Gemfile Gemfile.lock bin -type f) | xargs cat) && /usr/bin/ruby -v && bundle -v) | md5
 }
 
 write_checksum() {
@@ -89,7 +90,7 @@ else
     fi
 
     log "====> Installing gem dependencies"
-    /usr/bin/bundle install --binstubs bin --path .bundle --quiet "$@" && write_checksum
+    bundle install --binstubs bin --path .bundle --quiet "$@" && write_checksum
 fi
 
 # Fix the binstubs to use system ruby
