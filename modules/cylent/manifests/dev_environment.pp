@@ -24,17 +24,17 @@ class cylent::dev_environment {
   }
 
   repository { "${cylent_repo_dir}/vagrantfiles":
-    source => 'cylentsystems/vagrantfiles',
+    source => 'barklyprotects/vagrantfiles',
     require => File[$cylent_repo_dir]
   }
   ->
   repository { "${cylent_repo_dir}/licenses":
-    source => 'cylentsystems/licenses',
+    source => 'barklyprotects/licenses',
     require => File[$cylent_repo_dir]
   }
   ->
   repository { $cylent_dotfiles:
-    source => 'cylentsystems/dotfiles',
+    source => 'barklyprotects/dotfiles',
     require => File[$cylent_repo_dir]
   }
 

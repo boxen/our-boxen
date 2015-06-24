@@ -7,28 +7,28 @@ class projects::portal {
   include projects::confd
 
   repository { "${cylent_repo_dir}/angalia-web":
-    source => 'cylentsystems/angalia-web',
+    source => 'barklyprotects/angalia-web',
     require => File[$cylent_repo_dir]
   }
 
   repository { "${cylent_repo_dir}/angalia-api":
-    source => 'cylentsystems/angalia-api',
+    source => 'barklyprotects/angalia-api',
     require => File[$cylent_repo_dir]
   }
 
   repository { "${cylent_repo_dir}/dropwizard-sisu":
-    source => 'cylentsystems/dropwizard-sisu',
+    source => 'barklyprotects/dropwizard-sisu',
     require => File[$cylent_repo_dir]
   }
 
   repository { "${cylent_repo_dir}/angalia-docker":
-    source => 'cylentsystems/angalia-docker',
+    source => 'barklyprotects/angalia-docker',
     require => File[$cylent_repo_dir]
   }
 
   repository { "${cylent_repo_dir}/angalia-test":
-    source => 'cylentsystems/angalia-test',
+    source => 'barklyprotects/angalia-test',
     require => File[$cylent_repo_dir]
   }
-  
+
 }

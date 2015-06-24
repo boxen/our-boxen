@@ -6,7 +6,7 @@ class cylent::apps::ansible {
   $ansible    = "${cylent_repo_dir}/ansible"
   $aws_vpc    = "${cylent_repo_dir}/cylent-ansible"
 
-  ##This is an encrypted repo talk to ryan@cylentsystems
+  ##This is an encrypted repo talk to ryan@barklyprotects
   ##if you feel you need access
   $aws_mgmt   = "${cylent_repo_dir}/aws-mgmt"
   $aws_dev    = "${cylent_repo_dir}/aws-dev"
@@ -55,17 +55,17 @@ class cylent::apps::ansible {
   }
 
   repository { $aws_vpc:
-    source => 'cylentsystems/ansible',
+    source => 'barklyprotects/ansible',
     require => File[$cylent_repo_dir]
   }
 
   repository { $aws_mgmt:
-    source => 'cylentsystems/aws-mgmt',
+    source => 'barklyprotects/aws-mgmt',
     require => File[$cylent_repo_dir]
   }
 
   repository { $aws_dev:
-    source => 'cylentsystems/aws-dev',
+    source => 'barklyprotects/aws-dev',
     require => File[$cylent_repo_dir]
   }
 
