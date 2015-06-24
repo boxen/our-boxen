@@ -41,7 +41,8 @@ class people::mikesplain {
               'slack',
               'spotify',
               'torbrowser',
-              'vlc'
+              'vlc',
+              'psequel'
               #'ccmenu',
               #'kaleidoscope',
             ]: provider => 'brewcask'
