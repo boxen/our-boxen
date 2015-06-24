@@ -1,7 +1,7 @@
 # Personal Manifests
 
 Per-user manifests live in `modules/people/manifests/$login.pp`, where
-`$login` is your CylentSystems username. A simple user manifest example:
+`$login` is your BarklyProtects username. A simple user manifest example:
 
 ```puppet
 class people::jbarnette {

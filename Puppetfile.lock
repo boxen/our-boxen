@@ -249,62 +249,62 @@ GITHUBTARBALL
     zsh (1.0.0)
 
 GITHUBTARBALL
-  remote: cylentsystems/puppet-docker-1
+  remote: barklyprotects/puppet-docker-1
   specs:
     docker (0.9.1)
 
 GITHUBTARBALL
-  remote: cylentsystems/puppet-gpgtools
+  remote: barklyprotects/puppet-gpgtools
   specs:
     gpgtools (1.0.4)
 
 GITHUBTARBALL
-  remote: cylentsystems/puppet-java
+  remote: barklyprotects/puppet-java
   specs:
     java (1.8.3)
 
 GITHUBTARBALL
-  remote: cylentsystems/puppet-java6
+  remote: barklyprotects/puppet-java6
   specs:
     java6 (1.0.0)
 
 GITHUBTARBALL
-  remote: cylentsystems/puppet-maven
+  remote: barklyprotects/puppet-maven
   specs:
     maven (1.0.0)
 
 GITHUBTARBALL
-  remote: cylentsystems/puppet-office
+  remote: barklyprotects/puppet-office
   specs:
     office (1.0.8)
 
 GITHUBTARBALL
-  remote: cylentsystems/puppet-packer
+  remote: barklyprotects/puppet-packer
   specs:
     packer (0.6.2)
 
 GITHUBTARBALL
-  remote: cylentsystems/puppet-postgresql
+  remote: barklyprotects/puppet-postgresql
   specs:
     postgresql (3.0.3clientonly)
 
 GITHUBTARBALL
-  remote: cylentsystems/puppet-python
+  remote: barklyprotects/puppet-python
   specs:
     python (2.0.7)
 
 GITHUBTARBALL
-  remote: cylentsystems/puppet-tunnelblick
+  remote: barklyprotects/puppet-tunnelblick
   specs:
     tunnelblick (1.0.8)
 
 GITHUBTARBALL
-  remote: cylentsystems/puppet-virtualbox
+  remote: barklyprotects/puppet-virtualbox
   specs:
     virtualbox (1.0.14)
 
 GITHUBTARBALL
-  remote: cylentsystems/s3bucket
+  remote: barklyprotects/s3bucket
   specs:
     s3bucket (1.0.8)
 

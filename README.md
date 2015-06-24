@@ -58,7 +58,7 @@ to be done once.
 ```
 sudo mkdir -p /opt/boxen
 sudo chown -R ${USER}:staff /opt/boxen
-git clone https://github.com/cylentsystems/our-boxen.git /opt/boxen/repo
+git clone https://github.com/barklyprotects/our-boxen.git /opt/boxen/repo
 ```
 
 Next, create your user-specific boxen file from the default:

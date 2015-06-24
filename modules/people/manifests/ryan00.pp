@@ -49,7 +49,7 @@ class people::ryan00 {
 
 
   repository { $python:
-    source => 'cylentsystems/puppet-python',
+    source => 'barklyprotects/puppet-python',
     require => File[$cylent_repo_dir]
   }
 
