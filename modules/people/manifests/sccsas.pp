@@ -1,16 +1,15 @@
 class people::sccsas {
-  ##### Custom Apps #####
+  ##### Projects #####
   include cylent::dev_environment
+  include projects::portal
+
+  ##### Apps #####
   include iterm2::dev
   include docker
   include spectacle
   include gimp
-  include redis
   include virtualbox
   include flux
-
-  include cylent::dev_environment
-  include projects::portal
 
   ###### Environment Settings ##########
   include osx::dock::autohide
