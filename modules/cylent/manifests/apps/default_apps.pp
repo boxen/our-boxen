@@ -41,7 +41,7 @@ class cylent::apps::default_apps {
   }
 
   class {'docker':
-    version => '1.6.2'
+    version => '1.7.1'
   }
 
   # Homebrew Packages
