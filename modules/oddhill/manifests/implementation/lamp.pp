@@ -44,6 +44,14 @@ class oddhill::implementation::lamp {
     require => Php::Version[$php_version]
   }
 
+  # Make sure php is not installed from homebrew
+  package {
+    'php53':
+      ensure => 'absent';
+    'php54':
+      ensure => 'absent';
+  }
+
   # Install drush
   class { 'drush':
     version => '7.0.0'
