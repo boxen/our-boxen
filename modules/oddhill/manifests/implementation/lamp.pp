@@ -10,7 +10,6 @@ class oddhill::implementation::lamp {
   include solr
   include java
   include postfix
-  include drush
 
   homebrew::tap { 'homebrew/php':
     before => Package['drush']
@@ -45,14 +44,16 @@ class oddhill::implementation::lamp {
     require => Php::Version[$php_version]
   }
 
-  exec {"drush-dl-registry-rebuild":
-    command => "drush dl registry_rebuild",
-    creates => "/Users/${::boxen_user}/.drush/registry_rebuild",
+  # Install drush
+  class { 'drush':
+    version => '7.0.0'
   }
 
-  exec {"drush-dl-module-builder":
-    cwd => "/Users/${::boxen_user}/.drush",
-    command => "drush dl module_builder && drush cc drush",
-    creates => "/Users/${::boxen_user}/.drush/module_builder",
+  drush::plugin {'drush-registry-rebuild':
+    name => 'registry_rebuild'
+  }
+
+  drush::plugin {'drush-module-builder':
+    name => 'module_builder'
   }
 }

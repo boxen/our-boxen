@@ -144,6 +144,11 @@ GITHUBTARBALL
     xquartz (1.2.1)
 
 GITHUBTARBALL
+  remote: jenslind/puppet-drush
+  specs:
+    drush (1.1.1)
+
+GITHUBTARBALL
   remote: oddhill/puppet-php
   specs:
     php (2.2.0)
@@ -163,17 +168,12 @@ GITHUBTARBALL
   specs:
     module_data (0.0.4)
 
-GITHUBTARBALL
-  remote: webflo/puppet-drush-boxen
-  specs:
-    drush (0.0.1)
-
 DEPENDENCIES
   autoconf (= 1.0.0)
   boxen (= 3.10.4)
   brewcask (= 0.0.6)
   dnsmasq (= 2.0.1)
-  drush (= 0.0.1)
+  drush (= 1.1.1)
   foreman (= 1.2.0)
   gcc (= 2.2.1)
   git (= 2.7.9)
