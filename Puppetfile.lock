@@ -144,9 +144,9 @@ GITHUBTARBALL
     xquartz (1.2.1)
 
 GITHUBTARBALL
-  remote: jenslind/puppet-php
+  remote: oddhill/puppet-php
   specs:
-    php (1.2.9)
+    php (2.2.0)
 
 GITHUBTARBALL
   remote: puppetlabs/puppetlabs-inifile
@@ -191,7 +191,7 @@ DEPENDENCIES
   nodejs (= 4.0.1)
   openssl (= 1.0.0)
   pcre (= 1.0.0)
-  php (= 1.2.9)
+  php (= 2.2.0)
   pkgconfig (= 1.0.0)
   puppet-apache (>= 0)
   puppet-mysql (>= 0)

@@ -1,7 +1,5 @@
 class oddhill::implementation::lamp {
   include apache
-  include php::5_4_29
-  include php::composer
   include wget
   include autoconf
   include libtool
@@ -18,21 +16,33 @@ class oddhill::implementation::lamp {
     before => Package['drush']
   }
 
+  # Install php
+  $php_version = '5.4.41'
+
+  php::version { $php_version:
+    ensure => present
+  }
+
+  include php::composer
+
   class { 'php::global':
-    version => '5.4.29'
+    version => $php_version
   }
 
-  php::extension::mcrypt { "mcrypt for 5.4.29":
-  	php => '5.4.29'
+  php::extension::mcrypt { "mcrypt for {$php_version}":
+  	php => $php_version,
+    require => Php::Version[$php_version]
   }
 
-  php::extension::mongo { "mongo for 5.4.29":
-  	php => '5.4.29'
+  php::extension::mongo { "mongo for {$php_version}":
+  	php => $php_version,
+    require => Php::Version[$php_version]
   }
 
-  php::extension::imagick { "imagick for 5.4.29":
-    php => '5.4.29',
-    version => '3.1.2'
+  php::extension::imagick { "imagick for {$php_version}":
+    php => $php_version,
+    version => '3.1.2',
+    require => Php::Version[$php_version]
   }
 
   exec {"drush-dl-registry-rebuild":

@@ -60,7 +60,7 @@ github "xquartz",     "1.2.1"
 # https://github.com/boxen.
 
 dev "apache"
-github "php",         "1.2.9", :repo => "jenslind/puppet-php"
+github "php",         "2.2.0", :repo => "oddhill/puppet-php"
 github "wget",        "1.0.1"
 github "autoconf",    "1.0.0"
 github "libtool",     "1.0.0"
