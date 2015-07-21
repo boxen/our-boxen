@@ -11,10 +11,6 @@ class oddhill::implementation::lamp {
   include java
   include postfix
 
-  homebrew::tap { 'homebrew/php':
-    before => Package['drush']
-  }
-
   # Install php
   $php_version = '5.4.41'
 
