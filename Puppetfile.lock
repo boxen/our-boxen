@@ -81,7 +81,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-java
   specs:
-    java (1.8.2)
+    java (1.8.3)
 
 GITHUBTARBALL
   remote: boxen/puppet-libpng
@@ -183,7 +183,7 @@ DEPENDENCIES
   hub (= 1.4.1)
   imagemagick (= 1.3.0)
   inifile (= 1.2.0)
-  java (= 1.8.2)
+  java (= 1.8.3)
   libpng (= 1.0.0)
   libtool (= 1.0.0)
   module_data (= 0.0.4)
