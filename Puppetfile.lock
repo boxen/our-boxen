@@ -94,11 +94,6 @@ GITHUBTARBALL
     libtool (1.0.0)
 
 GITHUBTARBALL
-  remote: boxen/puppet-mongodb
-  specs:
-    mongodb (1.4.0)
-
-GITHUBTARBALL
   remote: boxen/puppet-nodejs
   specs:
     nodejs (4.0.1)
@@ -149,6 +144,11 @@ GITHUBTARBALL
     drush (1.1.1)
 
 GITHUBTARBALL
+  remote: jenslind/puppet-mongodb
+  specs:
+    mongodb (3.0.4)
+
+GITHUBTARBALL
   remote: oddhill/puppet-php
   specs:
     php (2.2.0)
@@ -187,7 +187,7 @@ DEPENDENCIES
   libpng (= 1.0.0)
   libtool (= 1.0.0)
   module_data (= 0.0.4)
-  mongodb (= 1.4.0)
+  mongodb (= 3.0.4)
   nodejs (= 4.0.1)
   openssl (= 1.0.0)
   pcre (= 1.0.0)
