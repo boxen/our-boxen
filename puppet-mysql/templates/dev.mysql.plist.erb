@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>dev.mysql</string>
+
+    <key>Boxen</key>
+    <dict>
+      <key>Description</key>
+      <string>A pretty okay relational database.</string>
+
+      <key>Port</key>
+      <integer><%= scope.lookupvar "mysql::config::port" %></integer>
+
+      <key>Socket</key>
+      <string><%= scope.lookupvar "mysql::config::socket" %></string>
+    </dict>
+
+    <key>ProgramArguments</key>
+    <array>
+      <string><%= scope.lookupvar "mysql::config::executable" %></string>
+      <string>--defaults-file=<%= scope.lookupvar "mysql::config::configfile" %></string>
+    </array>
+
+    <key>RunAtLoad</key>
+    <true />
+
+    <key>KeepAlive</key>
+    <true />
+    
+    <key>ExitTimeOut</key>
+    <integer>1</integer>
+
+    <key>UserName</key>
+    <string><%= scope.lookupvar "::luser" %></string>
+
+    <key>WorkingDirectory</key>
+    <string><%= scope.lookupvar "mysql::config::datadir" %></string>
+
+    <key>StandardErrorPath</key>
+    <string><%= scope.lookupvar "mysql::config::logdir" %>/console.log</string>
+
+    <key>StandardOutPath</key>
+    <string><%= scope.lookupvar "mysql::config::logdir" %>/console.log</string>
+  </dict>
+</plist>

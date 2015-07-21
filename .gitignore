@@ -10,3 +10,5 @@
 /shared/*
 !/shared/README.md
 /vendor/gems/
+/modules/people
+.node-version

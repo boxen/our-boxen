@@ -1,0 +1,19 @@
+#!/bin/sh
+# Make sure deps are available and run a Cardboard command.
+
+set -e
+
+cd $(dirname "$0")/..
+
+BUNDLE=.bundle
+BIN=$BUNDLE/binstubs
+SCRIPT=$(basename "$0")
+
+BUNDLE_ARGS="--binstubs $BIN --path $BUNDLE --quiet"
+[ "cibuild" = "$SCRIPT" ] && BUNDLE_ARGS="$BUNDLE_ARGS --no-quiet"
+
+rm -rf {$BIN,$BUNDLE/config}
+bundle install $BUNDLE_ARGS
+
+bundle exec cardboard bootstrap
+exec bundle exec cardboard "$SCRIPT" "$@"
