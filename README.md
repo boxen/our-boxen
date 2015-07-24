@@ -126,6 +126,7 @@ If that runs cleanly, you're in good shape.
 This template project provides the following by default:
 
 * Homebrew
+* Homebrew-Cask
 * Git
 * Hub
 * dnsmasq w/ .dev resolver for localhost
