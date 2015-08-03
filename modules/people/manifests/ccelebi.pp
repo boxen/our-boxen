@@ -42,6 +42,7 @@ class people::ccelebi {
     ensure => directory
   }
 
+  notify {'awscli':}
 
   ###### Environment Settings ##########
   include osx::dock::autohide
