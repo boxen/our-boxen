@@ -24,7 +24,7 @@ class people::ccelebi {
               'cakebrew',
               'flash',
               'gpgtools',
-	      'android-file-transfer'
+	      'android-file-transfer',
               'menumeters',
               'sequel-pro',
               'slack',
