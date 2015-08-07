@@ -7,12 +7,14 @@ class people::ccelebi {
   include projects::portal
   include spectacle
   include dropbox
+  include googledrive
   include sourcetree
   include docker
   include virtualbox
   include caffeine
   include flux
   include spf13vim3
+  include usbethdriver
 
   include brewcask
   homebrew::tap { 'homebrew/dupes': }
@@ -24,7 +26,7 @@ class people::ccelebi {
               'cakebrew',
               'flash',
               'gpgtools',
-	      'android-file-transfer',
+              'android-file-transfer',
               'menumeters',
               'sequel-pro',
               'slack',
@@ -45,7 +47,6 @@ class people::ccelebi {
   notify {'awscli':}
 
   ###### Environment Settings ##########
-  include osx::dock::autohide
   include osx::dock::dim_hidden_apps
   include osx::finder::show_all_on_desktop
   include osx::finder::empty_trash_securely
@@ -57,9 +58,7 @@ class people::ccelebi {
 
   class { 'osx::dock::hot_corners':
     top_right => 'Application Windows',
-    top_left  => 'Desktop',
-    bottom_right => 'Start Screen Saver',
-    bottom_left => 'Dashboard'
+    top_left  => 'Desktop'
   }
 
   include cylent::osx::dock::minimize_to_application
