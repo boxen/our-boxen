@@ -16,7 +16,7 @@ boxen::personal::homebrew_packages:
   - htop
 
 boxen::personal::osx_apps:
-  - google_chrome
+  - google-chrome
   - spotify
   - things
 
