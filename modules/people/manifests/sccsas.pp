@@ -2,7 +2,7 @@ class people::sccsas {
   ##### Projects #####
   include cylent::dev_environment
   include projects::portal
-  # include projects::endpoint
+  include projects::endpoint
 
   ##### Apps #####
   include iterm2::dev
