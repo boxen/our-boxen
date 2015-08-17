@@ -1,4 +1,5 @@
 class people::ccelebi {
+  notify {'Setting up Chris Celebi's Profile':}
   include cylent::dev_environment
   include python::virtualenvwrapper
   include cylent::apps::ansible
@@ -24,6 +25,7 @@ class people::ccelebi {
               '1password',
               'alfred',
               'cakebrew',
+              'nmap'
               'flash',
               'gpgtools',
               'android-file-transfer',
