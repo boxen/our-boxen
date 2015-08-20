@@ -135,7 +135,7 @@ def sync_ruby(version)
 end
 
 def sync_node(version)
-  s3_key = "nodes/Darwin/#{s3_cellar}#{os}/#{version}.tar.bz2"
+  s3_key = "nodes/Darwin/#{os}/#{version}.tar.bz2"
   tempfile = Tempfile.new "boxen-nodejs"
 
   return if object_exists?(s3_key)
