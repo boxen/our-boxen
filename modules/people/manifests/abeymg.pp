@@ -42,4 +42,9 @@ class people::abeymg {
     path => ["/usr/bin","/bin"],
     onlyif => "bash -c test `dscl . -read /Users/${USER} UserShell | cut -d: -f2 | tr -d ' '` = /opt/boxen/homebrew/bin/zsh"
   }
+
+  ###### My Apps ##########
+  include spectacle
+  include sourcetree
+
 }
