@@ -1,6 +1,9 @@
 class people::thomevans {
   include cylent::dev_environment
 
+  include projects::endpoint
+  include projects::portal
+
   ###### Environment Settings ##########
   include osx::dock::autohide
   include osx::dock::dim_hidden_apps
