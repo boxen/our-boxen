@@ -6,7 +6,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: barklyprotects/puppet-docker-1
   specs:
-    docker (0.9.1)
+    docker (0.9.2)
 
 GITHUBTARBALL
   remote: barklyprotects/puppet-gpgtools
@@ -341,7 +341,7 @@ DEPENDENCIES
   chrome (= 1.2.0)
   cmake (= 1.0.1)
   dnsmasq (= 2.0.1)
-  docker (= 0.9.1)
+  docker (= 0.9.2)
   dropbox (= 1.4.1)
   evernote (>= 0)
   firefox (= 1.2.3)
