@@ -8,6 +8,9 @@ class people::chrisbaron {
 
   include cylent::osx::dock::minimize_to_application
 
+  include projects::endpoint
+  include projects::portal
+
   ###### Set up oh-my-zsh environment ######
   repository {"${cylent_repo_dir}/oh-my-zsh":
     source => 'robbyrussell/oh-my-zsh',
