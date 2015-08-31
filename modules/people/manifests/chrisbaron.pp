@@ -8,7 +8,6 @@ class people::chrisbaron {
 
   include cylent::osx::dock::minimize_to_application
 
-  include projects::endpoint
   include projects::portal
 
   ###### Set up oh-my-zsh environment ######
