@@ -1,37 +1,14 @@
-class people::sccsas {
-  ##### Projects #####
+class people::chrisbaron {
   include cylent::dev_environment
-  include projects::portal
-  include projects::endpoint
-
-  ##### Apps #####
-  include iterm2::dev
-  include docker
-  include spectacle
-  include gimp
-  include virtualbox
-  include flux
-  include onepassword
-  include onepassword::chrome
 
   ###### Environment Settings ##########
-  include osx::dock::autohide
-  include osx::dock::dim_hidden_apps
   include osx::finder::show_all_on_desktop
   include osx::finder::empty_trash_securely
   include osx::finder::show_hidden_files
 
-  class { 'osx::global::natural_mouse_scrolling':
-    enabled => false
-  }
-
-  class { 'osx::dock::hot_corners':
-    top_right => 'Put Display to Sleep',
-    bottom_right => 'Start Screen Saver',
-    bottom_left => 'Dashboard'
-  }
-
   include cylent::osx::dock::minimize_to_application
+
+  include projects::portal
 
   ###### Set up oh-my-zsh environment ######
   repository {"${cylent_repo_dir}/oh-my-zsh":
