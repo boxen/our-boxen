@@ -11,6 +11,8 @@ class people::sccsas {
   include gimp
   include virtualbox
   include flux
+  include onepassword
+  include onepassword::chrome
 
   ###### Environment Settings ##########
   include osx::dock::autohide
