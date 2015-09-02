@@ -1,5 +1,13 @@
 class people::rixgit {
   include cylent::dev_environment
+  #  include pycharm
+  #  include iterm2::dev
+  #  include dropbox
+  #  include docker
+  #  include cylent::apps::ansible
+  #  include skype
+  include python 
+
 
   ###### Environment Settings ##########
   include osx::dock::autohide
@@ -7,6 +15,8 @@ class people::rixgit {
   include osx::finder::show_all_on_desktop
   include osx::finder::empty_trash_securely
   include osx::finder::show_hidden_files
+
+  $python     = "${cylent_repo_dir}/puppet-python"
 
 
   class { 'osx::dock::hot_corners':
@@ -23,6 +33,12 @@ class people::rixgit {
     source => 'robbyrussell/oh-my-zsh',
     require => File[$cylent_repo_dir]
   }
+
+  repository { $python:
+    source => 'barklyprotects/puppet-python',
+    require => File[$cylent_repo_dir]
+  }
+
 
   file {"${home}/.zshrc":
     ensure  => link,
