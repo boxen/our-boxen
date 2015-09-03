@@ -58,6 +58,13 @@ github "stdlib",      "4.7.0", :repo => "puppetlabs/puppetlabs-stdlib"
 github "sudo",        "1.0.0"
 github "xquartz",     "1.2.1"
 
+github "zsh"
+github "iterm2"
+github "macvim"
+github "heroku"
+github "virtualbox"
+github "spotify"
+
 # Optional/custom modules. There are tons available at
 # https://github.com/boxen.
 # github "elasticsearch", "2.8.0"
