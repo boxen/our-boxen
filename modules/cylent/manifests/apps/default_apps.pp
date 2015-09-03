@@ -5,7 +5,6 @@ class cylent::apps::default_apps {
   include wget
   include xquartz
   include atom
-  include hipchat
   include macvim
   include vmware_fusion
   include cmake
@@ -41,7 +40,7 @@ class cylent::apps::default_apps {
   }
 
   class {'docker':
-    version => '1.7.1'
+    version => '1.8.0'
   }
 
   # Homebrew Packages
