@@ -3,7 +3,6 @@ class people::sccsns {
   include projects::portal
   include spectacle
   include redis
-  #include boot2docker
 
   #### iTem2 Settings
   include iterm2::colors::solarized_dark

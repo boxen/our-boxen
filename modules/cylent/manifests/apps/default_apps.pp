@@ -11,7 +11,6 @@ class cylent::apps::default_apps {
   include iterm2::dev
   include tunnelblick
   include googledrive
-  include virtualbox
   include screenhero
 
 
@@ -20,29 +19,27 @@ class cylent::apps::default_apps {
      version => '36.0'
   }
 
-  file {'node.zsh':
-    path => "${cylent_env}/zsh/node.zsh",
-    ensure => file,
-    require => [Repository[$cylent_dotfiles],File[$cylent_env]],
-    content => template("cylent/node_env.erb")
-  }
-
   class {'intellij':
     edition => 'ultimate',
     version => '14.1.4'
   }
 
-
-  class {'vagrant':
-    version => '1.7.2'
-  }
-
-  class {'docker':
-    version => '1.8.0'
-  }
-
-
   # Homebrew Packages
+
+  package { 'docker-machine':
+    ensure =>present,
+    provider => 'brewcask'
+  }
+
+  package { 'vagrant':
+    ensure => present,
+    provider => 'brewcask'
+  }
+
+  package { 'vagrant-manager':
+    ensure => present,
+    provider => 'brewcask'
+  }
 
   package { 'github-desktop':
     provider => 'brewcask'

@@ -13,4 +13,3 @@ ruby::rbenv_plugins:
   rbenv-vars:
     ensure: v1.2.0
     source: sstephenson/rbenv-vars
-docker::version: '1.8.0'

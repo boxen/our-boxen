@@ -8,7 +8,7 @@ class cylent::vagrant::vagrant_vmware {
   exec { $install_cmd:
     command   => $install_cmd,
     unless    => "vagrant plugin list | grep vagrant-vmware-fusion",
-    require   => Class['vagrant'],
+    require   => Package['vagrant'],
   }
 
   exec { $install_license_cmd:

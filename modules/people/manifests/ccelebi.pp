@@ -10,8 +10,6 @@ class people::ccelebi {
   include dropbox
   include googledrive
   include sourcetree
-  include docker
-  include virtualbox
   include caffeine
   include flux
   include spf13vim3

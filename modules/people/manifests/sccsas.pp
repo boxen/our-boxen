@@ -6,7 +6,6 @@ class people::sccsas {
 
   ##### Apps #####
   include iterm2::dev
-  include docker
   include spectacle
   include gimp
   include virtualbox

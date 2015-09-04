@@ -1,8 +1,9 @@
+
 class projects::etcd {
   include homebrew::config
 
   exec{'retrieve etcd':
-    command => "${homebrew::config::installdir}/bin/wget -q https://github.com/coreos/etcd/releases/download/v2.1.3/etcd-v2.0.5-darwin-amd64.zip -O /tmp/etcd-v2.13-darwin-amd64.zip",
+    command => "${homebrew::config::installdir}/bin/wget -q https://github.com/coreos/etcd/releases/download/v2.1.3/etcd-v2.1.3-darwin-amd64.zip -O /tmp/etcd-v2.1.3-darwin-amd64.zip",
     creates => "/tmp/etcd-v2.1.3-darwin-amd64.zip",
     require => Class['wget']
   }

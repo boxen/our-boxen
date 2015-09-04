@@ -31,7 +31,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: barklyprotects/puppet-python
   specs:
-    python (2.0.7)
+    python (2.0.16)
 
 GITHUBTARBALL
   remote: barklyprotects/puppet-tunnelblick
@@ -42,11 +42,6 @@ GITHUBTARBALL
   remote: barklyprotects/puppet-usbethdriver
   specs:
     usbethdriver (1.0.0)
-
-GITHUBTARBALL
-  remote: barklyprotects/puppet-virtualbox
-  specs:
-    virtualbox (1.0.14)
 
 GITHUBTARBALL
   remote: barklyprotects/s3bucket
@@ -87,11 +82,6 @@ GITHUBTARBALL
   remote: boxen/puppet-dnsmasq
   specs:
     dnsmasq (2.0.1)
-
-GITHUBTARBALL
-  remote: boxen/puppet-docker
-  specs:
-    docker (0.9.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-dropbox
@@ -219,11 +209,6 @@ GITHUBTARBALL
     pkgconfig (1.0.0)
 
 GITHUBTARBALL
-  remote: boxen/puppet-pycharm
-  specs:
-    pycharm (1.0.4)
-
-GITHUBTARBALL
   remote: boxen/puppet-quicksilver
   specs:
     quicksilver (1.3.0)
@@ -279,11 +264,6 @@ GITHUBTARBALL
     tmux (1.0.2)
 
 GITHUBTARBALL
-  remote: boxen/puppet-vagrant
-  specs:
-    vagrant (3.3.0)
-
-GITHUBTARBALL
   remote: boxen/puppet-vmware_fusion
   specs:
     vmware_fusion (1.2.0)
@@ -332,7 +312,6 @@ DEPENDENCIES
   chrome (= 1.2.0)
   cmake (= 1.0.1)
   dnsmasq (= 2.0.1)
-  docker (= 0.9.0)
   dropbox (= 1.4.1)
   elasticsearch (= 2.9.0)
   evernote (= 2.0.7)
@@ -367,8 +346,7 @@ DEPENDENCIES
   phantomjs (= 3.0.0)
   pkgconfig (= 1.0.0)
   postgresql (= 3.0.3clientonly)
-  pycharm (= 1.0.4)
-  python (= 2.0.7)
+  python (= 2.0.16)
   quicksilver (= 1.3.0)
   redis (= 3.2.0)
   repository (= 2.4.1)
@@ -385,8 +363,6 @@ DEPENDENCIES
   tmux (= 1.0.2)
   tunnelblick (= 1.0.8)
   usbethdriver (= 1.0.0)
-  vagrant (= 3.3.0)
-  virtualbox (= 1.0.14)
   vmware_fusion (= 1.2.0)
   wget (= 1.0.0)
   xquartz (= 1.2.1)
