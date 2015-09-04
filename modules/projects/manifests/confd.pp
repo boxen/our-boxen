@@ -1,11 +1,12 @@
 class projects::confd {
+  include homebrew::config
   exec{'retrieve confd':
-    command => "/opt/boxen/homebrew/bin/wget -q https://github.com/kelseyhightower/confd/releases/download/v0.7.1/confd-0.7.1-darwin-amd64 -O /opt/boxen/homebrew/bin/confd",
-    creates => "/opt/boxen/homebrew/bin/confd",
+    command => "${homebrew::config::installdir}/bin/wget -q https://github.com/kelseyhightower/confd/releases/download/v0.10.0/confd-0.10.0-darwin-amd64 -O ${homebrew::config::installdir}/bin/confd",
+    creates => "${homebrew::config::installdir}/bin/confd",
     require => Class['wget']
   }
   ->
-  file{'/opt/boxen/homebrew/bin/confd':
+  file{"${homebrew::config::installdir}/bin/confd":
     mode => 'a+x',
   }
   ->

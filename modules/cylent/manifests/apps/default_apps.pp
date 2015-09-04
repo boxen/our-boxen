@@ -10,13 +10,11 @@ class cylent::apps::default_apps {
   include cmake
   include iterm2::dev
   include tunnelblick
-  include github_for_mac
-  include java6 #needed for intellij
-  include java
-  include maven
   include googledrive
   include virtualbox
   include screenhero
+
+
 
   class { 'firefox':
      version => '36.0'
@@ -43,9 +41,25 @@ class cylent::apps::default_apps {
     version => '1.8.0'
   }
 
+
   # Homebrew Packages
+
+  package { 'github-desktop':
+    provider => 'brewcask'
+  }
+  class java {
+    homebrew::tap { 'homebrew/versions': }
+    package { 'java':
+      provider => 'brewcask'
+    }
+    package { 'java6':
+      provider => 'brewcask'
+    }
+  }
+
   package {
     [
+      'maven',
       'findutils',
       'gnu-tar',
       'ack',
