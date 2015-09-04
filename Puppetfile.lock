@@ -34,6 +34,11 @@ GITHUBTARBALL
     go (2.1.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-heroku
+  specs:
+    heroku (2.1.1)
+
+GITHUBTARBALL
   remote: boxen/puppet-homebrew
   specs:
     homebrew (1.13.0)
@@ -42,6 +47,16 @@ GITHUBTARBALL
   remote: boxen/puppet-hub
   specs:
     hub (1.4.1)
+
+GITHUBTARBALL
+  remote: boxen/puppet-iterm2
+  specs:
+    iterm2 (1.2.5)
+
+GITHUBTARBALL
+  remote: boxen/puppet-macvim
+  specs:
+    macvim (1.0.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-nginx
@@ -79,14 +94,29 @@ GITHUBTARBALL
     ruby (8.5.2)
 
 GITHUBTARBALL
+  remote: boxen/puppet-spotify
+  specs:
+    spotify (1.0.2)
+
+GITHUBTARBALL
   remote: boxen/puppet-sudo
   specs:
     sudo (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-virtualbox
+  specs:
+    virtualbox (1.0.9)
+
+GITHUBTARBALL
   remote: boxen/puppet-xquartz
   specs:
     xquartz (1.2.1)
+
+GITHUBTARBALL
+  remote: boxen/puppet-zsh
+  specs:
+    zsh (1.0.0)
 
 GITHUBTARBALL
   remote: puppetlabs/puppetlabs-inifile
@@ -111,9 +141,12 @@ DEPENDENCIES
   gcc (= 3.0.2)
   git (= 2.7.92)
   go (= 2.1.0)
+  heroku (>= 0)
   homebrew (= 1.13.0)
   hub (= 1.4.1)
   inifile (= 1.4.1)
+  iterm2 (>= 0)
+  macvim (>= 0)
   module_data (= 0.0.4)
   nginx (= 1.4.6)
   nodejs (= 5.0.0)
@@ -122,7 +155,10 @@ DEPENDENCIES
   pkgconfig (= 1.0.0)
   repository (= 2.4.1)
   ruby (= 8.5.2)
+  spotify (>= 0)
   stdlib (= 4.7.0)
   sudo (= 1.0.0)
+  virtualbox (>= 0)
   xquartz (= 1.2.1)
+  zsh (>= 0)
 
