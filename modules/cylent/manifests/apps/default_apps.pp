@@ -12,6 +12,7 @@ class cylent::apps::default_apps {
   include tunnelblick
   include googledrive
   include screenhero
+  include cylent::apps::barkly_java
 
 
 
@@ -44,19 +45,9 @@ class cylent::apps::default_apps {
   package { 'github-desktop':
     provider => 'brewcask'
   }
-  class java {
-    homebrew::tap { 'homebrew/versions': }
-    package { 'java':
-      provider => 'brewcask'
-    }
-    package { 'java6':
-      provider => 'brewcask'
-    }
-  }
 
   package {
     [
-      'maven',
       'findutils',
       'gnu-tar',
       'ack',
