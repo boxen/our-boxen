@@ -12,4 +12,19 @@ class projects::enonya {
     ensure => present,
     systempkgs => true,
   }
+  ->
+  python::pip {'enonya-awscli':
+    name => 'enonya',
+    virtualenv => "${python::config::venv_home}/enonya",
+  }
+  ->
+  exec {'enonya-aws-set-version':
+    command => "${python::config::venv_home}/enonya/bin/aws configure set default.s3.signature_version s3v4"
+  }
+
+  file {'enonya.zsh':
+    path => "${cylent_env}/enonya.zsh",
+    ensure => file,
+    content => template("projects/enonya_env.erb")
+  }
 }

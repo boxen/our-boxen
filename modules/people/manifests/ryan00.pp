@@ -9,6 +9,7 @@ class people::ryan00 {
   include projects::bamboo-docker-plugin
   include skype
   include spectacle
+  include projects::enonya
 
 
   class { 'gpgtools': }
