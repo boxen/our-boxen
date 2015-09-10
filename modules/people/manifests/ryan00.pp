@@ -1,16 +1,15 @@
 class people::ryan00 {
   include cylent::dev_environment
-  include pycharm
   include iterm2::dev
   include dropbox
   include projects::portcullis
-  include docker
   include cylent::apps::ansible
   include projects::endpoint
   include projects::portal
   include projects::bamboo-docker-plugin
   include skype
   include spectacle
+
 
   class { 'gpgtools': }
 
@@ -46,7 +45,9 @@ class people::ryan00 {
   ->
   class { 'office':}
 
-
+  package { 'pycharm':
+    provider =>  'brewcask'
+  }
 
   repository { $python:
     source => 'barklyprotects/puppet-python',

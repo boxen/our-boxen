@@ -10,8 +10,6 @@ class people::mikesplain {
   include menumeters
   include sourcetree
   include tmux
-  include docker
-  include virtualbox
   include caffeine
   include flux
   include spf13vim3

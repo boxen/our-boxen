@@ -5,29 +5,18 @@ class cylent::apps::default_apps {
   include wget
   include xquartz
   include atom
-  include hipchat
   include macvim
   include vmware_fusion
   include cmake
   include iterm2::dev
   include tunnelblick
-  include java6 #needed for intellij
-  include java
-  include maven
   include googledrive
-  include virtualbox
   include screenhero
+  include cylent::apps::barkly_java
   include brewcask
 
   class { 'firefox':
      version => '36.0'
-  }
-
-  file {'node.zsh':
-    path => "${cylent_env}/zsh/node.zsh",
-    ensure => file,
-    require => [Repository[$cylent_dotfiles],File[$cylent_env]],
-    content => template("cylent/node_env.erb")
   }
 
   class {'intellij':
@@ -35,20 +24,27 @@ class cylent::apps::default_apps {
     version => '14.1.4'
   }
 
-
-  class {'vagrant':
-    version => '1.7.2'
-  }
-
-  class {'docker':
-    version => '1.8.1'
-  }
-
-  package {
-    'github-desktop': provider => 'brewcask'
-  }
-
   # Homebrew Packages
+
+  package { 'docker-machine':
+    ensure =>present,
+    provider => 'brewcask'
+  }
+
+  package { 'vagrant':
+    ensure => present,
+    provider => 'brewcask'
+  }
+
+  package { 'vagrant-manager':
+    ensure => present,
+    provider => 'brewcask'
+  }
+
+  package { 'github-desktop':
+    provider => 'brewcask'
+  }
+
   package {
     [
       'findutils',
