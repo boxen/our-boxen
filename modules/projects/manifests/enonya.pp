@@ -8,6 +8,11 @@ class projects::enonya {
     require => File[$cylent_repo_dir]
   }
 
+  repository { "${cylent_repo_dir}/malware-vpc-mgmt":
+    source => 'barklyprotects/malware-vpc-mgmt',
+    require => FILE[$cylent_repo_dir]
+  }
+
   python::mkvirtualenv {'enonya':
     ensure => present,
     systempkgs => true,
@@ -21,7 +26,7 @@ class projects::enonya {
   exec {'enonya-aws-set-version':
     command => "${python::config::venv_home}/enonya/bin/aws configure set default.s3.signature_version s3v4"
   }
-
+  ->
   file {'enonya.zsh':
     path => "${cylent_env}/enonya.zsh",
     ensure => file,
