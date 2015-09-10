@@ -1,18 +1,13 @@
-class people::sccsas {
-  ##### Projects #####
+class people::rixgit {
   include cylent::dev_environment
-  include projects::portal
-  include projects::endpoint
+  #  include pycharm
+  #  include iterm2::dev
+  #  include dropbox
+  #  include docker
+  #  include cylent::apps::ansible
+  #  include skype
+  include python 
 
-  ##### Apps #####
-  include iterm2::dev
-  include docker
-  include spectacle
-  include gimp
-  include virtualbox
-  include flux
-  include onepassword
-  include onepassword::chrome
 
   ###### Environment Settings ##########
   include osx::dock::autohide
@@ -21,12 +16,12 @@ class people::sccsas {
   include osx::finder::empty_trash_securely
   include osx::finder::show_hidden_files
 
-  class { 'osx::global::natural_mouse_scrolling':
-    enabled => false
-  }
+  $python     = "${cylent_repo_dir}/puppet-python"
+
 
   class { 'osx::dock::hot_corners':
-    top_right => 'Put Display to Sleep',
+    top_right => 'Application Windows',
+    top_left  => 'Desktop',
     bottom_right => 'Start Screen Saver',
     bottom_left => 'Dashboard'
   }
@@ -38,6 +33,12 @@ class people::sccsas {
     source => 'robbyrussell/oh-my-zsh',
     require => File[$cylent_repo_dir]
   }
+
+  repository { $python:
+    source => 'barklyprotects/puppet-python',
+    require => File[$cylent_repo_dir]
+  }
+
 
   file {"${home}/.zshrc":
     ensure  => link,

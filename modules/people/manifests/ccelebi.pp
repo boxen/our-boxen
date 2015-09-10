@@ -35,7 +35,8 @@ class people::ccelebi {
               'spotify',
               'torbrowser',
               'vlc',
-              'psequel'
+              'psequel',
+              'adium'
             ]: provider => 'brewcask'
   }
 

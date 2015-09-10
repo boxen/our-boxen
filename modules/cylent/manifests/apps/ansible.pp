@@ -50,6 +50,10 @@ class cylent::apps::ansible {
     before => Notify['awscli']
   }
   ->
+  python::pip {'pysphere':
+    virtualenv => "${python::config::venv_home}/ansible",
+  }
+  ->
   exec {'aws-set-version':
     command => "${python::config::venv_home}/ansible/bin/aws configure set default.s3.signature_version s3v4"
   }

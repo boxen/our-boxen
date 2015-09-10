@@ -11,13 +11,13 @@ class cylent::apps::default_apps {
   include cmake
   include iterm2::dev
   include tunnelblick
-  include github_for_mac
   include java6 #needed for intellij
   include java
   include maven
   include googledrive
   include virtualbox
   include screenhero
+  include brewcask
 
   class { 'firefox':
      version => '36.0'
@@ -41,7 +41,11 @@ class cylent::apps::default_apps {
   }
 
   class {'docker':
-    version => '1.7.1'
+    version => '1.8.1'
+  }
+
+  package {
+    'github-desktop': provider => 'brewcask'
   }
 
   # Homebrew Packages
