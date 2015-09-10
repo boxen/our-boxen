@@ -41,7 +41,7 @@ class cylent::apps::default_apps {
     provider => 'brewcask'
   }
 
-  package { 'github-desktop': 
+  package { 'github-desktop':
     provider => 'brewcask'
   }
 
