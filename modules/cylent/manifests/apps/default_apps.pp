@@ -13,8 +13,7 @@ class cylent::apps::default_apps {
   include googledrive
   include screenhero
   include cylent::apps::barkly_java
-
-
+  include brewcask
 
   class { 'firefox':
      version => '36.0'
@@ -42,7 +41,7 @@ class cylent::apps::default_apps {
     provider => 'brewcask'
   }
 
-  package { 'github-desktop':
+  package { 'github-desktop': 
     provider => 'brewcask'
   }
 

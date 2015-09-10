@@ -1,65 +1,29 @@
-class people::ccelebi {
-  notify {'Setting up Chris Celebi's Profile':}
+class people::rixgit {
   include cylent::dev_environment
-  include python::virtualenvwrapper
-  include cylent::apps::ansible
+  #  include pycharm
+  #  include iterm2::dev
+  #  include dropbox
+  #  include docker
+  #  include cylent::apps::ansible
+  #  include skype
+  include python 
 
-  include projects::endpoint
-  include projects::portal
-  include spectacle
-  include dropbox
-  include googledrive
-  include sourcetree
-  include caffeine
-  include flux
-  include spf13vim3
-  include usbethdriver
-
-  include brewcask
-  homebrew::tap { 'homebrew/dupes': }
-
-  package {
-            [
-              '1password',
-              'alfred',
-              'cakebrew',
-              'nmap'
-              'flash',
-              'gpgtools',
-              'android-file-transfer',
-              'menumeters',
-              'sequel-pro',
-              'slack',
-              'spotify',
-              'torbrowser',
-              'vlc',
-              'psequel',
-              'adium'
-            ]: provider => 'brewcask'
-  }
-
-  #Needed for ansible
-  $crypto_keys = "${home}/keys"
-
-  file {$crypto_keys:
-    ensure => directory
-  }
-
-  notify {'awscli':}
 
   ###### Environment Settings ##########
+  include osx::dock::autohide
   include osx::dock::dim_hidden_apps
   include osx::finder::show_all_on_desktop
   include osx::finder::empty_trash_securely
   include osx::finder::show_hidden_files
 
-  class { 'osx::global::natural_mouse_scrolling':
-    enabled => true
-  }
+  $python     = "${cylent_repo_dir}/puppet-python"
+
 
   class { 'osx::dock::hot_corners':
     top_right => 'Application Windows',
-    top_left  => 'Desktop'
+    top_left  => 'Desktop',
+    bottom_right => 'Start Screen Saver',
+    bottom_left => 'Dashboard'
   }
 
   include cylent::osx::dock::minimize_to_application
@@ -69,6 +33,12 @@ class people::ccelebi {
     source => 'robbyrussell/oh-my-zsh',
     require => File[$cylent_repo_dir]
   }
+
+  repository { $python:
+    source => 'barklyprotects/puppet-python',
+    require => File[$cylent_repo_dir]
+  }
+
 
   file {"${home}/.zshrc":
     ensure  => link,

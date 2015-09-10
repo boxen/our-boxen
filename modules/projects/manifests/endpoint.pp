@@ -5,15 +5,25 @@ class projects::endpoint {
     require => File[$cylent_repo_dir]
   }
 
-  repository { "${cylent_repo_dir}/SecureZone":
-    source => 'barklyprotects/securezone',
+  repository { "${cylent_repo_dir}/RapidVisor":
+    source => 'barklyprotects/RapidVisor',
     require => File[$cylent_repo_dir]
   }
 
-  repository { "${cylent_repo_dir}/trebuchet-x86":
-    source => 'barklyprotects/trebuchet-x86',
+  repository { "${cylent_repo_dir}/RV-Loaders":
+    source => 'barklyprotects/RV-Loaders',
     require => File[$cylent_repo_dir]
-  }
+  } 
+
+  repository { "${cylent_repo_dir}/RV-Shared":
+    source => 'barklyprotects/RV-Shared',
+    require => File[$cylent_repo_dir]
+  } 
+
+  repository { "${cylent_repo_dir}/RV-Tools":
+    source => 'barklyprotects/RV-Tools',
+    require => File[$cylent_repo_dir]
+  } 
 
   repository { "${cylent_repo_dir}/bandit":
     source => 'barklyprotects/bandit',

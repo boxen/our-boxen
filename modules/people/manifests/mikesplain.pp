@@ -47,7 +47,8 @@ class people::mikesplain {
       'rainbarf',
       'homebrew/dupes/grep',
       'reattach-to-user-namespace',
-      'mercurial'
+      'mercurial',
+      'ncdu'
     ]:
   }
 
