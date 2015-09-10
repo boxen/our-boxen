@@ -19,7 +19,7 @@ class projects::enonya {
   }
   ->
   python::pip {'enonya-awscli':
-    name => 'enonya',
+    name => 'awscli',
     virtualenv => "${python::config::venv_home}/enonya",
   }
   ->
