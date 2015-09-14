@@ -1,7 +1,7 @@
 # Personal Manifests
 
 Per-user manifests live in `modules/people/manifests/$login.pp`, where
-`$login` is a GitHub login. A simple user manifest example:
+`$login` is your BarklyProtects username. A simple user manifest example:
 
 ```puppet
 class people::jbarnette {
@@ -11,7 +11,7 @@ class people::jbarnette {
   $home     = "/Users/${::boxen_user}"
   $my       = "${home}/my"
   $dotfiles = "${my}/dotfiles"
-  
+
   file { $my:
     ensure  => directory
   }
@@ -22,8 +22,6 @@ class people::jbarnette {
   }
 }
 ```
-
-Note that if your GitHub username contains dashes, you should replace them by underscores in both the manifest name and the class name.
 
 ## Projects
 

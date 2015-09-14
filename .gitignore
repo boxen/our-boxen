@@ -9,4 +9,3 @@
 /tmp
 /shared/*
 !/shared/README.md
-/vendor/gems/

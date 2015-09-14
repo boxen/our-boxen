@@ -1,18 +1,16 @@
 # Our Boxen
 
-This is a template Boxen project designed for your organization to fork and
-modify appropriately.
-The Boxen rubygem and the Boxen puppet modules are only a framework for getting
-things done.
-This repository template is just a basic example of _how_ to do things with them.
+This is CYLENT System's Boxen project, created from Github's Boxen template
+project: https://github.com/boxen/our-boxen
+
+See the template project for more detailed information on Boxen.
 
 ## Getting Started
 
-To give you a brief overview, we're going to:
+The following sections will help:
 
 * Install dependencies (basically Xcode)
-* Bootstrap a boxen for your self/team/org/company
-* Then convert your local copy of that boxen to the post-bootstrapped version
+* Bootstrap a boxen for yourself
 
 There are a few potential conflicts to keep in mind.
 Boxen does its best not to get in the way of a dirty system,
@@ -31,117 +29,75 @@ and detect most of these and tell you anyway):
 
 ### Dependencies
 
-**Install the Xcode Command Lines Tools and/or full Xcode.**
+#### Install Xcode
 This will grant you the most predictable behavior in building apps like
 MacVim.
 
 How do you do it?
 
-#### OS X 10.9 (Mavericks)
-
-If you are using [`b26abd0` of boxen-web](https://github.com/boxen/boxen-web/commit/b26abd0d681129eba0b5f46ed43110d873d8fdc2)
-or newer, it will be automatically installed as part of Boxen.
-Otherwise, follow instructions below.
-
-#### OS X < 10.9
-
 1. Install Xcode from the Mac App Store.
-1. Open Xcode.
-1. Open the Preferences window (`Cmd-,`).
-1. Go to the Downloads tab.
-1. Install the Command Line Tools.
+1. Complete the installation by opening the Xcode app, accepting the licentse agreement, and waiting until the installation completes.
+1. Open a terminal, and run `xcode-select --install` to install the Xcode command line tools
+
+
+#### CYLENT Github Organization
+Ensure that your github account has been added to the CYLENT github organization, and that you have been added to the appropriate teams. Boxen requires access to some private CYLENT repositories, and so will fail if you don't have access.
+
+If you received an email invitation to the CYLENT github organization, make sure that you have accepted the invitation before proceeding.
+
+#### Enable FileVault
+FileVault must be enabled prior to running boxen. After enabling FileVault, make sure to reboot before proceeding.
+
+If you must run boxen without enabling FileVault (which should be avoided), you can run boxen with the `--no-fde` option.
 
 ### Bootstrapping
 
-Create a **new** git repository somewhere on the internet.
-It can be private or public -- it really doesn't matter.
-If you're making a repository on GitHub, you _may not_ want to fork this repo
-to get started.
-The reason for that is that you can't really make private forks of public
-repositories easily.
-
-Once you've done that, you can run the following to bootstrap
-your boxen:
+Run the following commands to bootstrap your boxen environment. This only needs
+to be done once.
 
 ```
 sudo mkdir -p /opt/boxen
-sudo chown ${USER}:staff /opt/boxen
-git clone https://github.com/boxen/our-boxen /opt/boxen/repo
-cd /opt/boxen/repo
-git remote rm origin
-git remote add origin <the location of my new git repository>
-git push -u origin master
+sudo chown -R ${USER}:staff /opt/boxen
+git clone https://github.com/barklyprotects/our-boxen.git /opt/boxen/repo
 ```
+
+Next, create your user-specific boxen file from the default:
+
+```
+cd /opt/boxen/repo/modules/people/manifests
+cp default.pp <your-github-username>.pp
+```
+
+Then open the newly created .pp file, and change the top line from "people::default" to "people::(your-github-username)"
 
 Now that your boxen is bootstrapped, you can run the following to
-install the default configuration from this repo:
+install the default configuration from this repo. __Running boxen the first time will take awhile__.
 
 ```
 cd /opt/boxen/repo
 ./script/boxen
 ```
 
-### Distributing
-
-That's enough to get your boxen into a usable state on other machines,
-usually.
-From there, we recommend setting up
-[boxen-web](https://github.com/boxen/boxen-web)
-as an easy way to automate letting other folks install your boxen.
-
-If you _don't_ want to use boxen-web, folks can get using your boxen like so:
-
-```
-sudo mkdir -p /opt/boxen
-sudo chown ${USER}:staff /opt/boxen
-git clone <location of my new git repository> /opt/boxen/repo
-cd /opt/boxen/repo
-./script/boxen
-```
-
-Keep in mind this requires you to encrypt your hard drive by default.
-If you do not want to do encrypt your hard drive, you can use the `--no-fde`.
-
-```
-./script/boxen --no-fde
-```
-
-It should run successfully, and should tell you to source a shell script
-in your environment.
-For users without a bash or zsh config or a `~/.profile` file,
-Boxen will create a shim for you that will work correctly.
-If you do have a `~/.bashrc` or `~/.zshrc`, your shell will not use
-`~/.profile` so you'll need to add a line like so at _the end of your config_:
-
-``` sh
-[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
-```
-
-Once your shell is ready, open a new tab/window in your Terminal
+Assuming that runs successfully, open a new tab/window in your Terminal
 and you should be able to successfully run `boxen --env`.
 If that runs cleanly, you're in good shape.
 
-## What You Get
+__Note that all repositories cloned by boxen will be placed in ~/cylent.__
 
-This template project provides the following by default:
+At this point, you should be able to run `boxen` from a terminal to re-run boxen at any point. If you or someone else updates our boxen configuration, for example to add a new application, then running `boxen` should add the new application
 
-* Homebrew
-* Git
-* Hub
-* dnsmasq w/ .dev resolver for localhost
-* rbenv
-* Full Disk Encryption requirement
-* Node.js 0.6
-* Node.js 0.8
-* Node.js 0.10
-* Ruby 1.9.3
-* Ruby 2.0.0
-* Ruby 2.1.0
-* Ruby 2.1.1
-* Ruby 2.1.2
-* ack
-* Findutils
-* GNU tar
+### Adding projects
+Common boxen configurations are encapsulated in projects. Configuring your machine for a particular project is as simple as adding that project to your personal boxen file. The projects that you add to your personal boxen file will be based on the type of work that you will be doing.
+
+For example, someone that will be working on the endpoint (hypervisor or node layer) would add the endpoint project to their boxen file by adding this line:
+
+```
+include projects::endpoint
+```
+
+All available projects can be found at /opt/boxen/repo/modules/projects/manifests
+
+You can stop reading here, and have a fully functioning boxen environment. Everything below is copied from Github's Boxen template project. Keep reading for additional information on using/customizing Boxen.
 
 ## Customizing
 
@@ -194,49 +150,6 @@ Now Puppet knows where to download the module from when you include it in your s
     # github "java",     "1.6.0"
     include java
 
-### Hiera
-
-Hiera is preferred mechanism to make changes to module defaults (e.g. default
-global ruby version, service ports, etc). This repository supplies a
-starting point for your Hiera configuration at `config/hiera.yml`, and an
-example data file at `hiera/common.yaml`. See those files for more details.
-
-The default `config/hiera.yml` is configured with a hierarchy that allows
-individuals to have their own hiera data file in
-`hiera/users/{github_login}.yaml` which augments and overrides
-site-wide values in `hiera/common.yaml`. This default is, as with most of the
-configuration in the example repo, a great starting point for many
-organisations, but is totally up to you. You might want to, for
-example, have a set of values that can't be overridden by adding a file to
-the top of the hierarchy, or to have values set on specific OS
-versions:
-
-```yaml
-# ...
-:hierarchy:
-  - "global-overrides.yaml"
-  - "users/%{::github_login}"
-  - "osx-%{::macosx_productversion_major}"
-  - common
-```
-
-### Node definitions
-
-Puppet has the concept of a
-['node'](http://docs.puppetlabs.com/references/glossary.html#agent),
-which is essentially the machine on which Puppet is running. Puppet looks for
-[node definitions](http://docs.puppetlabs.com/learning/agent_master_basic.html#node-definitions)
-in the `manifests/site.pp` file in the Boxen repo. You'll see a default node
-declaration that looks like the following:
-
-``` puppet
-node default {
-  # core modules, needed for most things
-  include dnsmasq
-
-  # more...
-}
-```
 
 ### How Boxen interacts with Puppet
 
@@ -291,26 +204,6 @@ will be working in).
 We support binary packaging for everything in Homebrew, rbenv, and nvm.
 See `config/boxen.rb` for the environment variables to define.
 
-## Sharing Boxen Modules
-
-If you've got a Boxen module you'd like to be grouped under the Boxen org,
-(so it can easily be found by others), please file an issue on this
-repository with a link to your module.
-We'll review the code briefly, and if things look pretty all right,
-we'll fork it under the Boxen org and give you read+write access to our
-fork.
-You'll still be the maintainer, you'll still own the issues and PRs.
-It'll just be listed under the boxen org so folks can find it more easily.
-
-##upgrading boxen
-See [FAQ-Upgrading](https://github.com/boxen/our-boxen/blob/master/docs/faq.md#q-how-do-you-upgrade-your-boxen-from-the-public-our-boxen).
-
-## Integrating with Github Enterprise
-
-If you're using a Github Enterprise instance rather than github.com,
-you will need to set the `BOXEN_GITHUB_ENTERPRISE_URL` and
-`BOXEN_REPO_URL_TEMPLATE` variables in your
-[Boxen config](config/boxen.rb).
 
 ## Halp!
 
