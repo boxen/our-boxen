@@ -1,13 +1,13 @@
 class people::rixgit {
   include cylent::dev_environment
-  #  include pycharm
-  #  include iterm2::dev
-  #  include dropbox
-  #  include docker
-  #  include cylent::apps::ansible
-  #  include skype
-  include python 
+  include iterm2::dev
+  include dropbox
+  include skype
+  include spectacle
+  include projects::enonya
 
+
+  class { 'gpgtools': }
 
   ###### Environment Settings ##########
   include osx::dock::autohide
@@ -16,22 +16,30 @@ class people::rixgit {
   include osx::finder::empty_trash_securely
   include osx::finder::show_hidden_files
 
-  $python     = "${cylent_repo_dir}/puppet-python"
-
 
   class { 'osx::dock::hot_corners':
-    top_right => 'Application Windows',
-    top_left  => 'Desktop',
+    top_right => 'Mission Control',
+    top_left  => 'Application Windows',
     bottom_right => 'Start Screen Saver',
-    bottom_left => 'Dashboard'
+    bottom_left => 'Desktop'
   }
 
   include cylent::osx::dock::minimize_to_application
 
-  ###### Set up oh-my-zsh environment ######
-  repository {"${cylent_repo_dir}/oh-my-zsh":
-    source => 'robbyrussell/oh-my-zsh',
-    require => File[$cylent_repo_dir]
+  ####### personal repositories #######
+  $python     = "${cylent_repo_dir}/puppet-python"
+  $crypto_keys = "${home}/keys"
+
+  file {$crypto_keys:
+    ensure => directory
+  }
+
+  notify {'awscli':}
+  ->
+  class { 'office':}
+
+  package { 'pycharm':
+    provider =>  'brewcask'
   }
 
   repository { $python:
@@ -39,6 +47,10 @@ class people::rixgit {
     require => File[$cylent_repo_dir]
   }
 
+  repository {"${cylent_repo_dir}/oh-my-zsh":
+    source => 'robbyrussell/oh-my-zsh',
+    require => File[$cylent_repo_dir]
+  }
 
   file {"${home}/.zshrc":
     ensure  => link,
@@ -57,4 +69,5 @@ class people::rixgit {
     path => ["/usr/bin","/bin"],
     onlyif => "bash -c test `dscl . -read /Users/${USER} UserShell | cut -d: -f2 | tr -d ' '` = /opt/boxen/homebrew/bin/zsh"
   }
+
 }
