@@ -106,6 +106,7 @@ elsif !%x(git status --porcelain).chomp.empty?
     back on the golden path:
 
       cd #{Dir.pwd}
+      git clean -df
       git reset --hard origin/master
       boxen
   END
