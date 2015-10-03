@@ -34,9 +34,17 @@ then
   fi
 fi
 
+osx_version() {
+  sw_vers -productVersion
+}
+
+osx_minor_version() {
+  echo $(osx_version) | cut -f 2 -d .
+}
+
 # Put xcrun shim on PATH if on Mountain Lion
 set +e
-OSX_VERSION_CHECK=`sw_vers | grep ProductVersion | cut -f 2 -d ':'  | egrep '10\.8'`
+OSX_VERSION_CHECK=`echo $(osx_version) | egrep '10\.8'`
 if [ $? -eq 0 ]; then
     export PATH=$(pwd)/vendor/shims:$PATH
 fi
@@ -46,9 +54,11 @@ set -e
 # native extensions won't fail, e.g. json
 # See https://developer.apple.com/library/ios/releasenotes/developertools/rn-xcode/Introduction/Introduction.html
 set +e
-CLTOOLS_VERSION_CHECK=`pkgutil --pkg-info=com.apple.pkg.CLTools_Executables | awk '/^version:/ {print $2}' | egrep -q '^5\.1' 2>/dev/null`
-if [ $? -eq 0 ]; then
-    export ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future
+if [ $(osx_minor_version) -le 9 ]; then
+  CLTOOLS_VERSION_CHECK=`pkgutil --pkg-info=com.apple.pkg.CLTools_Executables | awk '/^version:/ {print $2}' | egrep -q '^5\.1' 2>/dev/null`
+  if [ $? -eq 0 ]; then
+      export ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future
+  fi
 fi
 set -e
 
