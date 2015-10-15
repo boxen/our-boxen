@@ -51,7 +51,7 @@ end
 
 if all || opt
   warn "-> Removing /opt/boxen."
-  system "rm", "-rf", "/opt/boxen" if force
+  system "rm", "-rf", "/opt/boxen", "/usr/local/Library/Taps/boxen" if force
 end
 
 if all || receipts
