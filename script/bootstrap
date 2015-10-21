@@ -60,7 +60,7 @@ set -e
 }
 PATH="/Library/Ruby/bin:$(gem which bundler | sed -e 's!lib/bundler.rb!bin!'):$PATH"
 # Use checksums to quickly determine if we need to re-bundle
-
+PATH=${PATH}:/sbin
 checksum_bundle() {
     (((find Gemfile Gemfile.lock bin -type f) | xargs cat) && /usr/bin/ruby -v && bundle -v) | md5
 }
