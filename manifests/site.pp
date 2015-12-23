@@ -49,6 +49,7 @@ Service {
 Homebrew::Formula <| |> -> Package <| |>
 
 node default {
+  include dnsmasq
   include git
 
   # fail if FDE is not enabled
