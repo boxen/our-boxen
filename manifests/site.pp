@@ -8,9 +8,6 @@ Exec {
   user        => $boxen_user,
 
   path => [
-    "${boxen::config::home}/rbenv/shims",
-    "${boxen::config::home}/rbenv/bin",
-    "${boxen::config::home}/rbenv/plugins/ruby-build/bin",
     "${boxen::config::homebrewdir}/bin",
     '/usr/bin',
     '/bin',
@@ -52,39 +49,25 @@ Service {
 Homebrew::Formula <| |> -> Package <| |>
 
 node default {
-  # core modules, needed for most things
   include dnsmasq
   include git
-  include hub
-  include nginx
+  include osx::dock::autohide
+  include osx::dock::clear_dock
+  include osx::dock::hide_indicator_lights
+  include osx::dock::icon_size
+  include osx::finder::empty_trash_securely
+  include osx::finder::show_all_on_desktop
+  include osx::finder::show_hidden_files
+  include osx::finder::unhide_library
+  include osx::global::expand_print_dialog
+  include osx::global::expand_save_dialog
+  include osx::global::tap_to_click
+  include osx::keyboard::capslock_to_control
+  include osx::no_network_dsstores
+  include osx::safari::enable_developer_mode
 
   # fail if FDE is not enabled
   if $::root_encrypted == 'no' {
     fail('Please enable full disk encryption and try again')
-  }
-
-  # node versions
-  nodejs::version { '0.8': }
-  nodejs::version { '0.10': }
-  nodejs::version { '0.12': }
-
-  # default ruby versions
-  ruby::version { '1.9.3': }
-  ruby::version { '2.0.0': }
-  ruby::version { '2.1.7': }
-  ruby::version { '2.2.3': }
-
-  # common, useful packages
-  package {
-    [
-      'ack',
-      'findutils',
-      'gnu-tar'
-    ]:
-  }
-
-  file { "${boxen::config::srcdir}/our-boxen":
-    ensure => link,
-    target => $boxen::config::repodir
   }
 }
