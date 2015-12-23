@@ -60,6 +60,7 @@ node default {
   include osx::global::tap_to_click
   include osx::keyboard::capslock_to_control
   include osx::no_network_dsstores
+  include osx::safari::enable_developer_mode
 
   # fail if FDE is not enabled
   if $::root_encrypted == 'no' {
