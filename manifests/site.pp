@@ -51,6 +51,7 @@ Homebrew::Formula <| |> -> Package <| |>
 node default {
   include dnsmasq
   include git
+  include osx::finder::empty_trash_securely
   include osx::global::tap_to_click
   include osx::keyboard::capslock_to_control
 
