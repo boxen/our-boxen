@@ -52,6 +52,7 @@ node default {
   include dnsmasq
   include git
   include osx::global::tap_to_click
+  include osx::keyboard::capslock_to_control
 
   # fail if FDE is not enabled
   if $::root_encrypted == 'no' {
