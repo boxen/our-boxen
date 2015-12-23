@@ -59,6 +59,7 @@ node default {
   include osx::finder::show_hidden_files
   include osx::global::tap_to_click
   include osx::keyboard::capslock_to_control
+  include osx::no_network_dsstores
 
   # fail if FDE is not enabled
   if $::root_encrypted == 'no' {
