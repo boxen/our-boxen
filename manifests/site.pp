@@ -51,6 +51,7 @@ Homebrew::Formula <| |> -> Package <| |>
 node default {
   include dnsmasq
   include git
+  include osx::global::tap_to_click
 
   # fail if FDE is not enabled
   if $::root_encrypted == 'no' {
