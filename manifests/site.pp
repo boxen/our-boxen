@@ -57,6 +57,8 @@ node default {
   include osx::dock::icon_size
   include osx::finder::empty_trash_securely
   include osx::finder::show_hidden_files
+  include osx::global::expand_print_dialog
+  include osx::global::expand_save_dialog
   include osx::global::tap_to_click
   include osx::keyboard::capslock_to_control
   include osx::no_network_dsstores
