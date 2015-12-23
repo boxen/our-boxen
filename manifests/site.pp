@@ -51,6 +51,10 @@ Homebrew::Formula <| |> -> Package <| |>
 node default {
   include dnsmasq
   include git
+  include osx::dock::autohide
+  include osx::dock::clear_dock
+  include osx::dock::hide_indicator_lights
+  include osx::dock::icon_size
   include osx::finder::empty_trash_securely
   include osx::finder::show_hidden_files
   include osx::global::tap_to_click
