@@ -2,8 +2,24 @@ require boxen::environment
 require homebrew
 require gcc
 
+include git
+include hub
+include sublime_text::v2
+include intellij
+include adium
+include virtualbox
+include vagrant
+include chrome
+include skitch
+include iterm2::stable
+include iterm2::colors::solarized_dark
+include better_touch_tools
+include hipchat
+include firefox
+include ruby
+include alfred
+
 Exec {
-  group       => 'staff',
   logoutput   => on_failure,
   user        => $boxen_user,
 
@@ -25,7 +41,6 @@ Exec {
 }
 
 File {
-  group => 'staff',
   owner => $boxen_user
 }
 
@@ -51,40 +66,22 @@ Service {
 
 Homebrew::Formula <| |> -> Package <| |>
 
-node default {
-  # core modules, needed for most things
-  include dnsmasq
-  include git
-  include hub
-  include nginx
-
-  # fail if FDE is not enabled
-  if $::root_encrypted == 'no' {
-    fail('Please enable full disk encryption and try again')
-  }
-
-  # node versions
-  nodejs::version { '0.8': }
-  nodejs::version { '0.10': }
-  nodejs::version { '0.12': }
-
-  # default ruby versions
-  ruby::version { '1.9.3': }
-  ruby::version { '2.0.0': }
-  ruby::version { '2.1.8': }
-  ruby::version { '2.2.4': }
-
-  # common, useful packages
-  package {
-    [
-      'ack',
-      'findutils',
-      'gnu-tar'
-    ]:
-  }
-
-  file { "${boxen::config::srcdir}/our-boxen":
-    ensure => link,
-    target => $boxen::config::repodir
-  }
+package {
+  [
+    'ack',
+    'findutils',
+    'gnu-tar',
+    'wget',
+    'docker',
+    'graphviz',
+    'jq',
+    'maven',
+    'openssl',
+    'protobuf241',
+    'sqlite',
+    'tmux',
+    'tree',
+    'pdsh',
+    'readline'
+  ]:
 }

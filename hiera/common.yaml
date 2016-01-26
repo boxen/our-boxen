@@ -8,8 +8,7 @@
 # heart's content.
 
 # See https://github.com/boxen/puppet-ruby for docs
-ruby::global::version: "2.2.3"
-ruby::build::ensure: "v20151024"
+ruby::global::version: "2.0.0"
 ruby::rbenv_plugins:
   rbenv-vars:
     ensure: v1.0.0
@@ -17,5 +16,7 @@ ruby::rbenv_plugins:
 ruby::version::alias:
   2.0.0: 2.0.0-p647
 
-# See https://github.com/boxen/puppet-java for docs
-java::update_version: 51
+vagrant::version: "1.7.4"
+
+intellij::edition: "ultimate"
+intellij::version: "15.0.2"
