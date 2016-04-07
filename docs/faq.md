@@ -54,7 +54,7 @@ The next step is to update your Puppet modules and RubyGems. First delete Puppet
 ```bash
 rm Puppetfile.lock Gemfile.lock
 bundle install --no-deployment --without development --path .bundle
-bundle exec librarian-puppet install --clean
+bundle exec librarian-puppet install --path=shared --clean
 ```
 
 ### Q: What's a good approach to merging our-boxen back into my private fork?
@@ -65,7 +65,7 @@ One approach is to delete the Gemfile.lock and Puppetfile.lock and run:
     bundle install --without development --path .bundle
 
     # Regenerates Puppetfile.lock and caches tarballs
-    bundle exec librarian-puppet install --clean
+    bundle exec librarian-puppet install --path=shared --clean
 
 These will generate the respective lock files suitable for committing. Hope that helps.
 
