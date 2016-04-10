@@ -1,0 +1,15 @@
+set tabsize 2
+set tabstospaces
+
+## C/C++
+include "~/.nano/c.nanorc"
+
+## Puppet
+include "~/.nano/puppet.nanorc"
+
+## python
+include "~/.nano/python.nanorc"
+
+## sh
+include "~/.nano/sh.nanorc"
+
