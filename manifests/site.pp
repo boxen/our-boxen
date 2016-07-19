@@ -43,13 +43,12 @@ postgresql::db { 'mydb': }
 include mongodb
 
 # https://github.com/boxen/puppet-osx
-include osx
-osx::safari::enable_developer_mode
+inclued osx::finder::empty_trash_securely
+inclued osx::finder::show_all_on_desktop
+inclued osx::no_network_dsstores
+inclued osx::safari::enable_developer_mode
+inclued osx::software_update
 osx::recovery_message { 'If this Mac is found, please call (615) 678-4922': }
-osx::software_update
-osx::finder::show_all_on_desktop
-osx::finder::empty_trash_securely
-osx::no_network_dsstores
 
 
 
