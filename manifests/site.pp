@@ -1,3 +1,64 @@
+# pp file is the global configuration that defines which rules you want to use.
+
+# By default boxen will look into the modules/people/manifests dir for user specific .pp files.
+# It will use your github username to track down your file (modules/people/manifests/mcansky.pp).
+# Instead of adding things to the site.pp file you should add them in your user's pp file. It's cleaner.
+
+
+# fortyAU thangs #
+##################
+
+
+include sourcetree
+include hipchat
+include lastpass
+
+
+include chrome
+include firefox
+
+# jmharris229
+
+
+
+# anyone working with vms or hca
+include virtualbox
+
+
+# https://github.com/boxen/puppet-heroku
+include heroku
+heroku::plugin { 'accounts':
+  source => 'ddollar/heroku-accounts'
+}
+
+# https://github.com/boxen/puppet-atom
+include atom
+atom::package { 'linter': }
+atom::theme { 'monokai': }
+
+# https://github.com/boxen/puppet-mysql
+include mysql
+mysql::db { 'mydb': }
+
+# https://github.com/boxen/puppet-postgresql
+include postgresql
+postgresql::db { 'mydb': }
+
+# https://github.com/boxen/puppet-mongodb
+include mongodb
+
+# https://github.com/boxen/puppet-osx
+include osx::recovery_message { 'If this Mac is found, please call (615) 678-4922': }
+include osx::software_update
+include osx::finder::show_all_on_desktop
+include osx::finder::empty_trash_securely
+include osx::no_network_dsstores
+
+
+
+# Stock Config #
+################
+
 require boxen::environment
 require homebrew
 require gcc
