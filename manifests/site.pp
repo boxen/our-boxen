@@ -9,16 +9,13 @@
 ##################
 
 
-include sourcetree
-include hipchat
-include lastpass
-
-
 include chrome
 include firefox
+include osx::safari::enable_developer_mode
 
-# jmharris229
-
+include hipchat
+include lastpass
+include sourcetree
 
 
 # anyone working with vms or hca

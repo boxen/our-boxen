@@ -1,25 +1,59 @@
 class people::farfromguam {
-  `
-  include osx::dock::2d
-  include osx::dock::autohide
-  include osx::dock::clear_dock
-  include osx::dock::disable
-  include osx::dock::disable_dashboard
-  include osx::dock::dim_hidden_apps
-  include osx::dock::hide_indicator_lights
+  include ::people::farfromguam::env_settings
 
-  include osx::finder::show_all_filename_extensions
-  include osx::finder::no_file_extension_warnings
+  $_apps = hiera('apps', undef)
+  $_homebrew_packages = hiera('homebrew::packages', undef)
+  $_homebrew_casks = hiera('homebrew::casks', undef)
+  $_homebrew_taps = hiera('homebrew::taps', undef)
+  $_homebrew_urls = hiera('homebrew::urls', undef)
+  $_appstore_apps = hiera('appstore::apps', undef)
+  $_python_pips   = hiera('python::pips', undef)
+  $_homedir = "/Users/${::luser}"
 
+  if $_python_pips {
+a   validate_array($_python_pips)
+  }
 
-  include steam
-  include appcleaner
-  include flux
-  include caffeine
+  if $_apps {
+    validate_array($_apps)
+    include $_apps
+  }
 
+  if $_appstore_apps {
+    validate_hash($_appstore_apps)
+    create_resources('appstore::app', $_appstore_apps)
+  }
 
-  # https://github.com/boxen/puppet-karabiner
-  include karabiner
-  include karabiner::login_item
+  if $_homebrew_packages {
+    package { $_homebrew_packages:
+      ensure   => present,
+      provider => 'homebrew',
+    }
+  }
 
+  if $_homebrew_taps {
+    homebrew::tap { $_homebrew_taps: }
+    Homebrew::Tap<||> -> Package<| provider == 'homebrew' |>
+  }
+
+  if $_homebrew_casks {
+    include ::brewcask
+    package { $_homebrew_casks:
+      ensure   => present,
+      provider => 'brewcask',
+    }
+
+    sudoers { 'cask-installer':
+      users    => $::boxen_user,
+      hosts    => 'ALL',
+      commands => [
+        '(ALL) NOPASSWD:SETENV: /usr/sbin/installer',
+      ],
+      type     => 'user_spec',
+    }
+  }
+
+  if $_homebrew_urls {
+    ::adapter::homebrew_url { $_homebrew_urls: }
+  }
 }
