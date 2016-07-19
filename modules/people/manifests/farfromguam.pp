@@ -1,59 +1,57 @@
 class people::farfromguam {
-  include ::people::farfromguam::env_settings
 
-  $_apps = hiera('apps', undef)
-  $_homebrew_packages = hiera('homebrew::packages', undef)
-  $_homebrew_casks = hiera('homebrew::casks', undef)
-  $_homebrew_taps = hiera('homebrew::taps', undef)
-  $_homebrew_urls = hiera('homebrew::urls', undef)
-  $_appstore_apps = hiera('appstore::apps', undef)
-  $_python_pips   = hiera('python::pips', undef)
-  $_homedir = "/Users/${::luser}"
+  # Recovery Message on Lock Screen
+  osx::recovery_message { '@farfromguam - If this Mac is found, please call +1.901.604.5976': }
 
-  if $_python_pips {
-a   validate_array($_python_pips)
+  # Global Settings
+  include osx::global::disable_autocorrect
+  include osx::global::disable_key_press_and_hold
+  include osx::global::disable_remote_control_ir_receiver
+  include osx::global::enable_keyboard_control_access
+  include osx::global::expand_print_dialog
+  include osx::global::expand_save_dialog
+  include osx::global::tap_to_click
+
+  # Fonts
+  include fonts::adobe
+
+  # Finder Settings
+  include osx::finder::empty_trash_securely
+  include osx::finder::no_file_extension_warnings
+  include osx::finder::show_all_filename_extensions
+  include osx::finder::show_all_on_desktop
+  include osx::finder::unhide_library
+
+  # Dock Settings
+  include osx::dock::autohide
+  include osx::dock::2d
+  include osx::dock::clear_dock
+  include osx::dock::disable_dashboard
+  include osx::dock::dim_hidden_apps
+  include osx::dock::hide_indicator_lights
+  class { 'osx::dock::icon_size':
+    size => 36,
   }
 
-  if $_apps {
-    validate_array($_apps)
-    include $_apps
+  # Misc Settings
+  include osx::disable_app_quarantine
+  include osx::no_network_dsstores
+  include osx::software_update
+
+  include osx::safari::enable_developer_mode
+
+  class { 'osx::sound::interface_sound_effects':
+    enable => false,
   }
 
-  if $_appstore_apps {
-    validate_hash($_appstore_apps)
-    create_resources('appstore::app', $_appstore_apps)
-  }
 
-  if $_homebrew_packages {
-    package { $_homebrew_packages:
-      ensure   => present,
-      provider => 'homebrew',
-    }
-  }
+  # https://github.com/boxen/puppet-karabiner
+  include karabiner
+  include karabiner::login_item
 
-  if $_homebrew_taps {
-    homebrew::tap { $_homebrew_taps: }
-    Homebrew::Tap<||> -> Package<| provider == 'homebrew' |>
-  }
-
-  if $_homebrew_casks {
-    include ::brewcask
-    package { $_homebrew_casks:
-      ensure   => present,
-      provider => 'brewcask',
-    }
-
-    sudoers { 'cask-installer':
-      users    => $::boxen_user,
-      hosts    => 'ALL',
-      commands => [
-        '(ALL) NOPASSWD:SETENV: /usr/sbin/installer',
-      ],
-      type     => 'user_spec',
-    }
-  }
-
-  if $_homebrew_urls {
-    ::adapter::homebrew_url { $_homebrew_urls: }
-  }
+  # apps
+  include appcleaner
+  include caffeine
+  include flux
+  include steam
 }
