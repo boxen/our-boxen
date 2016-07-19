@@ -9,7 +9,7 @@
 ##################
 
 
-include chrome
+# include chrome
 include firefox
 include osx::safari::enable_developer_mode
 
