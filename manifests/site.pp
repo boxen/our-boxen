@@ -8,9 +8,7 @@
 # fortyAU thangs #
 ##################
 
-# https://github.com/boxen/puppet-chrome
 include chrome
-
 include firefox
 include osx::safari::enable_developer_mode
 
@@ -46,11 +44,11 @@ postgresql::db { 'mydb': }
 include mongodb
 
 # https://github.com/boxen/puppet-osx
-osx::recovery_message { 'If this Mac is found, please call (615) 678-4922': }
-osx::software_update
-osx::finder::show_all_on_desktop
-osx::finder::empty_trash_securely
-osx::no_network_dsstores
+include osx::recovery_message { 'If this Mac is found, please call (615) 678-4922': }
+include osx::software_update
+include osx::finder::show_all_on_desktop
+include osx::finder::empty_trash_securely
+include osx::no_network_dsstores
 
 
 
