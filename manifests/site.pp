@@ -8,8 +8,9 @@
 # fortyAU thangs #
 ##################
 
+# https://github.com/boxen/puppet-chrome
+include chrome
 
-# include chrome
 include firefox
 include osx::safari::enable_developer_mode
 
