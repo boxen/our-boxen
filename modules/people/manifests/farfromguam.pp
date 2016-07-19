@@ -44,7 +44,6 @@ class people::farfromguam {
     enable => false,
   }
 
-
   # https://github.com/boxen/puppet-karabiner
   include karabiner
   include karabiner::login_item
