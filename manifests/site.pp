@@ -10,15 +10,10 @@
 
 include chrome
 include firefox
-
 include hipchat
 include lastpass
 include sourcetree
-
-
-# anyone working with vms or hca
 include virtualbox
-
 
 # https://github.com/boxen/puppet-heroku
 include heroku
