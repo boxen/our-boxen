@@ -52,6 +52,8 @@ include osx::safari::enable_developer_mode
 include osx::software_update
 osx::recovery_message { 'If this Mac is found, please call (615) 678-4922': }
 
+# Java
+include java
 
 
 # Stock Config #
