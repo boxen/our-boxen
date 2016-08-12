@@ -30,8 +30,32 @@ heroku::plugin { 'accounts':
 
 # https://github.com/boxen/puppet-atom
 include atom
+atom::package { 'aligner': }
+atom::package { 'aligner-ruby': }
+atom::package { 'atom-beautify': }
+atom::package { 'atom-pair': }
+atom::package { 'autocomplete-elixir': }
+atom::package { 'codo': }
+atom::package { 'imdone-atom': }
+atom::package { 'impress': }
+atom::package { 'line-count-status': }
 atom::package { 'linter': }
+atom::package { 'linter-coffee-variables': }
+atom::package { 'linter-eslint': }
+atom::package { 'linter-js-standard': }
+atom::package { 'linter-jsxhint': }
+atom::package { 'linter-ruby': }
+atom::package { 'linter-sass-lint': }
+atom::package { 'linter-stylint': }
+atom::package { 'markdown-preview-plus': }
+atom::package { 'node-debugger': }
+atom::package { 'pigments': }
+atom::package { 'softTabs": true': }
+atom::package { 'symbols-tree-view': }
+atom::package { 'sync-settings': }
+atom::package { 'tab-switcher': }
 atom::theme { 'monokai': }
+
 
 # https://github.com/boxen/puppet-mysql
 include mysql
