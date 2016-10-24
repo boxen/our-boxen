@@ -41,7 +41,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-hub
   specs:
-    hub (1.4.3)
+    hub (1.4.4)
 
 GITHUBTARBALL
   remote: boxen/puppet-nginx
@@ -112,7 +112,7 @@ DEPENDENCIES
   git (= 2.10.0)
   go (= 2.1.0)
   homebrew (= 2.1.0)
-  hub (= 1.4.3)
+  hub (= 1.4.4)
   inifile (= 1.4.1)
   module_data (= 0.0.4)
   nginx (= 1.7.0)
