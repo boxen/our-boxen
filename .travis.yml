@@ -1,0 +1,4 @@
+os:
+  - osx
+osx_image: xcode8
+script: "sw_vers"
