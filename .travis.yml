@@ -2,4 +2,6 @@ os:
   - osx
 rvm:
   - 2.1.5
-script: "sw_vers"
+script:
+  - mkdir -p /opt/boxen
+  - git clone --depth=50 https://github.com/boxen/our-boxen.git /opt/boxen/repo
