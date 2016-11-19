@@ -3,6 +3,6 @@ os:
 rvm:
   - 2.1.5
 script:
-  - echo $PWD
-  - pwd
   - sudo mkdir -p /opt/boxen
+  - sudo ln -s /opt/boxen/repo $PWD
+  - ls -la /opt/boxen/repo
