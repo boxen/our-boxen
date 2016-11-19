@@ -3,6 +3,4 @@ os:
 rvm:
   - 2.1.5
 script:
-  - sudo mkdir -p /opt/boxen
-  - sudo ln -s /opt/boxen/repo $PWD
-  - ls -la /opt/boxen/repo
+  - ./script/boxen --no-fde
