@@ -2,5 +2,6 @@ os:
   - osx
 rvm:
   - 2.0.0
+  - 2.1.0
 script:
   - ./script/boxen --no-fde --no-pull
