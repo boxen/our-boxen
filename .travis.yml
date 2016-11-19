@@ -3,6 +3,6 @@ os:
 rvm:
   - 2.1.5
 script:
-  - ls -lah /
+  - echo $PWD
+  - pwd
   - sudo mkdir -p /opt/boxen
-  - ls -lah /
