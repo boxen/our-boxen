@@ -3,4 +3,4 @@ os:
 rvm:
   - 2.1.5
 script:
-  - ./script/boxen --no-fde
+  - ./script/boxen --no-fde --no-pull
