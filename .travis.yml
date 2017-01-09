@@ -2,7 +2,7 @@ os:
 - osx
 script:
 - travis_wait rvm implode --force
-- travis_wait ./script/boxen --no-fde --no-pull
+- travis_wait 60 ./script/boxen --no-fde --no-pull
 - source /opt/boxen/env.sh
 - rake spec
 before_install:
