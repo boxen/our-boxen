@@ -8,5 +8,4 @@ script:
 - ./script/boxen --no-fde --no-pull
 env:
   global:
-    - BOXEN_GITHUB_LOGIN: boxentestuser
-    - secure: B4JyOcid+Xr/MhPsbZCR5+1tkgwnhtDVyIFM9WB/caR3BVQQTdaKILNiJu4W3Bh9HRFtBAnzhOaCW1H+cH9/oGQboXvOxVR4u1vWm3hvR81zyWb5H04e7nLU1jh0IusoXKf7gEO6jUS0IO3S2fMmPabX5hi+dimJE2u/xF1bO20=
+    secure: GNYKNa9iSids5//EI2uf7zvyGL5jipseRqXphdUeEosEHoPqwrdwE4+VvkKg4PosP425X9OWZnG177mle3ufHVnWNhvpSzNGEG8BReg/GWquGkS3rbp+NbVihCTT8ADcVc3suYVlPPxahjqp0uHnfw1oXdmGU6FRN86f8NL8+t4=
