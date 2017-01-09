@@ -3,6 +3,7 @@ os:
 script:
 - rvm implode --force
 - ./script/boxen --no-fde --no-pull
+- source /opt/boxen/env.sh
 before_install:
 - sudo gem install bundler -v '~> 1.13'
 env:
