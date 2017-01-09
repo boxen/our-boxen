@@ -3,6 +3,8 @@ os:
 script:
 - rvm implode --force
 - ./script/boxen --no-fde --no-pull
+before_install:
+  - gem install bundler -v '~> 1.13'
 env:
   global:
     secure: GNYKNa9iSids5//EI2uf7zvyGL5jipseRqXphdUeEosEHoPqwrdwE4+VvkKg4PosP425X9OWZnG177mle3ufHVnWNhvpSzNGEG8BReg/GWquGkS3rbp+NbVihCTT8ADcVc3suYVlPPxahjqp0uHnfw1oXdmGU6FRN86f8NL8+t4=
