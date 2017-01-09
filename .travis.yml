@@ -1,8 +1,11 @@
 os:
-  - osx
+- osx
 rvm:
-  - 2.0.0
-  - 2.1.0
+- 2.0.0
+- 2.1.0
 bundler_args: --local
 script:
-  - ./script/boxen --no-fde --no-pull
+- ./script/boxen --no-fde --no-pull
+env:
+  - BOXEN_GITHUB_LOGIN: boxentestuser
+  - secure: B4JyOcid+Xr/MhPsbZCR5+1tkgwnhtDVyIFM9WB/caR3BVQQTdaKILNiJu4W3Bh9HRFtBAnzhOaCW1H+cH9/oGQboXvOxVR4u1vWm3hvR81zyWb5H04e7nLU1jh0IusoXKf7gEO6jUS0IO3S2fMmPabX5hi+dimJE2u/xF1bO20=
