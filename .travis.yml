@@ -5,6 +5,7 @@ rvm:
 - 2.1.0
 bundler_args: --local
 script:
+- rvm implode
 - ./script/boxen --no-fde --no-pull
 env:
   global:
