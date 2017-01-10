@@ -2,11 +2,11 @@ os:
 - osx
 script:
 - travis_wait rvm implode --force
-- ./script/boxen --no-fde --no-pull --debug --profile
+- ./script/boxen --no-fde --no-pull --debug --profile --login $BOXEN_GITHUB_LOGIN --token $BOXEN_GITHUB_TOKEN
 - source /opt/boxen/env.sh
 - rake spec
 before_install:
 - sudo gem install bundler -v '~> 1.13'
 env:
   global:
-    secure: GNYKNa9iSids5//EI2uf7zvyGL5jipseRqXphdUeEosEHoPqwrdwE4+VvkKg4PosP425X9OWZnG177mle3ufHVnWNhvpSzNGEG8BReg/GWquGkS3rbp+NbVihCTT8ADcVc3suYVlPPxahjqp0uHnfw1oXdmGU6FRN86f8NL8+t4=
+    secure: HoCPuAgujmw+tdH7qq9bSymtpE8o4gpp1uYRyFin2TB3px2JdOPCPCb754vddmE12zhhKKSy1j0Uj/qeW6tjy9hIhlAjLAGFuT+mNTURqu4nmojCgKO2ApcRWc3yv319XR2vjUDW1qmEyKm7il4q1c/dOFmGbVYeDixjUUfWVII=
