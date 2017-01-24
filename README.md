@@ -37,11 +37,17 @@ MacVim.
 
 How do you do it?
 
-#### OS X 10.9 (Mavericks)
+#### OS X 10.9 (Mavericks) with boxen-web
 
 If you are using [`b26abd0` of boxen-web](https://github.com/boxen/boxen-web/commit/b26abd0d681129eba0b5f46ed43110d873d8fdc2)
-or newer, it will be automatically installed as part of Boxen.
+or newer, Xcode Command Line Tools will be automatically installed as part of Boxen.
 Otherwise, follow instructions below.
+
+##### OS X < 10.9 (Mavericks) without auto install
+
+1. Install Xcode from the Mac App Store.
+1. In terminal, run `xcode-select --install`
+1. Confirm the pop-up `Install`
 
 #### OS X < 10.9
 
@@ -50,6 +56,22 @@ Otherwise, follow instructions below.
 1. Open the Preferences window (`Cmd-,`).
 1. Go to the Downloads tab.
 1. Install the Command Line Tools.
+
+#### Full Disk Encryption
+
+Boxen's default assumes Full Disk Encryption. You need to enable this in `System Preferences / Security & Privacy / FileVault` and then restart to apply this.
+
+If you don't want FDE, see the note [below](#bypassing-fde-requirement).
+
+#### Github API Token
+
+You can use an GitHub API token to provide easy access to GitHub from the command line.
+Once your project was many modules, you will eventually run up against GitHub's default API
+rate limits. Setting up an GitHub API token will allow higher access limits.
+
+* Get a token from https://github.com/settings/applications#personal-access-tokens
+* Add the token using export GITHUB_API_TOKEN=[token] or add to your `~/.bashrc`,
+`~/.zshrc`, or appropriate dotfile.
 
 ### Bootstrapping
 
@@ -89,7 +111,7 @@ From there, we recommend setting up
 [boxen-web](https://github.com/boxen/boxen-web)
 as an easy way to automate letting other folks install your boxen.
 
-If you _don't_ want to use boxen-web, folks can get using your boxen like so:
+If you _don't_ want to use boxen-web, folks can start using your boxen like so:
 
 ```
 sudo mkdir -p /opt/boxen
@@ -99,8 +121,9 @@ cd /opt/boxen/repo
 ./script/boxen
 ```
 
-Keep in mind this requires you to encrypt your hard drive by default.
-If you do not want to do encrypt your hard drive, you can use the `--no-fde`.
+#### Bypassing FDE Requirement
+
+Keep in mind that the manual bootstraping method requires you to encrypt your hard drive by default. If you do not want to do encrypt your hard drive, you can use `--no-fde`.
 
 ```
 ./script/boxen --no-fde
@@ -118,7 +141,7 @@ If you do have a `~/.bashrc` or `~/.zshrc`, your shell will not use
 ```
 
 Once your shell is ready, open a new tab/window in your Terminal
-and you should be able to successfully run `boxen --env`.
+and you should be able to successfully run `boxen --env` to display the current config.
 If that runs cleanly, you're in good shape.
 
 ## What You Get
@@ -193,6 +216,12 @@ Now Puppet knows where to download the module from when you include it in your s
     # include the java module referenced in my Puppetfile with the line
     # github "java",     "1.6.0"
     include java
+
+### Updating modules
+
+* To check for modules updates defined in your `Puppetfile`, run `bundle exec librarian-puppet outdated`. You'll probably need a Github API Token [see above](#github-api-token) to avoid Github's API rate limits.
+* Note the version number refers to a repo tag
+* Update your Puppetfile with the newer version and run `boxen` to install the new version.
 
 ### Hiera
 
@@ -296,7 +325,7 @@ See `config/boxen.rb` for the environment variables to define.
 If you've got a Boxen module you'd like to be grouped under the Boxen org,
 (so it can easily be found by others), please file an issue on this
 repository with a link to your module.
-We'll review the code briefly, and if things look pretty all right,
+We'll review the code, and if things look good,
 we'll fork it under the Boxen org and give you read+write access to our
 fork.
 You'll still be the maintainer, you'll still own the issues and PRs.
