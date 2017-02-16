@@ -14,6 +14,9 @@ def github(name, *args)
 
   if path = options.delete(:path)
     mod name, :path => path
+  elsif repo = options.delete(:git)
+    ref = options.delete(:ref) || 'master'
+    mod name, :git => repo, :ref => ref 
   else
     version = args.first
     options[:repo] ||= "boxen/puppet-#{name}"
