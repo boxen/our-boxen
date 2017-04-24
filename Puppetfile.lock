@@ -1,7 +1,7 @@
 GITHUBTARBALL
   remote: boxen/puppet-boxen
   specs:
-    boxen (3.11.1)
+    boxen (3.12.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-brewcask
@@ -104,7 +104,7 @@ GITHUBTARBALL
     module_data (0.0.4)
 
 DEPENDENCIES
-  boxen (= 3.11.1)
+  boxen (= 3.12.0)
   brewcask (= 0.0.7)
   dnsmasq (= 2.0.2)
   foreman (= 1.2.0)
