@@ -60,6 +60,15 @@ set -e
         /usr/bin/gem install bundler -v '~> 1.10.5' --no-rdoc --no-ri
 }
 PATH="/Library/Ruby/bin:$(gem which bundler | sed -e 's!lib/bundler.rb!bin!'):$PATH"
+
+# Run any user defined hooks before calculating checksum
+# so if the gemfile gets modified we can re-bundle if so.
+for hook in script/bootstrap-hooks/*; do
+    if [ -x $hook ] && [ ! -d $hook ]; then
+        $hook
+    fi
+done
+
 # Use checksums to quickly determine if we need to re-bundle
 PATH=${PATH}:/sbin
 checksum_bundle() {
