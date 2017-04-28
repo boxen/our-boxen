@@ -58,17 +58,12 @@ github "repository",  "2.4.1"
 github "ruby",        "8.5.4"
 github "stdlib",      "4.7.0", :repo => "puppetlabs/puppetlabs-stdlib"
 github "sudo",        "1.0.0"
-github "sublime_text"
-github "intellij"
-github "adium"
+github "atom"
 github "virtualbox"
 github "vagrant"
 github "chrome"
-github "firefox"
 github "skitch"
 github "iterm2"
-github "better_touch_tools"
-github "hipchat"
 
 
 

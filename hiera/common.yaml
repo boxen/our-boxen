@@ -16,7 +16,3 @@ ruby::rbenv_plugins:
 ruby::version::alias:
   2.0.0: 2.0.0-p647
 
-vagrant::version: "1.7.4"
-
-intellij::edition: "ultimate"
-intellij::version: "15.0.2"

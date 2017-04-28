@@ -4,8 +4,6 @@ require gcc
 
 include git
 include hub
-include sublime_text::v2
-include intellij
 include adium
 include virtualbox
 include vagrant
@@ -13,11 +11,9 @@ include chrome
 include skitch
 include iterm2::stable
 include iterm2::colors::solarized_dark
-include better_touch_tools
 include hipchat
 include firefox
 include ruby
-include alfred
 
 Exec {
   logoutput   => on_failure,
@@ -84,4 +80,13 @@ package {
     'pdsh',
     'readline'
   ]:
+}
+
+package { 'intellij':
+  provider => 'brewcask',
+  version => '2016.1'
+}
+
+package { 'istatmenus':
+  provider => 'brewcask'
 }
