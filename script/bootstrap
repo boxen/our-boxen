@@ -46,6 +46,7 @@ set -e
 # native extensions won't fail, e.g. json
 # See https://developer.apple.com/library/ios/releasenotes/developertools/rn-xcode/Introduction/Introduction.html
 set +e
+PATH=${PATH}:/usr/sbin
 CLTOOLS_VERSION_CHECK=`pkgutil --pkg-info=com.apple.pkg.CLTools_Executables | awk '/^version:/ {print $2}' | egrep -q '^5\.1' 2>/dev/null`
 if [ $? -eq 0 ]; then
     export ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future
@@ -53,16 +54,14 @@ fi
 set -e
 
 # FIX: only sudo if gem home isn't writable
-
-(/usr/bin/gem spec bundler -v '~> 1.5.3' >/dev/null 2>&1) || {
+(/usr/bin/gem spec bundler -v '~> 1.10.5' >/dev/null 2>&1) || {
     log "====> Installing bundler to system ruby"
     /usr/bin/sudo -p "Password for sudo to install bundler: " \
-        /usr/bin/gem install bundler -v '~> 1.5.3' --no-rdoc --no-ri
+        /usr/bin/gem install bundler -v '~> 1.10.5' --no-rdoc --no-ri
 }
-PATH="/Library/Ruby/bin:$PATH"
-
+PATH="/Library/Ruby/bin:$(gem which bundler | sed -e 's!lib/bundler.rb!bin!'):$PATH"
 # Use checksums to quickly determine if we need to re-bundle
-
+PATH=${PATH}:/sbin
 checksum_bundle() {
     (((find Gemfile Gemfile.lock bin -type f) | xargs cat) && /usr/bin/ruby -v && bundle -v) | md5
 }

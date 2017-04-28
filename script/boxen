@@ -152,7 +152,7 @@ end
 
 # Make sure our local dependencies are up to date.
 
-strap = %w(script/bootstrap --quiet --deployment --local --without development:test --no-cache)
+strap = %w(script/bootstrap --quiet --deployment --local --without development --no-cache)
 abort "Can't bootstrap, dependencies are outdated." unless system *strap
 
 # Set up our local configuration, deps, and load path.
