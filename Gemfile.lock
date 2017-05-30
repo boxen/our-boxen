@@ -16,7 +16,6 @@ GEM
       librarian-puppet (~> 1.0.0)
       octokit (~> 2.7, >= 2.7.1)
       puppet (~> 3.7)
-    builder (3.2.2)
     deep_merge (1.0.1)
     diff-lcs (1.2.5)
     facter (2.4.4)
@@ -26,8 +25,6 @@ GEM
     hiera (1.3.4)
       json_pure
     highline (1.6.21)
-    jmespath (1.0.2)
-      multi_json (~> 1.0)
     json (1.8.3)
     json_pure (1.8.2)
     librarian (0.1.2)
@@ -39,7 +36,6 @@ GEM
     metaclass (0.0.4)
     mocha (1.1.0)
       metaclass (~> 0.0.1)
-    multi_json (1.11.0)
     multipart-post (2.0.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -102,7 +98,6 @@ DEPENDENCIES
   deep_merge (~> 1.0)
   hiera (~> 1.3.3)
   librarian-puppet (~> 1.0.9)
-  net-ssh
   open4 (~> 1.3.4)
   puppet (= 3.7.1)
   puppet-lint (= 0.3.2)

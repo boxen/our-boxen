@@ -1,3 +1,5 @@
+forge "https://forge.puppetlabs.com"
+
 # This file manages Puppet module dependencies.
 #
 # It works a lot like Bundler. We provide some core modules by
@@ -56,12 +58,13 @@ github "repository",  "2.4.1"
 github "ruby",        "8.5.4"
 github "stdlib",      "4.7.0", :repo => "puppetlabs/puppetlabs-stdlib"
 github "sudo",        "1.0.0"
-github "xquartz",     "1.2.1"
+github "atom"
+github "virtualbox"
+github "vagrant"
+github "chrome"
+github "skitch"
+github "iterm2"
 
-# Optional/custom modules. There are tons available at
-# https://github.com/boxen.
-# github "elasticsearch", "2.8.0"
-# github "mysql",         "2.0.1"
-# github "postgresql",  "4.0.1"
-# github "redis",       "3.1.0"
-# github "sysctl",      "1.0.1"
+
+
+mod "puppetlabs/java", "1.4.3"

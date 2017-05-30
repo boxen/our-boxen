@@ -1,3 +1,10 @@
+FORGE
+  remote: https://forge.puppetlabs.com
+  specs:
+    puppetlabs-java (1.4.3)
+      puppetlabs-stdlib (< 5.0.0, >= 2.4.0)
+    puppetlabs-stdlib (4.11.0)
+
 GITHUBTARBALL
   remote: boxen/puppet-boxen
   specs:
@@ -27,11 +34,6 @@ GITHUBTARBALL
   remote: boxen/puppet-git
   specs:
     git (2.12.2)
-
-GITHUBTARBALL
-  remote: boxen/puppet-go
-  specs:
-    go (2.1.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-homebrew
@@ -84,11 +86,6 @@ GITHUBTARBALL
     sudo (1.0.0)
 
 GITHUBTARBALL
-  remote: boxen/puppet-xquartz
-  specs:
-    xquartz (1.2.1)
-
-GITHUBTARBALL
   remote: puppetlabs/puppetlabs-inifile
   specs:
     inifile (1.4.1)
@@ -120,9 +117,9 @@ DEPENDENCIES
   openssl (= 1.0.0)
   phantomjs (= 3.0.0)
   pkgconfig (= 1.0.0)
+  puppetlabs-java (= 1.4.3)
   repository (= 2.4.1)
   ruby (= 8.5.4)
   stdlib (= 4.7.0)
   sudo (= 1.0.0)
-  xquartz (= 1.2.1)
 
