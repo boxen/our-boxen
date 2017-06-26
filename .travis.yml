@@ -1,7 +1,7 @@
 os:
 - osx
 script:
-- travis_wait rvm implode --force
+- travis_wait 60 rvm implode --force
 - travis_wait 60 ./script/boxen --no-fde --no-pull --profile --login $BOXEN_GITHUB_LOGIN --token $BOXEN_GITHUB_TOKEN || test $? -eq 2
 - source /opt/boxen/env.sh
 - rake spec
