@@ -2,13 +2,13 @@ require 'spec_helper'
 
 describe 'script/nuke' do
   describe command('/opt/boxen/repo/script/nuke --help') do
-    its(:content) { should include '--all' }
-    its(:content) { should include '--force' }
-    its(:content) { should include '--opt' }
-    its(:content) { should include '--services' }
-    its(:content) { should include '--receipts' }
-    its(:content) { should include '--gitconfig' }
-    its(:content) { should include '--homebrew-config' }
+    its(:stdout) { should include '--all' }
+    its(:stdout) { should include '--force' }
+    its(:stdout) { should include '--opt' }
+    its(:stdout) { should include '--services' }
+    its(:stdout) { should include '--receipts' }
+    its(:stdout) { should include '--gitconfig' }
+    its(:stdout) { should include '--homebrew-config' }
   end
 
   describe '--homebrew-config' do
