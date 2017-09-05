@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/boxen/puppet-boxen.git
-  ref: update-boxen-config-directory
-  sha: 7beaf6bd48cbd429e0325758b67846d137aba06f
+  ref: d32d778
+  sha: d32d778e8cf7062d87c470b2eecde3947ec74edd
   specs:
     boxen (0.0.1)
 
