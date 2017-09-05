@@ -5,6 +5,13 @@ GIT
   specs:
     boxen (0.0.1)
 
+GIT
+  remote: https://github.com/boxen/puppet-nginx.git
+  ref: try-etc-boxen
+  sha: 88d9d4930c3c754aed4e06d2f10247e61ba3db7d
+  specs:
+    nginx (0.0.1)
+
 GITHUBTARBALL
   remote: boxen/puppet-brewcask
   specs:
@@ -44,11 +51,6 @@ GITHUBTARBALL
   remote: boxen/puppet-hub
   specs:
     hub (1.4.4)
-
-GITHUBTARBALL
-  remote: boxen/puppet-nginx
-  specs:
-    nginx (1.7.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-nodejs
@@ -117,7 +119,7 @@ DEPENDENCIES
   hub (= 1.4.4)
   inifile (= 1.4.1)
   module_data (= 0.0.4)
-  nginx (= 1.7.0)
+  nginx (= 0.0.1)
   nodejs (= 5.0.9)
   openssl (= 1.0.0)
   phantomjs (= 3.0.0)
