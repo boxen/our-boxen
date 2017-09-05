@@ -1,7 +1,9 @@
-GITHUBTARBALL
-  remote: boxen/puppet-boxen
+GIT
+  remote: https://github.com/boxen/puppet-boxen.git
+  ref: update-boxen-config-directory
+  sha: 7beaf6bd48cbd429e0325758b67846d137aba06f
   specs:
-    boxen (3.12.0)
+    boxen (0.0.1)
 
 GITHUBTARBALL
   remote: boxen/puppet-brewcask
@@ -104,7 +106,7 @@ GITHUBTARBALL
     module_data (0.0.4)
 
 DEPENDENCIES
-  boxen (= 3.12.0)
+  boxen (= 0.0.1)
   brewcask (= 0.0.10)
   dnsmasq (= 2.0.3)
   foreman (= 1.2.0)
