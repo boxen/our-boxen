@@ -6,6 +6,13 @@ GIT
     boxen (0.0.1)
 
 GIT
+  remote: https://github.com/boxen/puppet-gcc.git
+  ref: bump-to-gcc-5.4
+  sha: 4354afb53b59956dc85a49d267e2cadac62a3d4c
+  specs:
+    gcc (0.0.1)
+
+GIT
   remote: https://github.com/boxen/puppet-nginx.git
   ref: dfcaffd
   sha: dfcaffd5380c379b22058758948112ca20682337
@@ -26,11 +33,6 @@ GITHUBTARBALL
   remote: boxen/puppet-foreman
   specs:
     foreman (1.2.0)
-
-GITHUBTARBALL
-  remote: boxen/puppet-gcc
-  specs:
-    gcc (3.0.2)
 
 GITHUBTARBALL
   remote: boxen/puppet-git
@@ -112,7 +114,7 @@ DEPENDENCIES
   brewcask (= 0.0.10)
   dnsmasq (= 2.0.3)
   foreman (= 1.2.0)
-  gcc (= 3.0.2)
+  gcc (= 0.0.1)
   git (= 2.13.0)
   go (= 2.1.0)
   homebrew (= 2.1.0)
