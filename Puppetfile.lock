@@ -7,8 +7,8 @@ GIT
 
 GIT
   remote: https://github.com/boxen/puppet-gcc.git
-  ref: bump-to-gcc-5.4
-  sha: 4354afb53b59956dc85a49d267e2cadac62a3d4c
+  ref: abc7639
+  sha: abc7639a1e266cebbe37e4cd443c3b247e3832d7
   specs:
     gcc (0.0.1)
 
