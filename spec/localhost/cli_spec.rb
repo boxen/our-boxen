@@ -12,10 +12,10 @@ describe 'script/nuke' do
   end
 
   describe '--homebrew-config' do
-    it 'cleans out /etc/boxen' do
-      creation_command_exit_status = command('touch /etc/boxen/service.config').exit_status
+    it "cleans out $HOMEBREW_ROOT" do
+      creation_command_exit_status = command('touch $HOMEBREW_ROOT/etc/boxen/service.config').exit_status
       cleanup_command_exit_status  = command('/opt/boxen/repo/script/nuke --force --homebrew-config').exit_status
-      file_count_stdout  = command('find /etc/boxen -type f | wc -l').stdout.strip
+      file_count_stdout  = command('find $HOMEBREW_ROOT/etc/boxen -type f | wc -l').stdout.strip
 
       expect(creation_command_exit_status).to eq(0)
       expect(cleanup_command_exit_status).to eq(0)
