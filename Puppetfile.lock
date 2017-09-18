@@ -11,7 +11,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-dnsmasq
   specs:
-    dnsmasq (2.0.2)
+    dnsmasq (2.0.3)
 
 GITHUBTARBALL
   remote: boxen/puppet-foreman
@@ -106,7 +106,7 @@ GITHUBTARBALL
 DEPENDENCIES
   boxen (= 3.12.0)
   brewcask (= 0.0.10)
-  dnsmasq (= 2.0.2)
+  dnsmasq (= 2.0.3)
   foreman (= 1.2.0)
   gcc (= 3.0.2)
   git (= 2.13.0)
