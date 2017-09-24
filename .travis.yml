@@ -10,4 +10,6 @@ before_install:
 - sudo gem install bundler -v '~> 1.13'
 env:
   global:
-    secure: HoCPuAgujmw+tdH7qq9bSymtpE8o4gpp1uYRyFin2TB3px2JdOPCPCb754vddmE12zhhKKSy1j0Uj/qeW6tjy9hIhlAjLAGFuT+mNTURqu4nmojCgKO2ApcRWc3yv319XR2vjUDW1qmEyKm7il4q1c/dOFmGbVYeDixjUUfWVII=
+    - HOMEBREW_NO_AUTO_UPDATE=1
+    - HOMEBREW_VERBOSE=1
+    - secure: HoCPuAgujmw+tdH7qq9bSymtpE8o4gpp1uYRyFin2TB3px2JdOPCPCb754vddmE12zhhKKSy1j0Uj/qeW6tjy9hIhlAjLAGFuT+mNTURqu4nmojCgKO2ApcRWc3yv319XR2vjUDW1qmEyKm7il4q1c/dOFmGbVYeDixjUUfWVII=
