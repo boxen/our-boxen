@@ -13,13 +13,6 @@ GIT
     gcc (0.0.1)
 
 GIT
-  remote: https://github.com/boxen/puppet-hub.git
-  ref: 920d6b4
-  sha: 920d6b42c68603ffdc12427c93e1d647e8624fdd
-  specs:
-    hub (0.0.1)
-
-GIT
   remote: https://github.com/boxen/puppet-nginx.git
   ref: dfcaffd
   sha: dfcaffd5380c379b22058758948112ca20682337
@@ -120,7 +113,6 @@ DEPENDENCIES
   git (= 2.13.0)
   go (= 2.1.0)
   homebrew (= 2.1.0)
-  hub (= 0.0.1)
   inifile (= 1.4.1)
   module_data (= 0.0.4)
   nginx (= 0.0.1)
