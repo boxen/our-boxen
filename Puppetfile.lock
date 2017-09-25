@@ -15,7 +15,7 @@ GIT
 GIT
   remote: https://github.com/boxen/puppet-ruby.git
   ref: bump-base-ruby-build-min
-  sha: f0ce0a77db592eb8c646322a9339f4585459acf0
+  sha: 20ee2f742d66e40fc34e9727fcd41b5854a86fe6
   specs:
     ruby (0.0.1)
 
