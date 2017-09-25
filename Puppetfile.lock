@@ -6,13 +6,6 @@ GIT
     boxen (0.0.1)
 
 GIT
-  remote: https://github.com/boxen/puppet-gcc.git
-  ref: abc7639
-  sha: abc7639a1e266cebbe37e4cd443c3b247e3832d7
-  specs:
-    gcc (0.0.1)
-
-GIT
   remote: https://github.com/boxen/puppet-nginx.git
   ref: dfcaffd
   sha: dfcaffd5380c379b22058758948112ca20682337
@@ -109,7 +102,6 @@ DEPENDENCIES
   brewcask (= 0.0.10)
   dnsmasq (= 2.0.3)
   foreman (= 1.2.0)
-  gcc (= 0.0.1)
   git (= 2.13.0)
   go (= 2.1.0)
   homebrew (= 2.1.0)
