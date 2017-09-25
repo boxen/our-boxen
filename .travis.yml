@@ -5,7 +5,7 @@ script:
 - travis_wait 60 rvm implode --force
 - ./script/boxen --no-fde --stealth --no-pull --debug --profile --login $BOXEN_GITHUB_LOGIN --token $BOXEN_GITHUB_TOKEN || test $? -eq 2
 - source /opt/boxen/env.sh
-- rake spec
+- bundle exec rspec spec
 before_install:
 - sudo gem install bundler -v '~> 1.13'
 env:
