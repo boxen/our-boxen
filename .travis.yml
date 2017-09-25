@@ -3,7 +3,7 @@ os:
 script:
 - rm -rf /usr/local/Homebrew
 - travis_wait 60 rvm implode --force
-- travis_wait 30 ./script/boxen --no-fde --stealth --no-pull --profile --login $BOXEN_GITHUB_LOGIN --token $BOXEN_GITHUB_TOKEN || test $? -eq 2
+- travis_wait 120 ./script/boxen --no-fde --stealth --no-pull --debug --profile --login $BOXEN_GITHUB_LOGIN --token $BOXEN_GITHUB_TOKEN || test $? -eq 2
 - source /opt/boxen/env.sh
 - rake spec
 before_install:
