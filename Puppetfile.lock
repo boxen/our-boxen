@@ -5,13 +5,6 @@ GIT
   specs:
     boxen (0.0.1)
 
-GIT
-  remote: https://github.com/boxen/puppet-ruby.git
-  ref: bump-base-ruby-build-min
-  sha: bdc179a75ff935cca77142332ac91ed69d663750
-  specs:
-    ruby (0.0.1)
-
 GITHUBTARBALL
   remote: boxen/puppet-brewcask
   specs:
@@ -78,6 +71,11 @@ GITHUBTARBALL
     repository (2.4.1)
 
 GITHUBTARBALL
+  remote: boxen/puppet-ruby
+  specs:
+    ruby (8.6.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-sudo
   specs:
     sudo (1.0.0)
@@ -119,7 +117,7 @@ DEPENDENCIES
   phantomjs (= 3.0.0)
   pkgconfig (= 1.0.0)
   repository (= 2.4.1)
-  ruby (= 0.0.1)
+  ruby (= 8.6.0)
   stdlib (= 4.7.0)
   sudo (= 1.0.0)
   xquartz (= 1.2.1)
