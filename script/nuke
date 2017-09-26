@@ -68,6 +68,10 @@ if all || gitconfig
 end
 
 if all || homebrew_config
-  warn "-> Removing Boxen managed Homebrew package configuration files from $HOMEBREW_ROOT/etc/boxen"
-  system "rm", "-rf", "$HOMEBREW_ROOT/etc/boxen" if force
+  %w(/opt/boxen/config /usr/local/etc/boxen).each do |homebrew_path|
+    if File.exist? homebrew_path
+      warn "-> Removing Boxen managed Homebrew package configuration files from #{homebrew_path}"
+      system "rm", "-rf", homebrew_path if force
+    end
+  end
 end
