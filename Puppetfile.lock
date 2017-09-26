@@ -1,9 +1,7 @@
-GIT
-  remote: https://github.com/boxen/puppet-boxen.git
-  ref: d32d778
-  sha: d32d778e8cf7062d87c470b2eecde3947ec74edd
+GITHUBTARBALL
+  remote: boxen/puppet-boxen
   specs:
-    boxen (0.0.1)
+    boxen (3.13.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-brewcask
@@ -101,7 +99,7 @@ GITHUBTARBALL
     module_data (0.0.4)
 
 DEPENDENCIES
-  boxen (= 0.0.1)
+  boxen (= 3.13.0)
   brewcask (= 0.0.10)
   dnsmasq (= 2.0.4)
   foreman (= 1.2.0)
