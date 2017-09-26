@@ -69,7 +69,7 @@ node default {
   nodejs::version { '0.12': }
 
   # default ruby versions
-  ruby::version { '2.4.2': }
+  ruby::version { '2.4.1': }
 
   # common, useful packages
   package {
