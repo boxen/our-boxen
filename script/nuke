@@ -6,27 +6,29 @@ unless ENV["USER"] == "root"
   exec "sudo", $0, *ARGV
 end
 
-all       = false
-force     = false
-opt       = false
-services  = false
-receipts  = false
-gitconfig = false
+all             = false
+force           = false
+opt             = false
+services        = false
+receipts        = false
+gitconfig       = false
+homebrew_config = false
 
 OptionParser.new do |o|
-  o.banner = "Remove most traces of Boxen from your machine."
+  o.banner = "Remove traces of Boxen from your machine."
 
-  o.on("--all",       "Remove everything possible.")                         { all       = true }
-  o.on("--force",     "Actually do it.")                                     { force     = true }
-  o.on("--help",      "Show this help.")                                     { abort o.to_s    }
-  o.on("--opt",       "Remove /opt/boxen.")                                  { opt       = true }
-  o.on("--services",  "Remove and unload services.")                         { services  = true }
-  o.on("--receipts",  "Remove package receipts used by Puppet.")             { receipts  = true }
-  o.on("--gitconfig", "Remove Boxen-provided git credential helper config.") { gitconfig = true }
+  o.on("--all",             "Remove everything possible.")                                { all       = true }
+  o.on("--force",           "Actually do it.")                                            { force     = true }
+  o.on("--help",            "Show this help.")                                            { abort o.to_s    }
+  o.on("--opt",             "Remove /opt/boxen.")                                         { opt       = true }
+  o.on("--services",        "Remove and unload services.")                                { services  = true }
+  o.on("--receipts",        "Remove package receipts used by Puppet.")                    { receipts  = true }
+  o.on("--gitconfig",       "Remove Boxen-provided git credential helper config.")        { gitconfig = true }
+  o.on("--homebrew-config", "Remove Boxen managed Homebrew package configuration files.") { homebrew_config = true }
 
   o.parse!
 
-  abort o.to_s unless all || opt || services || receipts || gitconfig
+  abort o.to_s unless all || opt || services || receipts || gitconfig || homebrew_config
 end
 
 unless force
@@ -63,4 +65,13 @@ end
 if all || gitconfig
   warn "-> Removing git credential helper config."
   system "/usr/bin/git", "config", "--global", "--unset", "credential.helper"
+end
+
+if all || homebrew_config
+  %w(/opt/boxen/config /usr/local/etc/boxen).each do |homebrew_path|
+    if File.exist? homebrew_path
+      warn "-> Removing Boxen managed Homebrew package configuration files from #{homebrew_path}"
+      system "rm", "-rf", homebrew_path if force
+    end
+  end
 end
