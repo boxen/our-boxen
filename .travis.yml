@@ -1,13 +1,13 @@
-os:
-- osx
+os: osx
+osx_image: xcode9.2
 script:
-- rm -rf /usr/local/Homebrew
-- travis_wait 60 rvm implode --force
-- ./script/boxen --no-fde --stealth --no-pull --debug --profile --login $BOXEN_GITHUB_LOGIN --token $BOXEN_GITHUB_TOKEN || test $? -eq 2
-- source /opt/boxen/env.sh
-- bundle exec rspec spec
+  - sudo rm -rf /usr/local/Homebrew
+  - travis_wait 60 sudo rvm implode --force
+  - ./script/boxen --no-fde --no-pull --debug --profile --login $BOXEN_GITHUB_LOGIN --token $BOXEN_GITHUB_TOKEN || test $? -eq 2
+  - source /opt/boxen/env.sh
+  - bundle exec rspec spec
 before_install:
-- sudo gem install bundler -v '~> 1.13'
+  - sudo gem install bundler -v '~> 1.10.5'
 env:
   global:
     - HOMEBREW_NO_AUTO_UPDATE=1
