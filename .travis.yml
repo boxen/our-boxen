@@ -12,3 +12,4 @@ env:
   global:
     - HOMEBREW_NO_AUTO_UPDATE=1
     - HOMEBREW_VERBOSE=1
+    - BOXEN_GITHUB_LOGIN=boxentestuser
