@@ -3,7 +3,7 @@ osx_image: xcode9.2
 script:
   - sudo rm -rf /usr/local/Homebrew
   - travis_wait 60 sudo rvm implode --force
-  - env && ./script/boxen --no-fde --no-pull --debug --profile --login $BOXEN_GITHUB_LOGIN --token $BOXEN_GITHUB_PASSWORD || test $? -eq 2
+  - ./script/boxen --no-fde --no-pull --debug --profile --login $BOXEN_GITHUB_LOGIN --token $BOXEN_GITHUB_PASSWORD || test $? -eq 2
   - source /opt/boxen/env.sh
   - bundle exec rspec spec
 before_install:
