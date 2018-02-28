@@ -10,7 +10,7 @@ script:
   - source /opt/boxen/env.sh
   - bundle exec rspec spec
 before_install:
-  - sudo gem install bundler -v '~> 1.10.5'
+  - sudo gem install -f bundler -v '~> 1.10.5'
 env:
   global:
     - HOMEBREW_NO_AUTO_UPDATE=1
