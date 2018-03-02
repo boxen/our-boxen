@@ -7,7 +7,7 @@ script:
   - source /opt/boxen/env.sh
   - bundle exec rspec spec
 before_install:
-  - cat ':ssl_verify_mode: 0' > ~/.gemrc
+  - cat ':ssl_verify_mode: 0' >> ~/.gemrc
   - sudo gem install -f bundler -v '~> 1.10.5'
 env:
   global:
