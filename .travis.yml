@@ -6,8 +6,7 @@ script:
 - ./script/boxen --no-fde --stealth --no-pull --debug --profile --login $BOXEN_GITHUB_LOGIN || test $? -eq 2
 - source /opt/boxen/env.sh
 - bundle exec rspec spec
-before_install:
-- sudo gem install bundler -v '~> 1.13'
+install: '' # empty to prevent it trying to re-bundle
 env:
   global:
     - HOMEBREW_NO_AUTO_UPDATE=1
