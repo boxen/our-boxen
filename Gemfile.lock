@@ -13,9 +13,9 @@ GIT
       puppet (~> 4.0)
 
 GIT
-  remote: https://github.com/voxpupuli/librarian.git
-  revision: 21c21271768fb719986651d6f2ea1b0f22c4faad
-  branch: librarianp
+  remote: https://github.com/jacobbednarz/librarian.git
+  revision: 0af1fc7434786a357c3b61decddd24ea414372fb
+  branch: be-explicit-about-git-env
   specs:
     librarianp (0.6.4)
       thor (~> 0.15)
