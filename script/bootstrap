@@ -53,12 +53,10 @@ if [ $? -eq 0 ]; then
 fi
 set -e
 
-# FIX: only sudo if gem home isn't writable
-# (/usr/bin/gem spec bundler -v '~> 1.10.5' >/dev/null 2>&1) || {
-    log "====> Installing bundler to system ruby"
-    /usr/bin/sudo -p "Password for sudo to install bundler: " \
-        /usr/bin/gem install bundler -v '~> 1.13' --no-rdoc --no-ri -n /usr/local/bin
-# }
+log "====> Installing bundler to system ruby"
+/usr/bin/sudo -p "Password for sudo to install bundler: " \
+  /usr/bin/gem install bundler -v '~> 1.16' --no-rdoc --no-ri --bindir /usr/local/bin
+
 PATH="/Library/Ruby/bin:$(gem which bundler | sed -e 's!lib/bundler.rb!bin!'):$PATH"
 # Use checksums to quickly determine if we need to re-bundle
 PATH=${PATH}:/sbin
