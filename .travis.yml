@@ -3,7 +3,7 @@ osx_image: xcode9.3beta # 10.13
 script:
 - rm -rf /usr/local/Homebrew
 - travis_wait 60 rvm implode --force
-- ./script/boxen --no-fde --stealth --no-pull --debug --profile --login $BOXEN_GITHUB_LOGIN --token $BOXEN_GITHUB_TOKEN || test $? -eq 2
+- ./script/boxen --no-fde --stealth --no-pull --debug --profile --login $BOXEN_GITHUB_LOGIN || test $? -eq 2
 - source /opt/boxen/env.sh
 - bundle exec rspec spec
 before_install:
@@ -12,4 +12,3 @@ env:
   global:
     - HOMEBREW_NO_AUTO_UPDATE=1
     - HOMEBREW_VERBOSE=1
-    - secure: HoCPuAgujmw+tdH7qq9bSymtpE8o4gpp1uYRyFin2TB3px2JdOPCPCb754vddmE12zhhKKSy1j0Uj/qeW6tjy9hIhlAjLAGFuT+mNTURqu4nmojCgKO2ApcRWc3yv319XR2vjUDW1qmEyKm7il4q1c/dOFmGbVYeDixjUUfWVII=
