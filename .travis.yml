@@ -1,8 +1,8 @@
 os: osx
 osx_image: xcode9.3beta # 10.13
 script:
-- rm -rf /usr/local/Homebrew
-- travis_wait 60 rvm implode --force
+- sudo rm -rf /usr/local/Homebrew
+- sudo rvm implode --force
 - ./script/boxen --no-fde --stealth --no-pull --debug --profile --login $BOXEN_GITHUB_LOGIN || test $? -eq 2
 - source /opt/boxen/env.sh
 - bundle exec rspec spec
