@@ -1,9 +1,11 @@
 source "https://rubygems.org"
 
-gem "boxen",                  "~> 2.9.0"
-gem "hiera",                  "~> 1.3.3"
+gem "boxen",
+  git: "https://github.com/boxen/boxen",
+  ref: "high-sierra"
+gem "hiera",                  "~> 3.0"
 gem "librarian-puppet"
-gem "puppet",                 "3.7.1"
+gem "puppet",                 "~> 4.0"
 gem "librarianp",
   git: "https://github.com/voxpupuli/librarian.git",
   branch: "librarianp"
