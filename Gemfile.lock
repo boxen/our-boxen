@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/boxen/boxen
-  revision: dfc0ea55f62f5811be144d5458cc0827b271b652
+  revision: 4fdc8ee734f6ac437da2ed3984b834c2ea356bf5
   ref: high-sierra
   specs:
     boxen (3.1.3)
