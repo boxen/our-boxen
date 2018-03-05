@@ -1,7 +1,9 @@
-GITHUBTARBALL
-  remote: boxen/puppet-boxen
+GIT
+  remote: https://github.com/webflo/puppet-boxen.git
+  ref: master
+  sha: 35c7a5409ba73de3daed9c5c10e341368a75e0f8
   specs:
-    boxen (3.13.0)
+    puppet-boxen (0.0.1)
 
 GITHUBTARBALL
   remote: boxen/puppet-brewcask
@@ -99,7 +101,6 @@ GITHUBTARBALL
     module_data (0.0.4)
 
 DEPENDENCIES
-  boxen (= 3.13.0)
   brewcask (= 0.0.10)
   dnsmasq (= 2.0.4)
   foreman (= 1.2.0)
@@ -114,6 +115,7 @@ DEPENDENCIES
   openssl (= 1.0.0)
   phantomjs (= 3.0.0)
   pkgconfig (= 1.0.0)
+  puppet-boxen (= 0.0.1)
   repository (= 2.4.1)
   ruby (= 8.6.0)
   stdlib (= 4.7.0)

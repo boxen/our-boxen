@@ -29,7 +29,8 @@ end
 # Includes many of our custom types and providers, as well as global
 # config. Required.
 
-github "boxen", "3.13.0"
+# github "boxen", "3.13.0"
+mod "puppet-boxen", "0.0.1", :git => "https://github.com/webflo/puppet-boxen.git", :ref => "master"
 
 # Support for default hiera data in modules
 
