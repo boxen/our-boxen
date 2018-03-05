@@ -6,6 +6,13 @@ GIT
     puppet-dnsmasq (0.0.1)
 
 GIT
+  remote: https://github.com/boxen/puppet-nodejs.git
+  ref: high-sierra
+  sha: e28943eca2eda96cba97b8841bf968c6279d7256
+  specs:
+    puppet-nodejs (0.0.1)
+
+GIT
   remote: https://github.com/webflo/puppet-boxen.git
   ref: master
   sha: 35c7a5409ba73de3daed9c5c10e341368a75e0f8
@@ -17,7 +24,7 @@ GIT
   ref: puppet-4
   sha: f08c5cc890ee194ac0b90111634557c46c830cf6
   specs:
-    git (0.0.1)
+    puppet-git (0.0.1)
 
 GITHUBTARBALL
   remote: boxen/puppet-brewcask
@@ -48,11 +55,6 @@ GITHUBTARBALL
   remote: boxen/puppet-nginx
   specs:
     nginx (1.9.0)
-
-GITHUBTARBALL
-  remote: boxen/puppet-nodejs
-  specs:
-    nodejs (5.0.9)
 
 GITHUBTARBALL
   remote: boxen/puppet-openssl
@@ -107,19 +109,19 @@ GITHUBTARBALL
 DEPENDENCIES
   brewcask (= 0.0.10)
   foreman (= 1.2.0)
-  git (= 0.0.1)
   go (= 2.1.0)
   homebrew (= 2.2.0)
   hub (= 1.4.5)
   inifile (= 1.4.1)
   module_data (= 0.0.4)
   nginx (= 1.9.0)
-  nodejs (= 5.0.9)
   openssl (= 1.0.0)
   phantomjs (= 3.0.0)
   pkgconfig (= 1.0.0)
   puppet-boxen (= 0.0.1)
   puppet-dnsmasq (= 0.0.1)
+  puppet-git (= 0.0.1)
+  puppet-nodejs (= 0.0.1)
   repository (= 2.4.1)
   ruby (= 8.6.0)
   stdlib (= 4.7.0)
