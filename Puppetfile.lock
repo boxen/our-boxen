@@ -13,6 +13,13 @@ GIT
     puppet-nodejs (0.0.1)
 
 GIT
+  remote: https://github.com/boxen/puppet-ruby.git
+  ref: high-sierra
+  sha: e27c7c68d27efa2cad28b474c7e766f87cebe43b
+  specs:
+    puppet-ruby (0.0.1)
+
+GIT
   remote: https://github.com/webflo/puppet-boxen.git
   ref: master
   sha: 35c7a5409ba73de3daed9c5c10e341368a75e0f8
@@ -77,11 +84,6 @@ GITHUBTARBALL
     repository (2.4.1)
 
 GITHUBTARBALL
-  remote: boxen/puppet-ruby
-  specs:
-    ruby (8.6.0)
-
-GITHUBTARBALL
   remote: boxen/puppet-sudo
   specs:
     sudo (1.0.0)
@@ -122,8 +124,8 @@ DEPENDENCIES
   puppet-dnsmasq (= 0.0.1)
   puppet-git (= 0.0.1)
   puppet-nodejs (= 0.0.1)
+  puppet-ruby (= 0.0.1)
   repository (= 2.4.1)
-  ruby (= 8.6.0)
   stdlib (= 4.7.0)
   sudo (= 1.0.0)
   xquartz (= 1.2.1)
