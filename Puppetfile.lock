@@ -12,6 +12,13 @@ GIT
   specs:
     puppet-boxen (0.0.1)
 
+GIT
+  remote: https://github.com/webflo/puppet-git.git
+  ref: puppet-4
+  sha: f08c5cc890ee194ac0b90111634557c46c830cf6
+  specs:
+    git (0.0.1)
+
 GITHUBTARBALL
   remote: boxen/puppet-brewcask
   specs:
@@ -21,11 +28,6 @@ GITHUBTARBALL
   remote: boxen/puppet-foreman
   specs:
     foreman (1.2.0)
-
-GITHUBTARBALL
-  remote: boxen/puppet-git
-  specs:
-    git (2.13.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-go
@@ -105,7 +107,7 @@ GITHUBTARBALL
 DEPENDENCIES
   brewcask (= 0.0.10)
   foreman (= 1.2.0)
-  git (= 2.13.0)
+  git (= 0.0.1)
   go (= 2.1.0)
   homebrew (= 2.2.0)
   hub (= 1.4.5)
