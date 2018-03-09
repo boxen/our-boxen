@@ -5,6 +5,7 @@ script:
 - sudo rvm implode --force
 - ./script/boxen --no-fde --stealth --no-pull --debug --profile --login $BOXEN_GITHUB_LOGIN || test $? -eq 2
 - source /opt/boxen/env.sh
+- sudo gem install bundler
 - bundle exec rspec spec
 install: '' # empty to prevent it trying to re-bundle
 env:
