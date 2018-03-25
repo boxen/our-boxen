@@ -12,12 +12,10 @@ GIT
   specs:
     puppet-ruby (0.0.1)
 
-GIT
-  remote: https://github.com/webflo/puppet-boxen.git
-  ref: master
-  sha: 35c7a5409ba73de3daed9c5c10e341368a75e0f8
+GITHUBTARBALL
+  remote: boxen/puppet-boxen
   specs:
-    puppet-boxen (0.0.1)
+    boxen (4.0.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-brewcask
@@ -105,6 +103,7 @@ GITHUBTARBALL
     module_data (0.0.4)
 
 DEPENDENCIES
+  boxen (= 4.0.0)
   brewcask (= 0.0.10)
   dnsmasq (= 3.0.0)
   foreman (= 1.2.0)
@@ -118,7 +117,6 @@ DEPENDENCIES
   openssl (= 1.0.0)
   phantomjs (= 3.0.0)
   pkgconfig (= 1.0.0)
-  puppet-boxen (= 0.0.1)
   puppet-nodejs (= 0.0.1)
   puppet-ruby (= 0.0.1)
   repository (= 2.4.1)
