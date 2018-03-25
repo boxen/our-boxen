@@ -26,13 +26,6 @@ GIT
   specs:
     puppet-boxen (0.0.1)
 
-GIT
-  remote: https://github.com/webflo/puppet-git.git
-  ref: puppet-4
-  sha: f08c5cc890ee194ac0b90111634557c46c830cf6
-  specs:
-    puppet-git (0.0.1)
-
 GITHUBTARBALL
   remote: boxen/puppet-brewcask
   specs:
@@ -47,6 +40,11 @@ GITHUBTARBALL
   remote: boxen/puppet-foreman
   specs:
     foreman (1.2.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-git
+  specs:
+    git (3.0.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-go
@@ -112,6 +110,7 @@ DEPENDENCIES
   brewcask (= 0.0.10)
   dnsmasq (= 3.0.0)
   foreman (= 1.2.0)
+  git (= 3.0.0)
   go (= 2.1.0)
   hub (= 1.4.5)
   inifile (= 1.4.1)
@@ -121,7 +120,6 @@ DEPENDENCIES
   phantomjs (= 3.0.0)
   pkgconfig (= 1.0.0)
   puppet-boxen (= 0.0.1)
-  puppet-git (= 0.0.1)
   puppet-homebrew (= 0.0.1)
   puppet-nodejs (= 0.0.1)
   puppet-ruby (= 0.0.1)
