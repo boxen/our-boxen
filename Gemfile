@@ -1,8 +1,6 @@
 source "https://rubygems.org"
 
-gem "boxen",
-  git: "https://github.com/boxen/boxen",
-  ref: "high-sierra"
+gem "boxen",                  "4.0.0"
 gem "hiera",                  "~> 3.0"
 gem "librarian-puppet"
 gem "puppet",                 "~> 4.0"

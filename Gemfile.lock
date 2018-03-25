@@ -1,18 +1,4 @@
 GIT
-  remote: https://github.com/boxen/boxen
-  revision: 4fdc8ee734f6ac437da2ed3984b834c2ea356bf5
-  ref: high-sierra
-  specs:
-    boxen (3.1.3)
-      ansi (~> 1.4)
-      hiera (~> 3.0)
-      highline (~> 1.6.0)
-      json_pure (>= 1.7.7, < 2.0)
-      librarian-puppet (~> 2.2)
-      octokit (~> 2.7, >= 2.7.1)
-      puppet (~> 4.0)
-
-GIT
   remote: https://github.com/voxpupuli/librarian.git
   revision: e876aeef96269189fa3e4c72660fdaa528b71fab
   branch: librarianp
@@ -30,6 +16,14 @@ GEM
       builder (~> 3.0)
       jmespath (~> 1.0)
       multi_json (~> 1.0)
+    boxen (4.0.0)
+      ansi (~> 1.4)
+      hiera (~> 3.0)
+      highline (~> 1.6.0)
+      json_pure (>= 1.7.7, < 2.0)
+      librarian-puppet (~> 2.2)
+      octokit (~> 2.7, >= 2.7.1)
+      puppet (~> 4.0)
     builder (3.2.3)
     deep_merge (1.2.1)
     diff-lcs (1.3)
@@ -131,7 +125,7 @@ PLATFORMS
 DEPENDENCIES
   CFPropertyList
   aws-sdk-core (~> 2.0.11)
-  boxen!
+  boxen (= 4.0.0)
   deep_merge (~> 1.0)
   hiera (~> 3.0)
   librarian-puppet
