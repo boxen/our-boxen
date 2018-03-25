@@ -1,11 +1,4 @@
 GIT
-  remote: https://github.com/boxen/puppet-dnsmasq.git
-  ref: high-sierra
-  sha: 00f58fb06f4ebb5821385d87f0e9f58d10028333
-  specs:
-    puppet-dnsmasq (0.0.1)
-
-GIT
   remote: https://github.com/boxen/puppet-homebrew.git
   ref: high-sierra
   sha: c7abfdc791bdf3c55c9856b22e0121a69a075cf0
@@ -44,6 +37,11 @@ GITHUBTARBALL
   remote: boxen/puppet-brewcask
   specs:
     brewcask (0.0.10)
+
+GITHUBTARBALL
+  remote: boxen/puppet-dnsmasq
+  specs:
+    dnsmasq (3.0.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-foreman
@@ -112,6 +110,7 @@ GITHUBTARBALL
 
 DEPENDENCIES
   brewcask (= 0.0.10)
+  dnsmasq (= 3.0.0)
   foreman (= 1.2.0)
   go (= 2.1.0)
   hub (= 1.4.5)
@@ -122,7 +121,6 @@ DEPENDENCIES
   phantomjs (= 3.0.0)
   pkgconfig (= 1.0.0)
   puppet-boxen (= 0.0.1)
-  puppet-dnsmasq (= 0.0.1)
   puppet-git (= 0.0.1)
   puppet-homebrew (= 0.0.1)
   puppet-nodejs (= 0.0.1)
