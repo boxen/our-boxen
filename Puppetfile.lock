@@ -1,11 +1,4 @@
 GIT
-  remote: https://github.com/boxen/puppet-homebrew.git
-  ref: high-sierra
-  sha: c7abfdc791bdf3c55c9856b22e0121a69a075cf0
-  specs:
-    puppet-homebrew (0.0.1)
-
-GIT
   remote: https://github.com/boxen/puppet-nodejs.git
   ref: high-sierra
   sha: e28943eca2eda96cba97b8841bf968c6279d7256
@@ -50,6 +43,11 @@ GITHUBTARBALL
   remote: boxen/puppet-go
   specs:
     go (2.1.0)
+
+GITHUBTARBALL
+  remote: boxen/puppet-homebrew
+  specs:
+    homebrew (3.0.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-hub
@@ -112,6 +110,7 @@ DEPENDENCIES
   foreman (= 1.2.0)
   git (= 3.0.0)
   go (= 2.1.0)
+  homebrew (= 3.0.0)
   hub (= 1.4.5)
   inifile (= 1.4.1)
   module_data (= 0.0.4)
@@ -120,7 +119,6 @@ DEPENDENCIES
   phantomjs (= 3.0.0)
   pkgconfig (= 1.0.0)
   puppet-boxen (= 0.0.1)
-  puppet-homebrew (= 0.0.1)
   puppet-nodejs (= 0.0.1)
   puppet-ruby (= 0.0.1)
   repository (= 2.4.1)
